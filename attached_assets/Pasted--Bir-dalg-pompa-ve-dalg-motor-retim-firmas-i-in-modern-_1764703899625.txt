@@ -1,0 +1,176 @@
+“Bir dalgıç pompa ve dalgıç motor üretim firması için modern, sade, light temalı ve premium bir kurumsal web sitesi tasarla. Tüm arayüz tamamen Türkçe olsun. Tasarımda sadelik öncelikli olsun fakat minimal yüzeylerin içine rafine dokunuşlar yerleştir: yumuşak gölgeler, mat yüzeyler, hafif şeffaf bloklar, ince çizgisel ikonlar, yüksek çözünürlüklü ürün fotoğrafları ve güçlü tipografik hiyerarşi.
+
+🎨 Kurumsal Renk
+
+Ana marka rengi: #243474
+Bu renk tüm vurgu noktalarında, butonlarda, başlıklarda ve dekoratif çizgilerde kullanılsın.
+Genel arka plan: beyaz + açık gri gradient geçişleri.
+Tema genel olarak ferah, temiz, modern bir “engineering light theme” hissi versin.
+
+📌 Logo Kullanımı
+
+Bu logoyu indir ve tüm sayfada kurumsal logo olarak kullan:
+https://kurlar.com.tr/wp-content/uploads/2025/05/905886d5-d4a2-4878-a0ca-ac703f0af9b1.png
+
+Menüde sol üstte yer alsın
+
+Footer’da daha minimal boyutta yer alsın
+
+Mobilde responsive davranış gösterilsin
+
+🏭 Hero Bölümü — Light Tema + Fabrika Hissi + Su Dinamiği
+
+Hero arka planı için Kurlar’ın sektörüne uygun özel bir video oluştur:
+
+Temiz, beyaz ağırlıklı light tema ile uyumlu
+
+Metal yüzeylere düşen yumuşak ışıklar
+
+Su akışı, su damlalarının yüzeyde hareketi
+
+Yavaş hareket eden üretim/fabrika sahne geçişleri
+
+Hafif mavi-beyaz yansımalar
+
+Submersible engineering atmosferi
+
+Hero metni (Türkçe):
+
+Başlık: “Dalgıç Pompalarda Güç, Dayanıklılık ve Mühendislik”
+Alt metin: “Yüksek verimlilik, uzun ömür ve güvenilir performans için tasarlanmış profesyonel çözümler.”
+
+Butonlar:
+
+Ürünleri İncele
+
+Bayi & Servis Noktaları
+
+🖼️ Ürün Görsellerini İndir ve Kategori Bazlı Kullan
+
+Aşağıdaki tüm görselleri indir ve kendi proje alanında kullan.
+Ürün kartlarında, kategori sayfalarında ve detay sayfalarında görünecek.
+
+Dalgıç Pompalar
+Paslanmaz Çelik Dalgıç Pompalar
+
+https://kurlar.com.tr/fotografinyolar/kp1.png
+
+https://kurlar.com.tr/fotografinyolar/kp2.png
+
+https://kurlar.com.tr/fotografinyolar/kp3.png
+
+Noryl Dalgıç Pompalar
+
+https://kurlar.com.tr/fotografinyolar/kpn41.png
+
+https://kurlar.com.tr/fotografinyolar/kpn42.png
+
+https://kurlar.com.tr/fotografinyolar/kpn43.png
+
+Pik Döküm Dalgıç Pompalar
+
+https://kurlar.com.tr/fotografinyolar/kpd1.png
+
+https://kurlar.com.tr/fotografinyolar/kpd2.png
+
+https://kurlar.com.tr/fotografinyolar/kpd3.png
+
+Paslanmaz Döküm Dalgıç Pompalar
+
+https://kurlar.com.tr/fotografinyolar/ksx1.png
+
+https://kurlar.com.tr/fotografinyolar/ksx2.png
+
+Dalgıç Motorlar
+Yağlı Tip Dalgıç Motorlar
+
+https://kurlar.com.tr/fotografinyolar/km41.png
+
+HI-TEMP Dalgıç Motorlar
+
+https://kurlar.com.tr/fotografinyolar/km2.png
+
+https://kurlar.com.tr/fotografinyolar/km1.png
+
+https://kurlar.com.tr/fotografinyolar/km3.png
+
+S-Type Dalgıç Motorlar
+
+https://kurlar.com.tr/fotografinyolar/kms11.png
+
+🧩 Sayfa Yapısı & Tasarım Rehberi
+1. Ana Sayfa
+
+Hero video + CTA
+
+Ürün kategorileri (light grey card tasarımı, #243474 ince çizgi çerçeveler)
+
+“Kurlar’ın Üretim Gücü” bölümü: sade, çizgisel ikonlar
+
+“Neden Kurlar?” minimal üç sütun
+
+Ürünlerden seçkiler
+
+Bayi/Servis harita linki
+
+2. Hakkımızda
+
+Kuruluş yılı, üretim alanı, fabrika fotoğrafları için temiz grid yapısı
+
+Light tema üzerinde çok hafif mavi tint
+
+Zaman çizelgesi (timeline) modern çizgi yapıda
+
+Başlıklar marka rengi #243474 ile
+
+3. Ürünler
+
+Kategoriler üstte
+
+Altında ürün kartları
+
+Kartlarda hover animasyonu (çok hafif gölge + büyüme)
+
+Ürün görselleri yüksek çözünürlükte gösterilsin
+
+Sadelik korunacak, aşırı ikon kullanılmayacak
+
+4. Bayi & Servis Noktaları
+
+Light tema uyumlu sade Türkiye haritası
+
+İl seçildiğinde sağda liste açılması
+
+Markerlar #243474
+
+5. İletişim
+
+Temiz form
+
+Minimal çizgisel harita görseli
+
+Firma bilgileri sade şekilde sunulsun
+
+✨ Genel Stil Direktifleri
+
+Minimal, modern, ferah bir kurumsal atmosfer
+
+Ana renk: #243474
+
+Arka planlar: beyaz + çok açık gri tonları
+
+Butonlar: #243474, hover’da %10 koyulaşma
+
+Başlıklar: güçlü sans-serif
+
+Paragraflar: ince, okunabilir Türkçe metin
+
+Animasyonlar: hafif, göze batmayan, premium
+
+Tüm site %100 Türkçe
+
+🔥 Son Talimat
+
+Bu promptun tamamına göre sade, zarif, premium ve light tema bir Kurlar kurumsal sitesi üret.
+Hiç teknik açıklama yapma.
+Sadece temiz ve görsel olarak etkileyici bir tasarım oluştur.”
