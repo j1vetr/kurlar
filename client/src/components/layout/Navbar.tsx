@@ -38,11 +38,11 @@ export function Navbar() {
         <Link href="/">
           <a className="group relative">
             <div className="water-border-container p-[3px]"> {/* Border thickness */}
-              <div className="water-border-content bg-white rounded-full px-8 py-4 flex items-center justify-center"> {/* Increased horizontal padding specifically for wide logos */}
+              <div className="water-border-content bg-white rounded-full px-12 py-6 flex items-center justify-center"> {/* Much larger padding */}
                 <img 
                   src="/assets/logo.png" 
                   alt="Kurlar Logo" 
-                  className="h-10 md:h-12 w-auto object-contain" 
+                  className="h-8 md:h-10 w-auto object-contain" 
                 />
               </div>
             </div>
