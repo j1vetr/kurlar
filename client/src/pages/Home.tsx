@@ -154,28 +154,7 @@ export default function Home() {
         </div>
           
         <div className="container mx-auto px-6">
-          {/* Categories Strip */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
-             {categories.map(cat => (
-               <Link key={cat.id} href={`/urunler?category=${cat.category}`}>
-                 <a className="flex items-center bg-white p-6 rounded-xl border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all group">
-                    <div className="w-20 h-20 bg-slate-50 rounded-lg flex items-center justify-center p-2 shrink-0 mr-6 group-hover:bg-blue-50 transition-colors">
-                      <img src={cat.image} alt={cat.title} className="w-full h-full object-contain" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition-colors mb-1">
-                        {cat.title}
-                      </h4>
-                      <p className="text-sm text-slate-500 mb-2">{cat.description}</p>
-                      <span className="text-sm font-bold text-blue-600 flex items-center">
-                        Kategoriye Git <ChevronRight className="w-3 h-3 ml-1" />
-                      </span>
-                    </div>
-                 </a>
-               </Link>
-             ))}
-          </div>
-
+          
         </div>
       </section>
 
