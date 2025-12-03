@@ -37,12 +37,12 @@ export function Navbar() {
         {/* Logo with Water Animation Border */}
         <Link href="/">
           <a className="group relative">
-            <div className="water-border-container p-[4px]"> {/* Thicker border container */}
-              <div className="water-border-content bg-white rounded-full p-4 flex items-center justify-center"> {/* More padding around logo */}
+            <div className="water-border-container p-[3px]"> {/* Border thickness */}
+              <div className="water-border-content bg-white rounded-full px-8 py-4 flex items-center justify-center"> {/* Increased horizontal padding specifically for wide logos */}
                 <img 
                   src="/assets/logo.png" 
                   alt="Kurlar Logo" 
-                  className="h-12 w-auto object-contain" 
+                  className="h-10 md:h-12 w-auto object-contain" 
                 />
               </div>
             </div>
