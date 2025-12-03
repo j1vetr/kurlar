@@ -14,6 +14,7 @@ export interface Product {
   specsImage?: string;
   mechanicalPartsImages?: { title: string; image: string }[];
   applications?: string[];
+  faq?: { question: string; answer: string }[];
   downloads?: { name: string; url: string }[];
 }
 
@@ -63,6 +64,40 @@ Yatay ve dikey kurulum pozisyonuna uygundur. Kurlar Paslanmaz Çelik Dalgıç Po
       'Difüzör': 'AISI 304',
       'Süzgeç': 'AISI 304'
     },
+    faq: [
+      {
+        question: "Dalgıç pompa nedir ve nasıl çalışır?",
+        answer: "Dalgıç pompa, sıvıların belirli bir derinlikten yüzeye çıkarılması için kullanılan, tamamı sıvı içinde çalışan motorlu bir pompa türüdür. Özellikle su temini, drenaj, atık su yönetimi gibi alanlarda kullanılır. Çalışma prensibi, motorun sıvının içinde çalışarak emiş gücüyle sıvıyı yukarı taşımasıdır."
+      },
+      {
+        question: "Paslanmaz çelik dalgıç pompa neden tercih edilir?",
+        answer: "Paslanmaz çelik dalgıç pompalar, korozyona karşı yüksek dayanıklılık gösterdiği için özellikle kimyasal içerikli veya aşındırıcı sıvılarda tercih edilir. Uzun ömürlü yapıları sayesinde endüstriyel uygulamalarda güvenle kullanılabilir."
+      },
+      {
+        question: "Dalgıç pompa nerelerde kullanılır?",
+        answer: "Dalgıç pompalar; tarımsal sulama, kuyu suyu temini, inşaat sahaları, foseptik tahliyesi, balık çiftlikleri ve endüstriyel prosesler gibi birçok alanda kullanılır. Özellikle zorlu çevre koşullarında etkin performans göstermeleriyle bilinirler."
+      },
+      {
+        question: "Dalgıç pompa seçimi yaparken nelere dikkat edilmelidir?",
+        answer: "Dalgıç pompa seçiminde sıvının cinsi, debi ihtiyacı, pompalama yüksekliği, enerji verimliliği ve pompanın gövde malzemesi gibi faktörler dikkate alınmalıdır. Uzun ömür ve güvenli kullanım için profesyonel destekle doğru model seçimi önemlidir."
+      },
+      {
+        question: "Endüstriyel dalgıç pompaların avantajları nelerdir?",
+        answer: "Endüstriyel dalgıç pompalar yüksek kapasiteli çalışmaları destekler, enerji verimliliği sağlar ve bakım gereksinimi düşüktür. Paslanmaz çelik modeller ise agresif ortamlarda uzun süreli dayanıklılık sunar."
+      },
+      {
+        question: "Dalgıç pompa arızaları nasıl önlenebilir?",
+        answer: "Dalgıç pompa arızalarını önlemek için düzenli bakım yapılmalı, filtre temizliği aksatılmamalı ve pompa her zaman uygun koşullarda çalıştırılmalıdır. Ayrıca, paslanmaz çelik dalgıç pompa gibi dayanıklı modeller tercih edilerek olası korozyon ve yıpranma sorunları minimize edilebilir."
+      },
+      {
+        question: "Paslanmaz çelik dalgıç pompaların bakım ihtiyacı nasıldır?",
+        answer: "Paslanmaz çelik dalgıç pompalar, sağlam gövde yapısı sayesinde düşük bakım gereksinimi sunar. Ancak yüksek verimlilik ve uzun ömür için düzenli olarak filtre temizliği yapılmalı, sızdırmazlık elemanları kontrol edilmelidir. Özellikle kumlu veya partiküllü sıvılarla çalışan sistemlerde periyodik bakım aralıkları sıklaştırılmalıdır."
+      },
+      {
+        question: "Paslanmaz çelik dalgıç pompalar tuzlu suya dayanıklı mı?",
+        answer: "Paslanmaz çelik dalgıç pompalar, genel olarak korozyona karşı yüksek direnç gösterse de, her paslanmaz çelik tipi tuzlu suya karşı aynı dayanıklılığı göstermez. Deniz suyu gibi yüksek klor ve tuz içeren ortamlarda AISI 316L gibi özel alaşımlar tercih edilmelidir."
+      }
+    ],
     applications: [
       'Sivil ve endüstriyel su temin sistemleri',
       'Tarımsal sulama sistemleri',
@@ -107,6 +142,24 @@ Paslanmaz çelikten üretilmiş süzgeci sayesinde, 50 g/m³ üzerindeki parçal
       'Difüzör': 'Noryl',
       'Fan': 'Noryl'
     },
+    faq: [
+      {
+        question: "Noryl dalgıç pompa nedir?",
+        answer: "Noryl dalgıç pompalar, gövdesi veya fanları ısıya ve kimyasallara dayanıklı Noryl plastik malzemeden üretilen hafif ve ekonomik dalgıç pompa türleridir. Özellikle temiz su transferi ve evsel kullanım için idealdir."
+      },
+      {
+        question: "Noryl pompaların avantajları nelerdir?",
+        answer: "Metal gövdelere göre daha ekonomik fiyatlıdır ve hafiftir, bu da montaj kolaylığı sağlar. Yüzer fan sistemi sayesinde kum ve aşındırıcılara karşı dirençlidir."
+      },
+      {
+        question: "Noryl pompa nerelerde kullanılır?",
+        answer: "Temiz su temini, evsel su kullanımı, hafif ve orta yoğunlukta sıvı transferlerinde kullanılır. 35°C'ye kadar olan sularda performans gösterir."
+      },
+      {
+        question: "Dalgıç pompa arızaları nasıl önlenebilir?",
+        answer: "Düzenli bakım, filtre temizliği ve uygun çalışma koşullarının sağlanması arızaları önler. Pompanın susuz çalıştırılmaması kritiktir."
+      }
+    ],
     applications: [
       'Sivil ve endüstriyel su temin sistemleri',
       'Tarımsal sulama sistemleri'
@@ -148,6 +201,20 @@ Tamamen pik döküm olarak imal edilen difüzörler, fanlar, emiş ve çıkış 
       'Fan': 'GG 20',
       'Mil & Kaplin': 'AISI 420'
     },
+    faq: [
+      {
+        question: "Pik döküm dalgıç pompa özellikleri nelerdir?",
+        answer: "Pik döküm pompalar, ağır hizmet tipi kullanımlar için tasarlanmıştır. Mekanik darbelere karşı dayanıklı, sağlam yapılı ve uzun ömürlüdürler. Genellikle tarımsal ve endüstriyel alanlarda tercih edilirler."
+      },
+      {
+        question: "Pik döküm pompaların paslanmaz pompalardan farkı nedir?",
+        answer: "Pik döküm pompalar daha ekonomik bir çözüm sunarken, mekanik dayanıklılıkları yüksektir. Ancak korozyon direnci paslanmaz çelik kadar yüksek değildir, bu nedenle aşırı korozif sıvılarda paslanmaz veya bronz modeller tercih edilmelidir."
+      },
+      {
+        question: "Bakım periyotları nasıldır?",
+        answer: "Mekanik yapısı sağlam olsa da, düzenli aralıklarla süzgeç temizliği ve yağ kontrolü yapılmalıdır. Kumlu sularda bakım sıklığı artırılmalıdır."
+      }
+    ],
     applications: [
       'Sivil ve endüstriyel su temini sistemleri',
       'Tarımsal sulama alanları',
@@ -190,6 +257,20 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
       'Difüzör': 'AISI 304 Döküm',
       'Fan': 'AISI 304 Döküm'
     },
+    faq: [
+      {
+        question: "Paslanmaz döküm pompa nerede kullanılır?",
+        answer: "Agresif kimyasallar, deniz suyu veya yüksek korozyon riski taşıyan endüstriyel sıvılarda kullanılır. Döküm yapısı sayesinde hem mekanik hem de kimyasal dayanıklılığı çok yüksektir."
+      },
+      {
+        question: "Neden AISI 304 döküm tercih edilmeli?",
+        answer: "Standart paslanmaz çelik saclara göre döküm malzeme çok daha kalın ve rijit bir yapı sunar. Bu da pompanın en zorlu koşullarda bile formunu korumasını ve uzun yıllar hizmet vermesini sağlar."
+      },
+      {
+        question: "Deniz suyunda kullanılabilir mi?",
+        answer: "Evet, özellikle AISI 316L opsiyonu ile deniz suyu ve tuzlu su uygulamalarında mükemmel sonuç verir."
+      }
+    ],
     applications: [
       'Sivil ve endüstriyel su temini sistemleri',
       'Tarımsal alanlara su temini',
@@ -229,6 +310,20 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
       'Voltaj (Monofaz)': '210 – 220 – 230 V',
       'Voltaj (Trifaz)': '380 – 400 – 415 V'
     },
+    faq: [
+      {
+        question: "Yağlı tip dalgıç motor nedir?",
+        answer: "Motorun soğutulması ve yatakların yağlanması için gıdaya uygun özel bir yağ kullanılan dalgıç motor türüdür. Sessiz çalışır ve uzun ömürlüdür."
+      },
+      {
+        question: "Kullanılan yağ çevreye zararlı mı?",
+        answer: "Hayır, motorlarımızda kullanılan yağlar toksik olmayan (non-toxic), gıda tüzüğüne uygun ve çevre dostu yağlardır. İçme suyu kuyularında güvenle kullanılabilir."
+      },
+      {
+        question: "Sarılabilir motor ne demektir?",
+        answer: "Motor sargılarının arıza durumunda yenilenebilir (tekrar sarılabilir) olmasıdır. Bu özellik, motorun ömrünü uzatır ve servis maliyetlerini düşürür."
+      }
+    ],
     applications: [
       'Tarımsal sulama',
       'Endüstriyel su temini'
@@ -269,6 +364,20 @@ Su soğutmalı yapısıyla 6″ ve üzeri çapta kuyular için idealdir. Basın�
       'Standart Voltaj': '380/415V – 50/60Hz',
       'Hız Ayarı': 'Frekans Konvertörü Uyumlu'
     },
+    faq: [
+      {
+        question: "HI-TEMP motorların özelliği nedir?",
+        answer: "Standart dalgıç motorlar genellikle 30-35°C su sıcaklığına kadar çalışırken, HI-TEMP motorlar özel izolasyonlu PBN bobin telleri sayesinde 60°C ve üzeri sıcaklıklardaki sularda sorunsuz çalışabilir."
+      },
+      {
+        question: "Jeotermal kuyularda kullanılabilir mi?",
+        answer: "Evet, yüksek sıcaklık dayanımı sayesinde jeotermal kuyular ve sıcak su kaynakları için en ideal çözümdür."
+      },
+      {
+        question: "Su soğutmalı sistemin avantajı nedir?",
+        answer: "Çevre dostudur ve motorun verimli bir şekilde soğutulmasını sağlar. Ayrıca özel karışım sıvısı ile donmaya karşı da koruma sağlar."
+      }
+    ],
     applications: [
       'Jeotermal kuyular',
       'Sıcak su kaynakları',
@@ -308,6 +417,16 @@ Su soğutmalı yapısıyla, motorlar özel basınç dengeleyici çek-valf, diyaf
       'Standart Voltaj': '380/415V – 50/60Hz',
       'Hız Ayarı': 'Frekans Konvertörü Uyumlu'
     },
+    faq: [
+      {
+        question: "S-Type motorların farkı nedir?",
+        answer: "S-Type motorlar, enerji verimliliği ve düşük işletme maliyeti odaklı tasarlanmıştır. Özel bobin yapısı ve hidrolik tasarımı ile standart motorlara göre daha az enerji tüketir ve daha uzun ömürlüdür."
+      },
+      {
+        question: "Hangi voltaj aralıklarında çalışır?",
+        answer: "380-415V aralığında çalışır ve voltaj dalgalanmalarına karşı yüksek dayanım gösterir. Ayrıca frekans konvertörü ile hız kontrolü yapılabilir."
+      }
+    ],
     applications: [
       'İçme suyu temini',
       'Sulama sistemleri',

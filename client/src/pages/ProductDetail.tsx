@@ -2,9 +2,10 @@ import { Layout } from "@/components/layout/Layout";
 import { products } from "@/lib/data";
 import { useRoute, Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/urunler/:id");
@@ -12,6 +13,7 @@ export default function ProductDetail() {
   const product = products.find(p => p.id === productId);
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'parts'>('overview');
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!product) {
     return (
@@ -40,9 +42,9 @@ export default function ProductDetail() {
       </div>
 
       {/* Main Product Area - Functional Industrial Layout */}
-      <div className="bg-slate-50 min-h-screen">
+      <div className="bg-slate-50">
         <div className="container mx-auto px-6 py-12">
-          <div className="bg-white rounded-none shadow-sm border border-slate-200 lg:flex overflow-hidden">
+          <div className="bg-white rounded-none shadow-sm border border-slate-200 lg:flex overflow-hidden mb-16">
             
             {/* Left Column: Gallery */}
             <div className="lg:w-1/2 bg-white p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col">
@@ -209,9 +211,55 @@ export default function ProductDetail() {
             </div>
           </div>
           
+          {/* FAQ Section - Beautiful Accordion Design */}
+          {product.faq && product.faq.length > 0 && (
+             <div className="max-w-4xl mx-auto mb-16">
+                <div className="text-center mb-12">
+                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
+                     <HelpCircle className="w-8 h-8 text-blue-600" /> Sıkça Sorulan Sorular
+                   </h2>
+                   <p className="text-slate-500">Bu ürün hakkında en çok merak edilen soruların cevapları.</p>
+                </div>
+                
+                <div className="space-y-4">
+                  {product.faq.map((item, index) => (
+                    <div key={index} className="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                      <button
+                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                        className="w-full flex items-center justify-between p-6 text-left bg-white hover:bg-slate-50 transition-colors"
+                      >
+                        <span className="font-bold text-slate-900 text-lg pr-8">{item.question}</span>
+                        <ChevronDown 
+                          className={cn(
+                            "w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0",
+                            openFaq === index ? "rotate-180 text-blue-600" : ""
+                          )} 
+                        />
+                      </button>
+                      
+                      <AnimatePresence>
+                        {openFaq === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                          >
+                            <div className="px-6 pb-6 pt-0 border-t border-slate-50">
+                              <p className="text-slate-600 leading-relaxed pt-4">{item.answer}</p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
+             </div>
+          )}
+
           {/* Applications Section - Industrial Cards */}
           {product.applications && (
-            <div className="mt-12">
+            <div className="mb-16">
               <h3 className="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center gap-2">
                 <Shield className="w-5 h-5 text-blue-600" /> Kullanım Alanları
               </h3>
