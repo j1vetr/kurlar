@@ -52,22 +52,20 @@ export default function Home() {
                   <Globe className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900">Global İhracat</h4>
-                    <p className="text-sm text-slate-500">40+ Ülkeye teknoloji transferi</p>
+                    <p className="text-sm text-slate-500">40+ Ülkeye Teknoloji Transferi</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Building2 className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900">Yerli Üretim</h4>
-                    <p className="text-sm text-slate-500">%100 Yerli sermaye ve üretim</p>
+                    <p className="text-sm text-slate-500">%100 Yerli Sermaye Ve Üretim</p>
                   </div>
                 </div>
               </div>
 
               <Link href="/hakkimizda">
-                <Button className="bg-slate-900 text-white hover:bg-slate-800 h-12 px-8 rounded-lg">
-                  Kurumsal Sayfamız <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
+                
               </Link>
             </div>
           </div>
@@ -158,20 +156,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Strip */}
-      <section className="bg-slate-900 py-16 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Projenize Özel Çözümler İçin</h2>
-          <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
-            Teknik ekibimiz ihtiyaçlarınıza en uygun pompa sistemini belirlemek için hazır.
-          </p>
-          <Link href="/iletisim">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white h-12 px-8 rounded-full font-bold">
-              Bize Ulaşın
-            </Button>
-          </Link>
-        </div>
-      </section>
+      {/* Contact Strip Removed */}
     </Layout>
   );
 }

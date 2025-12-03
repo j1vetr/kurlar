@@ -15,7 +15,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-heading font-bold mb-6"
           >
-            Tarihimizden ilham alındı, <br/> <span className="text-blue-400">gelecek için tasarlandı</span>
+            Tarihimizden İlham Alındı, <br/> <span className="text-blue-400">Gelecek İçin Tasarlandı</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -119,17 +119,17 @@ export default function About() {
 
         {/* Values Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-          <div className="bg-slate-50 p-10 rounded-2xl border border-slate-100">
+          <div className="bg-white p-10 rounded-2xl border-2 border-blue-500/30 shadow-lg hover:border-blue-600 hover:shadow-blue-100 transition-all duration-300 group">
             <h3 className="text-2xl font-heading font-bold text-primary mb-4 flex items-center">
-              <span className="bg-primary text-white px-3 py-1 rounded text-sm mr-3">MİSYON</span>
+              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-blue-700 transition-colors">MİSYON</span>
             </h3>
             <p className="text-slate-700 text-lg leading-relaxed">
               Kullanıcılarına yüksek verimlilik ve sürdürülebilir kalite esasına uygun yüksek teknolojili yerli ve güvenilir ürünlerin üretimine her gün yenisi ekleyerek Kurlar’ı dünya markası yapmak.
             </p>
           </div>
-          <div className="bg-slate-50 p-10 rounded-2xl border border-slate-100">
+          <div className="bg-white p-10 rounded-2xl border-2 border-blue-500/30 shadow-lg hover:border-blue-600 hover:shadow-blue-100 transition-all duration-300 group">
             <h3 className="text-2xl font-heading font-bold text-primary mb-4 flex items-center">
-              <span className="bg-primary text-white px-3 py-1 rounded text-sm mr-3">VİZYON</span>
+              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-blue-700 transition-colors">VİZYON</span>
             </h3>
             <p className="text-slate-700 text-lg leading-relaxed">
               Dalgıç Pompa ve Dalgıç Motor dendiğinde akla ilk gelen, güvenilirliğiyle, müşteri memnuniyetiyle ve yenilikleriyle rakipsiz bir dünya markası olmak.
@@ -137,31 +137,51 @@ export default function About() {
           </div>
         </div>
 
-        {/* History Timeline */}
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900">Tarihçe</h2>
-            <p className="text-slate-500 mt-2">Başarılarla dolu yolculuğumuzun kilometre taşları.</p>
+        {/* History Timeline - Redesigned & Unique */}
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-heading font-bold text-slate-900 mb-3">Tarihçe</h2>
+            <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+            <p className="text-slate-500 mt-4 text-lg">Başarılarla dolu yolculuğumuzun kilometre taşları.</p>
           </div>
           
-          <div className="relative border-l-2 border-blue-100 pl-8 ml-4 space-y-12">
-            {[
-              { year: '2022', title: 'İzmir Fabrika', desc: 'Dalgıç pompa fabrikası İzmir\'e taşındı.' },
-              { year: '2019', title: 'Yeni Motor Tesisi', desc: 'Dalgıç motor üretimi için İzmir’de 25.000m² açık – 10.250m² kapalı alana sahip fabrika kuruldu.' },
-              { year: '2012', title: 'Küresel Erişim', desc: 'İhracat hacmi 6 kıtaya ulaştı.' },
-              { year: '2008', title: 'Büyüme', desc: '4000 m² ilave fabrika kuruldu.' },
-              { year: '2000', title: 'Bir İlk', desc: 'Türkiye\'de ilk kez paslanmaz çelik dalgıç pompa üretimine başlandı.' },
-              { year: '1996', title: 'İlk İhracat', desc: 'İlk ihracat gerçekleştirildi.' },
-              { year: '1989', title: 'Test Laboratuvarı', desc: 'Türkiye\'nin ilk teknolojik pompa ve motor test laboratuvarı kuruldu.' },
-              { year: '1975', title: 'Kuruluş', desc: 'Yaşar Kurfeyiz önderliğinde şirketimizin kurulduğu yıl.' }
-            ].map((item, index) => (
-              <div key={index} className="relative">
-                <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-white border-4 border-primary"></div>
-                <span className="text-primary font-bold text-xl block mb-1">{item.year}</span>
-                <h4 className="text-lg font-bold text-slate-800">{item.title}</h4>
-                <p className="text-slate-600">{item.desc}</p>
-              </div>
-            ))}
+          <div className="relative">
+            {/* Central Line */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 transform -translate-x-1/2"></div>
+
+            <div className="space-y-12">
+              {[
+                { year: '2022', title: 'İzmir Fabrika', desc: 'Dalgıç pompa fabrikası İzmir\'e taşındı.' },
+                { year: '2019', title: 'Yeni Motor Tesisi', desc: 'Dalgıç motor üretimi için İzmir’de 25.000m² açık – 10.250m² kapalı alana sahip fabrika kuruldu.' },
+                { year: '2012', title: 'Küresel Erişim', desc: 'İhracat hacmi 6 kıtaya ulaştı.' },
+                { year: '2008', title: 'Büyüme', desc: '4000 m² ilave fabrika kuruldu.' },
+                { year: '2000', title: 'Bir İlk', desc: 'Türkiye\'de ilk kez paslanmaz çelik dalgıç pompa üretimine başlandı.' },
+                { year: '1996', title: 'İlk İhracat', desc: 'İlk ihracat gerçekleştirildi.' },
+                { year: '1989', title: 'Test Laboratuvarı', desc: 'Türkiye\'nin ilk teknolojik pompa ve motor test laboratuvarı kuruldu.' },
+                { year: '1975', title: 'Kuruluş', desc: 'Yaşar Kurfeyiz önderliğinde şirketimizin kurulduğu yıl.' }
+              ].map((item, index) => (
+                <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  {/* Content Side */}
+                  <div className="w-full md:w-1/2 text-center md:text-left p-6 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl hover:border-blue-200 transition-all duration-300 relative group">
+                     <div className={`absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-white border-2 border-blue-600 rotate-45 hidden md:block ${index % 2 === 0 ? '-left-2' : '-right-2'}`}></div>
+                     <span className="text-4xl font-bold text-blue-100 absolute top-2 right-4 select-none group-hover:text-blue-50 transition-colors">{item.year}</span>
+                     <div className="relative z-10">
+                       <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 font-bold rounded-full text-sm mb-3 border border-blue-100">{item.year}</span>
+                       <h4 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
+                       <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                     </div>
+                  </div>
+
+                  {/* Center Point */}
+                  <div className="relative flex items-center justify-center w-12 h-12 shrink-0">
+                    <div className="w-4 h-4 bg-blue-600 rounded-full ring-4 ring-white shadow-md z-10"></div>
+                  </div>
+
+                  {/* Empty Side for Balance */}
+                  <div className="w-full md:w-1/2 hidden md:block"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
