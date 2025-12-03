@@ -78,13 +78,18 @@ export default function ProductDetail() {
             <div className="lg:w-1/2 flex flex-col">
               {/* Header */}
               <div className="p-8 border-b border-slate-200">
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-4 flex-wrap">
                   <span className="bg-slate-900 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
                     {product.subCategory}
                   </span>
                   {product.category === 'pump' && (
                     <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
                       IP68
+                    </span>
+                  )}
+                  {product.availableSizes && (
+                    <span className="bg-slate-100 text-slate-600 border border-slate-200 text-[10px] font-bold px-2 py-1 uppercase tracking-wider flex items-center gap-1">
+                      <Ruler className="w-3 h-3" /> {product.availableSizes}
                     </span>
                   )}
                 </div>

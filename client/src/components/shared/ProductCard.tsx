@@ -1,7 +1,7 @@
 import { Product } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Ruler } from "lucide-react";
 import { Link } from "wouter";
 
 interface ProductCardProps {
@@ -26,6 +26,13 @@ export function ProductCard({ product, className }: ProductCardProps) {
             <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm border border-slate-100 text-[10px] font-bold px-2 py-1 rounded-full text-slate-600 shadow-sm uppercase tracking-wider">
               {product.subCategory}
             </div>
+          )}
+
+          {/* Available Sizes Badge - NEW */}
+          {product.availableSizes && (
+             <div className="absolute top-4 right-4 z-20 bg-slate-900/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wider flex items-center gap-1">
+               <Ruler className="w-3 h-3" /> {product.availableSizes}
+             </div>
           )}
 
           {/* Image Container - Increased spacing and premium feel */}
