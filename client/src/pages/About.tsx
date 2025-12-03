@@ -49,7 +49,7 @@ export default function About() {
           
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900">
-              Yarım Asırlık Tecrübe ve <br/> Yenilikçi Vizyon
+              Yarım Asırlık Tecrübe
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
               Kurlar Pompa ve Motor 1975 yılında Yaşar Kurfeyiz tarafından İstanbul’da kurulmuştur. Dalgıç pompa ve motor üretimine 25m² atölyede 2 kişi ile başlayan Kurlar, günümüzde <span className="font-bold text-slate-900">40’dan fazla ülkeye ihracat yaparak üretimine 25.000m² Açık – 10.250m² Kapalı alanda 200’e yakın nitelikli ekibi ile İzmir’de devam etmektedir.</span>
