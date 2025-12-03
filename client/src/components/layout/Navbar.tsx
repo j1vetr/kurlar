@@ -8,6 +8,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const isHome = location === "/";
   const isTransparent = isHome && !isScrolled;
 
@@ -280,81 +281,147 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button 
-          className={cn("lg:hidden p-2", isTransparent ? "text-white" : "text-slate-900")}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Actions */}
+        <div className="flex items-center gap-4 lg:hidden">
+           {/* Mobile Language Selector */}
+           <div className="relative group">
+             <button className={cn(
+               "flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors",
+               isTransparent ? "text-white" : "text-slate-900"
+             )}>
+               <span className="text-xl">🇹🇷</span>
+               <ChevronDown className="w-3 h-3" />
+             </button>
+             {/* Simple Mobile Dropdown for Language */}
+             <select 
+               className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
+               onChange={(e) => console.log("Language changed to", e.target.value)}
+             >
+               <option value="TR">Türkçe</option>
+               <option value="EN">English</option>
+               <option value="AR">العربية</option>
+               <option value="ES">Español</option>
+               <option value="PT">Português</option>
+             </select>
+           </div>
+
+           {/* Mobile Menu Toggle */}
+           <button 
+             className={cn("p-2 -mr-2", isTransparent ? "text-white" : "text-slate-900")}
+             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+           >
+             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+           </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-[72px] bg-white z-40 overflow-y-auto pb-20 animate-in slide-in-from-right-10">
-          <div className="flex flex-col p-6 space-y-6">
+          <div className="flex flex-col p-6">
             {menuStructure.map((item) => (
-              <div key={item.name} className="border-b border-slate-100 pb-4">
-                <div className="text-lg font-bold text-slate-900 mb-2 flex justify-between items-center">
+              <div key={item.name} className="border-b border-slate-100 last:border-0">
+                <div 
+                  className="py-4 flex justify-between items-center cursor-pointer group"
+                  onClick={() => {
+                    if (item.children || item.type === "mega") {
+                      setExpandedMobileItem(expandedMobileItem === item.name ? null : item.name);
+                    }
+                  }}
+                >
                   {item.type === "link" ? (
                     <Link href={item.href}>
-                      <a onClick={() => setMobileMenuOpen(false)}>{item.name}</a>
+                      <a 
+                        className="text-lg font-bold text-slate-900 block w-full"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
                     </Link>
                   ) : (
-                    <span>{item.name}</span>
+                    <>
+                      <span className={cn(
+                        "text-lg font-bold transition-colors",
+                        expandedMobileItem === item.name ? "text-blue-600" : "text-slate-900"
+                      )}>
+                        {item.name}
+                      </span>
+                      <ChevronDown className={cn(
+                        "w-5 h-5 text-slate-400 transition-transform duration-300",
+                        expandedMobileItem === item.name ? "rotate-180 text-blue-600" : ""
+                      )} />
+                    </>
                   )}
                 </div>
                 
-                {(item.type === "dropdown" || item.type === "mega") && item.children && (
-                  <ul className="pl-4 space-y-2 border-l-2 border-slate-100 mt-2">
-                    {item.children.map(child => (
-                      <li key={child.name}>
-                        <Link href={child.href}>
-                          <a onClick={() => setMobileMenuOpen(false)} className="text-sm text-slate-500 block py-1 hover:text-primary">
-                            {child.name}
-                          </a>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                {/* Mobile Dropdown Content */}
+                <div className={cn(
+                  "overflow-hidden transition-all duration-300 ease-in-out",
+                  expandedMobileItem === item.name ? "max-h-[1000px] opacity-100 mb-4" : "max-h-0 opacity-0"
+                )}>
+                  {(item.type === "dropdown") && item.children && (
+                    <ul className="pl-4 space-y-3 border-l-2 border-slate-100 ml-2">
+                      {item.children.map(child => (
+                        <li key={child.name}>
+                          <Link href={child.href}>
+                            <a 
+                              onClick={() => setMobileMenuOpen(false)} 
+                              className="text-slate-600 block hover:text-blue-600 font-medium"
+                            >
+                              {child.name}
+                            </a>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-                {item.type === "mega" && !item.children && (
-                   <div className="pl-4 space-y-6 border-l-2 border-slate-100 mt-2">
-                     <div>
-                        <div className="text-xs font-bold text-primary uppercase mb-2">Dalgıç Pompalar</div>
-                        {[
-                          "Paslanmaz Çelik Dalgıç Pompalar (KP)",
-                          "4″ Noryl Dalgıç Pompalar (KPN)",
-                          "Pik Döküm Dalgıç Pompalar (KPD)",
-                          "Paslanmaz Döküm Dalgıç Pompalar (KSX)"
-                        ].map(sub => (
-                          <Link key={sub} href="/urunler">
-                            <a onClick={() => setMobileMenuOpen(false)} className="text-sm text-slate-500 block py-1 mb-1">{sub}</a>
-                          </Link>
-                        ))}
+                  {item.type === "mega" && (
+                     <div className="pl-4 space-y-6 border-l-2 border-slate-100 ml-2">
+                       <div>
+                          <div className="text-xs font-bold text-blue-600 uppercase mb-3 tracking-wider">Dalgıç Pompalar</div>
+                          <div className="space-y-3">
+                            {[
+                              "Paslanmaz Çelik Dalgıç Pompalar (KP)",
+                              "4″ Noryl Dalgıç Pompalar (KPN)",
+                              "Pik Döküm Dalgıç Pompalar (KPD)",
+                              "Paslanmaz Döküm Dalgıç Pompalar (KSX)"
+                            ].map(sub => (
+                              <Link key={sub} href="/urunler">
+                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-blue-600">{sub}</a>
+                              </Link>
+                            ))}
+                          </div>
+                       </div>
+                       <div>
+                          <div className="text-xs font-bold text-blue-600 uppercase mb-3 tracking-wider">Dalgıç Motorlar</div>
+                          <div className="space-y-3">
+                            {[
+                              "Hi-Temp Dalgıç Motorlar (KM)",
+                              "S-Type Dalgıç Motorlar (KMS)",
+                              "4\" Yağlı Tip Dalgıç Motorlar (KM4)"
+                            ].map(sub => (
+                              <Link key={sub} href="/urunler">
+                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-blue-600">{sub}</a>
+                              </Link>
+                            ))}
+                          </div>
+                       </div>
                      </div>
-                     <div>
-                        <div className="text-xs font-bold text-primary uppercase mb-2">Dalgıç Motorlar</div>
-                        {[
-                          "Hi-Temp Dalgıç Motorlar (KM)",
-                          "S-Type Dalgıç Motorlar (KMS)",
-                          "4\" Yağlı Tip Dalgıç Motorlar (KM4)"
-                        ].map(sub => (
-                          <Link key={sub} href="/urunler">
-                            <a onClick={() => setMobileMenuOpen(false)} className="text-sm text-slate-500 block py-1 mb-1">{sub}</a>
-                          </Link>
-                        ))}
-                     </div>
-                   </div>
-                )}
+                  )}
+                </div>
               </div>
             ))}
             
-            <div className="bg-primary p-6 rounded-xl text-white mt-4">
-              <h4 className="font-bold text-xl mb-2">2025 Katalog</h4>
-              <p className="text-blue-100 text-sm mb-4">En yeni ürünlerimizi inceleyin.</p>
-              <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-sm font-bold uppercase flex items-center">Görüntüle <ArrowRight className="ml-2 w-4 h-4" /></a>
+            <div className="bg-slate-900 p-6 rounded-xl text-white mt-8 shadow-xl relative overflow-hidden">
+              <div className="relative z-10">
+                <h4 className="font-bold text-xl mb-2">2025 Katalog</h4>
+                <p className="text-slate-300 text-sm mb-4">En yeni teknoloji ürünlerimizi inceleyin.</p>
+                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+                  Kataloğu İndir <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
+              </div>
+              <FileText className="absolute -bottom-4 -right-4 w-24 h-24 text-white/5" />
             </div>
           </div>
         </div>
