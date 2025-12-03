@@ -25,11 +25,11 @@ export const products: Product[] = [
     shortName: 'KP Serisi',
     category: 'pump',
     subCategory: 'Paslanmaz Çelik',
-    image: '/assets/gallery/galeri6pompa.png',
+    image: '/assets/products/kp1.png',
     gallery: [
-        '/assets/gallery/galeri6pompa.png',
-        '/assets/gallery/galeri5pompa.png',
-        '/assets/gallery/galeri4pompa.png'
+        '/assets/products/kp1.png',
+        '/assets/products/kp2.png',
+        '/assets/products/kp3.png'
     ],
     description: 'Tamamen AISI 304 paslanmaz çelikten üretilmiş, korozyona dayanıklı, yüksek verimli dalgıç pompalar.',
     longDescription: `4″ – 6″ – 8″ – 10″ Kurlar Paslanmaz Çelik Dalgıç Pompalar tamamen AISI 304 (talep üzerine pompalar komple AISI 316L malzemeden üretilebilmektedir) malzemeden yapılmıştır.
@@ -77,10 +77,11 @@ Yatay ve dikey kurulum pozisyonuna uygundur. Kurlar Paslanmaz Çelik Dalgıç Po
     shortName: 'KPN Serisi',
     category: 'pump',
     subCategory: 'Noryl',
-    image: '/assets/gallery/galeri9pompa.png',
+    image: '/assets/products/kpn41.png',
     gallery: [
-        '/assets/gallery/galeri9pompa.png',
-        '/assets/gallery/galeri8pompa.png'
+        '/assets/products/kpn41.png',
+        '/assets/products/kpn42.png',
+        '/assets/products/kpn43.png'
     ],
     description: 'Yüksek hidrolik verimlilik ve kum koruması sağlayan özel tasarımlı Noryl fanlı pompalar.',
     longDescription: `4” Kurlar Noryl Dalgıç Pompa, özel olarak tasarlanmış fanları ve difüzörleri yapılanması sayesinde yüksek hidrolik verimlilik ve performans sunar. Yüzer fan sistemi ile kum ve diğer aşındırıcı maddelere karşı güçlü bir koruma sağlar.
@@ -119,9 +120,11 @@ Paslanmaz çelikten üretilmiş süzgeci sayesinde, 50 g/m³ üzerindeki parçal
     shortName: 'KPD Serisi',
     category: 'pump',
     subCategory: 'Pik Döküm',
-    image: '/assets/gallery/galeri10pompa.png',
+    image: '/assets/products/kpd1.png',
     gallery: [
-       '/assets/gallery/galeri10pompa.png'
+       '/assets/products/kpd1.png',
+       '/assets/products/kpd2.png',
+       '/assets/products/kpd3.png'
     ],
     description: 'Zorlu koşullara dayanıklı, tamamen pik döküm malzemeden üretilmiş ağır hizmet tipi pompalar.',
     longDescription: `KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Pik Döküm Dalgıç Pompalar tamamen pik döküm (talep üzerine pompalar komple bronz malzemeden üretilebilmektedir) malzemeden yapılmıştır.
@@ -160,10 +163,10 @@ Tamamen pik döküm olarak imal edilen difüzörler, fanlar, emiş ve çıkış 
     shortName: 'KSX Serisi',
     category: 'pump',
     subCategory: 'Paslanmaz Döküm',
-    image: '/assets/gallery/ksxgal3.png',
+    image: '/assets/products/ksx1.png',
     gallery: [
-      '/assets/gallery/ksxgal3.png',
-      '/assets/gallery/ksxgal2.png'
+      '/assets/products/ksx1.png',
+      '/assets/products/ksx2.png'
     ],
     description: 'AISI 304 döküm paslanmaz çelik yapısıyla en zorlu ve agresif sıvılar için üstün çözüm.',
     longDescription: `KSX 6″ – 8″ – 10″ Kurlar Paslanmaz Döküm Dalgıç Pompalar tamamen AISI 304 döküm malzemeden üretilmiştir. Talep üzerine, pompalar komple AISI 316L malzemeden de üretilebilmektedir.
@@ -202,9 +205,9 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
     shortName: 'KM4 Serisi',
     category: 'motor',
     subCategory: 'Yağlı Tip',
-    image: '/assets/gallery/galeri7pompa.png',
+    image: '/assets/products/km41.png',
     gallery: [
-        '/assets/gallery/galeri7pompa.png'
+        '/assets/products/km41.png'
     ],
     description: 'Gıdaya uygun yağ soğutmalı, sessiz çalışan ve geri sarılabilir 4" dalgıç motorlar.',
     longDescription: `Yağ soğutmalı, geri sarılabilir motorlardır. Kullanılan yağ, gıdaya uygun ve toksik olmayan yapıdadır. Sessiz çalışır ve uzun ömürlü performans sunar. Yatay ve dikey çalışma pozisyonlarına uygundur. Motor boyutları ve bağlantı flanşı, NEMA standartlarına uygun olarak tasarlanmıştır.`,
@@ -239,9 +242,11 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
     shortName: 'KM Serisi',
     category: 'motor',
     subCategory: 'HI-TEMP',
-    image: '/assets/gallery/galeri5pompa.png',
+    image: '/assets/products/km2.png',
     gallery: [
-        '/assets/gallery/galeri5pompa.png'
+        '/assets/products/km2.png',
+        '/assets/products/km1.png',
+        '/assets/products/km3.png'
     ],
     description: 'Yüksek sıcaklıklarda (60°C+) çalışabilen, PBN bobin telli, su soğutmalı özel motorlar.',
     longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde, yüksek sıcaklıklarda düşük işletme maliyeti hedefiyle özel PBN bobin teli ile üretilmiştir.
@@ -278,9 +283,9 @@ Su soğutmalı yapısıyla 6″ ve üzeri çapta kuyular için idealdir. Basın�
     shortName: 'KMS Serisi',
     category: 'motor',
     subCategory: 'S-Type',
-    image: '/assets/gallery/galeri4pompa.png',
+    image: '/assets/products/kms11.png',
     gallery: [
-        '/assets/gallery/galeri4pompa.png'
+        '/assets/products/kms11.png'
     ],
     description: 'Düşük işletme maliyeti ve yüksek verimlilik için özel tasarlanmış su soğutmalı motorlar.',
     longDescription: `6”-7”-8” S-TYPE Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde düşük işletme maliyeti sağlamak amacıyla özel izolasyonlu PBN bobin teli ile yüksek sıcaklıklara dayanıklı olarak üretilmiştir.
