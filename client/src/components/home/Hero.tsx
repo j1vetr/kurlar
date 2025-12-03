@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
-import heroVideo from "@assets/generated_videos/cinematic_abstract_factory_loop_with_clean_metal_surfaces_and_water_reflections..mp4";
+import heroVideo from "@assets/generated_videos/stainless_steel_submersible_pump_underwater_operation_with_bubbles_and_clear_blue_water..mp4";
 
 export function Hero() {
   return (
