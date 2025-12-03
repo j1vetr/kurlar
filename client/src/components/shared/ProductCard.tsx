@@ -29,14 +29,14 @@ export function ProductCard({ product, className }: ProductCardProps) {
           )}
 
           {/* Image Container - Increased spacing and premium feel */}
-          <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden p-8">
+          <div className="relative w-full aspect-[4/4] bg-gradient-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden p-4">
             {/* Decorative background circle */}
-            <div className="absolute w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-0 group-hover:bg-primary/10 transition-colors duration-500" />
+            <div className="absolute w-56 h-56 bg-primary/5 rounded-full blur-3xl -z-0 group-hover:bg-primary/10 transition-colors duration-500" />
             
             <motion.img 
               src={product.image} 
               alt={product.name}
-              className="relative w-full h-full object-contain z-10 drop-shadow-lg transition-transform duration-500 group-hover:scale-110"
+              className="relative w-full h-full object-contain z-10 drop-shadow-lg transition-transform duration-500 group-hover:scale-105"
               style={{ filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.15))" }}
             />
             
@@ -45,7 +45,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           </div>
 
           {/* Content */}
-          <div className="p-6 flex flex-col flex-grow relative">
+          <div className="p-6 flex flex-col flex-grow relative border-t border-slate-50">
             <div className="mb-auto">
               <div className="flex items-center gap-2 mb-3">
                 <span className={cn(

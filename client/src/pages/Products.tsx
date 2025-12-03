@@ -25,8 +25,9 @@ export default function Products() {
   return (
     <Layout>
       {/* Hero Header */}
-      <div className="bg-slate-900 py-20 text-center">
-        <div className="container mx-auto px-6">
+      <div className="bg-slate-900 py-20 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div className="container mx-auto px-6 relative z-10">
            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
              Ürün Yelpazemiz
            </h1>
@@ -36,46 +37,48 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-20">
-        
-        {/* Pumps Section */}
-        <div className="mb-24" id="pumps">
-           <div className="flex items-end justify-between border-b border-slate-200 pb-6 mb-12">
-              <div>
-                 <h2 className="text-3xl font-heading font-bold text-slate-900">Dalgıç Pompalar</h2>
-                 <p className="text-slate-500 mt-2">Paslanmaz, Noryl ve Döküm serisi profesyonel pompalar.</p>
-              </div>
-              <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider">
-                 {pumpProducts.length} Model
-              </div>
-           </div>
-           
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {pumpProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-           </div>
+      <div className="bg-slate-50 min-h-screen">
+        <div className="container mx-auto px-6 py-20">
+          
+          {/* Pumps Section */}
+          <div className="mb-24" id="pumps">
+             <div className="flex items-end justify-between border-b border-slate-200 pb-6 mb-12">
+                <div>
+                   <h2 className="text-3xl font-heading font-bold text-slate-900">Dalgıç Pompalar</h2>
+                   <p className="text-slate-500 mt-2">Paslanmaz, Noryl ve Döküm serisi profesyonel pompalar.</p>
+                </div>
+                <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider">
+                   {pumpProducts.length} Model
+                </div>
+             </div>
+             
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {pumpProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+             </div>
+          </div>
+
+          {/* Motors Section */}
+          <div id="motors">
+             <div className="flex items-end justify-between border-b border-slate-200 pb-6 mb-12">
+                <div>
+                   <h2 className="text-3xl font-heading font-bold text-slate-900">Dalgıç Motorlar</h2>
+                   <p className="text-slate-500 mt-2">Yüksek verimli, uzun ömürlü motor teknolojileri.</p>
+                </div>
+                <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider">
+                   {motorProducts.length} Model
+                </div>
+             </div>
+
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {motorProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+             </div>
+          </div>
+
         </div>
-
-        {/* Motors Section */}
-        <div id="motors">
-           <div className="flex items-end justify-between border-b border-slate-200 pb-6 mb-12">
-              <div>
-                 <h2 className="text-3xl font-heading font-bold text-slate-900">Dalgıç Motorlar</h2>
-                 <p className="text-slate-500 mt-2">Yüksek verimli, uzun ömürlü motor teknolojileri.</p>
-              </div>
-              <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider">
-                 {motorProducts.length} Model
-              </div>
-           </div>
-
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {motorProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-           </div>
-        </div>
-
       </div>
     </Layout>
   );
