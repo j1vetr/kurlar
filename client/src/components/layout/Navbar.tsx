@@ -232,21 +232,23 @@ export function Navbar() {
 
                         {/* Catalog Promo Card */}
                         <div className="w-1/3 p-0">
-                          <div className="h-full bg-primary text-white p-10 flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:bg-blue-900 transition-colors">
-                            <div className="relative z-10">
-                              <span className="text-blue-200 text-sm font-medium mb-2 block">2025</span>
-                              <h3 className="font-heading text-4xl font-bold leading-tight mb-4">
-                                KURLAR <br/> KATALOG
-                              </h3>
-                            </div>
-                            
-                            <div className="relative z-10 flex items-center text-sm font-bold tracking-wider uppercase mt-8">
-                              GÖRÜNTÜLE <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                            </div>
+                          <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="block h-full">
+                            <div className="h-full bg-primary text-white p-10 flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:bg-blue-900 transition-colors">
+                              <div className="relative z-10">
+                                <span className="text-blue-200 text-sm font-medium mb-2 block">2025</span>
+                                <h3 className="font-heading text-4xl font-bold leading-tight mb-4">
+                                  KURLAR <br/> KATALOG
+                                </h3>
+                              </div>
+                              
+                              <div className="relative z-10 flex items-center text-sm font-bold tracking-wider uppercase mt-8">
+                                GÖRÜNTÜLE <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                              </div>
 
-                            {/* Background Icon Decoration */}
-                            <FileText className="absolute -bottom-8 -right-8 w-48 h-48 text-white/5 rotate-12 group-hover:rotate-0 group-hover:scale-110 transition-all duration-500" />
-                          </div>
+                              {/* Background Icon Decoration */}
+                              <FileText className="absolute -bottom-8 -right-8 w-48 h-48 text-white/5 rotate-12 group-hover:rotate-0 group-hover:scale-110 transition-all duration-500" />
+                            </div>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -331,7 +333,7 @@ export function Navbar() {
             <div className="bg-primary p-6 rounded-xl text-white mt-4">
               <h4 className="font-bold text-xl mb-2">2025 Katalog</h4>
               <p className="text-blue-100 text-sm mb-4">En yeni ürünlerimizi inceleyin.</p>
-              <button className="text-sm font-bold uppercase flex items-center">Görüntüle <ArrowRight className="ml-2 w-4 h-4" /></button>
+              <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-sm font-bold uppercase flex items-center">Görüntüle <ArrowRight className="ml-2 w-4 h-4" /></a>
             </div>
           </div>
         </div>

@@ -209,9 +209,11 @@ export default function ProductDetail() {
                 <Button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white h-12 rounded-sm font-bold uppercase tracking-wide">
                   Teklif İste
                 </Button>
-                <Button variant="outline" className="flex-1 border-slate-300 text-slate-700 hover:bg-white h-12 rounded-sm font-bold uppercase tracking-wide">
-                  <Download className="mr-2 w-4 h-4" /> Katalog İndir
-                </Button>
+                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-white h-12 rounded-sm font-bold uppercase tracking-wide">
+                    <Download className="mr-2 w-4 h-4" /> 2025 Kataloğu İndir
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
