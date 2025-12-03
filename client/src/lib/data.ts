@@ -195,7 +195,7 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
     shortName: 'KM4 Serisi',
     category: 'motor',
     subCategory: 'Yağlı Tip',
-    image: '/assets/gallery/galeri7pompa.png', // Using generic motor image
+    image: '/assets/gallery/galeri7pompa.png',
     gallery: [
         '/assets/gallery/galeri7pompa.png'
     ],
@@ -231,9 +231,9 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
     shortName: 'KM Serisi',
     category: 'motor',
     subCategory: 'HI-TEMP',
-    image: '/assets/gallery/galeri6pompa.png', // Using generic motor image
+    image: '/assets/gallery/galeri5pompa.png',
     gallery: [
-        '/assets/gallery/galeri6pompa.png'
+        '/assets/gallery/galeri5pompa.png'
     ],
     description: 'Yüksek sıcaklıklarda (60°C+) çalışabilen, PBN bobin telli, su soğutmalı özel motorlar.',
     longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde, yüksek sıcaklıklarda düşük işletme maliyeti hedefiyle özel PBN bobin teli ile üretilmiştir.
@@ -270,9 +270,9 @@ Su soğutmalı yapısıyla 6″ ve üzeri çapta kuyular için idealdir. Basın�
     shortName: 'KMS Serisi',
     category: 'motor',
     subCategory: 'S-Type',
-    image: '/assets/gallery/galeri5pompa.png', // Using generic motor image
+    image: '/assets/gallery/galeri4pompa.png',
     gallery: [
-        '/assets/gallery/galeri5pompa.png'
+        '/assets/gallery/galeri4pompa.png'
     ],
     description: 'Düşük işletme maliyeti ve yüksek verimlilik için özel tasarlanmış su soğutmalı motorlar.',
     longDescription: `6”-7”-8” S-TYPE Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde düşük işletme maliyeti sağlamak amacıyla özel izolasyonlu PBN bobin teli ile yüksek sıcaklıklara dayanıklı olarak üretilmiştir.
