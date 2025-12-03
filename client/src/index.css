@@ -50,6 +50,17 @@
   --font-heading: 'Manrope', sans-serif;
   
   --radius: 0.5rem;
+  
+  --animate-water-flow: water-flow 8s linear infinite;
+  
+  @keyframes water-flow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 @layer base {
@@ -71,5 +82,18 @@
   }
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .water-border-container {
+    @apply relative flex items-center justify-center rounded-full p-[3px] bg-white/10 backdrop-blur-sm overflow-hidden;
+  }
+  
+  .water-border-container::before {
+    content: '';
+    @apply absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_120deg,#3b82f6_180deg,transparent_240deg,transparent_360deg)] animate-water-flow;
+  }
+  
+  .water-border-content {
+    @apply relative z-10 bg-white rounded-full p-2 flex items-center justify-center;
   }
 }

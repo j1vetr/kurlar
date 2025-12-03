@@ -29,19 +29,23 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent",
         isScrolled || mobileMenuOpen
-          ? "bg-white/90 backdrop-blur-md border-border shadow-sm py-3"
+          ? "bg-white/95 backdrop-blur-xl border-border shadow-sm py-3"
           : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo with Water Animation Border */}
         <Link href="/">
-          <a className="flex items-center gap-2 group">
-            <img 
-              src="/assets/logo.png" 
-              alt="Kurlar Logo" 
-              className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
-            />
+          <a className="group relative">
+            <div className="water-border-container">
+              <div className="water-border-content">
+                <img 
+                  src="/assets/logo.png" 
+                  alt="Kurlar Logo" 
+                  className="h-8 w-auto object-contain" 
+                />
+              </div>
+            </div>
           </a>
         </Link>
 
@@ -54,7 +58,7 @@ export function Navbar() {
                   "text-sm font-medium tracking-wide transition-colors duration-200 relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full",
                   location === link.href
                     ? "text-primary font-semibold after:w-full"
-                    : isScrolled ? "text-foreground hover:text-primary" : "text-foreground/90 md:text-white hover:text-white/80 md:mix-blend-difference"
+                    : isScrolled ? "text-foreground hover:text-primary" : "text-foreground/90 md:text-white hover:text-white/80 md:mix-blend-difference shadow-black/20 drop-shadow-sm"
                 )}
               >
                 {link.name}
