@@ -33,15 +33,15 @@ export default function Home() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-blue-900 text-white p-6 rounded-lg shadow-xl hidden md:block">
+                <div className="absolute -bottom-6 -right-6 bg-primary/90 text-white p-6 rounded-lg shadow-xl hidden md:block">
                   <div className="text-3xl font-bold">1975</div>
-                  <div className="text-sm text-blue-200 uppercase tracking-wider">Yılından Beri</div>
+                  <div className="text-sm text-blue-100 uppercase tracking-wider">Yılından Beri</div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">
-                Mühendislik ve Kalitenin <br/> <span className="text-blue-600">Buluşma Noktası</span>
+                Mühendislik ve Kalitenin <br/> <span className="text-primary">Buluşma Noktası</span>
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                 Türkiye'nin ilk Paslanmaz Çelik Dalgıç Pompa üreticisi olarak, 25.000m² üretim tesisimizde dünya standartlarında çözümler üretiyoruz. 40'tan fazla ülkeye ihracat yaparak kalitemizi global pazarda kanıtlıyoruz.
@@ -49,14 +49,14 @@ export default function Home() {
               
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start gap-3">
-                  <Globe className="w-6 h-6 text-blue-600 mt-1" />
+                  <Globe className="w-6 h-6 text-primary mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900">Global İhracat</h4>
                     <p className="text-sm text-slate-500">40+ Ülkeye Teknoloji Transferi</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Building2 className="w-6 h-6 text-blue-600 mt-1" />
+                  <Building2 className="w-6 h-6 text-primary mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900">Yerli Üretim</h4>
                     <p className="text-sm text-slate-500">%100 Yerli Sermaye Ve Üretim</p>
@@ -77,7 +77,7 @@ export default function Home() {
         <div className="container mx-auto px-6 mb-12">
           <div className="flex flex-col md:flex-row justify-between items-end">
             <div>
-              <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">
+              <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">
                 Ürün Yelpazemiz
               </span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900">
@@ -85,7 +85,7 @@ export default function Home() {
               </h2>
             </div>
             <Link href="/urunler">
-              <Button variant="ghost" className="text-slate-600 hover:text-blue-600 hover:bg-blue-50 mt-4 md:mt-0">
+              <Button variant="ghost" className="text-slate-600 hover:text-primary hover:bg-blue-50 mt-4 md:mt-0">
                 Tüm Modelleri Gör <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
@@ -112,7 +112,7 @@ export default function Home() {
              {[...products, ...products].map((product, index) => (
                <div key={`${product.id}-${index}`} className="w-[300px] md:w-[380px] flex-shrink-0">
                  <Link href={`/urunler/${product.id}`}>
-                   <a className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-blue-500 transition-all duration-300 hover:shadow-xl flex flex-col h-full">
+                   <a className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-xl flex flex-col h-full">
                      {/* Image Area */}
                      <div className="aspect-[4/5] bg-slate-100 relative overflow-hidden flex items-center justify-center p-8">
                        <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -130,14 +130,14 @@ export default function Home() {
                          className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-700 ease-out"
                        />
                        
-                       <div className="absolute bottom-4 right-4 bg-blue-600 text-white rounded-full p-3 shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-20">
+                       <div className="absolute bottom-4 right-4 bg-primary text-white rounded-full p-3 shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-20">
                          <ArrowUpRight className="w-5 h-5" />
                        </div>
                      </div>
                      
                      {/* Content Area */}
                      <div className="p-6 flex flex-col flex-grow border-t border-slate-50">
-                       <h3 className="font-bold text-xl text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-snug">
+                       <h3 className="font-bold text-xl text-slate-900 mb-3 group-hover:text-primary transition-colors leading-snug">
                          {product.name}
                        </h3>
                        <p className="text-sm text-slate-500 line-clamp-2 mt-auto leading-relaxed">

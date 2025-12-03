@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
               </div>
               <div className="relative z-10">
                 <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">Gizlilik Politikası</h1>
-                <p className="text-blue-200 text-lg">Verilerinizin güvenliği bizim için önemlidir.</p>
+                <p className="text-blue-100 text-lg">Verilerinizin güvenliği bizim için önemlidir.</p>
               </div>
             </div>
 
@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             <div className="p-12 space-y-10">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-900 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Lock className="w-5 h-5" />
                   </div>
                   <h2 className="text-xl font-bold">1. Veri Toplama ve Kullanım</h2>
@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-900 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Server className="w-5 h-5" />
                   </div>
                   <h2 className="text-xl font-bold">2. Veri Güvenliği</h2>
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-900 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Eye className="w-5 h-5" />
                   </div>
                   <h2 className="text-xl font-bold">3. Üçüncü Taraf Bağlantılar</h2>
@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-900 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <FileText className="w-5 h-5" />
                   </div>
                   <h2 className="text-xl font-bold">4. Değişiklikler</h2>

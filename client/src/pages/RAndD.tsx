@@ -33,7 +33,7 @@ export default function RAndD() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">
-              Mühendislik ve <span className="text-blue-600">Tasarım Gücü</span>
+              Mühendislik ve <span className="text-primary">Tasarım Gücü</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
               Kurlar Ar-Ge Merkezi, ürünlerimizin performansını ve dayanıklılığını artırmak için sürekli çalışmaktadır. Modern laboratuvarlarımızda gerçekleştirilen testler ve analizler, her bir parçanın en zorlu koşullarda bile kusursuz çalışmasını garanti altına alır.
@@ -68,17 +68,17 @@ export default function RAndD() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           {[
             {
-              icon: <PenTool className="w-8 h-8 text-blue-600" />,
+              icon: <PenTool className="w-8 h-8 text-primary" />,
               title: "Ürün Tasarımı",
               desc: "CAD/CAM yazılımları ile 3D modelleme ve hidrolik tasarım optimizasyonu."
             },
             {
-              icon: <Activity className="w-8 h-8 text-blue-600" />,
+              icon: <Activity className="w-8 h-8 text-primary" />,
               title: "Performans Testleri",
               desc: "Bilgisayar kontrollü test istasyonlarında debi, basınç ve verimlilik ölçümleri."
             },
             {
-              icon: <ShieldCheck className="w-8 h-8 text-blue-600" />,
+              icon: <ShieldCheck className="w-8 h-8 text-primary" />,
               title: "Dayanıklılık Analizi",
               desc: "Malzeme yorulma testleri ve korozyon direnci analizleri."
             }
@@ -101,19 +101,19 @@ export default function RAndD() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center gap-4">
-                  <span className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-sm">1</span>
+                  <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">1</span>
                   <span>İhtiyaç Analizi ve Pazar Araştırması</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-sm">2</span>
+                  <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">2</span>
                   <span>Teknik Tasarım ve Simülasyon</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-sm">3</span>
+                  <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">3</span>
                   <span>Prototip Üretimi ve Doğrulama</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-sm">4</span>
+                  <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">4</span>
                   <span>Seri Üretim ve Kalite Kontrol</span>
                 </li>
               </ul>
@@ -124,7 +124,7 @@ export default function RAndD() {
                  alt="Engineering Process" 
                  className="absolute inset-0 w-full h-full object-cover"
                />
-               <div className="absolute inset-0 bg-blue-900/20"></div>
+               <div className="absolute inset-0 bg-primary/20"></div>
             </div>
           </div>
         </div>

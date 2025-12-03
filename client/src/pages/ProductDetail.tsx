@@ -105,7 +105,7 @@ export default function ProductDetail() {
                       onClick={() => setActiveImage(idx)}
                       className={cn(
                         "border bg-slate-50 p-2 h-20 flex items-center justify-center transition-all",
-                        activeImage === idx ? "border-blue-600 ring-1 ring-blue-600" : "border-slate-200 hover:border-slate-300"
+                        activeImage === idx ? "border-primary ring-1 ring-primary" : "border-slate-200 hover:border-slate-300"
                       )}
                     >
                       <img src={img} alt="" className="max-w-full max-h-full object-contain" />
@@ -124,7 +124,7 @@ export default function ProductDetail() {
                     {product.subCategory}
                   </span>
                   {product.category === 'pump' && (
-                    <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
+                    <span className="bg-primary text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
                       IP68
                     </span>
                   )}
@@ -136,7 +136,7 @@ export default function ProductDetail() {
                 {product.availableSizes && (
                   <div className="mb-6 inline-flex flex-col gap-1">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mevcut Boyutlar (İnç)</span>
-                    <span className="bg-blue-600 text-white text-sm font-bold px-4 py-2 rounded-sm shadow-sm flex items-center gap-2 self-start">
+                    <span className="bg-primary text-white text-sm font-bold px-4 py-2 rounded-sm shadow-sm flex items-center gap-2 self-start">
                       <Ruler className="w-4 h-4" /> {product.availableSizes}
                     </span>
                   </div>
@@ -153,7 +153,7 @@ export default function ProductDetail() {
                   onClick={() => setActiveTab('overview')}
                   className={cn(
                     "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
-                    activeTab === 'overview' ? "bg-white border-b-2 border-blue-600 text-blue-600" : "text-slate-500 hover:text-slate-700"
+                    activeTab === 'overview' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
                   <Info className="w-4 h-4" /> Genel Bakış
@@ -162,7 +162,7 @@ export default function ProductDetail() {
                   onClick={() => setActiveTab('specs')}
                   className={cn(
                     "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
-                    activeTab === 'specs' ? "bg-white border-b-2 border-blue-600 text-blue-600" : "text-slate-500 hover:text-slate-700"
+                    activeTab === 'specs' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
                   <Ruler className="w-4 h-4" /> Teknik Veriler
@@ -172,7 +172,7 @@ export default function ProductDetail() {
                     onClick={() => setActiveTab('parts')}
                     className={cn(
                       "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
-                      activeTab === 'parts' ? "bg-white border-b-2 border-blue-600 text-blue-600" : "text-slate-500 hover:text-slate-700"
+                      activeTab === 'parts' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                     )}
                   >
                     <Layers className="w-4 h-4" /> Mekanik Parçalar
@@ -186,7 +186,7 @@ export default function ProductDetail() {
                   <div className="space-y-8">
                     <div>
                       <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <FileText className="w-4 h-4 text-blue-600" /> Ürün Açıklaması
+                        <FileText className="w-4 h-4 text-primary" /> Ürün Açıklaması
                       </h3>
                       <div className="prose prose-sm text-slate-600 max-w-none">
                         <p className="whitespace-pre-line">{product.longDescription || product.description}</p>
@@ -195,12 +195,12 @@ export default function ProductDetail() {
                     
                     <div>
                        <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <Zap className="w-4 h-4 text-blue-600" /> Özellikler
+                        <Zap className="w-4 h-4 text-primary" /> Özellikler
                       </h3>
                       <ul className="grid grid-cols-1 gap-2">
                         {product.features?.map((f, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-slate-700 border-l-2 border-slate-100 pl-3 py-1 capitalize">
-                            <span className="block mt-1.5 w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></span>
+                            <span className="block mt-1.5 w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>
                             {f}
                           </li>
                         ))}
@@ -212,7 +212,7 @@ export default function ProductDetail() {
                 {activeTab === 'specs' && (
                   <div>
                      <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
-                        <Settings className="w-4 h-4 text-blue-600" /> Teknik Özellikler
+                        <Settings className="w-4 h-4 text-primary" /> Teknik Özellikler
                       </h3>
                       
                       {product.specsImage && (
@@ -252,7 +252,7 @@ export default function ProductDetail() {
 
               {/* Footer Actions */}
               <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row gap-4">
-                <Button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white h-12 rounded-sm font-bold uppercase tracking-wide">
+                <Button className="flex-1 bg-primary hover:bg-primary/90 text-white h-12 rounded-sm font-bold uppercase tracking-wide">
                   Teklif İste
                 </Button>
                 <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-1">
@@ -269,7 +269,7 @@ export default function ProductDetail() {
              <div className="max-w-4xl mx-auto mb-16">
                 <div className="text-center mb-12">
                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
-                     <HelpCircle className="w-8 h-8 text-blue-600" /> Sıkça Sorulan Sorular
+                     <HelpCircle className="w-8 h-8 text-primary" /> Sıkça Sorulan Sorular
                    </h2>
                    <p className="text-slate-500">Bu ürün hakkında en çok merak edilen soruların cevapları.</p>
                 </div>
@@ -285,7 +285,7 @@ export default function ProductDetail() {
                         <ChevronDown 
                           className={cn(
                             "w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0",
-                            openFaq === index ? "rotate-180 text-blue-600" : ""
+                            openFaq === index ? "rotate-180 text-primary" : ""
                           )} 
                         />
                       </button>

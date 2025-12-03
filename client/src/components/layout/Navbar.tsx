@@ -95,7 +95,7 @@ export function Navbar() {
                     "text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors", 
                     location === item.href 
                       ? "text-primary" 
-                      : (isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary")
+                      : (isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary")
                   )}>
                     {item.name}
                   </a>
@@ -116,7 +116,7 @@ export function Navbar() {
                       "text-sm font-bold uppercase tracking-wider flex items-center gap-1 py-4 transition-colors", 
                       (location.startsWith(item.href) || activeDropdown === item.name) 
                         ? "text-primary" 
-                        : (isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary")
+                        : (isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary")
                     )}>
                       {item.name}
                       <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeDropdown === item.name && "rotate-180")} />
@@ -156,7 +156,7 @@ export function Navbar() {
                       "text-sm font-bold uppercase tracking-wider flex items-center gap-1 py-4 transition-colors", 
                       (location.startsWith(item.href) || activeDropdown === item.name) 
                         ? "text-primary" 
-                        : (isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary")
+                        : (isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary")
                     )}>
                       {item.name}
                       <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeDropdown === item.name && "rotate-180")} />
@@ -224,9 +224,9 @@ export function Navbar() {
                         {/* Catalog Promo Card */}
                         <div className="w-1/3 p-0">
                           <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="block h-full">
-                            <div className="h-full bg-primary text-white p-10 flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:bg-blue-900 transition-colors">
+                            <div className="h-full bg-primary text-white p-10 flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:bg-primary/90 transition-colors">
                               <div className="relative z-10">
-                                <span className="text-blue-200 text-sm font-medium mb-2 block">2025</span>
+                                <span className="text-blue-100 text-sm font-medium mb-2 block">2025</span>
                                 <h3 className="font-heading text-4xl font-bold leading-tight mb-4">
                                   KURLAR <br/> KATALOG
                                 </h3>
@@ -253,7 +253,7 @@ export function Navbar() {
           <div className="relative group h-full flex items-center ml-4">
             <button className={cn(
               "flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-colors",
-              isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary"
+              isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary"
             )}>
               <span className="text-xl">🇹🇷</span>
               <span className="hidden xl:inline">TR</span>
@@ -378,13 +378,13 @@ export function Navbar() {
                     <>
                       <span className={cn(
                         "text-lg font-bold transition-colors",
-                        expandedMobileItem === item.name ? "text-blue-600" : "text-slate-900"
+                        expandedMobileItem === item.name ? "text-primary" : "text-slate-900"
                       )}>
                         {item.name}
                       </span>
                       <ChevronDown className={cn(
                         "w-5 h-5 text-slate-400 transition-transform duration-300",
-                        expandedMobileItem === item.name ? "rotate-180 text-blue-600" : ""
+                        expandedMobileItem === item.name ? "rotate-180 text-primary" : ""
                       )} />
                     </>
                   )}
@@ -402,7 +402,7 @@ export function Navbar() {
                           <Link href={child.href}>
                             <a 
                               onClick={() => setMobileMenuOpen(false)} 
-                              className="text-slate-600 block hover:text-blue-600 font-medium"
+                              className="text-slate-600 block hover:text-primary font-medium"
                             >
                               {child.name}
                             </a>
@@ -415,7 +415,7 @@ export function Navbar() {
                   {item.type === "mega" && (
                      <div className="pl-4 space-y-6 border-l-2 border-slate-100 ml-2">
                        <div>
-                          <div className="text-xs font-bold text-blue-600 uppercase mb-3 tracking-wider">Dalgıç Pompalar</div>
+                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">Dalgıç Pompalar</div>
                           <div className="space-y-3">
                             {[
                               "Paslanmaz Çelik Dalgıç Pompalar (KP)",
@@ -424,13 +424,13 @@ export function Navbar() {
                               "Paslanmaz Döküm Dalgıç Pompalar (KSX)"
                             ].map(sub => (
                               <Link key={sub} href="/urunler">
-                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-blue-600">{sub}</a>
+                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub}</a>
                               </Link>
                             ))}
                           </div>
                        </div>
                        <div>
-                          <div className="text-xs font-bold text-blue-600 uppercase mb-3 tracking-wider">Dalgıç Motorlar</div>
+                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">Dalgıç Motorlar</div>
                           <div className="space-y-3">
                             {[
                               "Hi-Temp Dalgıç Motorlar (KM)",
@@ -438,7 +438,7 @@ export function Navbar() {
                               "4\" Yağlı Tip Dalgıç Motorlar (KM4)"
                             ].map(sub => (
                               <Link key={sub} href="/urunler">
-                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-blue-600">{sub}</a>
+                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub}</a>
                               </Link>
                             ))}
                           </div>
@@ -453,7 +453,7 @@ export function Navbar() {
               <div className="relative z-10">
                 <h4 className="font-bold text-xl mb-2">2025 Katalog</h4>
                 <p className="text-slate-300 text-sm mb-4">En yeni teknoloji ürünlerimizi inceleyin.</p>
-                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
                   Kataloğu İndir <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>

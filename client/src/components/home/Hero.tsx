@@ -66,7 +66,7 @@ export function Hero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ repeat: Infinity, duration: 0.8 }}
-                  className="ml-1 inline-block w-1 h-8 md:h-12 bg-blue-400 align-middle"
+                  className="ml-1 inline-block w-1 h-8 md:h-12 bg-primary/60 align-middle"
                 />
               </motion.h1>
             ) : (

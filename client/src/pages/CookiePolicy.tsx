@@ -8,13 +8,13 @@ export default function CookiePolicy() {
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             {/* Header */}
-            <div className="bg-blue-900 p-12 text-white relative overflow-hidden">
+            <div className="bg-primary p-12 text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-10">
                 <Cookie className="w-32 h-32" />
               </div>
               <div className="relative z-10">
                 <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">Çerez Politikası</h1>
-                <p className="text-blue-200 text-lg">Daha iyi bir deneyim için çerezleri nasıl kullanıyoruz?</p>
+                <p className="text-blue-100 text-lg">Daha iyi bir deneyim için çerezleri nasıl kullanıyoruz?</p>
               </div>
             </div>
 
@@ -22,7 +22,7 @@ export default function CookiePolicy() {
             <div className="p-12 space-y-10">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-900 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Info className="w-5 h-5" />
                   </div>
                   <h2 className="text-xl font-bold">Çerez (Cookie) Nedir?</h2>
@@ -34,7 +34,7 @@ export default function CookiePolicy() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-900 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Settings className="w-5 h-5" />
                   </div>
                   <h2 className="text-xl font-bold">Kullandığımız Çerez Türleri</h2>
@@ -57,7 +57,7 @@ export default function CookiePolicy() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-900 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <CheckCircle className="w-5 h-5" />
                   </div>
                   <h2 className="text-xl font-bold">Çerez Yönetimi</h2>

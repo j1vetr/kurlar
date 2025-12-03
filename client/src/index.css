@@ -10,7 +10,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   
   /* Kurlar Brand Colors */
-  /* Main Brand: #243474 -> hsl(228, 53%, 30%) */
+  /* Main Brand: #243474 */
   
   --color-background: hsl(210 20% 98%); /* Very light grey/white for fresh feel */
   --color-foreground: hsl(228 53% 15%); /* Darker navy for text */

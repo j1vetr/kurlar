@@ -15,7 +15,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-heading font-bold mb-6"
           >
-            Tarihimizden İlham Alındı, <br/> <span className="text-blue-400">Gelecek İçin Tasarlandı</span>
+            Tarihimizden İlham Alındı, <br/> <span className="text-primary">Gelecek İçin Tasarlandı</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -104,32 +104,32 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
             <div className="p-4">
               <div className="text-5xl font-bold mb-2">180B+</div>
-              <div className="text-blue-200 font-medium">Dalgıç Pompa & Motor Üretimi</div>
+              <div className="text-blue-100 font-medium">Dalgıç Pompa & Motor Üretimi</div>
             </div>
             <div className="p-4">
               <div className="text-5xl font-bold mb-2">17B+</div>
-              <div className="text-blue-200 font-medium">Kalite Denetimi Yapıldı</div>
+              <div className="text-blue-100 font-medium">Kalite Denetimi Yapıldı</div>
             </div>
             <div className="p-4">
               <div className="text-5xl font-bold mb-2">50+</div>
-              <div className="text-blue-200 font-medium">Aktif Bayi Ağı</div>
+              <div className="text-blue-100 font-medium">Aktif Bayi Ağı</div>
             </div>
           </div>
         </div>
 
         {/* Values Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-          <div className="bg-white p-10 rounded-2xl border-2 border-blue-500/30 shadow-lg hover:border-blue-600 hover:shadow-blue-100 transition-all duration-300 group">
+          <div className="bg-white p-10 rounded-2xl border-2 border-primary/30 shadow-lg hover:border-primary hover:shadow-blue-100 transition-all duration-300 group">
             <h3 className="text-2xl font-heading font-bold text-primary mb-4 flex items-center">
-              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-blue-700 transition-colors">MİSYON</span>
+              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-primary transition-colors">MİSYON</span>
             </h3>
             <p className="text-slate-700 text-lg leading-relaxed">
               Kullanıcılarına yüksek verimlilik ve sürdürülebilir kalite esasına uygun yüksek teknolojili yerli ve güvenilir ürünlerin üretimine her gün yenisi ekleyerek Kurlar’ı dünya markası yapmak.
             </p>
           </div>
-          <div className="bg-white p-10 rounded-2xl border-2 border-blue-500/30 shadow-lg hover:border-blue-600 hover:shadow-blue-100 transition-all duration-300 group">
+          <div className="bg-white p-10 rounded-2xl border-2 border-primary/30 shadow-lg hover:border-primary hover:shadow-blue-100 transition-all duration-300 group">
             <h3 className="text-2xl font-heading font-bold text-primary mb-4 flex items-center">
-              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-blue-700 transition-colors">VİZYON</span>
+              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-primary transition-colors">VİZYON</span>
             </h3>
             <p className="text-slate-700 text-lg leading-relaxed">
               Dalgıç Pompa ve Dalgıç Motor dendiğinde akla ilk gelen, güvenilirliğiyle, müşteri memnuniyetiyle ve yenilikleriyle rakipsiz bir dünya markası olmak.
@@ -141,13 +141,13 @@ export default function About() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-heading font-bold text-slate-900 mb-3">Tarihçe</h2>
-            <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+            <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
             <p className="text-slate-500 mt-4 text-lg">Başarılarla dolu yolculuğumuzun kilometre taşları.</p>
           </div>
           
           <div className="relative">
             {/* Central Line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 transform -translate-x-1/2"></div>
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-100 via-primary to-blue-100 transform -translate-x-1/2"></div>
 
             <div className="space-y-12">
               {[
@@ -162,11 +162,11 @@ export default function About() {
               ].map((item, index) => (
                 <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                   {/* Content Side */}
-                  <div className="w-full md:w-1/2 text-center md:text-left p-6 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl hover:border-blue-200 transition-all duration-300 relative group">
-                     <div className={`absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-white border-2 border-blue-600 rotate-45 hidden md:block ${index % 2 === 0 ? '-left-2' : '-right-2'}`}></div>
+                  <div className="w-full md:w-1/2 text-center md:text-left p-6 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl hover:border-blue-100 transition-all duration-300 relative group">
+                     <div className={`absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rotate-45 hidden md:block ${index % 2 === 0 ? '-left-2' : '-right-2'}`}></div>
                      <span className="text-4xl font-bold text-blue-100 absolute top-2 right-4 select-none group-hover:text-blue-50 transition-colors">{item.year}</span>
                      <div className="relative z-10">
-                       <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 font-bold rounded-full text-sm mb-3 border border-blue-100">{item.year}</span>
+                       <span className="inline-block px-3 py-1 bg-blue-50 text-primary font-bold rounded-full text-sm mb-3 border border-blue-100">{item.year}</span>
                        <h4 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
                        <p className="text-slate-600 leading-relaxed">{item.desc}</p>
                      </div>
@@ -174,7 +174,7 @@ export default function About() {
 
                   {/* Center Point */}
                   <div className="relative flex items-center justify-center w-12 h-12 shrink-0">
-                    <div className="w-4 h-4 bg-blue-600 rounded-full ring-4 ring-white shadow-md z-10"></div>
+                    <div className="w-4 h-4 bg-primary rounded-full ring-4 ring-white shadow-md z-10"></div>
                   </div>
 
                   {/* Empty Side for Balance */}

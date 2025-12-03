@@ -147,7 +147,7 @@ export default function Dealers() {
               </h3>
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
-                  <span className="w-3 h-3 rounded-full bg-blue-400 shadow-sm"></span> Bayi Var
+                  <span className="w-3 h-3 rounded-full bg-primary/60 shadow-sm"></span> Bayi Var
                 </div>
                 <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
                   <span className="w-3 h-3 rounded-full bg-slate-200 border border-slate-300"></span> Bayi Yok
@@ -202,7 +202,7 @@ export default function Dealers() {
                           strokeWidth={isSelected ? 2 : 1}
                           className={cn(
                             "transition-all duration-300 outline-none",
-                            hasDealers ? "hover:fill-blue-600 cursor-pointer hover:filter hover:drop-shadow-lg" : "hover:fill-slate-300"
+                            hasDealers ? "hover:fill-primary cursor-pointer hover:filter hover:drop-shadow-lg" : "hover:fill-slate-300"
                           )}
                           data-tooltip-id="map-tooltip"
                           data-tooltip-content={cityName}

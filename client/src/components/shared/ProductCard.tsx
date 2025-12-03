@@ -30,7 +30,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
           {/* Available Sizes Badge - NEW */}
           {product.availableSizes && (
-             <div className="absolute top-0 right-0 z-20 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl shadow-md uppercase tracking-wider flex items-center gap-1">
+             <div className="absolute top-0 right-0 z-20 bg-primary text-white text-xs font-bold px-4 py-2 rounded-bl-xl shadow-md uppercase tracking-wider flex items-center gap-1">
                <Ruler className="w-3.5 h-3.5" /> {product.availableSizes}
              </div>
           )}
@@ -57,7 +57,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
               <div className="flex items-center gap-2 mb-3">
                 <span className={cn(
                   "w-1.5 h-1.5 rounded-full",
-                  product.category === 'pump' ? "bg-blue-500" : "bg-orange-500"
+                  product.category === 'pump' ? "bg-primary" : "bg-orange-500"
                 )} />
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                   {product.category === 'pump' ? 'Dalgıç Pompa' : 'Dalgıç Motor'}

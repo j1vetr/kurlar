@@ -69,7 +69,7 @@ export default function Certificates() {
                 <div className="flex items-center gap-3 mb-4">
                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                      cert.color === 'green' ? 'bg-green-100 text-green-600' :
-                     cert.color === 'blue' ? 'bg-blue-100 text-blue-600' :
+                     cert.color === 'blue' ? 'bg-blue-100 text-primary' :
                      'bg-orange-100 text-orange-600'
                    }`}>
                       <Award className="w-5 h-5" />
@@ -105,7 +105,7 @@ export default function Certificates() {
                       "İş sağlığı ve güvenliği standartlarına tam uyum"
                     ].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
-                         <CheckCircle className="w-5 h-5 text-blue-400 shrink-0" />
+                         <CheckCircle className="w-5 h-5 text-primary/60 shrink-0" />
                          <span className="text-slate-300">{item}</span>
                       </div>
                     ))}

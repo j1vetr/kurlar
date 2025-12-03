@@ -70,22 +70,22 @@ export default function Careers() {
 
   const benefits = [
     {
-      icon: <Users className="w-6 h-6 text-blue-600" />,
+      icon: <Users className="w-6 h-6 text-primary" />,
       title: "Güçlü Ekip Ruhu",
       desc: "Birbirini destekleyen, deneyimli ve dinamik bir ekiple çalışma fırsatı."
     },
     {
-      icon: <Zap className="w-6 h-6 text-blue-600" />,
+      icon: <Zap className="w-6 h-6 text-primary" />,
       title: "Sürekli Gelişim",
       desc: "Mesleki eğitimler ve kariyer gelişim programları ile potansiyelinizi artırın."
     },
     {
-      icon: <Trophy className="w-6 h-6 text-blue-600" />,
+      icon: <Trophy className="w-6 h-6 text-primary" />,
       title: "Öncü Teknoloji",
       desc: "Sektörün en modern üretim teknolojileri ile çalışma imkanı."
     },
     {
-      icon: <CheckCircle2 className="w-6 h-6 text-blue-600" />,
+      icon: <CheckCircle2 className="w-6 h-6 text-primary" />,
       title: "Sosyal Haklar",
       desc: "Rekabetçi maaş, özel sağlık sigortası, servis ve yemek imkanları."
     }
@@ -108,7 +108,7 @@ export default function Careers() {
             <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
               Kurlar Dalgıç Pompa ailesine katılın, sektörün öncü teknolojilerini birlikte geliştirelim. Yeteneğinize ve enerjinize ihtiyacımız var.
             </p>
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-6 rounded-sm uppercase tracking-wider">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-sm uppercase tracking-wider">
               Açık Pozisyonları İncele
             </Button>
           </motion.div>
@@ -180,10 +180,10 @@ export default function Careers() {
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3">
-                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
                         {pos.title}
                       </h3>
-                      <span className="bg-blue-50 text-blue-700 text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+                      <span className="bg-blue-50 text-primary/90 text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide">
                         {pos.department}
                       </span>
                     </div>
@@ -218,7 +218,7 @@ export default function Careers() {
                   </div>
 
                   <div className="flex flex-col gap-3 shrink-0 lg:w-48">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wide h-12">
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wide h-12">
                       Başvur
                     </Button>
                     <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-slate-50 font-bold uppercase tracking-wide h-12">
@@ -236,8 +236,8 @@ export default function Careers() {
       <div className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="bg-slate-900 rounded-2xl p-12 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
             
             <div className="relative z-10">
               <h2 className="text-3xl font-heading font-bold text-white mb-4">

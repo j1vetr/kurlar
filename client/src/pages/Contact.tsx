@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="relative bg-slate-900 py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <span className="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block">
+          <span className="text-primary/60 font-bold tracking-widest uppercase text-sm mb-4 block">
              İletişim
           </span>
           <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
@@ -26,7 +26,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
            {/* Head Office Card */}
            <div className="bg-white p-10 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-6">
+              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-primary mb-6">
                  <MapPin className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Merkez Fabrika</h3>
@@ -34,7 +34,7 @@ export default function Contact() {
                 İbni Melek OSB. Mah. Tosbi Yol<br/>
                 5. Sok. No: 5 Tire / İzmir
               </p>
-              <a href="https://g.co/kgs/2gGV7No" target="_blank" rel="noopener noreferrer" className="mt-auto text-blue-600 font-bold hover:text-blue-800 flex items-center gap-2">
+              <a href="https://g.co/kgs/2gGV7No" target="_blank" rel="noopener noreferrer" className="mt-auto text-primary font-bold hover:text-blue-800 flex items-center gap-2">
                 Yol Tarifi Al <ArrowRight className="w-4 h-4" />
               </a>
            </div>
@@ -48,7 +48,7 @@ export default function Contact() {
               <p className="text-slate-500 leading-relaxed mb-6">
                 Hafta içi 08:30 - 18:00 saatleri arasında bize ulaşabilirsiniz.
               </p>
-              <a href="tel:902325123030" className="text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors">
+              <a href="tel:902325123030" className="text-2xl font-bold text-slate-900 hover:text-primary transition-colors">
                 +90 (232) 512 30 30
               </a>
            </div>
@@ -62,7 +62,7 @@ export default function Contact() {
               <p className="text-slate-500 leading-relaxed mb-6">
                 Teklif ve bilgi talepleriniz için e-posta adresimiz.
               </p>
-              <a href="mailto:info@kurlar.com.tr" className="text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors">
+              <a href="mailto:info@kurlar.com.tr" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">
                 info@kurlar.com.tr
               </a>
            </div>
@@ -85,7 +85,7 @@ export default function Contact() {
         {/* Map Overlay Card */}
         <div className="absolute bottom-8 left-8 bg-white p-6 rounded-xl shadow-2xl max-w-xs hidden md:block">
            <div className="flex items-center gap-3 mb-2">
-              <Globe className="w-5 h-5 text-blue-600" />
+              <Globe className="w-5 h-5 text-primary" />
               <span className="font-bold text-slate-900">Global Merkez</span>
            </div>
            <p className="text-sm text-slate-500">
