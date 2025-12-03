@@ -105,9 +105,13 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 4, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/40"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/70 cursor-pointer hover:text-white transition-colors"
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent"></div>
+        <span className="text-xs uppercase tracking-[0.2em] mb-2 font-bold animate-pulse">Aşağı Kaydır</span>
+        <div className="w-[1px] h-16 bg-gradient-to-b from-white to-transparent relative overflow-hidden">
+           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-white to-transparent animate-water-flow opacity-50" style={{ animationDuration: '1.5s' }}></div>
+        </div>
       </motion.div>
     </div>
   );
