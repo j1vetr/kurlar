@@ -53,7 +53,7 @@ export default function Dealers() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [geographies, setGeographies] = useState<any[]>([]);
-  const [scale, setScale] = useState(2800);
+  const [scale, setScale] = useState(3200);
   const [translate, setTranslate] = useState<{x: number, y: number}>({ x: 0, y: 0 });
 
   // Fetch Map Data
@@ -121,7 +121,7 @@ export default function Dealers() {
 
   const handleZoomIn = () => setScale(s => s * 1.2);
   const handleZoomOut = () => setScale(s => Math.max(1000, s / 1.2));
-  const handleReset = () => { setScale(2800); setTranslate({x:0, y:0}); setSelectedCity(null); };
+  const handleReset = () => { setScale(3200); setTranslate({x:0, y:0}); setSelectedCity(null); };
 
   return (
     <Layout>
@@ -138,37 +138,45 @@ export default function Dealers() {
       <div className="container mx-auto px-6 py-12">
         <div className="flex flex-col lg:flex-row gap-8 min-h-[800px]">
           {/* Interactive Map Section */}
-          <div className="lg:w-7/12 bg-slate-50 rounded-xl border border-slate-200 relative overflow-hidden flex flex-col shadow-inner">
+          <div className="lg:w-7/12 bg-white rounded-xl border border-slate-200 relative overflow-hidden flex flex-col shadow-lg ring-1 ring-slate-100">
             {/* Map Header */}
-            <div className="bg-white p-4 border-b border-slate-200 flex justify-between items-center z-10">
-              <h3 className="font-bold text-slate-800 flex items-center gap-2">
+            <div className="bg-white p-4 border-b border-slate-200 flex justify-between items-center z-10 bg-gradient-to-r from-white to-slate-50">
+              <h3 className="font-bold text-slate-800 flex items-center gap-2 text-lg">
                 <MapPin className="text-primary" /> Türkiye Bayi Haritası
               </h3>
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1 text-xs text-slate-500">
-                  <span className="w-3 h-3 rounded-full bg-blue-300"></span> Bayi Var
-                  <span className="w-3 h-3 rounded-full bg-slate-200 ml-2"></span> Bayi Yok
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
+                  <span className="w-3 h-3 rounded-full bg-blue-400 shadow-sm"></span> Bayi Var
+                </div>
+                <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
+                  <span className="w-3 h-3 rounded-full bg-slate-200 border border-slate-300"></span> Bayi Yok
                 </div>
               </div>
             </div>
 
             {/* Map Controls */}
             <div className="absolute top-20 right-4 flex flex-col gap-2 z-20">
-              <Button variant="secondary" size="icon" onClick={handleZoomIn} className="h-8 w-8 rounded-full shadow-md bg-white hover:bg-slate-100">
+              <Button variant="secondary" size="icon" onClick={handleZoomIn} className="h-9 w-9 rounded-full shadow-lg bg-white hover:bg-slate-50 border border-slate-100 text-slate-700">
                 <ZoomIn className="h-4 w-4" />
               </Button>
-              <Button variant="secondary" size="icon" onClick={handleZoomOut} className="h-8 w-8 rounded-full shadow-md bg-white hover:bg-slate-100">
+              <Button variant="secondary" size="icon" onClick={handleZoomOut} className="h-9 w-9 rounded-full shadow-lg bg-white hover:bg-slate-50 border border-slate-100 text-slate-700">
                 <ZoomOut className="h-4 w-4" />
               </Button>
-              <Button variant="secondary" size="icon" onClick={handleReset} className="h-8 w-8 rounded-full shadow-md bg-white hover:bg-slate-100">
+              <Button variant="secondary" size="icon" onClick={handleReset} className="h-9 w-9 rounded-full shadow-lg bg-white hover:bg-slate-50 border border-slate-100 text-slate-700">
                 <RotateCcw className="h-4 w-4" />
               </Button>
             </div>
 
             {/* Map Container */}
-            <div className="flex-1 relative bg-[#f8fafc] flex items-center justify-center overflow-hidden">
+            <div className="flex-1 relative bg-slate-50/50 flex items-center justify-center overflow-hidden">
               {geographies.length > 0 ? (
-                <svg width="100%" height="100%" viewBox={`0 0 ${width} ${height}`} className="max-w-full max-h-full cursor-grab active:cursor-grabbing">
+                <svg width="100%" height="100%" viewBox={`0 0 ${width} ${height}`} className="max-w-full max-h-full cursor-grab active:cursor-grabbing drop-shadow-xl">
+                  <defs>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="2" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
                   <g>
                     {geographies.map((geo, i) => {
                       const cityName = geo.properties.name;
@@ -188,12 +196,12 @@ export default function Dealers() {
                         <path
                           key={i}
                           d={pathGenerator(geo) || undefined}
-                          fill={getCityColor(cityName)}
-                          stroke="#FFFFFF"
-                          strokeWidth={isSelected ? 2 : 0.5}
+                          fill={isSelected ? "#243474" : (hasDealers ? "#60a5fa" : "#e2e8f0")}
+                          stroke="#ffffff"
+                          strokeWidth={isSelected ? 2 : 1}
                           className={cn(
-                            "transition-colors duration-300 outline-none",
-                            hasDealers ? "hover:fill-blue-500 cursor-pointer" : "hover:fill-slate-300"
+                            "transition-all duration-300 outline-none",
+                            hasDealers ? "hover:fill-blue-600 cursor-pointer hover:filter hover:drop-shadow-lg" : "hover:fill-slate-300"
                           )}
                           data-tooltip-id="map-tooltip"
                           data-tooltip-content={cityName}
@@ -226,49 +234,59 @@ export default function Dealers() {
                   <span className="loading loading-spinner"></span> Harita Yükleniyor...
                 </div>
               )}
-              <Tooltip id="map-tooltip" className="z-50 text-xs font-bold bg-slate-800 text-white px-2 py-1 rounded shadow-lg" />
+              <Tooltip id="map-tooltip" className="z-50 text-xs font-bold bg-slate-900 text-white px-3 py-1.5 rounded-md shadow-xl" />
             </div>
           </div>
 
           {/* Dealer List Sidebar */}
           <div className="lg:w-5/12 flex flex-col bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden h-[800px]">
-            <div className="p-6 border-b border-slate-100 bg-slate-50/50">
-              <div className="relative mb-4">
+            <div className="p-6 border-b border-slate-100 bg-white z-10 shadow-sm">
+              <div className="relative mb-6">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <Input 
                   placeholder="Şehir, ilçe veya bayi adı ara..." 
-                  className="pl-10 h-12 bg-white border-slate-200 focus:border-primary focus:ring-primary/20"
+                  className="pl-10 h-12 bg-slate-50 border-slate-200 focus:border-primary focus:ring-primary/20 transition-all"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
               
-              <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto pr-2 custom-scrollbar">
-                <button 
-                  onClick={() => setSelectedCity(null)}
-                  className={cn(
-                    "px-3 py-1.5 text-xs font-bold rounded-full transition-all border",
-                    !selectedCity 
-                      ? "bg-primary text-white border-primary shadow-sm" 
-                      : "bg-white text-slate-600 border-slate-200 hover:border-primary hover:text-primary"
-                  )}
-                >
-                  TÜMÜ
-                </button>
-                {cities.map(city => (
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Hızlı Şehir Filtresi</span>
+              </div>
+              
+              {/* Horizontal Scrolling City Filter */}
+              <div className="relative -mx-6 px-6">
+                <div className="flex overflow-x-auto gap-2 pb-4 pt-1 scrollbar-hide mask-linear-fade">
                   <button 
-                    key={city}
-                    onClick={() => setSelectedCity(city)}
+                    onClick={() => setSelectedCity(null)}
                     className={cn(
-                      "px-3 py-1.5 text-xs font-bold rounded-full transition-all border",
-                      selectedCity === city 
-                        ? "bg-primary text-white border-primary shadow-sm" 
-                        : "bg-white text-slate-600 border-slate-200 hover:border-primary hover:text-primary"
+                      "px-4 py-2 text-sm font-bold rounded-lg transition-all border whitespace-nowrap flex-shrink-0",
+                      !selectedCity 
+                        ? "bg-slate-900 text-white border-slate-900 shadow-md transform scale-105" 
+                        : "bg-white text-slate-600 border-slate-200 hover:border-primary hover:text-primary hover:bg-slate-50"
                     )}
                   >
-                    {city}
+                    TÜM İLLER
                   </button>
-                ))}
+                  {cities.map(city => (
+                    <button 
+                      key={city}
+                      onClick={() => setSelectedCity(city)}
+                      className={cn(
+                        "px-4 py-2 text-sm font-bold rounded-lg transition-all border whitespace-nowrap flex-shrink-0",
+                        selectedCity === city 
+                          ? "bg-primary text-white border-primary shadow-md transform scale-105" 
+                          : "bg-white text-slate-600 border-slate-200 hover:border-primary hover:text-primary hover:bg-slate-50"
+                      )}
+                    >
+                      {city}
+                    </button>
+                  ))}
+                </div>
+                {/* Fade gradients for scroll indication */}
+                <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+                <div className="absolute left-0 top-0 bottom-4 w-4 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
               </div>
             </div>
 
