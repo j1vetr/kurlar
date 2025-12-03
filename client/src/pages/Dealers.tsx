@@ -53,7 +53,7 @@ export default function Dealers() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [geographies, setGeographies] = useState<any[]>([]);
-  const [scale, setScale] = useState(3200);
+  const [scale, setScale] = useState(2400);
   const [translate, setTranslate] = useState<{x: number, y: number}>({ x: 0, y: 0 });
 
   // Fetch Map Data
@@ -70,10 +70,11 @@ export default function Dealers() {
 
   const filteredDealers = dealers.filter(d => {
     const matchesCity = selectedCity ? d.city === selectedCity : true;
+    const searchLower = searchQuery.toLocaleLowerCase('tr');
     const matchesSearch = 
-      d.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      d.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      d.district.toLowerCase().includes(searchQuery.toLowerCase());
+      d.name.toLocaleLowerCase('tr').includes(searchLower) || 
+      d.city.toLocaleLowerCase('tr').includes(searchLower) ||
+      d.district.toLocaleLowerCase('tr').includes(searchLower);
     return matchesCity && matchesSearch;
   });
 
