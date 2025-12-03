@@ -74,16 +74,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ürünler Section - Re-designed from scratch */}
-      <section className="py-24 bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+      {/* Ürünler Section - Re-designed with Infinite Marquee */}
+      <section className="py-24 bg-slate-50 border-t border-slate-200 overflow-hidden">
+        <div className="container mx-auto px-6 mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-end">
             <div>
               <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">
                 Ürün Yelpazemiz
               </span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900">
-                Profesyonel Pompa Sistemleri
+                Profesyonel Pompa ve Motor Çözümleri
               </h2>
             </div>
             <Link href="/urunler">
@@ -92,46 +92,70 @@ export default function Home() {
               </Button>
             </Link>
           </div>
+        </div>
 
-          {/* Featured Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <Link key={product.id} href={`/urunler/${product.id}`}>
-                <a className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-blue-500 transition-all duration-300 hover:shadow-lg flex flex-col h-full">
-                  {/* Image Area */}
-                  <div className="aspect-[4/5] bg-slate-100 relative overflow-hidden flex items-center justify-center p-6">
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <img 
-                      src={product.image} 
-                      alt={product.name}
-                      className="w-full h-full object-contain relative z-10 transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-20">
-                      <ArrowUpRight className="w-4 h-4 text-blue-600" />
-                    </div>
-                  </div>
-                  
-                  {/* Content Area */}
-                  <div className="p-5 flex flex-col flex-grow">
-                    <div className="mb-2">
-                       <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                         {product.subCategory}
-                       </span>
-                    </div>
-                    <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600 transition-colors leading-snug">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm text-slate-500 line-clamp-2 mt-auto">
-                      {product.description}
-                    </p>
-                  </div>
-                </a>
-              </Link>
-            ))}
-          </div>
+        {/* Infinite Marquee Slider */}
+        <div className="relative w-full">
+           {/* Gradient Masks for Smooth Fade */}
+           <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+           <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+
+           <motion.div 
+             className="flex gap-8 px-6"
+             animate={{ x: ["0%", "-50%"] }}
+             transition={{ 
+               repeat: Infinity, 
+               ease: "linear", 
+               duration: 40 // Slow and smooth scroll
+             }}
+             style={{ width: "fit-content" }}
+           >
+             {/* Double the products array to create seamless loop */}
+             {[...products, ...products].map((product, index) => (
+               <div key={`${product.id}-${index}`} className="w-[300px] md:w-[380px] flex-shrink-0">
+                 <Link href={`/urunler/${product.id}`}>
+                   <a className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-blue-500 transition-all duration-300 hover:shadow-xl flex flex-col h-full">
+                     {/* Image Area */}
+                     <div className="aspect-[4/5] bg-slate-100 relative overflow-hidden flex items-center justify-center p-8">
+                       <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                       
+                       {/* Subcategory Badge */}
+                       <div className="absolute top-4 left-4 z-20">
+                         <span className="bg-white/90 backdrop-blur text-slate-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider border border-slate-100">
+                           {product.subCategory}
+                         </span>
+                       </div>
+
+                       <img 
+                         src={product.image} 
+                         alt={product.name}
+                         className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                       />
+                       
+                       <div className="absolute bottom-4 right-4 bg-blue-600 text-white rounded-full p-3 shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-20">
+                         <ArrowUpRight className="w-5 h-5" />
+                       </div>
+                     </div>
+                     
+                     {/* Content Area */}
+                     <div className="p-6 flex flex-col flex-grow border-t border-slate-50">
+                       <h3 className="font-bold text-xl text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-snug">
+                         {product.name}
+                       </h3>
+                       <p className="text-sm text-slate-500 line-clamp-2 mt-auto leading-relaxed">
+                         {product.description}
+                       </p>
+                     </div>
+                   </a>
+                 </Link>
+               </div>
+             ))}
+           </motion.div>
+        </div>
           
+        <div className="container mx-auto px-6">
           {/* Categories Strip */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
              {categories.map(cat => (
                <Link key={cat.id} href={`/urunler?category=${cat.category}`}>
                  <a className="flex items-center bg-white p-6 rounded-xl border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all group">
