@@ -1,120 +1,96 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Clock, ArrowRight } from "lucide-react";
 
 export default function Contact() {
   return (
     <Layout>
-      <div className="bg-primary text-white py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">İletişim</h1>
-          <p className="text-white/80 max-w-xl mx-auto text-lg">
-            Sizden haber almak istiyoruz. İhtiyaçlarınızı anlamak ve beklentileri aşan bir çözüm sunmak için heyecanlıyız.
+      {/* Elegant Hero */}
+      <div className="relative bg-slate-900 py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <span className="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block">
+             İletişim
+          </span>
+          <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
+            Size Nasıl Yardımcı Olabiliriz?
+          </h1>
+          <p className="text-slate-300 max-w-2xl mx-auto text-lg leading-relaxed">
+            Projeleriniz için teknik destek, teklif talepleri veya genel sorularınız için uzman ekibimizle iletişime geçin.
           </p>
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-16 -mt-10 relative z-10">
+      {/* Main Info Section */}
+      <div className="container mx-auto px-6 -mt-16 relative z-20 mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact Cards */}
-          {[
-            { 
-              icon: Phone, 
-              title: "Telefon", 
-              lines: ["+90 (232) 512 30 30"],
-              link: "tel:902325123030"
-            },
-            { 
-              icon: Mail, 
-              title: "E-Posta", 
-              lines: ["info@kurlar.com.tr"],
-              link: "mailto:info@kurlar.com.tr"
-            },
-            { 
-              icon: MapPin, 
-              title: "Adres", 
-              lines: ["İbni Melek OSB. Mah. Tosbi Yol", "5. Sok. No: 5 Tire / İzmir"],
-              link: "https://g.co/kgs/2gGV7No"
-            },
-          ].map((item, i) => (
-            <a 
-              key={i} 
-              href={item.link} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white p-8 rounded-xl shadow-lg border border-slate-100 text-center hover:translate-y-1 transition-transform duration-300 group"
-            >
-              <div className="w-16 h-16 mx-auto bg-primary/5 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <item.icon className="w-8 h-8" />
+           {/* Head Office Card */}
+           <div className="bg-white p-10 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-6">
+                 <MapPin className="w-8 h-8" />
               </div>
-              <h3 className="font-heading font-bold text-xl mb-4">{item.title}</h3>
-              {item.lines.map((line, j) => (
-                <p key={j} className="text-slate-600">{line}</p>
-              ))}
-            </a>
-          ))}
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Merkez Fabrika</h3>
+              <p className="text-slate-500 leading-relaxed mb-6">
+                İbni Melek OSB. Mah. Tosbi Yol<br/>
+                5. Sok. No: 5 Tire / İzmir
+              </p>
+              <a href="https://g.co/kgs/2gGV7No" target="_blank" rel="noopener noreferrer" className="mt-auto text-blue-600 font-bold hover:text-blue-800 flex items-center gap-2">
+                Yol Tarifi Al <ArrowRight className="w-4 h-4" />
+              </a>
+           </div>
+
+           {/* Phone Support */}
+           <div className="bg-white p-10 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+              <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 mb-6">
+                 <Phone className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Telefon & Destek</h3>
+              <p className="text-slate-500 leading-relaxed mb-6">
+                Hafta içi 08:30 - 18:00 saatleri arasında bize ulaşabilirsiniz.
+              </p>
+              <a href="tel:902325123030" className="text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors">
+                +90 (232) 512 30 30
+              </a>
+           </div>
+
+           {/* Email */}
+           <div className="bg-white p-10 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+              <div className="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 mb-6">
+                 <Mail className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">E-Posta</h3>
+              <p className="text-slate-500 leading-relaxed mb-6">
+                Teklif ve bilgi talepleriniz için e-posta adresimiz.
+              </p>
+              <a href="mailto:info@kurlar.com.tr" className="text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors">
+                info@kurlar.com.tr
+              </a>
+           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-12 mb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Form */}
-          <div>
-            <h2 className="text-3xl font-heading font-bold mb-6">Bize Yazın</h2>
-            <p className="text-slate-600 mb-8">
-              Aşağıdaki formu doldurarak bize ulaşabilirsiniz. Uzman ekibimiz en kısa sürede size dönüş yapacaktır.
-            </p>
-            
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Adınız Soyadınız</label>
-                  <Input placeholder="Ad Soyad" className="h-12 bg-slate-50 border-slate-200" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Telefon</label>
-                  <Input placeholder="05XX XXX XX XX" className="h-12 bg-slate-50 border-slate-200" />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">E-Posta</label>
-                  <Input placeholder="ornek@sirket.com" type="email" className="h-12 bg-slate-50 border-slate-200" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Firma</label>
-                  <Input placeholder="Firma Adı" className="h-12 bg-slate-50 border-slate-200" />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700">Mesajınız</label>
-                <Textarea placeholder="Yorumlar/Sorular..." className="min-h-[150px] bg-slate-50 border-slate-200 resize-none" />
-              </div>
-              
-              <Button size="lg" className="w-full md:w-auto h-12 px-8 bg-primary hover:bg-primary/90">
-                Gönder
-              </Button>
-            </form>
-          </div>
-
-          {/* Map - Using an image placeholder that looks professional or if iframe is allowed */}
-          <div className="h-full min-h-[400px] bg-slate-100 rounded-2xl border border-slate-200 overflow-hidden shadow-inner relative">
-             {/* Since we can't easily embed a real dynamic google map without API key, we'll use a link-image approach or simple placeholder */}
-             <iframe 
-               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12585.85589564845!2d27.452217!3d38.085017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6b5d6833365b%3A0x35c497365e058686!2sKurlar%20Dalg%C4%B1%C3%A7%20Pompa%20ve%20Motor!5e0!3m2!1str!2str!4v1701600000000!5m2!1str!2str" 
-               width="100%" 
-               height="100%" 
-               style={{ border: 0 }} 
-               allowFullScreen 
-               loading="lazy" 
-               referrerPolicy="no-referrer-when-downgrade"
-               className="absolute inset-0 w-full h-full"
-             ></iframe>
-          </div>
+      {/* Map Section - Full Width */}
+      <div className="w-full h-[500px] bg-slate-100 relative">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12585.85589564845!2d27.452217!3d38.085017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6b5d6833365b%3A0x35c497365e058686!2sKurlar%20Dalg%C4%B1%C3%A7%20Pompa%20ve%20Motor!5e0!3m2!1str!2str!4v1701600000000!5m2!1str!2str" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0, filter: 'grayscale(100%) invert(0%)' }} 
+          allowFullScreen 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          className="absolute inset-0 w-full h-full"
+        ></iframe>
+        
+        {/* Map Overlay Card */}
+        <div className="absolute bottom-8 left-8 bg-white p-6 rounded-xl shadow-2xl max-w-xs hidden md:block">
+           <div className="flex items-center gap-3 mb-2">
+              <Globe className="w-5 h-5 text-blue-600" />
+              <span className="font-bold text-slate-900">Global Merkez</span>
+           </div>
+           <p className="text-sm text-slate-500">
+             Türkiye'nin en büyük dalgıç pompa üretim tesislerinden biri.
+           </p>
         </div>
       </div>
     </Layout>

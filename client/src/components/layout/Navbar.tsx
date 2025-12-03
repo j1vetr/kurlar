@@ -27,8 +27,9 @@ export function Navbar() {
       href: "/hakkimizda", // Default link
       children: [
         { name: "Hakkımızda", href: "/hakkimizda" },
+        { name: "Ar-Ge Merkezi", href: "/arge-merkezi" },
+        { name: "Sertifikalarımız", href: "/sertifikalarimiz" },
         { name: "İletişim", href: "/iletisim" },
-        { name: "İletişim Formu", href: "/iletisim" },
       ]
     },
     {
@@ -42,15 +43,6 @@ export function Navbar() {
       href: "/bayi-servis",
       children: [
         { name: "Yurt İçi Bayi & Servis Ağı", href: "/bayi-servis" }
-      ]
-    },
-    {
-      type: "dropdown",
-      name: "AR-GE",
-      href: "/ar-ge",
-      children: [
-        { name: "Ar-Ge Merkezi", href: "/ar-ge" },
-        { name: "Sertifikalarımız", href: "/sertifikalar" }
       ]
     },
     {

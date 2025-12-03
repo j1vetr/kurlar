@@ -10,12 +10,16 @@ import ProductDetail from "@/pages/ProductDetail";
 import Dealers from "@/pages/Dealers";
 import Contact from "@/pages/Contact";
 import About from "@/pages/About";
+import RAndD from "@/pages/RAndD";
+import Certificates from "@/pages/Certificates";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/hakkimizda" component={About} />
+      <Route path="/arge-merkezi" component={RAndD} />
+      <Route path="/sertifikalarimiz" component={Certificates} />
       <Route path="/urunler" component={Products} />
       <Route path="/urunler/:id" component={ProductDetail} />
       <Route path="/bayi-servis" component={Dealers} />
