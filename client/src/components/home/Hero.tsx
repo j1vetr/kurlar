@@ -76,9 +76,10 @@ export function Hero() {
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="flex flex-col items-center"
               >
-                <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-300 leading-none tracking-tight drop-shadow-2xl text-center uppercase">
-                  GELECEK İÇİN <br/>
-                  <span className="text-blue-500">TASARLANDI</span>
+                <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold leading-none tracking-tight drop-shadow-2xl text-center uppercase text-white/90">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white animate-pulse">
+                    GELECEK İÇİN TASARLANDI
+                  </span>
                 </h1>
                 
                 <motion.div 
