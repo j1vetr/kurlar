@@ -10,7 +10,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background selection:bg-primary/10 selection:text-primary">
       <Navbar />
-      <main className="flex-grow pt-0">
+      <main className="flex-grow pt-32 md:pt-36">
         {children}
       </main>
       <Footer />
