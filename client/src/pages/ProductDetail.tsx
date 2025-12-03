@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { products } from "@/lib/data";
 import { useRoute, Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,7 @@ export default function ProductDetail() {
   const productId = params?.id;
   const product = products.find(p => p.id === productId);
   const [activeImage, setActiveImage] = useState(0);
-  const [activeTab, setActiveTab] = useState<'overview' | 'specs'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'parts'>('overview');
 
   if (!product) {
     return (
@@ -95,11 +95,11 @@ export default function ProductDetail() {
               </div>
 
               {/* Tabs / Sections */}
-              <div className="flex border-b border-slate-200 bg-slate-50">
+              <div className="flex border-b border-slate-200 bg-slate-50 overflow-x-auto">
                 <button 
                   onClick={() => setActiveTab('overview')}
                   className={cn(
-                    "flex-1 py-4 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                    "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
                     activeTab === 'overview' ? "bg-white border-b-2 border-blue-600 text-blue-600" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
@@ -108,12 +108,23 @@ export default function ProductDetail() {
                 <button 
                   onClick={() => setActiveTab('specs')}
                   className={cn(
-                    "flex-1 py-4 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                    "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
                     activeTab === 'specs' ? "bg-white border-b-2 border-blue-600 text-blue-600" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
                   <Ruler className="w-4 h-4" /> Teknik Veriler
                 </button>
+                {product.mechanicalPartsImages && (
+                  <button 
+                    onClick={() => setActiveTab('parts')}
+                    className={cn(
+                      "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                      activeTab === 'parts' ? "bg-white border-b-2 border-blue-600 text-blue-600" : "text-slate-500 hover:text-slate-700"
+                    )}
+                  >
+                    <Layers className="w-4 h-4" /> Mekanik Parçalar
+                  </button>
+                )}
               </div>
 
               {/* Tab Content */}
@@ -148,8 +159,15 @@ export default function ProductDetail() {
                 {activeTab === 'specs' && (
                   <div>
                      <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
-                        <Settings className="w-4 h-4 text-blue-600" /> Teknik Özellikler Tablosu
+                        <Settings className="w-4 h-4 text-blue-600" /> Teknik Özellikler
                       </h3>
+                      
+                      {product.specsImage && (
+                        <div className="mb-8">
+                          <img src={product.specsImage} alt="Teknik Özellikler" className="w-full border border-slate-200 rounded-sm" />
+                        </div>
+                      )}
+
                       <div className="border border-slate-200 rounded-sm overflow-hidden">
                         <table className="w-full text-sm text-left">
                           <tbody className="divide-y divide-slate-200">
@@ -163,6 +181,19 @@ export default function ProductDetail() {
                         </table>
                       </div>
                   </div>
+                )}
+
+                {activeTab === 'parts' && product.mechanicalPartsImages && (
+                   <div className="space-y-8">
+                     {product.mechanicalPartsImages.map((part, idx) => (
+                       <div key={idx}>
+                         <h4 className="font-bold text-slate-900 mb-2">{part.title}</h4>
+                         <div className="bg-white border border-slate-200 p-4 rounded-sm">
+                           <img src={part.image} alt={part.title} className="w-full h-auto" />
+                         </div>
+                       </div>
+                     ))}
+                   </div>
                 )}
               </div>
 

@@ -4,7 +4,7 @@ import { ProductCard } from "@/components/shared/ProductCard";
 import { products, categories } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Users, Globe, Building2, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Users, Globe, Building2, ArrowUpRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {

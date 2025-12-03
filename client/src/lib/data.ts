@@ -11,6 +11,8 @@ export interface Product {
   longDescription?: string;
   features?: string[];
   specs?: Record<string, string>;
+  specsImage?: string;
+  mechanicalPartsImages?: { title: string; image: string }[];
   applications?: string[];
   downloads?: { name: string; url: string }[];
 }
@@ -35,6 +37,11 @@ export const products: Product[] = [
 Tamamen paslanmaz çelik olarak imal edilen difüzörler, fanlar, emiş ve çıkış haznesi ile süzgeç, korozyona karşı son derece dayanıklıdır. Tasarım ve malzeme özellikleri sayesinde yüksek verimlilik, uzun ömür, yüksek dayanıklılık ve istikrarlı performans sunmaktadır.
 
 Yatay ve dikey kurulum pozisyonuna uygundur. Kurlar Paslanmaz Çelik Dalgıç Pompaları, NEMA standartlarına göre motor bağlantısına uygundur.`,
+    mechanicalPartsImages: [
+        { title: '4" Mekanik Parçalar', image: '/assets/details/4inc-mech.png' },
+        { title: '6" Mekanik Parçalar', image: '/assets/details/6inc-mech.png' },
+        { title: '8" - 10" Mekanik Parçalar', image: '/assets/details/8inc-mech.png' }
+    ],
     features: [
       'Uzun süreli ve güvenilir kullanım',
       'Yüksek performanslı çalışma',
@@ -207,6 +214,7 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
       'NEMA Standartlarına Uygun Pompa Bağlantısı',
       'IP 68 Koruma'
     ],
+    specsImage: '/assets/details/km4-specs.png',
     specs: {
       'Güç Aralığı': '0.37 – 7.5 kW',
       'Maksimum Sıvı Sıcaklığı': '+35 °C',
