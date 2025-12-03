@@ -16,7 +16,7 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  const firstText = "Tarihimizden ilham alındı,";
+  const firstText = "TARİHİMİZDEN İLHAM ALINDI,";
 
   return (
     <div className="relative w-full h-screen min-h-[700px] overflow-hidden flex items-center justify-center bg-black">
@@ -25,7 +25,7 @@ export function Hero() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] md:w-[150%] md:h-[150%] lg:w-full lg:h-[140%] pointer-events-none">
            <iframe 
              src="https://www.youtube.com/embed/6i9Wi-eVd6c?controls=0&autoplay=1&mute=1&loop=1&playlist=6i9Wi-eVd6c&start=38&enablejsapi=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" 
-             className="w-full h-full pointer-events-none object-cover"
+             className="w-full h-full pointer-events-none object-cover scale-125"
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
              style={{ border: 'none' }}
            />
@@ -77,8 +77,8 @@ export function Hero() {
                 className="flex flex-col items-center"
               >
                 <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-300 leading-none tracking-tight drop-shadow-2xl text-center uppercase">
-                  Gelecek İçin <br/>
-                  <span className="text-blue-500">Tasarlandı</span>
+                  GELECEK İÇİN <br/>
+                  <span className="text-blue-500">TASARLANDI</span>
                 </h1>
                 
                 <motion.div 
