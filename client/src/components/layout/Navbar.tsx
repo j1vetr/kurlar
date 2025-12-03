@@ -8,6 +8,8 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isHome = location === "/";
+  const isTransparent = isHome && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,8 +75,10 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b",
-        isScrolled ? "shadow-md border-slate-200 py-2" : "border-transparent py-4"
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b",
+        isTransparent 
+          ? "bg-transparent border-transparent py-6" 
+          : "bg-white border-slate-200 py-2 shadow-md"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between relative">
@@ -82,11 +86,17 @@ export function Navbar() {
         <Link href="/">
           <a className="group relative z-50">
             <div className="relative flex items-center justify-center">
-               <div className="absolute inset-0 rounded-full bg-blue-50/50 scale-110 group-hover:scale-125 transition-transform duration-500" />
+               <div className={cn(
+                 "absolute inset-0 rounded-full scale-110 group-hover:scale-125 transition-transform duration-500",
+                 isTransparent ? "bg-white/10" : "bg-blue-50/50"
+               )} />
                <img 
                   src="/assets/logo.png" 
                   alt="Kurlar Logo" 
-                  className="h-10 md:h-12 w-auto object-contain relative z-10" 
+                  className={cn(
+                    "h-10 md:h-12 w-auto object-contain relative z-10 transition-all duration-300",
+                    isTransparent && "brightness-0 invert"
+                  )} 
                 />
             </div>
           </a>
@@ -98,7 +108,12 @@ export function Navbar() {
             if (item.type === "link") {
               return (
                 <Link key={item.name} href={item.href}>
-                  <a className={cn("text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors", location === item.href ? "text-primary" : "text-slate-600")}>
+                  <a className={cn(
+                    "text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors", 
+                    location === item.href 
+                      ? "text-primary" 
+                      : (isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary")
+                  )}>
                     {item.name}
                   </a>
                 </Link>
@@ -116,7 +131,9 @@ export function Navbar() {
                   <Link href={item.href}>
                     <a className={cn(
                       "text-sm font-bold uppercase tracking-wider flex items-center gap-1 py-4 transition-colors", 
-                      (location.startsWith(item.href) || activeDropdown === item.name) ? "text-primary" : "text-slate-600 hover:text-primary"
+                      (location.startsWith(item.href) || activeDropdown === item.name) 
+                        ? "text-primary" 
+                        : (isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary")
                     )}>
                       {item.name}
                       <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeDropdown === item.name && "rotate-180")} />
@@ -154,7 +171,9 @@ export function Navbar() {
                   <Link href={item.href}>
                     <a className={cn(
                       "text-sm font-bold uppercase tracking-wider flex items-center gap-1 py-4 transition-colors", 
-                      (location.startsWith(item.href) || activeDropdown === item.name) ? "text-primary" : "text-slate-600 hover:text-primary"
+                      (location.startsWith(item.href) || activeDropdown === item.name) 
+                        ? "text-primary" 
+                        : (isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary")
                     )}>
                       {item.name}
                       <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeDropdown === item.name && "rotate-180")} />
@@ -248,7 +267,7 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="lg:hidden p-2 text-slate-900"
+          className={cn("lg:hidden p-2", isTransparent ? "text-white" : "text-slate-900")}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

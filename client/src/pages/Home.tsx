@@ -17,7 +17,7 @@ export default function Home() {
   ].filter(Boolean) as typeof products;
 
   return (
-    <Layout>
+    <Layout noTopPadding={true}>
       <Hero />
 
       {/* Section 2: Smooth Transition Categories */}

@@ -87,12 +87,6 @@ export function Hero() {
                   transition={{ delay: 1, duration: 0.8 }}
                   className="mt-12 flex flex-col sm:flex-row gap-6"
                 >
-                  <Link href="/urunler">
-                    <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 border-none font-bold px-10 h-14 text-lg rounded-full shadow-lg shadow-blue-900/20 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30">
-                      Keşfet <ArrowRight className="ml-3 w-6 h-6" />
-                    </Button>
-                  </Link>
-                  
                   <Link href="/bayi-servis">
                     <Button size="lg" variant="outline" className="bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 font-semibold px-10 h-14 text-lg rounded-full backdrop-blur-sm transition-all duration-300">
                       <MapPin className="mr-3 w-6 h-6" /> Bayi Ağı
