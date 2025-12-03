@@ -72,7 +72,7 @@ export default function Contact() {
       {/* Map Section - Full Width */}
       <div className="w-full h-[500px] bg-slate-100 relative">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12585.85589564845!2d27.452217!3d38.085017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6b5d6833365b%3A0x35c497365e058686!2sKurlar%20Dalg%C4%B1%C3%A7%20Pompa%20ve%20Motor!5e0!3m2!1str!2str!4v1701600000000!5m2!1str!2str" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.641431896711!2d27.70699921244816!3d38.12527557178196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b93de0ed96103d%3A0x8cff47f9de61ed93!2zS3VybGFyIERhbGfEscOnIFBvbXBhICYgRGFsZ8Sxw6cgTW90b3I!5e0!3m2!1str!2str!4v1764785445493!5m2!1str!2str" 
           width="100%" 
           height="100%" 
           style={{ border: 0, filter: 'grayscale(100%) invert(0%)' }} 
