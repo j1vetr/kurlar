@@ -47,15 +47,6 @@ export function Navbar() {
     },
     {
       type: "dropdown",
-      name: "Medya",
-      href: "/medya",
-      children: [
-        { name: "Haberler", href: "/haberler" },
-        { name: "Yazılar", href: "/yazilar" }
-      ]
-    },
-    {
-      type: "dropdown",
       name: "Kariyer",
       href: "/kariyer",
       children: [
