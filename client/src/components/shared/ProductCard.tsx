@@ -1,7 +1,7 @@
 import { Product } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "wouter";
 
 interface ProductCardProps {
@@ -14,42 +14,68 @@ export function ProductCard({ product, className }: ProductCardProps) {
     <Link href={`/urunler/${product.id}`}>
       <a className="block h-full">
         <motion.div 
-          whileHover={{ y: -5 }}
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className={cn(
-            "group relative bg-white border border-border h-full p-6 flex flex-col transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/5 overflow-hidden rounded-sm",
+            "group relative bg-white h-full flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100",
             className
           )}
         >
-          {/* Image Container */}
-          <div className="relative w-full aspect-[4/5] mb-6 bg-slate-50 flex items-center justify-center overflow-hidden rounded-sm">
-            <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-white opacity-50" />
+          {/* Premium Badge for specific items if needed (optional logic) */}
+          {product.category === 'pump' && (
+            <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm border border-slate-100 text-[10px] font-bold px-2 py-1 rounded-full text-slate-600 shadow-sm uppercase tracking-wider">
+              {product.subCategory}
+            </div>
+          )}
+
+          {/* Image Container - Increased spacing and premium feel */}
+          <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden p-8">
+            {/* Decorative background circle */}
+            <div className="absolute w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-0 group-hover:bg-primary/10 transition-colors duration-500" />
+            
             <motion.img 
               src={product.image} 
               alt={product.name}
-              className="relative w-3/4 h-auto object-contain z-10 drop-shadow-md transition-transform duration-500 group-hover:scale-110"
+              className="relative w-full h-full object-contain z-10 drop-shadow-lg transition-transform duration-500 group-hover:scale-110"
+              style={{ filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.15))" }}
             />
             
-            {/* Hover Overlay Icon */}
-            <div className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-sm z-20 text-primary">
-              <ArrowUpRight className="w-5 h-5" />
-            </div>
+            {/* Overlay on hover */}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-colors duration-300 z-10" />
           </div>
 
           {/* Content */}
-          <div className="mt-auto">
-            <div className="text-xs font-bold uppercase tracking-wider text-primary/60 mb-2">
-              {product.subCategory}
+          <div className="p-6 flex flex-col flex-grow relative">
+            <div className="mb-auto">
+              <div className="flex items-center gap-2 mb-3">
+                <span className={cn(
+                  "w-1.5 h-1.5 rounded-full",
+                  product.category === 'pump' ? "bg-blue-500" : "bg-orange-500"
+                )} />
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  {product.category === 'pump' ? 'Dalgıç Pompa' : 'Dalgıç Motor'}
+                </span>
+              </div>
+              
+              <h3 className="font-heading font-bold text-lg text-slate-900 mb-3 leading-snug group-hover:text-primary transition-colors">
+                {product.name}
+              </h3>
+              
+              <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed">
+                {product.description}
+              </p>
             </div>
-            <h3 className="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
-              {product.name}
-            </h3>
-            <p className="text-sm text-muted-foreground line-clamp-2">
-              {product.description}
-            </p>
+
+            {/* Action Area */}
+            <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between">
+              <span className="text-sm font-medium text-primary group-hover:underline decoration-primary/30 underline-offset-4 transition-all">
+                İncele
+              </span>
+              <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-[-45deg]">
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </div>
           </div>
-          
-          {/* Bottom accent line */}
-          <div className="absolute bottom-0 left-0 w-0 h-[3px] bg-primary transition-all duration-500 group-hover:w-full" />
         </motion.div>
       </a>
     </Link>
