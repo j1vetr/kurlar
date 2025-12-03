@@ -80,6 +80,20 @@ export default function ProductDetail() {
             {/* Left Column: Gallery */}
             <div className="lg:w-1/2 bg-white p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col">
                <div className="flex-grow flex items-center justify-center bg-slate-50/50 border border-slate-100 mb-4 p-8 min-h-[400px] overflow-hidden relative group cursor-zoom-in">
+                 {/* Quality Badges */}
+                 <div className="absolute top-6 left-6 z-10 flex flex-col gap-3">
+                   <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-2 rounded shadow-sm" title="Türk Standartları Enstitüsü">
+                     <div className="w-12 h-12 flex items-center justify-center border-2 border-slate-900 rounded-full">
+                       <span className="font-bold text-slate-900 text-xs leading-none text-center">TSE</span>
+                     </div>
+                   </div>
+                   <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-2 rounded shadow-sm" title="Conformité Européenne">
+                     <div className="w-12 h-12 flex items-center justify-center border-2 border-slate-900 rounded-full">
+                       <span className="font-bold text-slate-900 text-lg leading-none italic">CE</span>
+                     </div>
+                   </div>
+                 </div>
+                 
                  <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
                </div>
                

@@ -256,6 +256,37 @@ export function Navbar() {
               );
             }
           })}
+          
+          {/* Language Switcher */}
+          <div className="relative group h-full flex items-center ml-4">
+            <button className={cn(
+              "flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-colors",
+              isTransparent ? "text-white hover:text-blue-200" : "text-slate-600 hover:text-primary"
+            )}>
+              <span className="text-xl">🇹🇷</span>
+              <span className="hidden xl:inline">TR</span>
+              <ChevronDown className="w-3 h-3" />
+            </button>
+            
+            <div className="absolute top-full right-0 w-40 bg-white border border-slate-100 shadow-xl rounded-b-lg transition-all duration-200 origin-top opacity-0 invisible translate-y-[-8px] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 overflow-hidden">
+              <ul className="py-1">
+                {[
+                   { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
+                   { code: 'EN', name: 'English', flag: '🇬🇧' },
+                   { code: 'AR', name: 'العربية', flag: '🇦🇪' },
+                   { code: 'ES', name: 'Español', flag: '🇪🇸' },
+                   { code: 'PT', name: 'Português', flag: '🇵🇹' },
+                ].map((lang) => (
+                  <li key={lang.code}>
+                    <button className="w-full px-4 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left">
+                      <span className="text-lg">{lang.flag}</span>
+                      <span className="font-medium">{lang.name}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}
