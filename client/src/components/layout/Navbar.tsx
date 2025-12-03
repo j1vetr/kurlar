@@ -9,6 +9,8 @@ export function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
+  const [mobileOverlayLangOpen, setMobileOverlayLangOpen] = useState(false);
   const isHome = location === "/";
   const isTransparent = isHome && !isScrolled;
 
@@ -283,26 +285,43 @@ export function Navbar() {
 
         {/* Mobile Actions */}
         <div className="flex items-center gap-4 lg:hidden">
-           {/* Mobile Language Selector */}
-           <div className="relative group">
-             <button className={cn(
-               "flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors",
-               isTransparent ? "text-white" : "text-slate-900"
-             )}>
-               <span className="text-xl">🇹🇷</span>
-               <ChevronDown className="w-3 h-3" />
-             </button>
-             {/* Simple Mobile Dropdown for Language */}
-             <select 
-               className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
-               onChange={(e) => console.log("Language changed to", e.target.value)}
+           {/* Mobile Language Selector - Custom Dropdown */}
+           <div className="relative">
+             <button 
+               onClick={() => setMobileLangOpen(!mobileLangOpen)}
+               className={cn(
+                 "flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors",
+                 isTransparent ? "text-white" : "text-slate-900"
+               )}
              >
-               <option value="TR">Türkçe</option>
-               <option value="EN">English</option>
-               <option value="AR">العربية</option>
-               <option value="ES">Español</option>
-               <option value="PT">Português</option>
-             </select>
+               <span className="text-xl">🇹🇷</span>
+               <ChevronDown className={cn("w-3 h-3 transition-transform", mobileLangOpen && "rotate-180")} />
+             </button>
+             
+             {/* Custom Dropdown */}
+             {mobileLangOpen && (
+               <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                 {[
+                    { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
+                    { code: 'EN', name: 'English', flag: '🇬🇧' },
+                    { code: 'AR', name: 'العربية', flag: '🇦🇪' },
+                    { code: 'ES', name: 'Español', flag: '🇪🇸' },
+                    { code: 'PT', name: 'Português', flag: '🇵🇹' },
+                 ].map((lang) => (
+                   <button
+                     key={lang.code}
+                     onClick={() => {
+                       console.log("Language changed to", lang.code);
+                       setMobileLangOpen(false);
+                     }}
+                     className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
+                   >
+                     <span className="text-lg">{lang.flag}</span>
+                     <span className="font-medium">{lang.name}</span>
+                   </button>
+                 ))}
+               </div>
+             )}
            </div>
 
            {/* Mobile Menu Toggle */}
@@ -327,22 +346,39 @@ export function Navbar() {
             </Link>
             
             <div className="flex items-center gap-4">
-              {/* Mobile Language Selector */}
-               <div className="relative group">
-                 <button className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-slate-900">
-                   <span className="text-xl">🇹🇷</span>
-                   <ChevronDown className="w-3 h-3" />
-                 </button>
-                 <select 
-                   className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
-                   onChange={(e) => console.log("Language changed to", e.target.value)}
+              {/* Mobile Language Selector inside Overlay */}
+               <div className="relative">
+                 <button 
+                   onClick={() => setMobileOverlayLangOpen(!mobileOverlayLangOpen)}
+                   className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-slate-900"
                  >
-                   <option value="TR">Türkçe</option>
-                   <option value="EN">English</option>
-                   <option value="AR">العربية</option>
-                   <option value="ES">Español</option>
-                   <option value="PT">Português</option>
-                 </select>
+                   <span className="text-xl">🇹🇷</span>
+                   <ChevronDown className={cn("w-3 h-3 transition-transform", mobileOverlayLangOpen && "rotate-180")} />
+                 </button>
+                 
+                 {mobileOverlayLangOpen && (
+                   <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                     {[
+                        { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
+                        { code: 'EN', name: 'English', flag: '🇬🇧' },
+                        { code: 'AR', name: 'العربية', flag: '🇦🇪' },
+                        { code: 'ES', name: 'Español', flag: '🇪🇸' },
+                        { code: 'PT', name: 'Português', flag: '🇵🇹' },
+                     ].map((lang) => (
+                       <button
+                         key={lang.code}
+                         onClick={() => {
+                           console.log("Language changed to", lang.code);
+                           setMobileOverlayLangOpen(false);
+                         }}
+                         className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
+                       >
+                         <span className="text-lg">{lang.flag}</span>
+                         <span className="font-medium">{lang.name}</span>
+                       </button>
+                     ))}
+                   </div>
+                 )}
                </div>
 
               <button 
