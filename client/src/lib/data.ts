@@ -27,7 +27,7 @@ export const products: Product[] = [
     shortName: 'KP Serisi',
     category: 'pump',
     subCategory: 'Paslanmaz Çelik',
-    availableSizes: '4” - 6” - 8” - 10”',
+    availableSizes: '4” | 6” | 8” | 10”',
     image: '/assets/products/kp1.png',
     gallery: [
         '/assets/products/kp1.png',
@@ -176,7 +176,7 @@ Paslanmaz çelikten üretilmiş süzgeci sayesinde, 50 g/m³ üzerindeki parçal
     shortName: 'KPD Serisi',
     category: 'pump',
     subCategory: 'Pik Döküm',
-    availableSizes: '5"-6”-7"-8”-9"-10”',
+    availableSizes: '5" | 6” | 7" | 8” | 9" | 10”',
     image: '/assets/products/kpd1.png',
     gallery: [
        '/assets/products/kpd1.png',
@@ -234,7 +234,7 @@ Tamamen pik döküm olarak imal edilen difüzörler, fanlar, emiş ve çıkış 
     shortName: 'KSX Serisi',
     category: 'pump',
     subCategory: 'Paslanmaz Döküm',
-    availableSizes: '6”-8”-10”',
+    availableSizes: '6” | 8” | 10”',
     image: '/assets/products/ksx1.png',
     gallery: [
       '/assets/products/ksx1.png',
@@ -343,7 +343,7 @@ Paslanmaz çelikten döküm olarak imal edilen difüzörler, fanlar, emiş ve ç
     shortName: 'KM Serisi',
     category: 'motor',
     subCategory: 'HI-TEMP',
-    availableSizes: '6"-7"-8"-10"',
+    availableSizes: '6" | 7" | 8" | 10"',
     image: '/assets/products/km2.png',
     gallery: [
         '/assets/products/km2.png',
@@ -399,7 +399,7 @@ Su soğutmalı yapısıyla 6″ ve üzeri çapta kuyular için idealdir. Basın�
     shortName: 'KMS Serisi',
     category: 'motor',
     subCategory: 'S-Type',
-    availableSizes: '6"-7"-8"',
+    availableSizes: '6" | 7" | 8"',
     image: '/assets/products/kms11.png',
     gallery: [
         '/assets/products/kms11.png'
