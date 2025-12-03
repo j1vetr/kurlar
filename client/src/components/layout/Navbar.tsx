@@ -30,19 +30,19 @@ export function Navbar() {
         "fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent",
         isScrolled || mobileMenuOpen
           ? "bg-white/95 backdrop-blur-xl border-border shadow-sm py-3"
-          : "bg-transparent py-5"
+          : "bg-transparent py-6"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo with Water Animation Border */}
         <Link href="/">
           <a className="group relative">
-            <div className="water-border-container">
-              <div className="water-border-content">
+            <div className="water-border-container p-[4px]"> {/* Thicker border container */}
+              <div className="water-border-content bg-white rounded-full p-4 flex items-center justify-center"> {/* More padding around logo */}
                 <img 
                   src="/assets/logo.png" 
                   alt="Kurlar Logo" 
-                  className="h-8 w-auto object-contain" 
+                  className="h-12 w-auto object-contain" 
                 />
               </div>
             </div>
@@ -55,10 +55,12 @@ export function Navbar() {
             <Link key={link.href} href={link.href}>
               <a
                 className={cn(
-                  "text-sm font-medium tracking-wide transition-colors duration-200 relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full",
+                  "text-base font-bold tracking-wide transition-all duration-200 relative px-3 py-2 rounded-md",
                   location === link.href
-                    ? "text-primary font-semibold after:w-full"
-                    : isScrolled ? "text-foreground hover:text-primary" : "text-foreground/90 md:text-white hover:text-white/80 md:mix-blend-difference shadow-black/20 drop-shadow-sm"
+                    ? "text-primary"
+                    : isScrolled 
+                      ? "text-foreground hover:text-primary hover:bg-slate-100" 
+                      : "text-white hover:text-blue-100 hover:bg-white/10 drop-shadow-md"
                 )}
               >
                 {link.name}
