@@ -12,7 +12,7 @@ export function Layout({ children, noTopPadding = false }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background selection:bg-primary/10 selection:text-primary">
       <Navbar />
-      <main className={cn("flex-grow", !noTopPadding && "pt-32 md:pt-36")}>
+      <main className={cn("flex-grow", !noTopPadding && "pt-20 md:pt-24")}>
         {children}
       </main>
       <Footer />
