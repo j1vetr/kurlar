@@ -182,15 +182,15 @@ export function Navbar() {
                           </Link>
                           <ul className="space-y-3">
                             {[
-                              "Paslanmaz Çelik Dalgıç Pompalar (KP)",
-                              "4″ Noryl Dalgıç Pompalar (KPN)",
-                              "Pik Döküm Dalgıç Pompalar (KPD)",
-                              "Paslanmaz Döküm Dalgıç Pompalar (KSX)"
+                              { name: "Paslanmaz Çelik Dalgıç Pompalar (KP)", id: "kp" },
+                              { name: "4″ Noryl Dalgıç Pompalar (KPN)", id: "kpn" },
+                              { name: "Pik Döküm Dalgıç Pompalar (KPD)", id: "kpd" },
+                              { name: "Paslanmaz Döküm Dalgıç Pompalar (KSX)", id: "ksx" }
                             ].map((item) => (
-                              <li key={item}>
-                                <Link href={`/urunler?search=${item}`}>
+                              <li key={item.id}>
+                                <Link href={`/urunler/${item.id}`}>
                                   <a className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
-                                    {item}
+                                    {item.name}
                                   </a>
                                 </Link>
                               </li>
@@ -208,14 +208,14 @@ export function Navbar() {
                           </Link>
                           <ul className="space-y-3">
                             {[
-                              "Hi-Temp Dalgıç Motorlar (KM)",
-                              "S-Type Dalgıç Motorlar (KMS)",
-                              "4\" Yağlı Tip Dalgıç Motorlar (KM4)"
+                              { name: "Hi-Temp Dalgıç Motorlar (KM)", id: "km" },
+                              { name: "S-Type Dalgıç Motorlar (KMS)", id: "kms" },
+                              { name: "4\" Yağlı Tip Dalgıç Motorlar (KM4)", id: "km4" }
                             ].map((item) => (
-                              <li key={item}>
-                                <Link href={`/urunler?search=${item}`}>
+                              <li key={item.id}>
+                                <Link href={`/urunler/${item.id}`}>
                                   <a className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
-                                    {item}
+                                    {item.name}
                                   </a>
                                 </Link>
                               </li>
@@ -454,13 +454,13 @@ export function Navbar() {
                           <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">Dalgıç Pompalar</div>
                           <div className="space-y-3">
                             {[
-                              "Paslanmaz Çelik Dalgıç Pompalar (KP)",
-                              "4″ Noryl Dalgıç Pompalar (KPN)",
-                              "Pik Döküm Dalgıç Pompalar (KPD)",
-                              "Paslanmaz Döküm Dalgıç Pompalar (KSX)"
+                              { name: "Paslanmaz Çelik Dalgıç Pompalar (KP)", id: "kp" },
+                              { name: "4″ Noryl Dalgıç Pompalar (KPN)", id: "kpn" },
+                              { name: "Pik Döküm Dalgıç Pompalar (KPD)", id: "kpd" },
+                              { name: "Paslanmaz Döküm Dalgıç Pompalar (KSX)", id: "ksx" }
                             ].map(sub => (
-                              <Link key={sub} href="/urunler">
-                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub}</a>
+                              <Link key={sub.id} href={`/urunler/${sub.id}`}>
+                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub.name}</a>
                               </Link>
                             ))}
                           </div>
@@ -469,12 +469,12 @@ export function Navbar() {
                           <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">Dalgıç Motorlar</div>
                           <div className="space-y-3">
                             {[
-                              "Hi-Temp Dalgıç Motorlar (KM)",
-                              "S-Type Dalgıç Motorlar (KMS)",
-                              "4\" Yağlı Tip Dalgıç Motorlar (KM4)"
+                              { name: "Hi-Temp Dalgıç Motorlar (KM)", id: "km" },
+                              { name: "S-Type Dalgıç Motorlar (KMS)", id: "kms" },
+                              { name: "4\" Yağlı Tip Dalgıç Motorlar (KM4)", id: "km4" }
                             ].map(sub => (
-                              <Link key={sub} href="/urunler">
-                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub}</a>
+                              <Link key={sub.id} href={`/urunler/${sub.id}`}>
+                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub.name}</a>
                               </Link>
                             ))}
                           </div>
