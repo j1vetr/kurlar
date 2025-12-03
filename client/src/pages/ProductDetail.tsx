@@ -30,7 +30,7 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
         alt={alt} 
         className="max-w-full max-h-full object-contain pointer-events-none transition-transform duration-100 ease-out"
         style={{
-          transform: zoom ? 'scale(2)' : 'scale(1)',
+          transform: zoom ? 'scale(1.5)' : 'scale(1)', // Reduced scale from 2 to 1.5
           transformOrigin: `${position.x}% ${position.y}%`,
         }}
       />
@@ -83,13 +83,13 @@ export default function ProductDetail() {
                  {/* Quality Badges */}
                  <div className="absolute top-6 left-6 z-10 flex flex-col gap-3">
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-2 rounded shadow-sm" title="Türk Standartları Enstitüsü">
-                     <div className="w-12 h-12 flex items-center justify-center border-2 border-slate-900 rounded-full">
-                       <span className="font-bold text-slate-900 text-xs leading-none text-center">TSE</span>
+                     <div className="w-12 h-12 flex items-center justify-center">
+                       <img src="/assets/quality/tse.png" alt="TSE" className="w-full h-full object-contain" />
                      </div>
                    </div>
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-2 rounded shadow-sm" title="Conformité Européenne">
-                     <div className="w-12 h-12 flex items-center justify-center border-2 border-slate-900 rounded-full">
-                       <span className="font-bold text-slate-900 text-lg leading-none italic">CE</span>
+                     <div className="w-12 h-12 flex items-center justify-center">
+                       <img src="/assets/quality/ce.png" alt="CE" className="w-full h-full object-contain" />
                      </div>
                    </div>
                  </div>
@@ -199,7 +199,7 @@ export default function ProductDetail() {
                       </h3>
                       <ul className="grid grid-cols-1 gap-2">
                         {product.features?.map((f, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-slate-700 border-l-2 border-slate-100 pl-3 py-1">
+                          <li key={i} className="flex items-start gap-2 text-sm text-slate-700 border-l-2 border-slate-100 pl-3 py-1 capitalize">
                             <span className="block mt-1.5 w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></span>
                             {f}
                           </li>
