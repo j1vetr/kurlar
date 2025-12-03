@@ -339,11 +339,28 @@ export default function Dealers() {
                   </div>
                   
                   <div className="mt-4 pt-3 flex gap-2">
-                    <Button size="sm" className="w-full bg-primary hover:bg-blue-900 text-white font-bold">
-                       Hemen Ara
+                    <Button 
+                      size="sm" 
+                      className="w-full bg-primary hover:bg-blue-900 text-white font-bold"
+                      asChild
+                    >
+                      <a href={`tel:${dealer.phone.replace(/\s+/g, '')}`}>
+                        Hemen Ara
+                      </a>
                     </Button>
-                    <Button size="sm" variant="outline" className="w-full border-slate-200 hover:bg-slate-50 text-slate-700 font-bold">
-                       Yol Tarifi
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="w-full border-slate-200 hover:bg-slate-50 text-slate-700 font-bold"
+                      asChild
+                    >
+                       <a 
+                         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${dealer.name} ${dealer.address} ${dealer.district} ${dealer.city}`)}`}
+                         target="_blank"
+                         rel="noopener noreferrer"
+                       >
+                         Yol Tarifi
+                       </a>
                     </Button>
                   </div>
                 </div>
