@@ -30,8 +30,8 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
           {/* Available Sizes Badge - NEW */}
           {product.availableSizes && (
-             <div className="absolute top-4 right-4 z-20 bg-slate-900/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wider flex items-center gap-1">
-               <Ruler className="w-3 h-3" /> {product.availableSizes}
+             <div className="absolute top-0 right-0 z-20 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl shadow-md uppercase tracking-wider flex items-center gap-1">
+               <Ruler className="w-3.5 h-3.5" /> {product.availableSizes}
              </div>
           )}
 
