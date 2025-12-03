@@ -309,22 +309,6 @@ export default function ProductDetail() {
                 </div>
              </div>
           )}
-
-          {/* Applications Section - Industrial Cards */}
-          {product.applications && (
-            <div className="mb-16">
-              <h3 className="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center gap-2">
-                <Shield className="w-5 h-5 text-blue-600" /> Kullanım Alanları
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {product.applications.map((app, i) => (
-                  <div key={i} className="bg-white p-6 border border-slate-200 border-l-4 border-l-blue-600 shadow-sm">
-                    <h4 className="font-bold text-slate-900">{app}</h4>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </Layout>
