@@ -7,6 +7,37 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
+function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
+  const [zoom, setZoom] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setPosition({ x, y });
+  };
+
+  return (
+    <div 
+      className="relative w-full h-full flex items-center justify-center overflow-hidden"
+      onMouseEnter={() => setZoom(true)}
+      onMouseLeave={() => setZoom(false)}
+      onMouseMove={handleMouseMove}
+    >
+      <img 
+        src={src} 
+        alt={alt} 
+        className="max-w-full max-h-full object-contain pointer-events-none transition-transform duration-100 ease-out"
+        style={{
+          transform: zoom ? 'scale(2)' : 'scale(1)',
+          transformOrigin: `${position.x}% ${position.y}%`,
+        }}
+      />
+    </div>
+  );
+}
+
 export default function ProductDetail() {
   const [, params] = useRoute("/urunler/:id");
   const productId = params?.id;
@@ -48,12 +79,8 @@ export default function ProductDetail() {
             
             {/* Left Column: Gallery */}
             <div className="lg:w-1/2 bg-white p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col">
-               <div className="flex-grow flex items-center justify-center bg-slate-50/50 border border-slate-100 mb-4 p-8 min-h-[400px]">
-                 <img 
-                    src={galleryImages[activeImage]} 
-                    alt={product.name}
-                    className="max-w-full max-h-[400px] object-contain"
-                  />
+               <div className="flex-grow flex items-center justify-center bg-slate-50/50 border border-slate-100 mb-4 p-8 min-h-[400px] overflow-hidden relative group cursor-zoom-in">
+                 <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
                </div>
                
                {galleryImages.length > 1 && (
@@ -87,15 +114,20 @@ export default function ProductDetail() {
                       IP68
                     </span>
                   )}
-                  {product.availableSizes && (
-                    <span className="bg-slate-100 text-slate-600 border border-slate-200 text-[10px] font-bold px-2 py-1 uppercase tracking-wider flex items-center gap-1">
-                      <Ruler className="w-3 h-3" /> {product.availableSizes}
-                    </span>
-                  )}
                 </div>
                 <h1 className="text-3xl font-heading font-bold text-slate-900 mb-4">
                   {product.name}
                 </h1>
+                
+                {product.availableSizes && (
+                  <div className="mb-6 inline-flex flex-col gap-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mevcut Boyutlar (İnç)</span>
+                    <span className="bg-blue-600 text-white text-sm font-bold px-4 py-2 rounded-sm shadow-sm flex items-center gap-2 self-start">
+                      <Ruler className="w-4 h-4" /> {product.availableSizes}
+                    </span>
+                  </div>
+                )}
+
                 <p className="text-slate-600 leading-relaxed">
                   {product.description}
                 </p>
