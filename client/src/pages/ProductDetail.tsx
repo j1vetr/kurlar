@@ -79,7 +79,7 @@ export default function ProductDetail() {
             
             {/* Left Column: Gallery */}
             <div className="lg:w-1/2 bg-white p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col">
-               <div className="flex-grow flex items-center justify-center bg-slate-50/50 border border-slate-100 mb-4 p-12 h-[350px] overflow-hidden relative group cursor-zoom-in">
+               <div className="flex-grow flex items-center justify-center bg-slate-50/50 border border-slate-100 mb-4 p-16 h-[300px] overflow-hidden relative group cursor-zoom-in">
                  {/* Quality Badges */}
                  <div className="absolute top-6 left-6 z-10 flex flex-col gap-3">
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-2 rounded shadow-sm" title="Türk Standartları Enstitüsü">
