@@ -1,54 +1,105 @@
 import { Link } from "wouter";
+import { Facebook, Instagram, Linkedin, Heart } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground pt-16 pb-8">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="col-span-1 md:col-span-1">
-            <img src="/assets/logo.png" alt="Kurlar Logo" className="h-12 w-auto mb-6 brightness-0 invert opacity-90" />
-            <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Yüksek verimlilik, uzun ömür ve güvenilir performans için tasarlanmış profesyonel dalgıç pompa çözümleri.
+    <footer className="bg-slate-900 text-white border-t border-slate-800">
+      {/* Top Section */}
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+               <div className="bg-white p-2 rounded-full w-12 h-12 flex items-center justify-center">
+                 <img src="/assets/logo.png" alt="Kurlar Logo" className="w-full h-auto object-contain" />
+               </div>
+               <span className="font-heading font-bold text-2xl tracking-tight">KURLAR</span>
+            </div>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              1975'ten beri suyun gücünü teknolojiyle buluşturuyor, Türkiye'den dünyaya değer katıyoruz. Yüksek verimli dalgıç pompa ve motor çözümleri.
             </p>
+            <div className="flex gap-4">
+              <a 
+                href="https://www.linkedin.com/company/kurlar-pompa/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group"
+              >
+                <Linkedin className="w-5 h-5 text-slate-400 group-hover:text-white" />
+              </a>
+              <a 
+                href="https://www.facebook.com/kurlarpompa/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group"
+              >
+                <Facebook className="w-5 h-5 text-slate-400 group-hover:text-white" />
+              </a>
+              <a 
+                href="https://www.instagram.com/kurlarpompa/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group"
+              >
+                <Instagram className="w-5 h-5 text-slate-400 group-hover:text-white" />
+              </a>
+            </div>
           </div>
-          
+
+          {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Kurumsal</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li><Link href="/hakkimizda"><a className="hover:text-white transition-colors">Hakkımızda</a></Link></li>
-              <li><Link href="/bayi-servis"><a className="hover:text-white transition-colors">Bayi & Servis</a></Link></li>
-              <li><Link href="/iletisim"><a className="hover:text-white transition-colors">İletişim</a></Link></li>
+            <h4 className="font-bold text-lg mb-6 text-white">Hızlı Erişim</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li><Link href="/"><a className="hover:text-blue-400 transition-colors">Ana Sayfa</a></Link></li>
+              <li><Link href="/hakkimizda"><a className="hover:text-blue-400 transition-colors">Kurumsal</a></Link></li>
+              <li><Link href="/urunler"><a className="hover:text-blue-400 transition-colors">Ürünler</a></Link></li>
+              <li><Link href="/kariyer"><a className="hover:text-blue-400 transition-colors">Kariyer</a></Link></li>
+              <li><Link href="/iletisim"><a className="hover:text-blue-400 transition-colors">İletişim</a></Link></li>
             </ul>
           </div>
 
+          {/* Products */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Ürünler</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li><Link href="/urunler?category=pump"><a className="hover:text-white transition-colors">Dalgıç Pompalar</a></Link></li>
-              <li><Link href="/urunler?category=motor"><a className="hover:text-white transition-colors">Dalgıç Motorlar</a></Link></li>
+            <h4 className="font-bold text-lg mb-6 text-white">Ürün Grupları</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li><Link href="/urunler?category=pump"><a className="hover:text-blue-400 transition-colors">Dalgıç Pompalar</a></Link></li>
+              <li><Link href="/urunler?category=motor"><a className="hover:text-blue-400 transition-colors">Dalgıç Motorlar</a></Link></li>
+              <li><Link href="/urunler?search=Paslanmaz"><a className="hover:text-blue-400 transition-colors">Paslanmaz Serisi</a></Link></li>
+              <li><Link href="/urunler?search=Döküm"><a className="hover:text-blue-400 transition-colors">Döküm Serisi</a></Link></li>
             </ul>
           </div>
 
+          {/* Legal & Contact */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">İletişim</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li>İzmir, Türkiye</li>
-              <li>info@kurlar.com.tr</li>
-              <li>+90 232 000 00 00</li>
+            <h4 className="font-bold text-lg mb-6 text-white">Yasal & İletişim</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li><Link href="/gizlilik-politikasi"><a className="hover:text-blue-400 transition-colors">Gizlilik Politikası</a></Link></li>
+              <li><Link href="/cerez-politikasi"><a className="hover:text-blue-400 transition-colors">Çerez Politikası</a></Link></li>
+              <li className="pt-4 text-slate-500">
+                İzmir, Türkiye <br/>
+                info@kurlar.com.tr
+              </li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-primary-foreground/50">
-            &copy; 2025 Kurlar Dalgıç Pompa. Tüm hakları saklıdır.
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-slate-800 bg-slate-950 py-6">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>
+            Kurlar Dalgıç Pompa & Motor Tüm Hakları Saklıdır.
           </p>
-          <div className="flex gap-4">
-            {/* Social Media placeholders */}
-            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
-              <span className="sr-only">LinkedIn</span>
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </div>
+          <div className="flex items-center gap-1">
+            <span>Geliştirici & Tasarımcı :</span>
+            <a 
+              href="https://toov.com.tr" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-bold text-slate-300 hover:text-white transition-colors flex items-center gap-1"
+            >
+              TOOV <Heart className="w-3 h-3 text-red-500 fill-current animate-pulse" />
+            </a>
           </div>
         </div>
       </div>

@@ -14,6 +14,9 @@ import RAndD from "@/pages/RAndD";
 import Certificates from "@/pages/Certificates";
 import Careers from "@/pages/Careers";
 
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import CookiePolicy from "@/pages/CookiePolicy";
+
 function Router() {
   return (
     <Switch>
@@ -26,6 +29,8 @@ function Router() {
       <Route path="/urunler/:id" component={ProductDetail} />
       <Route path="/bayi-servis" component={Dealers} />
       <Route path="/iletisim" component={Contact} />
+      <Route path="/gizlilik-politikasi" component={PrivacyPolicy} />
+      <Route path="/cerez-politikasi" component={CookiePolicy} />
       <Route component={NotFound} />
     </Switch>
   );
