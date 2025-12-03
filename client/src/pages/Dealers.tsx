@@ -6,10 +6,9 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Tooltip } from "react-tooltip";
 import { geoMercator, geoPath } from "d3-geo";
-import * as topojson from "topojson-client";
 
-// Turkey TopoJSON URL
-const TURKEY_TOPO_JSON = "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/turkey/turkey-provinces.json";
+// Turkey GeoJSON URL (Local)
+const TURKEY_GEO_JSON = "/assets/turkey-cities.json";
 
 // Full Dealer Data from User
 const dealers = [
@@ -54,19 +53,19 @@ export default function Dealers() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [geographies, setGeographies] = useState<any[]>([]);
-  const [scale, setScale] = useState(3000);
-  const [translate, setTranslate] = useState<{x: number, y: number}>({ x: 0, y: 0 }); // Will be set on load
+  const [scale, setScale] = useState(2800);
+  const [translate, setTranslate] = useState<{x: number, y: number}>({ x: 0, y: 0 });
 
   // Fetch Map Data
   useEffect(() => {
-    fetch(TURKEY_TOPO_JSON)
+    fetch(TURKEY_GEO_JSON)
       .then(response => response.json())
       .then(data => {
-        // @ts-ignore
-        const features = topojson.feature(data, data.objects.turkey);
-        // @ts-ignore
-        setGeographies(features.features);
-      });
+        if (data && data.features) {
+          setGeographies(data.features);
+        }
+      })
+      .catch(err => console.error("Failed to load map:", err));
   }, []);
 
   const filteredDealers = dealers.filter(d => {
@@ -78,17 +77,31 @@ export default function Dealers() {
     return matchesCity && matchesSearch;
   });
 
-  // Helper to check if a city has dealers
+  // Helper to check if a city has dealers (Fuzzy match for map)
   const cityHasDealers = (cityName: string) => {
-    const normalize = (str: string) => str.replace(/İ/g, 'I').toUpperCase();
-    return dealers.some(d => normalize(d.city) === normalize(cityName));
+    if (!cityName) return false;
+    const normalize = (str: string) => str.replace(/İ/g, 'I').replace(/ı/g, 'i').toUpperCase();
+    const normalizedCityName = normalize(cityName);
+    
+    // Special case mappings
+    if (normalizedCityName === "AFYON") return dealers.some(d => d.city === "AFYONKARAHİSAR");
+    
+    return dealers.some(d => normalize(d.city) === normalizedCityName);
   };
 
   const getCityColor = (cityName: string) => {
+    if (!cityName) return "#e2e8f0";
     const hasDealers = cityHasDealers(cityName);
-    const isSelected = selectedCity && (
-      cityName.replace(/İ/g, 'I').toUpperCase() === selectedCity.replace(/İ/g, 'I').toUpperCase()
-    );
+    const normalize = (str: string) => str.replace(/İ/g, 'I').replace(/ı/g, 'i').toUpperCase();
+    
+    let isSelected = false;
+    if (selectedCity) {
+      const normalizedSelected = normalize(selectedCity);
+      const normalizedMapCity = normalize(cityName);
+      
+      if (normalizedSelected === normalizedMapCity) isSelected = true;
+      if (normalizedSelected === "AFYONKARAHİSAR" && normalizedMapCity === "AFYON") isSelected = true;
+    }
 
     if (isSelected) return "#243474"; // Brand Primary
     if (hasDealers) return "#93c5fd"; // Blue 300
@@ -97,7 +110,7 @@ export default function Dealers() {
 
   // D3 Map Projection
   const width = 800;
-  const height = 500;
+  const height = 450;
   
   const projection = geoMercator()
     .center([35, 39]) // Turkey center
@@ -108,7 +121,7 @@ export default function Dealers() {
 
   const handleZoomIn = () => setScale(s => s * 1.2);
   const handleZoomOut = () => setScale(s => Math.max(1000, s / 1.2));
-  const handleReset = () => { setScale(3000); setTranslate({x:0, y:0}); setSelectedCity(null); };
+  const handleReset = () => { setScale(2800); setTranslate({x:0, y:0}); setSelectedCity(null); };
 
   return (
     <Layout>
@@ -160,7 +173,16 @@ export default function Dealers() {
                     {geographies.map((geo, i) => {
                       const cityName = geo.properties.name;
                       const hasDealers = cityHasDealers(cityName);
-                      const isSelected = selectedCity && (cityName.replace(/İ/g, 'I').toUpperCase() === selectedCity.replace(/İ/g, 'I').toUpperCase());
+                      const normalize = (str: string) => str.replace(/İ/g, 'I').replace(/ı/g, 'i').toUpperCase();
+                      
+                      // Logic for highlighting selected city
+                      let isSelected = false;
+                      if (selectedCity && cityName) {
+                        const normalizedSelected = normalize(selectedCity);
+                        const normalizedMapCity = normalize(cityName);
+                        if (normalizedSelected === normalizedMapCity) isSelected = true;
+                        if (normalizedSelected === "AFYONKARAHİSAR" && normalizedMapCity === "AFYON") isSelected = true;
+                      }
                       
                       return (
                         <path
@@ -176,12 +198,21 @@ export default function Dealers() {
                           data-tooltip-id="map-tooltip"
                           data-tooltip-content={cityName}
                           onClick={() => {
-                            // Map click handling
-                            const matchedCity = cities.find(c => c.replace(/İ/g, 'I').toUpperCase() === cityName.replace(/İ/g, 'I').toUpperCase());
+                            if (!cityName) return;
+                            
+                            const normalize = (str: string) => str.replace(/İ/g, 'I').replace(/ı/g, 'i').toUpperCase();
+                            const normalizedMapCity = normalize(cityName);
+                            
+                            // Try to match with dealers list
+                            const matchedCity = cities.find(c => normalize(c) === normalizedMapCity);
+                            
                             if (matchedCity) {
                               setSelectedCity(matchedCity);
+                            } else if (normalizedMapCity === "AFYON") {
+                              setSelectedCity("AFYONKARAHİSAR");
                             } else if (hasDealers) {
-                               const fuzzyMatch = dealers.find(d => d.city.includes(cityName.toUpperCase()) || cityName.toUpperCase().includes(d.city));
+                               // Fuzzy match fallback
+                               const fuzzyMatch = dealers.find(d => d.city.includes(normalizedMapCity) || normalizedMapCity.includes(d.city));
                                if (fuzzyMatch) setSelectedCity(fuzzyMatch.city);
                             }
                           }}
