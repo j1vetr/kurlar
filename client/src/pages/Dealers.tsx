@@ -1,9 +1,15 @@
 import { Layout } from "@/components/layout/Layout";
-import { useState } from "react";
-import { MapPin, Search, Phone, Navigation, User } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
+import { MapPin, Search, Phone, Navigation, User, ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Tooltip } from "react-tooltip";
+import { geoMercator, geoPath } from "d3-geo";
+import * as topojson from "topojson-client";
+
+// Turkey TopoJSON URL
+const TURKEY_TOPO_JSON = "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/turkey/turkey-provinces.json";
 
 // Full Dealer Data from User
 const dealers = [
@@ -47,6 +53,21 @@ const cities = Array.from(new Set(dealers.map(d => d.city))).sort();
 export default function Dealers() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [geographies, setGeographies] = useState<any[]>([]);
+  const [scale, setScale] = useState(3000);
+  const [translate, setTranslate] = useState<{x: number, y: number}>({ x: 0, y: 0 }); // Will be set on load
+
+  // Fetch Map Data
+  useEffect(() => {
+    fetch(TURKEY_TOPO_JSON)
+      .then(response => response.json())
+      .then(data => {
+        // @ts-ignore
+        const features = topojson.feature(data, data.objects.turkey);
+        // @ts-ignore
+        setGeographies(features.features);
+      });
+  }, []);
 
   const filteredDealers = dealers.filter(d => {
     const matchesCity = selectedCity ? d.city === selectedCity : true;
@@ -56,6 +77,38 @@ export default function Dealers() {
       d.district.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCity && matchesSearch;
   });
+
+  // Helper to check if a city has dealers
+  const cityHasDealers = (cityName: string) => {
+    const normalize = (str: string) => str.replace(/İ/g, 'I').toUpperCase();
+    return dealers.some(d => normalize(d.city) === normalize(cityName));
+  };
+
+  const getCityColor = (cityName: string) => {
+    const hasDealers = cityHasDealers(cityName);
+    const isSelected = selectedCity && (
+      cityName.replace(/İ/g, 'I').toUpperCase() === selectedCity.replace(/İ/g, 'I').toUpperCase()
+    );
+
+    if (isSelected) return "#243474"; // Brand Primary
+    if (hasDealers) return "#93c5fd"; // Blue 300
+    return "#e2e8f0"; // Slate 200
+  };
+
+  // D3 Map Projection
+  const width = 800;
+  const height = 500;
+  
+  const projection = geoMercator()
+    .center([35, 39]) // Turkey center
+    .scale(scale)
+    .translate([width / 2 + translate.x, height / 2 + translate.y]);
+
+  const pathGenerator = geoPath().projection(projection);
+
+  const handleZoomIn = () => setScale(s => s * 1.2);
+  const handleZoomOut = () => setScale(s => Math.max(1000, s / 1.2));
+  const handleReset = () => { setScale(3000); setTranslate({x:0, y:0}); setSelectedCity(null); };
 
   return (
     <Layout>
@@ -74,66 +127,75 @@ export default function Dealers() {
           {/* Interactive Map Section */}
           <div className="lg:w-7/12 bg-slate-50 rounded-xl border border-slate-200 relative overflow-hidden flex flex-col shadow-inner">
             {/* Map Header */}
-            <div className="bg-white p-4 border-b border-slate-200 flex justify-between items-center">
+            <div className="bg-white p-4 border-b border-slate-200 flex justify-between items-center z-10">
               <h3 className="font-bold text-slate-800 flex items-center gap-2">
                 <MapPin className="text-primary" /> Türkiye Bayi Haritası
               </h3>
-              <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">
-                {filteredDealers.length} Sonuç Listelendi
-              </span>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 text-xs text-slate-500">
+                  <span className="w-3 h-3 rounded-full bg-blue-300"></span> Bayi Var
+                  <span className="w-3 h-3 rounded-full bg-slate-200 ml-2"></span> Bayi Yok
+                </div>
+              </div>
             </div>
 
-            {/* SVG Map Container */}
-            <div className="flex-1 relative bg-[#eef2f6] flex items-center justify-center p-4 group">
-               {/* 
-                  In a real scenario, we would use a robust SVG map library like react-simple-maps or leaflets.
-                  Here, we'll create a stylized representation using CSS positioning for key cities to simulate the experience.
-               */}
-               <div className="relative w-full h-full max-w-[600px] aspect-[4/3]">
-                  {/* Simplified Map Silhouette (Using CSS/SVG path would be ideal, using a placeholder image for mockup) */}
-                  <img 
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Turkey_location_map.svg/2526px-Turkey_location_map.svg.png" 
-                    alt="Türkiye Haritası" 
-                    className="w-full h-full object-contain opacity-30 mix-blend-multiply grayscale"
-                  />
-                  
-                  {/* Interactive Dots for Major Cities */}
-                  {/* Istanbul */}
-                  <div 
-                    className={cn("absolute top-[22%] left-[22%] w-4 h-4 rounded-full border-2 border-white shadow-md cursor-pointer transition-all hover:scale-150", selectedCity === 'İSTANBUL' ? "bg-primary scale-125" : "bg-red-500")}
-                    onClick={() => setSelectedCity('İSTANBUL')}
-                    title="İstanbul"
-                  />
-                  {/* Izmir */}
-                  <div 
-                    className={cn("absolute top-[45%] left-[12%] w-4 h-4 rounded-full border-2 border-white shadow-md cursor-pointer transition-all hover:scale-150", selectedCity === 'İZMİR' ? "bg-primary scale-125" : "bg-red-500")}
-                    onClick={() => setSelectedCity('İZMİR')}
-                    title="İzmir"
-                  />
-                  {/* Ankara */}
-                  <div 
-                    className={cn("absolute top-[30%] left-[40%] w-4 h-4 rounded-full border-2 border-white shadow-md cursor-pointer transition-all hover:scale-150", selectedCity === 'ANKARA' ? "bg-primary scale-125" : "bg-red-500")}
-                    onClick={() => setSelectedCity('ANKARA')}
-                    title="Ankara"
-                  />
-                  {/* Antalya */}
-                  <div 
-                    className={cn("absolute top-[65%] left-[30%] w-4 h-4 rounded-full border-2 border-white shadow-md cursor-pointer transition-all hover:scale-150", selectedCity === 'ANTALYA' ? "bg-primary scale-125" : "bg-red-500")}
-                    onClick={() => setSelectedCity('ANTALYA')}
-                    title="Antalya"
-                  />
-                   {/* Gaziantep */}
-                   <div 
-                    className={cn("absolute top-[55%] left-[65%] w-4 h-4 rounded-full border-2 border-white shadow-md cursor-pointer transition-all hover:scale-150", selectedCity === 'GAZİANTEP' ? "bg-primary scale-125" : "bg-red-500")}
-                    onClick={() => setSelectedCity('GAZİANTEP')}
-                    title="Gaziantep"
-                  />
-               </div>
-               
-               <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded-lg shadow-lg text-xs max-w-xs border border-slate-100">
-                 <p className="font-bold text-primary mb-1">Nasıl Kullanılır?</p>
-                 <p className="text-muted-foreground">Harita üzerindeki noktalara tıklayarak veya sağdaki listeden şehir seçerek bayilerimize ulaşabilirsiniz.</p>
-               </div>
+            {/* Map Controls */}
+            <div className="absolute top-20 right-4 flex flex-col gap-2 z-20">
+              <Button variant="secondary" size="icon" onClick={handleZoomIn} className="h-8 w-8 rounded-full shadow-md bg-white hover:bg-slate-100">
+                <ZoomIn className="h-4 w-4" />
+              </Button>
+              <Button variant="secondary" size="icon" onClick={handleZoomOut} className="h-8 w-8 rounded-full shadow-md bg-white hover:bg-slate-100">
+                <ZoomOut className="h-4 w-4" />
+              </Button>
+              <Button variant="secondary" size="icon" onClick={handleReset} className="h-8 w-8 rounded-full shadow-md bg-white hover:bg-slate-100">
+                <RotateCcw className="h-4 w-4" />
+              </Button>
+            </div>
+
+            {/* Map Container */}
+            <div className="flex-1 relative bg-[#f8fafc] flex items-center justify-center overflow-hidden">
+              {geographies.length > 0 ? (
+                <svg width="100%" height="100%" viewBox={`0 0 ${width} ${height}`} className="max-w-full max-h-full cursor-grab active:cursor-grabbing">
+                  <g>
+                    {geographies.map((geo, i) => {
+                      const cityName = geo.properties.name;
+                      const hasDealers = cityHasDealers(cityName);
+                      const isSelected = selectedCity && (cityName.replace(/İ/g, 'I').toUpperCase() === selectedCity.replace(/İ/g, 'I').toUpperCase());
+                      
+                      return (
+                        <path
+                          key={i}
+                          d={pathGenerator(geo) || undefined}
+                          fill={getCityColor(cityName)}
+                          stroke="#FFFFFF"
+                          strokeWidth={isSelected ? 2 : 0.5}
+                          className={cn(
+                            "transition-colors duration-300 outline-none",
+                            hasDealers ? "hover:fill-blue-500 cursor-pointer" : "hover:fill-slate-300"
+                          )}
+                          data-tooltip-id="map-tooltip"
+                          data-tooltip-content={cityName}
+                          onClick={() => {
+                            // Map click handling
+                            const matchedCity = cities.find(c => c.replace(/İ/g, 'I').toUpperCase() === cityName.replace(/İ/g, 'I').toUpperCase());
+                            if (matchedCity) {
+                              setSelectedCity(matchedCity);
+                            } else if (hasDealers) {
+                               const fuzzyMatch = dealers.find(d => d.city.includes(cityName.toUpperCase()) || cityName.toUpperCase().includes(d.city));
+                               if (fuzzyMatch) setSelectedCity(fuzzyMatch.city);
+                            }
+                          }}
+                        />
+                      );
+                    })}
+                  </g>
+                </svg>
+              ) : (
+                <div className="flex items-center justify-center h-full text-slate-400">
+                  <span className="loading loading-spinner"></span> Harita Yükleniyor...
+                </div>
+              )}
+              <Tooltip id="map-tooltip" className="z-50 text-xs font-bold bg-slate-800 text-white px-2 py-1 rounded shadow-lg" />
             </div>
           </div>
 
@@ -180,6 +242,13 @@ export default function Dealers() {
             </div>
 
             <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-slate-50/30">
+              <div className="flex justify-between items-center px-2 mb-2">
+                 <span className="text-xs font-bold text-slate-500">{filteredDealers.length} Sonuç</span>
+                 {selectedCity && (
+                   <button onClick={() => setSelectedCity(null)} className="text-xs text-primary hover:underline">Filtreyi Temizle</button>
+                 )}
+              </div>
+
               {filteredDealers.length > 0 ? filteredDealers.map(dealer => (
                 <div 
                   key={dealer.id} 
