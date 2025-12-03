@@ -12,6 +12,7 @@ import Contact from "@/pages/Contact";
 import About from "@/pages/About";
 import RAndD from "@/pages/RAndD";
 import Certificates from "@/pages/Certificates";
+import Careers from "@/pages/Careers";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/hakkimizda" component={About} />
       <Route path="/arge-merkezi" component={RAndD} />
       <Route path="/sertifikalarimiz" component={Certificates} />
+      <Route path="/kariyer" component={Careers} />
       <Route path="/urunler" component={Products} />
       <Route path="/urunler/:id" component={ProductDetail} />
       <Route path="/bayi-servis" component={Dealers} />
