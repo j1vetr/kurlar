@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Briefcase, Clock, MapPin, ArrowRight, CheckCircle2, Users, Zap, Trophy } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Careers() {
+  const { t } = useLanguage();
   const positions = [
     {
       id: 1,
@@ -103,13 +105,13 @@ export default function Careers() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
-              Geleceği Birlikte Şekillendirelim
+              {t('careers.title')}
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
-              Kurlar Dalgıç Pompa ailesine katılın, sektörün öncü teknolojilerini birlikte geliştirelim. Yeteneğinize ve enerjinize ihtiyacımız var.
+              {t('careers.subtitle')}
             </p>
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-sm uppercase tracking-wider">
-              Açık Pozisyonları İncele
+              {t('careers.cta')}
             </Button>
           </motion.div>
         </div>
@@ -120,10 +122,10 @@ export default function Careers() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-heading font-bold text-slate-900 mb-4">
-              Neden Kurlar?
+              {t('careers.why_us')}
             </h2>
             <p className="text-slate-500 max-w-2xl mx-auto">
-              Çalışanlarımızın mutluluğu ve gelişimi bizim için önceliktir. İşte size sunduğumuz ayrıcalıklardan bazıları.
+              {t('careers.why_us_desc')}
             </p>
           </div>
 
@@ -156,14 +158,14 @@ export default function Careers() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 pb-6">
             <div>
               <h2 className="text-3xl font-heading font-bold text-slate-900 mb-2">
-                Açık Pozisyonlar
+                {t('careers.positions_title')}
               </h2>
               <p className="text-slate-500">
-                Ekibimize katılmak için güncel iş ilanlarımızı inceleyin.
+                {t('careers.positions_desc')}
               </p>
             </div>
             <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider mt-4 md:mt-0">
-              {positions.length} Pozisyon Mevcut
+              {positions.length} {t('careers.position_available')}
             </div>
           </div>
 
@@ -205,7 +207,7 @@ export default function Careers() {
                     </p>
 
                     <div className="mb-6">
-                      <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wide">Aranan Nitelikler:</h4>
+                      <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wide">{t('careers.requirements')}</h4>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {pos.requirements.map((req, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
@@ -219,10 +221,10 @@ export default function Careers() {
 
                   <div className="flex flex-col gap-3 shrink-0 lg:w-48">
                     <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wide h-12">
-                      Başvur
+                      {t('careers.apply')}
                     </Button>
                     <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-slate-50 font-bold uppercase tracking-wide h-12">
-                      Detaylar
+                      {t('careers.details')}
                     </Button>
                   </div>
                 </div>
@@ -241,13 +243,13 @@ export default function Careers() {
             
             <div className="relative z-10">
               <h2 className="text-3xl font-heading font-bold text-white mb-4">
-                Aradığınız Pozisyonu Bulamadınız mı?
+                {t('careers.general_app_title')}
               </h2>
               <p className="text-slate-300 max-w-2xl mx-auto mb-8 text-lg">
-                Yetenek havuzumuza katılın, niteliklerinize uygun bir pozisyon açıldığında sizinle iletişime geçelim.
+                {t('careers.general_app_desc')}
               </p>
               <Button size="lg" variant="secondary" className="bg-white text-slate-900 hover:bg-slate-100 font-bold px-8 h-14 uppercase tracking-wider">
-                Genel Başvuru Yap
+                {t('careers.general_app_btn')}
               </Button>
             </div>
           </div>

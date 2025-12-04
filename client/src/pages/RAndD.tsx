@@ -1,8 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Search, Microscope, Cpu, ShieldCheck, BarChart, Settings, Activity, PenTool } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function RAndD() {
+  const { t } = useLanguage();
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -15,7 +18,7 @@ export default function RAndD() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-heading font-bold text-white mb-6"
           >
-            Ar-Ge ve İnovasyon
+            {t('rnd.title')}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -23,7 +26,7 @@ export default function RAndD() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Sürekli gelişim ilkesiyle, sektörün en verimli ve dayanıklı dalgıç pompa teknolojilerini geliştiriyoruz.
+            {t('rnd.desc')}
           </motion.p>
         </div>
       </div>
@@ -33,13 +36,13 @@ export default function RAndD() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">
-              Mühendislik ve <span className="text-primary">Tasarım Gücü</span>
+              {t('rnd.design_power').split(' ').slice(0, 2).join(' ')} <span className="text-primary">{t('rnd.design_power').split(' ').slice(2).join(' ')}</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              Kurlar Ar-Ge Merkezi, ürünlerimizin performansını ve dayanıklılığını artırmak için sürekli çalışmaktadır. Modern laboratuvarlarımızda gerçekleştirilen testler ve analizler, her bir parçanın en zorlu koşullarda bile kusursuz çalışmasını garanti altına alır.
+              {t('rnd.design_desc1')}
             </p>
             <p className="text-slate-600 text-lg leading-relaxed">
-              Enerji verimliliği yüksek motorlar ve hidrolik tasarımlarımız, işletme maliyetlerini düşürürken çevresel sürdürülebilirliğe de katkı sağlar. Uzman mühendis kadromuz, simülasyon ve modelleme teknolojileriyle ürün geliştirme süreçlerini yönetmektedir.
+              {t('rnd.design_desc2')}
             </p>
           </div>
           <div className="relative">
@@ -56,8 +59,8 @@ export default function RAndD() {
                       <Settings className="w-6 h-6" />
                    </div>
                    <div>
-                      <div className="font-bold text-slate-900">Hassas Üretim</div>
-                      <div className="text-xs text-slate-500">Kalite Kontrol</div>
+                      <div className="font-bold text-slate-900">{t('rnd.precision_production')}</div>
+                      <div className="text-xs text-slate-500">{t('rnd.quality_control')}</div>
                    </div>
                 </div>
              </div>
@@ -95,9 +98,9 @@ export default function RAndD() {
         <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="p-12 bg-slate-900 text-white flex flex-col justify-center">
-              <h3 className="text-3xl font-heading font-bold mb-6">Geliştirme Süreci</h3>
+              <h3 className="text-3xl font-heading font-bold mb-6">{t('rnd.process_title')}</h3>
               <p className="text-slate-300 text-lg mb-8">
-                Fikirden ürüne giden yolda, her aşamayı titizlikle planlıyor ve uyguluyoruz.
+                {t('rnd.process_desc')}
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center gap-4">

@@ -4,12 +4,14 @@ import { products } from "@/lib/data";
 import { useRoute, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Filter, SlidersHorizontal, ArrowDown } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Products() {
   const [location] = useLocation();
   const searchParams = new URLSearchParams(window.location.search);
   const categoryFilter = searchParams.get('category');
   const searchQuery = searchParams.get('search');
+  const { t } = useLanguage();
 
   // Filter products logic (kept minimal for data integrity, but UI will be direct)
   const filteredProducts = products.filter(product => {
@@ -47,10 +49,10 @@ export default function Products() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container mx-auto px-6 relative z-10">
            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
-             {searchQuery ? `Arama Sonuçları: "${searchQuery}"` : 'Ürün Yelpazemiz'}
+             {searchQuery ? `${t('products.search_results')}: "${searchQuery}"` : t('products.title')}
            </h1>
            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-             Endüstriyel standartlarda, yüksek performanslı dalgıç pompa ve motor çözümleri.
+             {t('products.subtitle')}
            </p>
         </div>
       </div>
@@ -63,11 +65,11 @@ export default function Products() {
           <div className="mb-24" id="pumps">
              <div className="flex items-end justify-between border-b border-slate-200 pb-6 mb-12">
                 <div>
-                   <h2 className="text-3xl font-heading font-bold text-slate-900">Dalgıç Pompalar</h2>
-                   <p className="text-slate-500 mt-2">Paslanmaz, Noryl ve Döküm serisi profesyonel pompalar.</p>
+                   <h2 className="text-3xl font-heading font-bold text-slate-900">{t('nav.pumps')}</h2>
+                   <p className="text-slate-500 mt-2">{t('products.pumps_desc')}</p>
                 </div>
                 <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider">
-                   {pumpProducts.length} Model
+                   {pumpProducts.length} {t('products.model_count')}
                 </div>
              </div>
              
@@ -84,11 +86,11 @@ export default function Products() {
           <div id="motors">
              <div className="flex items-end justify-between border-b border-slate-200 pb-6 mb-12">
                 <div>
-                   <h2 className="text-3xl font-heading font-bold text-slate-900">Dalgıç Motorlar</h2>
-                   <p className="text-slate-500 mt-2">Yüksek verimli, uzun ömürlü motor teknolojileri.</p>
+                   <h2 className="text-3xl font-heading font-bold text-slate-900">{t('nav.motors')}</h2>
+                   <p className="text-slate-500 mt-2">{t('products.motors_desc')}</p>
                 </div>
                 <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider">
-                   {motorProducts.length} Model
+                   {motorProducts.length} {t('products.model_count')}
                 </div>
              </div>
 
@@ -102,8 +104,8 @@ export default function Products() {
           
           {filteredProducts.length === 0 && searchQuery && (
              <div className="text-center py-20">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Sonuç Bulunamadı</h3>
-                <p className="text-slate-500">Aradığınız kriterlere uygun ürün bulunamadı.</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{t('products.no_results')}</h3>
+                <p className="text-slate-500">{t('products.no_results_desc')}</p>
              </div>
           )}
 

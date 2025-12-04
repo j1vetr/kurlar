@@ -1,8 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Globe, Award, Users, Building2 } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -15,7 +18,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-heading font-bold mb-6"
           >
-            Tarihimizden İlham Alındı, <br/> <span className="text-primary">Gelecek İçin Tasarlandı</span>
+            {t('home.about.title').split(' ').slice(0, 3).join(' ')} <br/> <span className="text-primary">{t('home.about.title').split(' ').slice(3).join(' ')}</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -23,7 +26,7 @@ export default function About() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
-            1975'ten bugüne, suyun gücünü teknolojiyle buluşturuyor, Türkiye'den dünyaya değer katıyoruz.
+            {t('footer.desc')}
           </motion.p>
         </div>
       </div>
@@ -64,8 +67,8 @@ export default function About() {
                   <Globe className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">40+ Ülke</h4>
-                  <p className="text-sm text-slate-500">İhracat Ağı</p>
+                  <h4 className="font-bold text-slate-900">{t('home.global_export')}</h4>
+                  <p className="text-sm text-slate-500">40+ Ülke</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">

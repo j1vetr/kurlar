@@ -14,6 +14,7 @@ import About from "@/pages/About";
 import RAndD from "@/pages/RAndD";
 import Certificates from "@/pages/Certificates";
 import Careers from "@/pages/Careers";
+import { LanguageProvider } from "./lib/i18n";
 
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CookiePolicy from "@/pages/CookiePolicy";
@@ -53,10 +54,12 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

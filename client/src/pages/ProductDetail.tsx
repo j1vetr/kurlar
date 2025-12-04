@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
-import { products } from "@/lib/data";
+import { products, getProductWithLanguage } from "@/lib/data";
 import { useRoute, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +13,7 @@ import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Lay
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/i18n";
 
 function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
   const [zoom, setZoom] = useState(false);
@@ -48,7 +49,11 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
 export default function ProductDetail() {
   const [, params] = useRoute("/urunler/:id");
   const productId = params?.id;
-  const product = products.find(p => p.id === productId);
+  const { t, language } = useLanguage();
+  
+  const baseProduct = products.find(p => p.id === productId);
+  const product = baseProduct ? getProductWithLanguage(baseProduct, language) : undefined;
+
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'parts' | 'options'>('overview');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -57,8 +62,8 @@ export default function ProductDetail() {
     return (
       <Layout>
         <div className="container mx-auto px-6 py-24 text-center">
-          <h1 className="text-2xl font-bold mb-4">Ürün Bulunamadı</h1>
-          <Link href="/urunler"><Button>Ürünlere Dön</Button></Link>
+          <h1 className="text-2xl font-bold mb-4">{t('product.not_found')}</h1>
+          <Link href="/urunler"><Button>{t('product.back')}</Button></Link>
         </div>
       </Layout>
     );
@@ -72,8 +77,8 @@ export default function ProductDetail() {
       <div className="bg-white border-b border-slate-200 py-4">
         <div className="container mx-auto px-6">
           <div className="flex items-center text-xs font-medium text-slate-500 uppercase tracking-wide gap-2">
-            <Link href="/" className="hover:text-slate-900">Ana Sayfa</Link> / 
-            <Link href="/urunler" className="hover:text-slate-900">Ürünler</Link> / 
+            <Link href="/" className="hover:text-slate-900">{t('nav.home')}</Link> / 
+            <Link href="/urunler" className="hover:text-slate-900">{t('nav.products')}</Link> / 
             <span className="text-slate-900">{product.name}</span>
           </div>
         </div>
@@ -105,8 +110,8 @@ export default function ProductDetail() {
 
                  {/* Zoom Hint Badge */}
                  <div className="absolute bottom-4 right-4 z-10 bg-white/80 backdrop-blur text-slate-500 text-[10px] md:text-xs px-2 py-1 rounded-full shadow-sm border border-slate-200 flex items-center gap-1 pointer-events-none">
-                    <span className="md:hidden">Büyütmek için dokunun</span>
-                    <span className="hidden md:inline">Büyütmek için üzerine gelin</span>
+                    <span className="md:hidden">{t('product.zoom_hint_mobile')}</span>
+                    <span className="hidden md:inline">{t('product.zoom_hint_desktop')}</span>
                     <div className="w-3 h-3 md:w-4 md:h-4">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="11" cy="11" r="8" />
@@ -156,7 +161,7 @@ export default function ProductDetail() {
                 
                 {product.availableSizes && (
                   <div className="mb-6 inline-flex flex-col gap-1">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mevcut Boyutlar (İnç)</span>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('product.available_sizes')}</span>
                     <span className="bg-primary text-white text-sm font-bold px-4 py-2 rounded-sm shadow-sm flex items-center gap-2 self-start">
                       <Ruler className="w-4 h-4" /> {product.availableSizes}
                     </span>
@@ -180,7 +185,7 @@ export default function ProductDetail() {
                     activeTab === 'overview' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
-                  <Info className="w-4 h-4" /> Genel Bakış
+                  <Info className="w-4 h-4" /> {t('product.overview')}
                 </button>
                 <button 
                   onClick={() => setActiveTab('specs')}
@@ -189,7 +194,7 @@ export default function ProductDetail() {
                     activeTab === 'specs' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
-                  <Ruler className="w-4 h-4" /> Teknik Veriler
+                  <Ruler className="w-4 h-4" /> {t('product.specs')}
                 </button>
                 {product.mechanicalPartsImages && (
                   <button 
@@ -199,7 +204,7 @@ export default function ProductDetail() {
                       activeTab === 'parts' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                     )}
                   >
-                    <Layers className="w-4 h-4" /> Mekanik Parçalar
+                    <Layers className="w-4 h-4" /> {t('product.parts')}
                   </button>
                 )}
                 {product.options && (
@@ -210,7 +215,7 @@ export default function ProductDetail() {
                       activeTab === 'options' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                     )}
                   >
-                    <Sliders className="w-4 h-4" /> Opsiyonlar
+                    <Sliders className="w-4 h-4" /> {t('product.options')}
                   </button>
                 )}
               </div>
@@ -221,7 +226,7 @@ export default function ProductDetail() {
                   <div className="space-y-8">
                     <div>
                       <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <FileText className="w-4 h-4 text-primary" /> Ürün Açıklaması
+                        <FileText className="w-4 h-4 text-primary" /> {t('product.desc_title')}
                       </h3>
                       <div className="prose prose-sm text-slate-600 max-w-none">
                         <p className="whitespace-pre-line">{product.longDescription || product.description}</p>
@@ -230,7 +235,7 @@ export default function ProductDetail() {
                     
                     <div>
                        <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <Zap className="w-4 h-4 text-primary" /> Özellikler
+                        <Zap className="w-4 h-4 text-primary" /> {t('product.features_title')}
                       </h3>
                       <ul className="grid grid-cols-1 gap-2">
                         {product.features?.map((f, i) => (
@@ -247,7 +252,7 @@ export default function ProductDetail() {
                 {activeTab === 'specs' && (
                   <div>
                      <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
-                        <Settings className="w-4 h-4 text-primary" /> Teknik Özellikler
+                        <Settings className="w-4 h-4 text-primary" /> {t('product.specs_title')}
                       </h3>
                       
                       {product.specsImage && (
@@ -279,7 +284,7 @@ export default function ProductDetail() {
                            <Button variant="outline" className="h-auto py-8 flex flex-col items-center gap-3 border-slate-200 hover:border-primary hover:bg-slate-50 hover:text-primary transition-all group whitespace-normal text-center">
                              <Layers className="w-8 h-8 text-slate-400 group-hover:text-primary mb-1 transition-colors" />
                              <span className="font-bold text-lg">{part.title}</span>
-                             <span className="text-xs text-slate-500 font-normal bg-slate-100 px-3 py-1 rounded-full group-hover:bg-white transition-colors">Görüntülemek için tıklayın</span>
+                             <span className="text-xs text-slate-500 font-normal bg-slate-100 px-3 py-1 rounded-full group-hover:bg-white transition-colors">{t('product.view_click')}</span>
                            </Button>
                          </DialogTrigger>
                          <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-hidden p-0 bg-white border-slate-200">
@@ -298,7 +303,7 @@ export default function ProductDetail() {
                 {activeTab === 'options' && product.options && (
                   <div>
                     <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
-                      <Sliders className="w-4 h-4 text-primary" /> Opsiyonlar & Seçenekler
+                      <Sliders className="w-4 h-4 text-primary" /> {t('product.options_title')}
                     </h3>
                     <div className="grid grid-cols-1 gap-3">
                       {product.options.map((option, i) => (
@@ -317,11 +322,11 @@ export default function ProductDetail() {
               {/* Footer Actions - Sticky on Mobile */}
               <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row gap-4 sticky bottom-0 lg:relative z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] lg:shadow-none">
                 <Button className="flex-1 bg-primary hover:bg-primary/90 text-white h-12 rounded-sm font-bold uppercase tracking-wide shadow-lg lg:shadow-none">
-                  Teklif İste
+                  {t('product.request_quote')}
                 </Button>
                 <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-1 hidden sm:block">
                   <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-white h-12 rounded-sm font-bold uppercase tracking-wide">
-                    <Download className="mr-2 w-4 h-4" /> 2025 Kataloğu İndir
+                    <Download className="mr-2 w-4 h-4" /> {t('product.download_catalog')}
                   </Button>
                 </a>
               </div>
@@ -332,9 +337,9 @@ export default function ProductDetail() {
           <div className="mb-24 border-t border-slate-200 pt-16">
             <div className="text-center mb-12">
                <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
-                 <Settings className="w-8 h-8 text-primary" /> Diğer Ürünlerimiz
+                 <Settings className="w-8 h-8 text-primary" /> {t('product.other_products')}
                </h2>
-               <p className="text-slate-500">İlginizi çekebilecek diğer profesyonel çözümlerimiz.</p>
+               <p className="text-slate-500">{t('product.other_products_desc')}</p>
             </div>
 
             <div className="relative w-full overflow-hidden">
@@ -377,7 +382,7 @@ export default function ProductDetail() {
                              {p.name}
                            </h3>
                            <div className="mt-auto flex items-center text-primary font-bold text-xs uppercase tracking-wide">
-                             İncele <ArrowRight className="ml-1 w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                             {t('product.review')} <ArrowRight className="ml-1 w-3 h-3 group-hover:translate-x-1 transition-transform" />
                            </div>
                          </div>
                        </a>
@@ -393,9 +398,9 @@ export default function ProductDetail() {
              <div className="max-w-4xl mx-auto mb-16">
                 <div className="text-center mb-12">
                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
-                     <HelpCircle className="w-8 h-8 text-primary" /> Sıkça Sorulan Sorular
+                     <HelpCircle className="w-8 h-8 text-primary" /> {t('product.faq_title')}
                    </h2>
-                   <p className="text-slate-500">Bu ürün hakkında en çok merak edilen soruların cevapları.</p>
+                   <p className="text-slate-500">{t('product.faq_desc')}</p>
                 </div>
                 
                 <div className="space-y-4">

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Tooltip } from "react-tooltip";
 import { geoMercator, geoPath } from "d3-geo";
+import { useLanguage } from "@/lib/i18n";
 
 // Turkey GeoJSON URL (Local)
 const TURKEY_GEO_JSON = "/assets/turkey-cities.json";
@@ -50,6 +51,7 @@ const dealers = [
 const cities = Array.from(new Set(dealers.map(d => d.city))).sort();
 
 export default function Dealers() {
+  const { t } = useLanguage();
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [geographies, setGeographies] = useState<any[]>([]);
@@ -129,9 +131,9 @@ export default function Dealers() {
       <div className="bg-slate-900 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Yurt İçi Bayi & Servis Ağı</h1>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">{t('dealers.title')}</h1>
           <p className="text-white/70 max-w-xl mx-auto text-lg">
-            Türkiye'nin dört bir yanındaki yetkili satış ve servis noktalarımızla her zaman yanınızdayız.
+            {t('dealers.desc')}
           </p>
         </div>
       </div>
@@ -143,14 +145,14 @@ export default function Dealers() {
             {/* Map Header */}
             <div className="bg-white p-4 border-b border-slate-200 flex justify-between items-center z-10 bg-gradient-to-r from-white to-slate-50">
               <h3 className="font-bold text-slate-800 flex items-center gap-2 text-lg">
-                <MapPin className="text-primary" /> Türkiye Bayi Haritası
+                <MapPin className="text-primary" /> {t('dealers.map_title')}
               </h3>
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
-                  <span className="w-3 h-3 rounded-full bg-primary/60 shadow-sm"></span> Bayi Var
+                  <span className="w-3 h-3 rounded-full bg-primary/60 shadow-sm"></span> {t('dealers.has_dealer')}
                 </div>
                 <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
-                  <span className="w-3 h-3 rounded-full bg-slate-200 border border-slate-300"></span> Bayi Yok
+                  <span className="w-3 h-3 rounded-full bg-slate-200 border border-slate-300"></span> {t('dealers.no_dealer')}
                 </div>
               </div>
             </div>
@@ -245,7 +247,7 @@ export default function Dealers() {
               <div className="relative mb-6">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <Input 
-                  placeholder="Şehir, ilçe veya bayi adı ara..." 
+                  placeholder={t('dealers.search_placeholder')}
                   className="pl-10 h-12 bg-slate-50 border-slate-200 focus:border-primary focus:ring-primary/20 transition-all"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -253,7 +255,7 @@ export default function Dealers() {
               </div>
               
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Hızlı Şehir Filtresi</span>
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('dealers.filter_city')}</span>
               </div>
               
               {/* Horizontal Scrolling City Filter */}
@@ -268,7 +270,7 @@ export default function Dealers() {
                         : "bg-white text-slate-600 border-slate-200 hover:border-primary hover:text-primary hover:bg-slate-50"
                     )}
                   >
-                    TÜM İLLER
+                    {t('dealers.all_cities')}
                   </button>
                   {cities.map(city => (
                     <button 
@@ -293,9 +295,9 @@ export default function Dealers() {
 
             <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-slate-50/30">
               <div className="flex justify-between items-center px-2 mb-2">
-                 <span className="text-xs font-bold text-slate-500">{filteredDealers.length} Sonuç</span>
+                 <span className="text-xs font-bold text-slate-500">{filteredDealers.length} {t('dealers.results')}</span>
                  {selectedCity && (
-                   <button onClick={() => setSelectedCity(null)} className="text-xs text-primary hover:underline">Filtreyi Temizle</button>
+                   <button onClick={() => setSelectedCity(null)} className="text-xs text-primary hover:underline">{t('dealers.clear_filter')}</button>
                  )}
               </div>
 
@@ -345,7 +347,7 @@ export default function Dealers() {
                       asChild
                     >
                       <a href={`tel:${dealer.phone.replace(/\s+/g, '')}`}>
-                        Hemen Ara
+                        {t('dealers.call_now')}
                       </a>
                     </Button>
                     <Button 
@@ -359,7 +361,7 @@ export default function Dealers() {
                          target="_blank"
                          rel="noopener noreferrer"
                        >
-                         Yol Tarifi
+                         {t('dealers.get_directions')}
                        </a>
                     </Button>
                   </div>
@@ -367,8 +369,8 @@ export default function Dealers() {
               )) : (
                 <div className="h-full flex flex-col items-center justify-center text-slate-400 p-8 text-center">
                   <MapPin className="w-12 h-12 mb-4 opacity-20" />
-                  <p className="font-medium">Aradığınız kriterlere uygun bayi bulunamadı.</p>
-                  <Button variant="link" onClick={() => {setSelectedCity(null); setSearchQuery('');}}>Filtreleri Temizle</Button>
+                  <p className="font-medium">{t('dealers.not_found_desc')}</p>
+                  <Button variant="link" onClick={() => {setSelectedCity(null); setSearchQuery('');}}>{t('dealers.clear_filter')}</Button>
                 </div>
               )}
             </div>

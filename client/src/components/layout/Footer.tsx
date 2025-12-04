@@ -1,7 +1,10 @@
 import { Link } from "wouter";
 import { Facebook, Instagram, Linkedin, Heart } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-primary text-white border-t border-primary/20">
       {/* Top Section */}
@@ -13,7 +16,7 @@ export function Footer() {
                  <img src="/assets/logo.png" alt="Kurlar Logo" className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-blue-50 text-sm leading-relaxed">
-              1975'ten beri suyun gücünü teknolojiyle buluşturuyor, Türkiye'den dünyaya değer katıyoruz. Yüksek verimli dalgıç pompa ve motor çözümleri.
+              {t('footer.desc')}
             </p>
             <div className="flex gap-4">
               <a 
@@ -45,33 +48,33 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Hızlı Erişim</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">{t('footer.quick_links')}</h4>
             <ul className="space-y-3 text-sm text-blue-50">
-              <li><Link href="/"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Ana Sayfa</a></Link></li>
-              <li><Link href="/hakkimizda"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Kurumsal</a></Link></li>
-              <li><Link href="/urunler"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Ürünler</a></Link></li>
-              <li><Link href="/kariyer"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Kariyer</a></Link></li>
-              <li><Link href="/iletisim"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">İletişim</a></Link></li>
+              <li><Link href="/"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.home')}</a></Link></li>
+              <li><Link href="/hakkimizda"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.corporate')}</a></Link></li>
+              <li><Link href="/urunler"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.products')}</a></Link></li>
+              <li><Link href="/kariyer"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.career')}</a></Link></li>
+              <li><Link href="/iletisim"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.contact')}</a></Link></li>
             </ul>
           </div>
 
           {/* Products */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Ürün Grupları</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">{t('footer.product_groups')}</h4>
             <ul className="space-y-3 text-sm text-blue-50">
-              <li><Link href="/urunler?category=pump"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Dalgıç Pompalar</a></Link></li>
-              <li><Link href="/urunler?category=motor"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Dalgıç Motorlar</a></Link></li>
-              <li><Link href="/urunler?search=Paslanmaz"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Paslanmaz Serisi</a></Link></li>
-              <li><Link href="/urunler?search=Döküm"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Döküm Serisi</a></Link></li>
+              <li><Link href="/urunler?category=pump"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.pumps')}</a></Link></li>
+              <li><Link href="/urunler?category=motor"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.motors')}</a></Link></li>
+              <li><Link href="/urunler?search=Paslanmaz"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.stainless_series')}</a></Link></li>
+              <li><Link href="/urunler?search=Döküm"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cast_series')}</a></Link></li>
             </ul>
           </div>
 
           {/* Legal & Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Yasal & İletişim</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">{t('footer.legal_contact')}</h4>
             <ul className="space-y-3 text-sm text-blue-50">
-              <li><Link href="/gizlilik-politikasi"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Gizlilik Politikası</a></Link></li>
-              <li><Link href="/cerez-politikasi"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Çerez Politikası</a></Link></li>
+              <li><Link href="/gizlilik-politikasi"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.privacy')}</a></Link></li>
+              <li><Link href="/cerez-politikasi"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cookies')}</a></Link></li>
               <li className="pt-4 text-blue-100/80">
                 İzmir, Türkiye <br/>
                 info@kurlar.com.tr
@@ -85,7 +88,7 @@ export function Footer() {
       <div className="border-t border-primary/20 bg-black/20 py-6">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-blue-100/60">
           <p>
-            Kurlar Dalgıç Pompa & Motor Tüm Hakları Saklıdır.
+            {t('footer.rights')}
           </p>
           <div className="flex items-center gap-1">
             <span>Geliştirici & Tasarımcı :</span>

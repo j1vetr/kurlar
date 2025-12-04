@@ -6,8 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Users, Globe, Building2, ArrowUpRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   // Explicitly select the main products for the homepage
   const featuredProducts = [
     products.find(p => p.id === 'kp'),
@@ -35,37 +38,39 @@ export default function Home() {
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-primary/90 text-white p-6 rounded-lg shadow-xl hidden md:block">
                   <div className="text-3xl font-bold">1975</div>
-                  <div className="text-sm text-blue-100 uppercase tracking-wider">Yılından Beri</div>
+                  <div className="text-sm text-blue-100 uppercase tracking-wider">{t('home.about.since')}</div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">
-                Mühendislik ve Kalitenin <br/> <span className="text-primary">Buluşma Noktası</span>
+                {t('home.about.title').split(' ')[0]} <br/> <span className="text-primary">{t('home.about.title').split(' ').slice(1).join(' ')}</span>
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Türkiye'nin ilk Paslanmaz Çelik Dalgıç Pompa üreticisi olarak, 25.000m² üretim tesisimizde dünya standartlarında çözümler üretiyoruz. 40'tan fazla ülkeye ihracat yaparak kalitemizi global pazarda kanıtlıyoruz.
+                {t('home.about.desc')}
               </p>
               
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start gap-3">
                   <Globe className="w-6 h-6 text-primary mt-1" />
                   <div>
-                    <h4 className="font-bold text-slate-900">Global İhracat</h4>
-                    <p className="text-sm text-slate-500">40+ Ülkeye Teknoloji Transferi</p>
+                    <h4 className="font-bold text-slate-900">{t('home.global_export')}</h4>
+                    <p className="text-sm text-slate-500">{t('home.tech_transfer')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Building2 className="w-6 h-6 text-primary mt-1" />
                   <div>
-                    <h4 className="font-bold text-slate-900">Yerli Üretim</h4>
-                    <p className="text-sm text-slate-500">%100 Yerli Sermaye ve Üretim</p>
+                    <h4 className="font-bold text-slate-900">{t('home.local_production')}</h4>
+                    <p className="text-sm text-slate-500">{t('home.local_capital')}</p>
                   </div>
                 </div>
               </div>
 
               <Link href="/hakkimizda">
-                
+                <Button className="bg-slate-900 hover:bg-slate-800 text-white gap-2">
+                  {t('nav.about')} <ArrowRight className="w-4 h-4" />
+                </Button>
               </Link>
             </div>
           </div>
@@ -78,15 +83,15 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-end">
             <div>
               <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">
-                Ürün Yelpazemiz
+                {t('home.products.range')}
               </span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900">
-                Profesyonel Pompa ve Motor Çözümleri
+                {t('home.products.solutions')}
               </h2>
             </div>
             <Link href="/urunler">
               <Button variant="ghost" className="text-slate-600 hover:text-primary hover:bg-blue-50 mt-4 md:mt-0">
-                Tüm Modelleri Gör <ArrowRight className="ml-2 w-4 h-4" />
+                {t('home.products.view_all')} <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
           </div>

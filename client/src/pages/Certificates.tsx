@@ -1,8 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Award, CheckCircle, Shield, FileCheck } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Certificates() {
+  const { t } = useLanguage();
   const certificates = [
     {
       id: 'iso14001',
@@ -36,10 +38,10 @@ export default function Certificates() {
       <div className="bg-slate-50 border-b border-slate-200 py-20">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6">
-            Kalite ve Sertifikalarımız
+            {t('certs.title')}
           </h1>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            Uluslararası standartlara uygun üretim süreçlerimiz ve kalite belgelerimizle, güvenilirliğimizi tescilliyoruz.
+            {t('certs.desc')}
           </p>
         </div>
       </div>
@@ -83,7 +85,7 @@ export default function Certificates() {
                 </p>
 
                 <button className="w-full py-3 rounded-lg border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300 transition-all flex items-center justify-center gap-2">
-                  <FileCheck className="w-4 h-4" /> Belgeyi Görüntüle
+                  <FileCheck className="w-4 h-4" /> {t('certs.view_doc')}
                 </button>
               </div>
             </motion.div>
@@ -96,7 +98,7 @@ export default function Certificates() {
         <div className="container mx-auto px-6">
            <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="md:w-1/2">
-                 <h2 className="text-3xl font-bold mb-6">Kalite Politikamız</h2>
+                 <h2 className="text-3xl font-bold mb-6">{t('certs.quality_policy')}</h2>
                  <div className="space-y-4">
                     {[
                       "Müşteri memnuniyetini en üst düzeyde tutmak",

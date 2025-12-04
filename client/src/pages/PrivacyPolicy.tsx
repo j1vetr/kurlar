@@ -1,7 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
 import { Shield, Lock, Eye, FileText, Server } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function PrivacyPolicy() {
+  const { t } = useLanguage();
+
   return (
     <Layout>
       <div className="bg-slate-50 min-h-screen py-20">
@@ -13,8 +16,8 @@ export default function PrivacyPolicy() {
                 <Shield className="w-32 h-32" />
               </div>
               <div className="relative z-10">
-                <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">Gizlilik Politikası</h1>
-                <p className="text-blue-100 text-lg">Verilerinizin güvenliği bizim için önemlidir.</p>
+                <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">{t('privacy.title')}</h1>
+                <p className="text-blue-100 text-lg">{t('privacy.subtitle')}</p>
               </div>
             </div>
 
@@ -25,10 +28,10 @@ export default function PrivacyPolicy() {
                   <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Lock className="w-5 h-5" />
                   </div>
-                  <h2 className="text-xl font-bold">1. Veri Toplama ve Kullanım</h2>
+                  <h2 className="text-xl font-bold">1. {t('privacy.collection')}</h2>
                 </div>
                 <p className="text-slate-600 leading-relaxed pl-14">
-                  Kurlar Pompa olarak, web sitemizi ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda, size daha iyi hizmet sunabilmek adına bazı kişisel verilerinizi (isim, e-posta, iletişim bilgileri vb.) toplayabiliriz. Bu veriler, taleplerinizi yanıtlamak, ürünlerimiz hakkında bilgi vermek ve hizmet kalitemizi artırmak amacıyla kullanılır.
+                  {t('privacy.collection_desc')}
                 </p>
               </div>
 
@@ -37,10 +40,10 @@ export default function PrivacyPolicy() {
                   <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Server className="w-5 h-5" />
                   </div>
-                  <h2 className="text-xl font-bold">2. Veri Güvenliği</h2>
+                  <h2 className="text-xl font-bold">2. {t('privacy.security')}</h2>
                 </div>
                 <p className="text-slate-600 leading-relaxed pl-14">
-                  Toplanan kişisel verileriniz, yetkisiz erişime, kaybolmaya veya değiştirilmeye karşı korunmak üzere endüstri standardı güvenlik önlemleriyle saklanmaktadır. Verileriniz, yasal zorunluluklar dışında üçüncü şahıslarla paylaşılmaz.
+                  {t('privacy.security_desc')}
                 </p>
               </div>
 
@@ -49,10 +52,10 @@ export default function PrivacyPolicy() {
                   <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <Eye className="w-5 h-5" />
                   </div>
-                  <h2 className="text-xl font-bold">3. Üçüncü Taraf Bağlantılar</h2>
+                  <h2 className="text-xl font-bold">3. {t('privacy.links')}</h2>
                 </div>
                 <p className="text-slate-600 leading-relaxed pl-14">
-                  Web sitemiz, diğer web sitelerine bağlantılar içerebilir. Bu sitelerin gizlilik uygulamalarından veya içeriklerinden sorumlu değiliz. Bağlantı verilen sitelerin gizlilik politikalarını incelemenizi öneririz.
+                  {t('privacy.links_desc')}
                 </p>
               </div>
 
@@ -61,10 +64,10 @@ export default function PrivacyPolicy() {
                   <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
                     <FileText className="w-5 h-5" />
                   </div>
-                  <h2 className="text-xl font-bold">4. Değişiklikler</h2>
+                  <h2 className="text-xl font-bold">4. {t('privacy.changes')}</h2>
                 </div>
                 <p className="text-slate-600 leading-relaxed pl-14">
-                  Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Değişiklikler bu sayfada yayınlandığı tarihte yürürlüğe girer. Politikamızı düzenli olarak gözden geçirmenizi tavsiye ederiz.
+                  {t('privacy.changes_desc')}
                 </p>
               </div>
 

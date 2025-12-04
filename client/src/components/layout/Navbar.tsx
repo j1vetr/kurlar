@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight, FileText } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -13,6 +14,7 @@ export function Navbar() {
   const [mobileOverlayLangOpen, setMobileOverlayLangOpen] = useState(false);
   const isHome = location === "/";
   const isTransparent = isHome && !isScrolled;
+  const { t, language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,40 +25,50 @@ export function Navbar() {
   }, []);
 
   const menuStructure = [
-    { type: "link", name: "Ana Sayfa", href: "/" },
+    { type: "link", name: t('nav.home'), href: "/" },
     {
       type: "dropdown",
-      name: "Kurumsal",
+      name: t('nav.corporate'),
       href: "/hakkimizda", // Default link
       children: [
-        { name: "Hakkımızda", href: "/hakkimizda" },
-        { name: "Ar-Ge Merkezi", href: "/arge-merkezi" },
-        { name: "Sertifikalarımız", href: "/sertifikalarimiz" },
-        { name: "İletişim", href: "/iletisim" },
+        { name: t('nav.about'), href: "/hakkimizda" },
+        { name: t('nav.rd'), href: "/arge-merkezi" },
+        { name: t('nav.certificates'), href: "/sertifikalarimiz" },
+        { name: t('nav.contact'), href: "/iletisim" },
       ]
     },
     {
       type: "mega",
-      name: "Ürünler",
+      name: t('nav.products'),
       href: "/urunler"
     },
     {
       type: "dropdown",
-      name: "Bayi & Servis",
+      name: t('nav.dealer_service'),
       href: "/bayi-servis",
       children: [
-        { name: "Yurt İçi Bayi & Servis Ağı", href: "/bayi-servis" }
+        { name: t('nav.dealer_network'), href: "/bayi-servis" }
       ]
     },
     {
       type: "dropdown",
-      name: "Kariyer",
+      name: t('nav.career'),
       href: "/kariyer",
       children: [
-        { name: "Açık Pozisyonlar", href: "/kariyer" }
+        { name: t('nav.open_positions'), href: "/kariyer" }
       ]
     }
   ];
+
+  const languages = [
+    { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
+    { code: 'EN', name: 'English', flag: '🇬🇧' },
+    { code: 'AR', name: 'العربية', flag: '🇦🇪' },
+    { code: 'ES', name: 'Español', flag: '🇪🇸' },
+    { code: 'PT', name: 'Português', flag: '🇵🇹' },
+  ] as const;
+
+  const currentLang = languages.find(l => l.code === language) || languages[0];
 
   return (
     <nav
@@ -176,7 +188,7 @@ export function Navbar() {
                         <div className="flex-1 p-10 border-r border-slate-50 bg-slate-50/30">
                           <Link href="/urunler?category=pump">
                             <h3 className="font-heading font-bold text-lg mb-6 text-slate-900 hover:text-primary cursor-pointer flex items-center group/title">
-                              DALGIÇ POMPALAR
+                              {t('nav.pumps')}
                               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
                             </h3>
                           </Link>
@@ -202,7 +214,7 @@ export function Navbar() {
                         <div className="flex-1 p-10 border-r border-slate-50 bg-slate-50/30">
                           <Link href="/urunler?category=motor">
                             <h3 className="font-heading font-bold text-lg mb-6 text-slate-900 hover:text-primary cursor-pointer flex items-center group/title">
-                              DALGIÇ MOTORLAR
+                              {t('nav.motors')}
                               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
                             </h3>
                           </Link>
@@ -230,12 +242,12 @@ export function Navbar() {
                               <div className="relative z-10">
                                 <span className="text-blue-100 text-sm font-medium mb-2 block">2025</span>
                                 <h3 className="font-heading text-4xl font-bold leading-tight mb-4">
-                                  KURLAR <br/> KATALOG
+                                  {t('nav.catalog_title').split(' ')[0]} <br/> {t('nav.catalog_title').split(' ')[1]}
                                 </h3>
                               </div>
                               
                               <div className="relative z-10 flex items-center text-sm font-bold tracking-wider uppercase mt-8">
-                                GÖRÜNTÜLE <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                                {t('nav.view_catalog')} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform" />
                               </div>
 
                               {/* Background Icon Decoration */}
@@ -257,22 +269,19 @@ export function Navbar() {
               "flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-colors",
               isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary"
             )}>
-              <span className="text-xl">🇹🇷</span>
-              <span className="hidden xl:inline">TR</span>
+              <span className="text-xl">{currentLang.flag}</span>
+              <span className="hidden xl:inline">{currentLang.code}</span>
               <ChevronDown className="w-3 h-3" />
             </button>
             
             <div className="absolute top-full right-0 w-40 bg-white border border-slate-100 shadow-xl rounded-b-lg transition-all duration-200 origin-top opacity-0 invisible translate-y-[-8px] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 overflow-hidden">
               <ul className="py-1">
-                {[
-                   { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
-                   { code: 'EN', name: 'English', flag: '🇬🇧' },
-                   { code: 'AR', name: 'العربية', flag: '🇦🇪' },
-                   { code: 'ES', name: 'Español', flag: '🇪🇸' },
-                   { code: 'PT', name: 'Português', flag: '🇵🇹' },
-                ].map((lang) => (
+                {languages.map((lang) => (
                   <li key={lang.code}>
-                    <button className="w-full px-4 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left">
+                    <button 
+                      onClick={() => setLanguage(lang.code as any)}
+                      className="w-full px-4 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left"
+                    >
                       <span className="text-lg">{lang.flag}</span>
                       <span className="font-medium">{lang.name}</span>
                     </button>
@@ -294,24 +303,18 @@ export function Navbar() {
                  isTransparent ? "text-white" : "text-slate-900"
                )}
              >
-               <span className="text-xl">🇹🇷</span>
+               <span className="text-xl">{currentLang.flag}</span>
                <ChevronDown className={cn("w-3 h-3 transition-transform", mobileLangOpen && "rotate-180")} />
              </button>
              
              {/* Custom Dropdown */}
              {mobileLangOpen && (
                <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                 {[
-                    { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
-                    { code: 'EN', name: 'English', flag: '🇬🇧' },
-                    { code: 'AR', name: 'العربية', flag: '🇦🇪' },
-                    { code: 'ES', name: 'Español', flag: '🇪🇸' },
-                    { code: 'PT', name: 'Português', flag: '🇵🇹' },
-                 ].map((lang) => (
+                 {languages.map((lang) => (
                    <button
                      key={lang.code}
                      onClick={() => {
-                       console.log("Language changed to", lang.code);
+                       setLanguage(lang.code as any);
                        setMobileLangOpen(false);
                      }}
                      className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
