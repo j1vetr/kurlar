@@ -62,10 +62,13 @@ const descriptions = {
         'Maksimum Daldırma': '300m',
         'Koruma Sınıfı': 'IP68',
         'Çıkış Bağlantısı': 'BSP & NPT',
-        'Fan Malzemesi': 'AISI 304',
+        'Fan': 'AISI 304',
         'Mil & Kaplin': 'AISI 304',
         'Difüzör': 'AISI 304',
-        'Süzgeç': 'AISI 304'
+        'Süzgeç': 'AISI 304',
+        'Klepe': 'AISI 304',
+        'Emiş Haznesi': 'AISI 304',
+        'Çıkış Haznesi': 'AISI 304'
       },
       mechanicalPartsImages: [
         { title: '4" Mekanik Parçalar', image: '/assets/details/4inc-mech.png' },
@@ -243,16 +246,23 @@ const descriptions = {
       ],
       specs: {
         'Maksimum Kapasite': '24 m³/saat',
-        'Maksimum Basma Yüksekliği': '600m',
+        'Maksimum Basma Yüksekliği': '200 m',
         'Maksimum Kum Miktarı': '50g/m³',
+        'Maksimum Pompa Çapı': '98 mm',
         'Maksimum Su Sıcaklığı': '35°C',
-        'Maksimum Daldırma': '150m',
+        'Maksimum Daldırma': '300m',
         'Koruma Sınıfı': 'IP68',
-        'Çıkış Bağlantısı': '1 1/4" - 2"',
-        'Fan Malzemesi': 'Noryl',
-        'Mil & Kaplin': 'AISI 304',
+        'Çıkış Bağlantısı': 'NPT & BSP',
+        'Devir': '2900 RPM',
         'Difüzör': 'Noryl',
-        'Süzgeç': 'AISI 304'
+        'Fan': 'Noryl',
+        'Mil': 'AISI 304',
+        'Kaplin': 'AISI 304',
+        'Süzgeç': 'AISI 304',
+        'Klepe': 'AISI 304',
+        'Emiş Haznesi': 'AISI 304',
+        'Çıkış Haznesi': 'AISI 304',
+        'Dif. Tası / Kademe': 'AISI 304'
       },
       mechanicalPartsImages: [
         { title: '4" Noryl Mekanik Parçalar', image: '/assets/details/noryl-mech.png' }
@@ -418,16 +428,20 @@ const descriptions = {
         'Yatay ve dikey çalışmaya uygun tasarım'
       ],
       specs: {
-        'Maksimum Kapasite': '350 m³/saat',
-        'Maksimum Basma Yüksekliği': '650m',
+        'Maksimum Kapasite': '290 m³/saat',
+        'Maksimum Basma Yüksekliği': '700m',
         'Maksimum Kum Miktarı': '50g/m³',
-        'Maksimum Su Sıcaklığı': '40°C',
-        'Maksimum Daldırma': '350m',
+        'Maksimum Su Sıcaklığı': '30°C',
+        'Maksimum Daldırma': '300m',
         'Koruma Sınıfı': 'IP68',
-        'Çıkış Bağlantısı': 'Flanşlı',
-        'Gövde Malzemesi': 'GG25 Pik Döküm',
-        'Fan Malzemesi': 'GG25 Pik Döküm',
-        'Mil': 'AISI 420'
+        'Çıkış Bağlantısı': 'BSP & NPT',
+        'Difüzör': 'GG 20',
+        'Fan': 'GG 20',
+        'Mil & Kaplin': 'AISI 420',
+        'Süzgeç': 'AISI 304',
+        'Klepe': 'AISI 304',
+        'Emiş Haznesi': 'GG 20',
+        'Çıkış Haznesi': 'GG 20'
       },
       faq: [
         { question: "Pik döküm malzemenin avantajı nedir?", answer: "Pik döküm, yüksek mukavemeti ve darbelere karşı dayanıklılığı ile bilinir. Ağır hizmet koşulları için idealdir." },
@@ -570,15 +584,21 @@ const descriptions = {
         'Yatay ve dikey çalışmaya uygun tasarım'
       ],
       specs: {
-        'Maksimum Kapasite': '300 m³/saat',
+        'Maksimum Kapasite': '290 m³/saat',
         'Maksimum Basma Yüksekliği': '700m',
         'Maksimum Kum Miktarı': '50g/m³',
         'Maksimum Su Sıcaklığı': '60°C',
-        'Maksimum Daldırma': '350m',
+        'Maksimum Daldırma': '300m',
         'Koruma Sınıfı': 'IP68',
-        'Gövde Malzemesi': 'AISI 304 Döküm',
-        'Fan Malzemesi': 'AISI 304 Döküm',
-        'Mil': 'AISI 420'
+        'Çıkış Bağlantısı': 'BSP & NPT & FLANGE DN',
+        'Difüzör': 'AISI 304',
+        'Fan': 'AISI 304',
+        'Mil': 'AISI 304',
+        'Kaplin': 'AISI 304',
+        'Süzgeç': 'AISI 304',
+        'Klepe': 'AISI 304',
+        'Emiş Haznesi': 'AISI 304',
+        'Çıkış Haznesi': 'AISI 304'
       },
       faq: [
         { question: "Döküm paslanmaz ile sac paslanmaz arasındaki fark nedir?", answer: "Döküm paslanmaz (AISI 304/316), sac paslanmazlara göre çok daha kalın et kalınlığına sahiptir, bu da daha yüksek basınç ve aşınma direnci sağlar." },
@@ -1580,13 +1600,14 @@ export const products: Product[] = [
       'Maksimum 75°C ve 90°C sıcaklık opsiyonu'
     ],
     specs: {
-      'Güç Aralığı': 'kW’tan 260kW’a (5.5HP’den 350HP’ye) kadar',
+      'Güç Aralığı': 'kW’tan 260 kW’a (5.5 HP’den 350 HP’ye) kadar',
       'Bağlantı': 'NEMA Standartlarına Uygun',
-      'Malzeme Opsiyonu': 'AISI 304 - AISI 316 - BRONZE - DUBLEX',
+      'Malzeme Opsiyonu': 'AISI 304, AISI 316, BRONZE, DUBLEX, SUPER DUBLEX',
       'Soğutma Sistemi': 'Su ile Soğutmalı Sistem',
       'Kurulum Pozisyonu': 'Dikey ve Yatay',
-      'Standart Voltaj': '380/415V – 50/60Hz',
-      'Hız Ayarı': 'Frekans Konvertörü Uyumlu'
+      'Çalışma Yönü': 'Saat yönünde ve tersinde',
+      'Standart Voltaj': '380/415V – 50/60 Hz (Voltaj toleransı ±%10)',
+      'Hız Ayarı': 'Frekans konvertörü ile istenen devirde çalıştırılabilme (30 Hz üzerinde)'
     },
     faq: [
       {
@@ -1647,11 +1668,12 @@ export const products: Product[] = [
     specs: {
       'Güç Aralığı': 'kW’tan 260kW’a (5.5HP’den 350HP’ye) kadar',
       'Bağlantı': 'NEMA Standartlarına Uygun',
-      'Malzeme Opsiyonu': 'AISI 304 - AISI 316 - BRONZE - DUBLEX',
+      'Malzeme Opsiyonu': 'AISI 304 - AISI 316 - BRONZE - DUBLEX - SUPER DUBLEX',
       'Soğutma Sistemi': 'Su ile Soğutmalı Sistem',
       'Kurulum Pozisyonu': 'Dikey ve Yatay',
-      'Standart Voltaj': '380/415V – 50/60Hz',
-      'Hız Ayarı': 'Frekans Konvertörü Uyumlu'
+      'Çalışma Yönü': 'Saat Yönünde ve Tersinde',
+      'Standart Voltaj': '380/415V – 50/60Hz (Voltaj toleransı ±%10)',
+      'Hız Ayarı': 'Frekans Konvertörü ile İstenen Devirde Çalıştırılabilme (30Hz üzerinde)'
     },
     faq: [
       {
