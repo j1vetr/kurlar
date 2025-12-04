@@ -364,24 +364,42 @@ export default function ProductDetail() {
                             </div>
                           )}
                           
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                          <div className="flex flex-col gap-8">
                             {product.subSpecs.map((group, idx) => (
-                              <div key={idx} className="bg-slate-50/50 rounded-lg border border-slate-200 overflow-hidden">
-                                <div className="bg-slate-100 px-4 py-3 border-b border-slate-200">
-                                  <h4 className="font-bold text-primary text-base text-center uppercase tracking-wider">
+                              <div key={idx} className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+                                <div className="bg-slate-100 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
+                                  <div className="w-1.5 h-6 bg-primary rounded-full"></div>
+                                  <h4 className="font-bold text-slate-900 text-lg uppercase tracking-wide">
                                     {group.title}
                                   </h4>
                                 </div>
-                                <table className="w-full text-sm text-left">
-                                  <tbody className="divide-y divide-slate-200">
-                                    {Object.entries(group.specs).map(([key, value], i) => (
-                                      <tr key={i} className="bg-white hover:bg-slate-50 transition-colors">
-                                        <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-100 w-1/2">{key}</td>
-                                        <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
+                                <div className="overflow-x-auto">
+                                  <table className="w-full text-sm text-left border-collapse min-w-[800px]">
+                                    <thead>
+                                      <tr className="bg-slate-50 border-b border-slate-200">
+                                        {group.columns.map((col, cIdx) => (
+                                          <th key={cIdx} className="px-4 py-3 font-bold text-slate-700 border-r border-slate-200 last:border-r-0 whitespace-nowrap">
+                                            {col}
+                                          </th>
+                                        ))}
                                       </tr>
-                                    ))}
-                                  </tbody>
-                                </table>
+                                    </thead>
+                                    <tbody className="divide-y divide-slate-200">
+                                      {group.data.map((row, rIdx) => (
+                                        <tr key={rIdx} className="hover:bg-slate-50 transition-colors">
+                                          {row.map((cell, cIdx) => (
+                                            <td key={cIdx} className={cn(
+                                              "px-4 py-3 border-r border-slate-100 last:border-r-0",
+                                              cIdx === 0 ? "font-bold text-primary" : "text-slate-600 font-medium"
+                                            )}>
+                                              {cell}
+                                            </td>
+                                          ))}
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
                             ))}
                           </div>

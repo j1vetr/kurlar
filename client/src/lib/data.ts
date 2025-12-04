@@ -12,7 +12,7 @@ export interface Product {
   longDescription?: string;
   features?: string[];
   specs?: Record<string, string>;
-  subSpecs?: { title: string; specs: Record<string, string> }[];
+  subSpecs?: { title: string; columns: string[]; data: string[][] }[];
   specsImage?: string;
   mechanicalPartsImages?: { title: string; image: string }[];
   applications?: string[];
@@ -1544,22 +1544,32 @@ export const products: Product[] = [
     },
     subSpecs: [
       {
-        title: 'Monofaze (Tek Fazlı)',
-        specs: {
-          'Voltaj': '220V - 230V',
-          'Güç Aralığı': '0.37 kW - 2.2 kW',
-          'Kapasitör': 'Dahili / Harici',
-          'Akım Aralığı': '3.2A - 14.5A'
-        }
+        title: 'Monofaze Dalgıç Motor Listesi (Düz – Alt Alta)',
+        columns: ['Model', 'Güç (HP/kW)', 'Devir', 'Eksenel Yük', 'cos φ', 'Verim', 'Kapasitör', 'Uzunluk', 'Ağırlık', 'Voltaj / Akım'],
+        data: [
+          ['KM4-0.55M', '0,55 HP / 0,37 kW', '2835 RPM', '2 kN', '0,87', '%60', '20 µF', '415 mm', '8,2 kg', '3,2 A'],
+          ['KM4-0.75M', '0,75 HP / 0,55 kW', '2835 RPM', '2 kN', '0,92', '%83', '30 µF', '430 mm', '9,1 kg', '3,3 A'],
+          ['KM4-1M', '1 HP / 0,75 kW', '2845 RPM', '2 kN', '0,88', '%71', '35 µF', '465 mm', '10,5 kg', '5,4 A'],
+          ['KM4-1.5M', '1,5 HP / 1,1 kW', '2820 RPM', '2 kN', '0,88', '%67', '45 µF', '475 mm', '11,2 kg', '8,5 A'],
+          ['KM4-2M', '2 HP / 1,5 kW', '2825 RPM', '3 kN', '0,87', '%74', '60 µF', '538 mm', '15 kg', '10,7 A'],
+          ['KM4-3M', '3 HP / 2,2 kW', '2840 RPM', '3 kN', '0,87', '%87', '75 µF', '600 mm', '17 kg', '13,2 A'],
+          ['KM4-4M', '4 HP / 3 kW', '2840 RPM', '3 kN', '0,89', '%75', '90 µF', '635 mm', '20 kg', '20,5 A']
+        ]
       },
       {
-        title: 'Trifaze (Üç Fazlı)',
-        specs: {
-          'Voltaj': '380V - 415V',
-          'Güç Aralığı': '0.37 kW - 7.5 kW',
-          'Yol Verme': 'Direkt',
-          'Akım Aralığı': '1.1A - 16.8A'
-        }
+        title: 'Trifaze Dalgıç Motor Listesi (Düz – Alt Alta)',
+        columns: ['Model', 'Güç (HP/kW)', 'Devir', 'Eksenel Yük', 'cos φ', 'Verim', 'Uzunluk', 'Ağırlık', 'Akım (220-230V)', 'Akım (400-415V)'],
+        data: [
+          ['KM4-0.75T', '0,75 HP / 0,55 kW', '2825 RPM', '2 kN', '0,71', '%65', '415 mm', '7,8 kg', '3,8 A', '1,8 A'],
+          ['KM4-1T', '1 HP / 0,75 kW', '2825 RPM', '2 kN', '0,71', '%65', '430 mm', '9,2 kg', '4,7 A', '2,5 A'],
+          ['KM4-1.5T', '1,5 HP / 1,1 kW', '2820 RPM', '2 kN', '0,77', '%64', '465 mm', '10,6 kg', '6,5 A', '3,4 A'],
+          ['KM4-2T', '2 HP / 1,5 kW', '2820 RPM', '2 kN', '0,75', '%71', '473 mm', '11,4 kg', '8,1 A', '4,3 A'],
+          ['KM4-3T', '3 HP / 2,2 kW', '2810 RPM', '3 kN', '0,77', '%73', '566 mm', '14,8 kg', '10,4 A', '6 A'],
+          ['KM4-4T', '4 HP / 3 kW', '2800 RPM', '3 kN', '0,77', '%80', '600 mm', '17,9 kg', '12,3 A', '7,4 A'],
+          ['KM4-5.5T', '5,5 HP / 4 kW', '2810 RPM', '3 kN', '0,78', '%83', '635 mm', '19,9 kg', '16 A', '9,5 A'],
+          ['KM4-7.5T', '7,5 HP / 5,5 kW', '2840 RPM', '5 kN', '0,78', '%88', '775 mm', '25 kg', '25 A', '12,2 A'],
+          ['KM4-10T', '10 HP / 7,5 kW', '2830 RPM', '5 kN', '0,77', '%85', '862 mm', '29,4 kg', '32 A', '17,5 A']
+        ]
       }
     ],
     faq: [
