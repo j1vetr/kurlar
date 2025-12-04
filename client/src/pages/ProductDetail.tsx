@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -50,7 +50,7 @@ export default function ProductDetail() {
   const productId = params?.id;
   const product = products.find(p => p.id === productId);
   const [activeImage, setActiveImage] = useState(0);
-  const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'parts'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'parts' | 'options'>('overview');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!product) {
@@ -202,6 +202,17 @@ export default function ProductDetail() {
                     <Layers className="w-4 h-4" /> Mekanik Parçalar
                   </button>
                 )}
+                {product.options && (
+                  <button 
+                    onClick={() => setActiveTab('options')}
+                    className={cn(
+                      "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                      activeTab === 'options' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
+                    )}
+                  >
+                    <Sliders className="w-4 h-4" /> Opsiyonlar
+                  </button>
+                )}
               </div>
 
               {/* Tab Content */}
@@ -282,6 +293,24 @@ export default function ProductDetail() {
                        </Dialog>
                      ))}
                    </div>
+                )}
+
+                {activeTab === 'options' && product.options && (
+                  <div>
+                    <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
+                      <Sliders className="w-4 h-4 text-primary" /> Opsiyonlar & Seçenekler
+                    </h3>
+                    <div className="grid grid-cols-1 gap-3">
+                      {product.options.map((option, i) => (
+                        <div key={i} className="flex items-start gap-3 p-4 border border-slate-100 rounded-sm bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-sm transition-all group">
+                          <div className="bg-white border border-slate-200 p-1.5 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0 mt-0.5">
+                            <Settings className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="text-slate-700 font-medium text-sm">{option}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
 

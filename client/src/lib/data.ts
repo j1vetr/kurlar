@@ -17,6 +17,7 @@ export interface Product {
   faq?: { question: string; answer: string }[];
   downloads?: { name: string; url: string }[];
   availableSizes?: string; // Added available sizes field
+  options?: string[];
 }
 
 export const products: Product[] = [
@@ -350,6 +351,18 @@ export const products: Product[] = [
       'Voltaj dalgalanmalarına karşı yüksek direnç',
       'Paslanmaz çelik motor mili & NBR kum çanı'
     ],
+    options: [
+      'Komple AISI 304, 316 veya DUBLEX üretim',
+      '6’’ NEMA çift flanş üretim seçeneği',
+      'PT100 sensör opsiyonu',
+      'İçme suyu mevzuatına uygun kablo (VDE, ACS, KTW)',
+      '100m’ye kadar özel kablo üretimi',
+      'Direkt veya yıldız/üçgen yol verme',
+      '4 damarlı kablo (3 faz + topraklama)',
+      '500V, 525V, 630V, 1000V uyumlu üretim',
+      'SIC/SIC-NBR-304 mekanik keçe seçeneği',
+      'Maksimum 75°C ve 90°C sıcaklık opsiyonu'
+    ],
     specs: {
       'Güç Aralığı': 'kW’tan 260kW’a (5.5HP’den 350HP’ye) kadar',
       'Bağlantı': 'NEMA Standartlarına Uygun',
@@ -401,6 +414,18 @@ export const products: Product[] = [
       'Su soğutmalı dalgıç motor',
       'Voltaj dalgalanmalarına karşı yüksek dayanım',
       'Paslanmaz çelik motor mili'
+    ],
+    options: [
+      'Motorlar AISI 304, AISI 316 veya DUBLEX olarak üretilebilir',
+      '6” NEMA standardında çift flanş üretim seçeneği',
+      'PT100 sensör entegrasyonu',
+      'İçme suyu mevzuatına uygun kablo seçeneği (VDE, ACS, KTW onaylı)',
+      '100 metreye kadar özel kablo üretimi',
+      'Direkt veya yıldız/üçgen yol verme',
+      '4 damarlı kablo üretimi (3 faz + 1 topraklama)',
+      '500V, 525V, 630V ve 1000V’a uygun üretim',
+      'Mekanik keçe SIC/SIC-NBR-304 olarak üretilebilir',
+      'Maksimum 75°C ve 90°C sıcaklık opsiyonları'
     ],
     specs: {
       'Güç Aralığı': 'kW’tan 260kW’a (5.5HP’den 350HP’ye) kadar',
