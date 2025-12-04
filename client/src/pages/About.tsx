@@ -44,7 +44,7 @@ export default function About() {
               <div className="absolute -bottom-10 -right-10 bg-white p-8 rounded-xl shadow-xl border border-slate-100 hidden md:block">
                 <div className="text-center">
                   <span className="block text-5xl font-bold text-primary mb-2">50+</span>
-                  <span className="text-slate-500 font-medium uppercase tracking-wider text-sm">Yıllık Tecrübe</span>
+                  <span className="text-slate-500 font-medium uppercase tracking-wider text-sm">{t('about.exp_years')}</span>
                 </div>
               </div>
             </div>
@@ -52,14 +52,10 @@ export default function About() {
           
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900">
-              Yarım Asırlık Tecrübe
+              {t('about.half_century')}
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              Kurlar Pompa ve Motor 1975 yılında Yaşar Kurfeyiz tarafından İstanbul’da kurulmuştur. Dalgıç pompa ve motor üretimine 25m² atölyede 2 kişi ile başlayan Kurlar, günümüzde <span className="font-bold text-slate-900">40’dan fazla ülkeye ihracat yaparak üretimine 25.000m² Açık – 10.250m² Kapalı alanda 200’e yakın nitelikli ekibi ile İzmir’de devam etmektedir.</span>
-            </p>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              <span className="font-bold text-slate-900">Türkiye’nin ilk Paslanmaz Çelik Dalgıç Pompa üreticisi</span> olan Kurlar, diğer ürünlerde de sektörün öncüsü konumundadır. Dalgıç Pompa ve Motor üzerine deneyimli mühendis kadrosuna sahip olan Kurlar ürünlerin gelişimi ve farklılıkları ile kalitesini her geçen gün arttırarak sektörün takip edilen firması haline gelmiştir.
-            </p>
+            <p className="text-slate-600 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.desc.p1') }}></p>
+            <p className="text-slate-600 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.desc.p2') }}></p>
             
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="flex items-center gap-3">
@@ -68,7 +64,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">{t('home.global_export')}</h4>
-                  <p className="text-sm text-slate-500">40+ Ülke</p>
+                  <p className="text-sm text-slate-500">{t('about.stats.countries')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -77,7 +73,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">35.000 m²</h4>
-                  <p className="text-sm text-slate-500">Üretim Tesisi</p>
+                  <p className="text-sm text-slate-500">{t('about.stats.facility')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -86,7 +82,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">200+</h4>
-                  <p className="text-sm text-slate-500">Nitelikli Personel</p>
+                  <p className="text-sm text-slate-500">{t('about.stats.staff')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -95,7 +91,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">ISO 9001</h4>
-                  <p className="text-sm text-slate-500">Kalite Standartları</p>
+                  <p className="text-sm text-slate-500">{t('about.stats.quality')}</p>
                 </div>
               </div>
             </div>
@@ -107,15 +103,15 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
             <div className="p-4">
               <div className="text-5xl font-bold mb-2">180B+</div>
-              <div className="text-blue-100 font-medium">Dalgıç Pompa & Motor Üretimi</div>
+              <div className="text-blue-100 font-medium">{t('about.stats.production')}</div>
             </div>
             <div className="p-4">
               <div className="text-5xl font-bold mb-2">17B+</div>
-              <div className="text-blue-100 font-medium">Kalite Denetimi Yapıldı</div>
+              <div className="text-blue-100 font-medium">{t('about.stats.audit')}</div>
             </div>
             <div className="p-4">
               <div className="text-5xl font-bold mb-2">50+</div>
-              <div className="text-blue-100 font-medium">Aktif Bayi Ağı</div>
+              <div className="text-blue-100 font-medium">{t('about.stats.dealers')}</div>
             </div>
           </div>
         </div>
@@ -124,18 +120,18 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
           <div className="bg-white p-10 rounded-2xl border-2 border-primary/30 shadow-lg hover:border-primary hover:shadow-blue-100 transition-all duration-300 group">
             <h3 className="text-2xl font-heading font-bold text-primary mb-4 flex items-center">
-              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-primary transition-colors">MİSYON</span>
+              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-primary transition-colors">{t('about.mission.title')}</span>
             </h3>
             <p className="text-slate-700 text-lg leading-relaxed">
-              Kullanıcılarına yüksek verimlilik ve sürdürülebilir kalite esasına uygun yüksek teknolojili yerli ve güvenilir ürünlerin üretimine her gün yenisi ekleyerek Kurlar’ı dünya markası yapmak.
+              {t('about.mission.desc')}
             </p>
           </div>
           <div className="bg-white p-10 rounded-2xl border-2 border-primary/30 shadow-lg hover:border-primary hover:shadow-blue-100 transition-all duration-300 group">
             <h3 className="text-2xl font-heading font-bold text-primary mb-4 flex items-center">
-              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-primary transition-colors">VİZYON</span>
+              <span className="bg-primary text-white px-4 py-1.5 rounded-lg text-sm mr-3 group-hover:bg-primary transition-colors">{t('about.vision.title')}</span>
             </h3>
             <p className="text-slate-700 text-lg leading-relaxed">
-              Dalgıç Pompa ve Dalgıç Motor dendiğinde akla ilk gelen, güvenilirliğiyle, müşteri memnuniyetiyle ve yenilikleriyle rakipsiz bir dünya markası olmak.
+              {t('about.vision.desc')}
             </p>
           </div>
         </div>

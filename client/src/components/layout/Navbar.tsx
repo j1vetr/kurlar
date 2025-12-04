@@ -42,14 +42,7 @@ export function Navbar() {
       name: t('nav.products'),
       href: "/urunler"
     },
-    {
-      type: "dropdown",
-      name: t('nav.dealer_service'),
-      href: "/bayi-servis",
-      children: [
-        { name: t('nav.dealer_network'), href: "/bayi-servis" }
-      ]
-    },
+    { type: "link", name: t('nav.dealer_service'), href: "/bayi-servis" },
     {
       type: "dropdown",
       name: t('nav.career'),
@@ -194,10 +187,10 @@ export function Navbar() {
                           </Link>
                           <ul className="space-y-3">
                             {[
-                              { name: "Paslanmaz Çelik Dalgıç Pompalar (KP)", id: "kp" },
-                              { name: "4″ Noryl Dalgıç Pompalar (KPN)", id: "kpn" },
-                              { name: "Pik Döküm Dalgıç Pompalar (KPD)", id: "kpd" },
-                              { name: "Paslanmaz Döküm Dalgıç Pompalar (KSX)", id: "ksx" }
+                              { name: t('nav.products.kp'), id: "kp" },
+                              { name: t('nav.products.kpn'), id: "kpn" },
+                              { name: t('nav.products.kpd'), id: "kpd" },
+                              { name: t('nav.products.ksx'), id: "ksx" }
                             ].map((item) => (
                               <li key={item.id}>
                                 <Link href={`/urunler/${item.id}`}>
@@ -220,9 +213,9 @@ export function Navbar() {
                           </Link>
                           <ul className="space-y-3">
                             {[
-                              { name: "Hi-Temp Dalgıç Motorlar (KM)", id: "km" },
-                              { name: "S-Type Dalgıç Motorlar (KMS)", id: "kms" },
-                              { name: "4\" Yağlı Tip Dalgıç Motorlar (KM4)", id: "km4" }
+                              { name: t('nav.products.km'), id: "km" },
+                              { name: t('nav.products.kms'), id: "kms" },
+                              { name: t('nav.products.km4'), id: "km4" }
                             ].map((item) => (
                               <li key={item.id}>
                                 <Link href={`/urunler/${item.id}`}>
@@ -454,13 +447,13 @@ export function Navbar() {
                   {item.type === "mega" && (
                      <div className="pl-4 space-y-6 border-l-2 border-slate-100 ml-2">
                        <div>
-                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">Dalgıç Pompalar</div>
+                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">{t('nav.pumps')}</div>
                           <div className="space-y-3">
                             {[
-                              { name: "Paslanmaz Çelik Dalgıç Pompalar (KP)", id: "kp" },
-                              { name: "4″ Noryl Dalgıç Pompalar (KPN)", id: "kpn" },
-                              { name: "Pik Döküm Dalgıç Pompalar (KPD)", id: "kpd" },
-                              { name: "Paslanmaz Döküm Dalgıç Pompalar (KSX)", id: "ksx" }
+                              { name: t('nav.products.kp'), id: "kp" },
+                              { name: t('nav.products.kpn'), id: "kpn" },
+                              { name: t('nav.products.kpd'), id: "kpd" },
+                              { name: t('nav.products.ksx'), id: "ksx" }
                             ].map(sub => (
                               <Link key={sub.id} href={`/urunler/${sub.id}`}>
                                 <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub.name}</a>
@@ -469,12 +462,12 @@ export function Navbar() {
                           </div>
                        </div>
                        <div>
-                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">Dalgıç Motorlar</div>
+                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">{t('nav.motors')}</div>
                           <div className="space-y-3">
                             {[
-                              { name: "Hi-Temp Dalgıç Motorlar (KM)", id: "km" },
-                              { name: "S-Type Dalgıç Motorlar (KMS)", id: "kms" },
-                              { name: "4\" Yağlı Tip Dalgıç Motorlar (KM4)", id: "km4" }
+                              { name: t('nav.products.km'), id: "km" },
+                              { name: t('nav.products.kms'), id: "kms" },
+                              { name: t('nav.products.km4'), id: "km4" }
                             ].map(sub => (
                               <Link key={sub.id} href={`/urunler/${sub.id}`}>
                                 <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub.name}</a>

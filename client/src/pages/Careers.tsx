@@ -73,23 +73,23 @@ export default function Careers() {
   const benefits = [
     {
       icon: <Users className="w-6 h-6 text-primary" />,
-      title: "Güçlü Ekip Ruhu",
-      desc: "Birbirini destekleyen, deneyimli ve dinamik bir ekiple çalışma fırsatı."
+      title: t('careers.benefits.team.title'),
+      desc: t('careers.benefits.team.desc')
     },
     {
       icon: <Zap className="w-6 h-6 text-primary" />,
-      title: "Sürekli Gelişim",
-      desc: "Mesleki eğitimler ve kariyer gelişim programları ile potansiyelinizi artırın."
+      title: t('careers.benefits.dev.title'),
+      desc: t('careers.benefits.dev.desc')
     },
     {
       icon: <Trophy className="w-6 h-6 text-primary" />,
-      title: "Öncü Teknoloji",
-      desc: "Sektörün en modern üretim teknolojileri ile çalışma imkanı."
+      title: t('careers.benefits.tech.title'),
+      desc: t('careers.benefits.tech.desc')
     },
     {
       icon: <CheckCircle2 className="w-6 h-6 text-primary" />,
-      title: "Sosyal Haklar",
-      desc: "Rekabetçi maaş, özel sağlık sigortası, servis ve yemek imkanları."
+      title: t('careers.benefits.social.title'),
+      desc: t('careers.benefits.social.desc')
     }
   ];
 
@@ -198,7 +198,7 @@ export default function Careers() {
                         <MapPin className="w-4 h-4" /> {pos.location}
                       </div>
                       <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" /> 2 gün önce
+                        <Clock className="w-4 h-4" /> 2 {t('careers.days_ago')}
                       </div>
                     </div>
 
