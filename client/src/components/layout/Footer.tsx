@@ -53,6 +53,7 @@ export function Footer() {
               <li><Link href="/"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.home')}</a></Link></li>
               <li><Link href="/hakkimizda"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.corporate')}</a></Link></li>
               <li><Link href="/urunler"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.products')}</a></Link></li>
+              <li><Link href="/blog"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">Blog</a></Link></li>
               <li><Link href="/kariyer"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.career')}</a></Link></li>
               <li><Link href="/iletisim"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.contact')}</a></Link></li>
             </ul>
