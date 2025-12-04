@@ -54,11 +54,11 @@ export function Navbar() {
   ];
 
   const languages = [
-    { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
-    { code: 'EN', name: 'English', flag: '🇬🇧' },
-    { code: 'AR', name: 'العربية', flag: '🇦🇪' },
-    { code: 'ES', name: 'Español', flag: '🇪🇸' },
-    { code: 'PT', name: 'Português', flag: '🇵🇹' },
+    { code: 'TR', name: 'Türkçe', flag: '/assets/flags/tr.svg' },
+    { code: 'EN', name: 'English', flag: '/assets/flags/gb.svg' },
+    { code: 'AR', name: 'العربية', flag: '/assets/flags/ae.svg' },
+    { code: 'ES', name: 'Español', flag: '/assets/flags/es.svg' },
+    { code: 'PT', name: 'Português', flag: '/assets/flags/pt.svg' },
   ] as const;
 
   const currentLang = languages.find(l => l.code === language) || languages[0];
@@ -262,7 +262,7 @@ export function Navbar() {
               "flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-colors",
               isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary"
             )}>
-              <span className="text-xl">{currentLang.flag}</span>
+              <img src={currentLang.flag} alt={currentLang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
               <span className="hidden xl:inline">{currentLang.code}</span>
               <ChevronDown className="w-3 h-3" />
             </button>
@@ -275,7 +275,7 @@ export function Navbar() {
                       onClick={() => setLanguage(lang.code as any)}
                       className="w-full px-4 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left"
                     >
-                      <span className="text-lg">{lang.flag}</span>
+                      <img src={lang.flag} alt={lang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
                       <span className="font-medium">{lang.name}</span>
                     </button>
                   </li>
@@ -296,7 +296,7 @@ export function Navbar() {
                  isTransparent ? "text-white" : "text-slate-900"
                )}
              >
-               <span className="text-xl">{currentLang.flag}</span>
+               <img src={currentLang.flag} alt={currentLang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
                <ChevronDown className={cn("w-3 h-3 transition-transform", mobileLangOpen && "rotate-180")} />
              </button>
              
@@ -312,7 +312,7 @@ export function Navbar() {
                      }}
                      className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
                    >
-                     <span className="text-lg">{lang.flag}</span>
+                     <img src={lang.flag} alt={lang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
                      <span className="font-medium">{lang.name}</span>
                    </button>
                  ))}
@@ -348,28 +348,22 @@ export function Navbar() {
                    onClick={() => setMobileOverlayLangOpen(!mobileOverlayLangOpen)}
                    className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-slate-900"
                  >
-                   <span className="text-xl">🇹🇷</span>
+                   <img src={currentLang.flag} alt={currentLang.code} className="w-6 h-4 object-cover shadow-sm rounded-[1px]" />
                    <ChevronDown className={cn("w-3 h-3 transition-transform", mobileOverlayLangOpen && "rotate-180")} />
                  </button>
                  
                  {mobileOverlayLangOpen && (
                    <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                     {[
-                        { code: 'TR', name: 'Türkçe', flag: '🇹🇷' },
-                        { code: 'EN', name: 'English', flag: '🇬🇧' },
-                        { code: 'AR', name: 'العربية', flag: '🇦🇪' },
-                        { code: 'ES', name: 'Español', flag: '🇪🇸' },
-                        { code: 'PT', name: 'Português', flag: '🇵🇹' },
-                     ].map((lang) => (
+                     {languages.map((lang) => (
                        <button
                          key={lang.code}
                          onClick={() => {
-                           console.log("Language changed to", lang.code);
+                           setLanguage(lang.code as any);
                            setMobileOverlayLangOpen(false);
                          }}
                          className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
                        >
-                         <span className="text-lg">{lang.flag}</span>
+                         <img src={lang.flag} alt={lang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
                          <span className="font-medium">{lang.name}</span>
                        </button>
                      ))}
