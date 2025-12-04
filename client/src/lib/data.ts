@@ -2,6 +2,7 @@
 export interface Product {
   id: string;
   name: string;
+  modelCode?: string;
   shortName?: string;
   category: 'pump' | 'motor';
   subCategory: string;
@@ -40,7 +41,8 @@ export const getProductWithLanguage = (product: Product, lang: 'TR' | 'EN' | 'AR
 const descriptions = {
   kp: {
     TR: {
-      name: 'Paslanmaz Çelik Dalgıç Pompalar (KP)',
+      name: 'Paslanmaz Çelik Dalgıç Pompalar',
+      modelCode: 'KP - KPS',
       subCategory: 'Paslanmaz Çelik',
       description: 'Kurlar tarafından üretilen paslanmaz çelik dalgıç pompalar, korozyona dayanıklı yapısı sayesinde uzun ömürlü ve güvenilir performans sunar.',
       longDescription: `Kurlar tarafından üretilen paslanmaz çelik dalgıç pompalar, korozyona dayanıklı yapısı sayesinde uzun ömürlü ve güvenilir performans sunar. Tarımsal sulama, endüstriyel su temini ve yer altı suyu tahliyesi gibi zorlu uygulamalar için idealdir. Yüksek verimlilik ve bakım kolaylığı ile suyun olduğu her alanda maksimum dayanım sağlar.`,
@@ -76,7 +78,8 @@ const descriptions = {
       ]
     },
     EN: {
-      name: 'Stainless Steel Submersible Pumps (KP)',
+      name: 'Stainless Steel Submersible Pumps',
+      modelCode: 'KP - KPS',
       subCategory: 'Stainless Steel',
       description: 'Stainless steel submersible pumps manufactured by Kurlar offer long-lasting and reliable performance thanks to their corrosion-resistant structure.',
       longDescription: `Stainless steel submersible pumps manufactured by Kurlar offer long-lasting and reliable performance thanks to their corrosion-resistant structure. Ideal for demanding applications such as agricultural irrigation, industrial water supply, and groundwater extraction. It provides maximum durability in every area with water thanks to high efficiency and ease of maintenance.`,
@@ -112,7 +115,8 @@ const descriptions = {
       ]
     },
     AR: {
-      name: 'مضخات غاطسة من الفولاذ المقاوم للصدأ (KP)',
+      name: 'مضخات غاطسة من الفولاذ المقاوم للصدأ',
+      modelCode: 'KP - KPS',
       subCategory: 'الفولاذ المقاوم للصدأ',
       description: 'توفر المضخات الغاطسة المصنوعة من الفولاذ المقاوم للصدأ التي تصنعها كورلار أداءً طويل الأمد وموثوقًا بفضل هيكلها المقاوم للتآكل.',
       longDescription: `توفر المضخات الغاطسة المصنوعة من الفولاذ المقاوم للصدأ التي تصنعها كورلار أداءً طويل الأمد وموثوقًا بفضل هيكلها المقاوم للتآكل. مثالية للتطبيقات الصعبة مثل الري الزراعي وإمدادات المياه الصناعية واستخراج المياه الجوفية. توفر أقصى درجات المتانة في كل منطقة توجد بها مياه بفضل الكفاءة العالية وسهولة الصيانة.`,
@@ -148,7 +152,8 @@ const descriptions = {
       ]
     },
     ES: {
-      name: 'Bombas Sumergibles de Acero Inoxidable (KP)',
+      name: 'Bombas Sumergibles de Acero Inoxidable',
+      modelCode: 'KP - KPS',
       subCategory: 'Acero Inoxidable',
       description: 'Las bombas sumergibles de acero inoxidable fabricadas por Kurlar ofrecen un rendimiento duradero y fiable gracias a su estructura resistente a la corrosión.',
       longDescription: `Las bombas sumergibles de acero inoxidable fabricadas por Kurlar ofrecen un rendimiento duradero y fiable gracias a su estructura resistente a la corrosión. Ideal para aplicaciones exigentes como riego agrícola, suministro de agua industrial y extracción de agua subterránea. Proporciona la máxima durabilidad en cualquier área con agua gracias a su alta eficiencia y facilidad de mantenimiento.`,
@@ -184,7 +189,8 @@ const descriptions = {
       ]
     },
     PT: {
-      name: 'Bombas Submersíveis de Aço Inoxidável (KP)',
+      name: 'Bombas Submersíveis de Aço Inoxidável',
+      modelCode: 'KP - KPS',
       subCategory: 'Aço Inoxidável',
       description: 'As bombas submersíveis de aço inoxidável fabricadas pela Kurlar oferecem desempenho duradouro e confiável graças à sua estrutura resistente à corrosão.',
       longDescription: `As bombas submersíveis de aço inoxidável fabricadas pela Kurlar oferecem desempenho duradouro e confiável graças à sua estrutura resistente à corrosão. Ideal para aplicações exigentes como irrigação agrícola, abastecimento de água industrial e extração de água subterrânea. Proporciona máxima durabilidade em qualquer área com água graças à alta eficiência e facilidade de manutenção.`,
@@ -222,7 +228,8 @@ const descriptions = {
   },
   kpn: {
     TR: {
-      name: '4” Kurlar Noryl Dalgıç Pompa',
+      name: '4″ Noryl Dalgıç Pompalar',
+      modelCode: 'KPN4',
       subCategory: 'Noryl Seri',
       description: '4” Kurlar Noryl Dalgıç Pompa çarkları ve difüzörleri, mükemmel tasarımları sayesinde yüksek hidrolik verimlilik ve performans sunar.',
       longDescription: `4” Kurlar Noryl Dalgıç Pompa çarkları ve difüzörleri, mükemmel tasarımları sayesinde yüksek hidrolik verimlilik ve performans sunar; ayrıca yüzer fan sistemi sayesinde kum ve aşındırıcı maddelere karşı mükemmel bir koruma sağlamaktadır. Paslanmaz çelikten üretilen süzgeç, 50 g/m³ olarak belirlenen boyutun üzerindeki parçaların pompanın içine girmesini önleyerek, pompanın ömrünü uzatmaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. Çıkış haznesi bağlantısı hem NPT hem BSP uygun olup, NEMA standartlarına göre motor bağlantısına uygun tasarlanmıştır.`,
@@ -256,7 +263,8 @@ const descriptions = {
       ]
     },
     EN: {
-      name: '4” Kurlar Noryl Submersible Pump',
+      name: '4″ Noryl Submersible Pumps',
+      modelCode: 'KPN4',
       subCategory: 'Noryl Series',
       description: '4” Kurlar Noryl Submersible Pump impellers and diffusers offer high hydraulic efficiency and performance thanks to their excellent designs.',
       longDescription: `4” Kurlar Noryl Submersible Pump impellers and diffusers offer high hydraulic efficiency and performance thanks to their excellent designs; it also provides excellent protection against sand and abrasive materials thanks to the floating impeller system. The stainless steel strainer prevents particles larger than 50 g/m³ from entering the pump, extending the pump's life. Suitable for horizontal and vertical installation. The discharge chamber connection is suitable for both NPT and BSP and is designed for motor connection according to NEMA standards.`,
@@ -290,7 +298,8 @@ const descriptions = {
       ]
     },
     AR: {
-      name: 'مضخة غاطسة نوريل 4 بوصة من كورلار',
+      name: 'مضخات غاطسة نوريل 4 بوصة',
+      modelCode: 'KPN4',
       subCategory: 'سلسلة نوريل',
       description: 'توفر دافعات وموزعات مضخة Noryl الغاطسة مقاس 4 بوصة من كورلار كفاءة هيدروليكية عالية وأداءً بفضل تصميماتها الممتازة.',
       longDescription: `توفر دافعات وموزعات مضخة Noryl الغاطسة مقاس 4 بوصة من كورلار كفاءة هيدروليكية عالية وأداءً بفضل تصميماتها الممتازة؛ كما أنها توفر حماية ممتازة ضد الرمل والمواد الكاشطة بفضل نظام المروحة العائمة. تمنع المصفاة المصنوعة من الفولاذ المقاوم للصدأ الجزيئات الأكبر من 50 جم/م³ من دخول المضخة، مما يطيل عمر المضخة. مناسب للتركيب الأفقي والرأسي. وصلة غرفة التفريغ مناسبة لكل من NPT و BSP ومصممة لتوصيل المحرك وفقًا لمعايير NEMA.`,
@@ -324,7 +333,8 @@ const descriptions = {
       ]
     },
     ES: {
-      name: 'Bomba Sumergible Noryl de 4” de Kurlar',
+      name: 'Bombas Sumergibles Noryl de 4″',
+      modelCode: 'KPN4',
       subCategory: 'Serie Noryl',
       description: 'Los impulsores y difusores de la bomba sumergible Noryl de 4” de Kurlar ofrecen una alta eficiencia hidráulica y rendimiento gracias a sus excelentes diseños.',
       longDescription: `Los impulsores y difusores de la bomba sumergible Noryl de 4” de Kurlar ofrecen una alta eficiencia hidráulica y rendimiento gracias a sus excelentes diseños; también proporciona una excelente protección contra arena y materiales abrasivos gracias al sistema de impulsor flotante. El filtro de acero inoxidable evita que entren partículas mayores de 50 g/m³ en la bomba, extendiendo su vida útil. Adecuado para instalación horizontal y vertical. La conexión de la cámara de descarga es adecuada tanto para NPT como para BSP y está diseñada para la conexión del motor según los estándares NEMA.`,
@@ -358,7 +368,8 @@ const descriptions = {
       ]
     },
     PT: {
-      name: 'Bomba Submersível Noryl de 4” da Kurlar',
+      name: 'Bombas Submersíveis Noryl de 4″',
+      modelCode: 'KPN4',
       subCategory: 'Série Noryl',
       description: 'Os impulsores e difusores da Bomba Submersível Noryl de 4” da Kurlar oferecem alta eficiência hidráulica e desempenho graças aos seus excelentes designs.',
       longDescription: `Os impulsores e difusores da Bomba Submersível Noryl de 4” da Kurlar oferecem alta eficiência hidráulica e desempenho graças aos seus excelentes designs; também oferece excelente proteção contra areia e materiais abrasivos graças ao sistema de impulsor flutuante. O filtro de aço inoxidável evita que partículas maiores que 50 g/m³ entrem na bomba, estendendo a vida útil da bomba. Adequado para instalação horizontal e vertical. A conexão da câmara de descarga é adequada para NPT e BSP e é projetada para conexão do motor de acordo com os padrões NEMA.`,
@@ -394,7 +405,8 @@ const descriptions = {
   },
   kpd: {
     TR: {
-      name: 'KPD Serisi Pik Döküm Dalgıç Pompalar',
+      name: 'Pik Döküm Dalgıç Pompalar',
+      modelCode: 'KPD',
       subCategory: 'Pik Döküm',
       description: 'KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Pik Döküm Dalgıç Pompalar tamamen pik döküm malzemeden yapılmıştır.',
       longDescription: `KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Pik Döküm Dalgıç Pompalar tamamen pik döküm (talep üzerine pompalar komple bronz malzemeden üretilebilmektedir) malzemeden yapılmıştır. Tamamen pik döküm olarak imal edilen difüzörler, fanlar, emiş ve çıkış haznesi korozyona karşı son derece dayanıklı kılar. Tasarım ve malzeme özellikleriyle yüksek verimlilik, yüksek dayanıklık, uzun ömür ve istikrarlı performans sağlamaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. NEMA standartlarına göre motor bağlantısına uygundur.`,
@@ -423,7 +435,8 @@ const descriptions = {
       ]
     },
     EN: {
-      name: 'KPD Series Cast Iron Submersible Pumps',
+      name: 'Cast Iron Submersible Pumps',
+      modelCode: 'KPD',
       subCategory: 'Cast Iron',
       description: 'KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Cast Iron Submersible Pumps are made entirely of cast iron material.',
       longDescription: `KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Cast Iron Submersible Pumps are made entirely of cast iron material (pumps can be produced entirely from bronze material upon request). Diffusers, impellers, suction and discharge chambers made entirely of cast iron make it extremely resistant to corrosion. It provides high efficiency, high durability, long life and stable performance with its design and material properties. Suitable for horizontal and vertical installation. Suitable for motor connection according to NEMA standards.`,
@@ -452,7 +465,8 @@ const descriptions = {
       ]
     },
     AR: {
-      name: 'سلسلة KPD مضخات غاطسة من الحديد الزهر',
+      name: 'مضخات غاطسة من الحديد الزهر',
+      modelCode: 'KPD',
       subCategory: 'الحديد الزهر',
       description: 'مضخات KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ الغاطسة من الحديد الزهر من كورلار مصنوعة بالكامل من مادة الحديد الزهر.',
       longDescription: `مضخات KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ الغاطسة من الحديد الزهر من كورلار مصنوعة بالكامل من مادة الحديد الزهر (يمكن إنتاج المضخات بالكامل من مادة البرونز عند الطلب). تجعل الموزعات والدوافع وغرف الشفط والتفريغ المصنوعة بالكامل من الحديد الزهر مقاومة للغاية للتآكل. توفر كفاءة عالية ومتانة عالية وعمرًا طويلاً وأداءً مستقرًا بفضل تصميمها وخصائص موادها. مناسب للتركيب الأفقي والرأسي. مناسب لتوصيل المحرك وفقًا لمعايير NEMA.`,
@@ -481,7 +495,8 @@ const descriptions = {
       ]
     },
     ES: {
-      name: 'Serie KPD Bombas Sumergibles de Hierro Fundido',
+      name: 'Bombas Sumergibles de Hierro Fundido',
+      modelCode: 'KPD',
       subCategory: 'Hierro Fundido',
       description: 'Las bombas sumergibles de hierro fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ de Kurlar están hechas completamente de material de hierro fundido.',
       longDescription: `Las bombas sumergibles de hierro fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ de Kurlar están hechas completamente de material de hierro fundido (las bombas se pueden producir completamente de material de bronce bajo pedido). Los difusores, impulsores, cámaras de succión y descarga hechos completamente de hierro fundido lo hacen extremadamente resistente a la corrosión. Proporciona alta eficiencia, alta durabilidad, larga vida útil y rendimiento estable con su diseño y propiedades materiales. Adecuado para instalación horizontal y vertical. Adecuado para conexión de motor según estándares NEMA.`,
@@ -510,7 +525,8 @@ const descriptions = {
       ]
     },
     PT: {
-      name: 'Série KPD Bombas Submersíveis de Ferro Fundido',
+      name: 'Bombas Submersíveis de Ferro Fundido',
+      modelCode: 'KPD',
       subCategory: 'Ferro Fundido',
       description: 'As Bombas Submersíveis de Ferro Fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ da Kurlar são feitas inteiramente de material de ferro fundido.',
       longDescription: `As Bombas Submersíveis de Ferro Fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ da Kurlar são feitas inteiramente de material de ferro fundido (bombas podem ser produzidas inteiramente de material de bronze mediante solicitação). Difusores, impulsores, câmaras de sucção e descarga feitos inteiramente de ferro fundido tornam-no extremamente resistente à corrosão. Proporciona alta eficiência, alta durabilidade, longa vida útil e desempenho estável com seu design e propriedades materiais. Adequado para instalação horizontal e vertical. Adequado para conexão do motor de acordo com os padrões NEMA.`,
@@ -541,7 +557,8 @@ const descriptions = {
   },
   ksx: {
     TR: {
-      name: 'KSX Serisi Paslanmaz Döküm Dalgıç Pompalar',
+      name: 'Paslanmaz Döküm Dalgıç Pompalar',
+      modelCode: 'KSX',
       subCategory: 'Paslanmaz Döküm',
       description: 'KSX 6″-8-“10” Kurlar Paslanmaz Döküm Dalgıç Pompalar tamamen AISI 304 döküm malzemeden yapılmıştır.',
       longDescription: `KSX 6″-8-“10” Kurlar Paslanmaz Döküm Dalgıç Pompalar tamamen AISI 304 döküm (talep üzerine pompalar komple AISI 316L malzemeden üretilebilmektedir) malzemeden yapılmıştır. Tamamen paslanmaz çelik olarak imal edilen difüzörler, fanlar, emiş ve çıkış haznesi, süzgeç korozyona karşı son derece dayanıklı kılar. Tasarım ve malzeme özellikleriyle yüksek verimlilik, yüksek dayanıklık, uzun ömür ve istikrarlı performans sağlamaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. NEMA standartlarına göre motor bağlantısına uygundur.`,
@@ -569,7 +586,8 @@ const descriptions = {
       ]
     },
     EN: {
-      name: 'KSX Series Cast Stainless Submersible Pumps',
+      name: 'Cast Stainless Submersible Pumps',
+      modelCode: 'KSX',
       subCategory: 'Cast Stainless',
       description: 'KSX 6″-8-“10” Kurlar Cast Stainless Steel Submersible Pumps are made entirely of AISI 304 cast material.',
       longDescription: `KSX 6″-8-“10” Kurlar Cast Stainless Steel Submersible Pumps are made entirely of AISI 304 cast material (pumps can be produced entirely from AISI 316L material upon request). Diffusers, impellers, suction and discharge chambers, strainers made entirely of stainless steel make it extremely resistant to corrosion. It provides high efficiency, high durability, long life and stable performance with its design and material properties. Suitable for horizontal and vertical installation. Suitable for motor connection according to NEMA standards.`,
@@ -597,7 +615,8 @@ const descriptions = {
       ]
     },
     AR: {
-      name: 'سلسلة KSX مضخات غاطسة من الفولاذ المقاوم للصدأ المصبوب',
+      name: 'مضخات غاطسة من الفولاذ المقاوم للصدأ المصبوب',
+      modelCode: 'KSX',
       subCategory: 'الفولاذ المقاوم للصدأ المصبوب',
       description: 'مضخات KSX 6″-8-“10” الغاطسة المصنوعة من الفولاذ المقاوم للصدأ المصبوب من كورلار مصنوعة بالكامل من مادة AISI 304 المصبوبة.',
       longDescription: `مضخات KSX 6″-8-“10” الغاطسة المصنوعة من الفولاذ المقاوم للصدأ المصبوب من كورلار مصنوعة بالكامل من مادة AISI 304 المصبوبة (يمكن إنتاج المضخات بالكامل من مادة AISI 316L عند الطلب). تجعل الموزعات والدوافع وغرف الشفط والتفريغ والمصافي المصنوعة بالكامل من الفولاذ المقاوم للصدأ مقاومة للغاية للتآكل. توفر كفاءة عالية ومتانة عالية وعمرًا طويلاً وأداءً مستقرًا بفضل تصميمها وخصائص موادها. مناسب للتركيب الأفقي والرأسي. مناسب لتوصيل المحرك وفقًا لمعايير NEMA.`,
@@ -625,7 +644,8 @@ const descriptions = {
       ]
     },
     ES: {
-      name: 'Serie KSX Bombas Sumergibles de Acero Inoxidable Fundido',
+      name: 'Bombas Sumergibles de Acero Inoxidable Fundido',
+      modelCode: 'KSX',
       subCategory: 'Acero Inoxidable Fundido',
       description: 'Las bombas sumergibles de acero inoxidable fundido KSX 6″-8-“10” de Kurlar están hechas completamente de material fundido AISI 304.',
       longDescription: `Las bombas sumergibles de acero inoxidable fundido KSX 6″-8-“10” de Kurlar están hechas completamente de material fundido AISI 304 (las bombas se pueden producir completamente de material AISI 316L bajo pedido). Los difusores, impulsores, cámaras de succión y descarga, filtros hechos completamente de acero inoxidable lo hacen extremadamente resistente a la corrosión. Proporciona alta eficiencia, alta durabilidad, larga vida útil y rendimiento estable con su diseño y propiedades materiales. Adecuado para instalación horizontal y vertical. Adecuado para conexión de motor según estándares NEMA.`,
@@ -653,7 +673,8 @@ const descriptions = {
       ]
     },
     PT: {
-      name: 'Série KSX Bombas Submersíveis de Aço Inoxidável Fundido',
+      name: 'Bombas Submersíveis de Aço Inoxidável Fundido',
+      modelCode: 'KSX',
       subCategory: 'Aço Inoxidável Fundido',
       description: 'As Bombas Submersíveis de Aço Inoxidável Fundido KSX 6″-8-“10” da Kurlar são feitas inteiramente de material fundido AISI 304.',
       longDescription: `As Bombas Submersíveis de Aço Inoxidável Fundido KSX 6″-8-“10” da Kurlar são feitas inteiramente de material fundido AISI 304 (bombas podem ser produzidas inteiramente de material AISI 316L mediante solicitação). Difusores, impulsores, câmaras de sucção e descarga, filtros feitos inteiramente de aço inoxidável tornam-no extremamente resistente à corrosão. Proporciona alta eficiência, alta durabilidade, longa vida útil e desempenho estável com seu design e propriedades materiais. Adequado para instalação horizontal e vertical. Adequado para conexão do motor de acordo com os padrões NEMA.`,
@@ -684,6 +705,7 @@ const descriptions = {
   km4: {
     TR: {
       name: 'Yağlı Tip Dalgıç Motorlar',
+      modelCode: 'KM4',
       subCategory: 'Dalgıç Motorlar',
       description: 'Yağlı Tip Dalgıç Motorlar, yağ soğutmalı geri sarılabilir motorlardır (gıdada kullanılan toksik olmayan yağ).',
       longDescription: `Yağlı Tip Dalgıç Motorlar, yağ soğutmalı geri sarılabilir motorlardır (gıdada kullanılan toksik olmayan yağ). Gürültüsüz çalışır ve uzun ömürlü hizmet sağlamaktadır. Hem yatay hem dikey çalışmaya uygundur. Boyutları ve NEMA standartlarına göre uygun flanş bağlantısı bulunmaktadır.`,
@@ -709,6 +731,7 @@ const descriptions = {
     },
     EN: {
       name: 'Oil Filled Submersible Motors',
+      modelCode: 'KM4',
       subCategory: 'Submersible Motors',
       description: 'Oil Filled Submersible Motors are oil-cooled rewindable motors (non-toxic oil used in food).',
       longDescription: `Oil Filled Submersible Motors are oil-cooled rewindable motors (non-toxic oil used in food). It works silently and provides long-lasting service. Suitable for both horizontal and vertical operation. It has flange connection suitable for dimensions and NEMA standards.`,
@@ -734,6 +757,7 @@ const descriptions = {
     },
     AR: {
       name: 'محركات غاطسة مملوءة بالزيت',
+      modelCode: 'KM4',
       subCategory: 'محركات غاطسة',
       description: 'محركات الغاطسة المملوءة بالزيت هي محركات قابلة لإعادة اللف مبردة بالزيت (زيت غير سام يستخدم في الغذاء).',
       longDescription: `محركات الغاطسة المملوءة بالزيت هي محركات قابلة لإعادة اللف مبردة بالزيت (زيت غير سام يستخدم في الغذاء). يعمل بصمت ويوفر خدمة طويلة الأمد. مناسب للتشغيل الأفقي والرأسي. يحتوي على وصلة شفة مناسبة للأبعاد ومعايير NEMA.`,
@@ -759,6 +783,7 @@ const descriptions = {
     },
     ES: {
       name: 'Motores Sumergibles Llenos de Aceite',
+      modelCode: 'KM4',
       subCategory: 'Motores Sumergibles',
       description: 'Los motores sumergibles llenos de aceite son motores rebobinables enfriados por aceite (aceite no tóxico utilizado en alimentos).',
       longDescription: `Los motores sumergibles llenos de aceite son motores rebobinables enfriados por aceite (aceite no tóxico utilizado en alimentos). Funciona silenciosamente y proporciona un servicio duradero. Adecuado para funcionamiento horizontal y vertical. Tiene conexión de brida adecuada para dimensiones y estándares NEMA.`,
@@ -784,6 +809,7 @@ const descriptions = {
     },
     PT: {
       name: 'Motores Submersíveis a Óleo',
+      modelCode: 'KM4',
       subCategory: 'Motores Submersíveis',
       description: 'Motores Submersíveis Preenchidos com Óleo são motores rebobináveis resfriados a óleo (óleo não tóxico usado em alimentos).',
       longDescription: `Motores Submersíveis Preenchidos com Óleo são motores rebobináveis resfriados a óleo (óleo não tóxico usado em alimentos). Funciona silenciosamente e oferece serviço duradouro. Adequado para operação horizontal e vertical. Possui conexão de flange adequada para dimensões e padrões NEMA.`,
@@ -810,7 +836,8 @@ const descriptions = {
   },
   km: {
     TR: {
-      name: 'HI-TEMP Dalgıç Motorlar (60°C - 90°C)',
+      name: 'HI-TEMP Dalgıç Motorlar',
+      modelCode: 'KM',
       subCategory: 'Dalgıç Motorlar',
       description: '6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde üretilmiştir.',
       longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde düşük işletme maliyeti için özel izolasyonulu Bobin Teli (PBN) ile yüksek sıcaklığa özel üretilmiştir.  Su soğutmalı 6″ HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar özel basınç dengeleyici çek-valf, diyafram, kum çanı, su ile yağlamalı yüksek dayanım gösteren eksenel ve radyal yataklar ile donatılmıştır. Motorlar, -15°C’ye kadar muhafaza edilmek için saf su ve gliserin karışımı ile doldurulmuştur.`,
@@ -849,7 +876,8 @@ const descriptions = {
       ]
     },
     EN: {
-      name: 'HI-TEMP Submersible Motors (60°C - 90°C)',
+      name: 'HI-TEMP Submersible Motors',
+      modelCode: 'KM',
       subCategory: 'Submersible Motors',
       description: '6”-7”-8”-10” HI-TEMP (60°C) Rewindable Submersible Motors are produced in our ISO 9001 certified facilities.',
       longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Rewindable Submersible Motors are specially produced for high temperatures with special insulated Coil Wire (PBN) for low operating costs in our ISO 9001 certified facilities. Water-cooled 6″ HI-TEMP (60°C) Rewindable Submersible Motors are equipped with special pressure compensating check valve, diaphragm, sand slinger, water-lubricated high-resistance axial and radial bearings. Motors are filled with a mixture of pure water and glycerin for storage down to -15°C.`,
@@ -888,7 +916,8 @@ const descriptions = {
       ]
     },
     AR: {
-      name: 'محركات غاطسة HI-TEMP (60 درجة - 90 درجة مئوية)',
+      name: 'محركات غاطسة HI-TEMP',
+      modelCode: 'KM',
       subCategory: 'محركات غاطسة',
       description: 'يتم إنتاج محركات غاطسة قابلة لإعادة اللف 6"-7"-8"-10" HI-TEMP (60 درجة مئوية) في مرافقنا الحاصلة على شهادة ISO 9001.',
       longDescription: `يتم إنتاج محركات غاطسة قابلة لإعادة اللف 6"-7"-8"-10" HI-TEMP (60 درجة مئوية) خصيصًا لدرجات الحرارة المرتفعة باستخدام سلك ملف معزول خاص (PBN) لتكاليف تشغيل منخفضة في مرافقنا الحاصلة على شهادة ISO 9001. تم تجهيز محركات غاطسة قابلة لإعادة اللف مبردة بالماء مقاس 6 بوصات HI-TEMP (60 درجة مئوية) بصمام فحص خاص لتعويض الضغط، وحجاب حاجز، ومانع رمل، ومحامل محورية ونصف قطرية عالية المقاومة مشحمة بالماء. تمتلئ المحركات بخليط من الماء النقي والجلسرين للتخزين حتى -15 درجة مئوية.`,
@@ -927,7 +956,8 @@ const descriptions = {
       ]
     },
     ES: {
-      name: 'Motores Sumergibles HI-TEMP (60°C - 90°C)',
+      name: 'Motores Sumergibles HI-TEMP',
+      modelCode: 'KM',
       subCategory: 'Motores Sumergibles',
       description: 'Los motores sumergibles rebobinables HI-TEMP (60°C) de 6”-7”-8”-10” se producen en nuestras instalaciones certificadas ISO 9001.',
       longDescription: `Los motores sumergibles rebobinables HI-TEMP (60°C) de 6”-7”-8”-10” se producen especialmente para altas temperaturas con alambre de bobina con aislamiento especial (PBN) para bajos costos operativos en nuestras instalaciones certificadas ISO 9001. Los motores sumergibles rebobinables HI-TEMP (60°C) de 6″ enfriados por agua están equipados con válvula de retención de compensación de presión especial, diafragma, deflector de arena, cojinetes axiales y radiales de alta resistencia lubricados por agua. Los motores están llenos de una mezcla de agua pura y glicerina para almacenamiento hasta -15°C.`,
@@ -966,7 +996,8 @@ const descriptions = {
       ]
     },
     PT: {
-      name: 'Motores Submersíveis HI-TEMP (60°C - 90°C)',
+      name: 'Motores Submersíveis HI-TEMP',
+      modelCode: 'KM',
       subCategory: 'Motores Submersíveis',
       description: 'Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6”-7”-8”-10” são produzidos em nossas instalações certificadas ISO 9001.',
       longDescription: `Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6”-7”-8”-10” são produzidos especialmente para altas temperaturas com fio de bobina isolado especial (PBN) para baixos custos operacionais em nossas instalações certificadas ISO 9001. Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6″ resfriados a água são equipados com válvula de retenção de compensação de pressão especial, diafragma, defletor de areia, rolamentos axiais e radiais de alta resistência lubrificados a água. Os motores são preenchidos com uma mistura de água pura e glicerina para armazenamento até -15°C.`,
@@ -1008,6 +1039,7 @@ const descriptions = {
   kms: {
     TR: {
       name: 'S-TYPE Dalgıç Motorlar',
+      modelCode: 'KMS',
       subCategory: 'Dalgıç Motorlar',
       description: 'S-Type Dalgıç Motorlar, enerji verimliliği ve dayanıklılık için optimize edilmiş, yeni nesil su soğutmalı motorlardır.',
       longDescription: `S-Type Dalgıç Motorlar, enerji verimliliği ve dayanıklılık için optimize edilmiş, yeni nesil su soğutmalı motorlardır. Düşük enerji tüketimi ve yüksek performansı bir arada sunar. Paslanmaz çelik gövde ve korozyona dayanıklı bileşenler, uzun ömürlü kullanım sağlar. Voltaj dalgalanmalarına karşı toleransı yüksektir.`,
@@ -1045,6 +1077,7 @@ const descriptions = {
     },
     EN: {
       name: 'S-TYPE Submersible Motors',
+      modelCode: 'KMS',
       subCategory: 'Submersible Motors',
       description: 'S-Type Submersible Motors are new generation water-cooled motors optimized for energy efficiency and durability.',
       longDescription: `S-Type Submersible Motors are new generation water-cooled motors optimized for energy efficiency and durability. It offers low energy consumption and high performance together. Stainless steel body and corrosion-resistant components ensure long-lasting use. High tolerance to voltage fluctuations.`,
@@ -1082,6 +1115,7 @@ const descriptions = {
     },
     AR: {
       name: 'محركات غاطسة S-TYPE',
+      modelCode: 'KMS',
       subCategory: 'محركات غاطسة',
       description: 'محركات S-Type الغاطسة هي جيل جديد من المحركات المبردة بالماء والمحسنة لكفاءة الطاقة والمتانة.',
       longDescription: `محركات S-Type الغاطسة هي جيل جديد من المحركات المبردة بالماء والمحسنة لكفاءة الطاقة والمتانة. يوفر استهلاكًا منخفضًا للطاقة وأداءً عاليًا معًا. يضمن الهيكل المصنوع من الفولاذ المقاوم للصدأ والمكونات المقاومة للتآكل استخدامًا طويل الأمد. تحمل عالي لتقلبات الجهد.`,
@@ -1119,6 +1153,7 @@ const descriptions = {
     },
     ES: {
       name: 'Motores Sumergibles S-TYPE',
+      modelCode: 'KMS',
       subCategory: 'Motores Sumergibles',
       description: 'Los motores sumergibles S-Type son motores de nueva generación enfriados por agua optimizados para la eficiencia energética y la durabilidad.',
       longDescription: `Los motores sumergibles S-Type son motores de nueva generación enfriados por agua optimizados para la eficiencia energética y la durabilidad. Ofrece bajo consumo de energía y alto rendimiento juntos. El cuerpo de acero inoxidable y los componentes resistentes a la corrosión garantizan un uso duradero. Alta tolerancia a las fluctuaciones de voltaje.`,
@@ -1156,6 +1191,7 @@ const descriptions = {
     },
     PT: {
       name: 'Motores Submersíveis S-TYPE',
+      modelCode: 'KMS',
       subCategory: 'Motores Submersíveis',
       description: 'Os Motores Submersíveis S-Type são motores de nova geração resfriados a água otimizados para eficiência energética e durabilidade.',
       longDescription: `Os Motores Submersíveis S-Type são motores de nova geração resfriados a água otimizados para eficiência energética e durabilidade. Oferece baixo consumo de energia e alto desempenho juntos. Corpo em aço inoxidável e componentes resistentes à corrosão garantem uso duradouro. Alta tolerância a flutuações de tensão.`,
@@ -1198,7 +1234,8 @@ export const products: Product[] = [
   // 1. Paslanmaz Çelik Dalgıç Pompalar (KP)
   {
     id: 'kp',
-    name: 'Paslanmaz Çelik Dalgıç Pompalar (KP)',
+    name: 'Paslanmaz Çelik Dalgıç Pompalar',
+    modelCode: 'KP - KPS',
     shortName: 'KP Serisi',
     category: 'pump',
     subCategory: 'Paslanmaz Çelik',
@@ -1281,7 +1318,8 @@ export const products: Product[] = [
   // 2. Noryl Dalgıç Pompalar (KPN)
   {
     id: 'kpn',
-    name: 'Noryl Dalgıç Pompalar (KPN)',
+    name: 'Noryl Dalgıç Pompalar',
+    modelCode: 'KPN4',
     shortName: 'KPN Serisi',
     category: 'pump',
     subCategory: 'Noryl',
@@ -1341,7 +1379,8 @@ export const products: Product[] = [
   // 3. Pik Döküm Dalgıç Pompalar (KPD)
   {
     id: 'kpd',
-    name: 'Pik Döküm Dalgıç Pompalar (KPD)',
+    name: 'Pik Döküm Dalgıç Pompalar',
+    modelCode: 'KPD',
     shortName: 'KPD Serisi',
     category: 'pump',
     subCategory: 'Pik Döküm',
@@ -1397,7 +1436,8 @@ export const products: Product[] = [
   // 4. Paslanmaz Döküm Dalgıç Pompalar (KSX)
   {
     id: 'ksx',
-    name: 'Paslanmaz Döküm Dalgıç Pompalar (KSX)',
+    name: 'Paslanmaz Döküm Dalgıç Pompalar',
+    modelCode: 'KSX',
     shortName: 'KSX Serisi',
     category: 'pump',
     subCategory: 'Paslanmaz Döküm',
@@ -1452,7 +1492,8 @@ export const products: Product[] = [
   // 5. Yağlı Tip Dalgıç Motorlar (KM4)
   {
     id: 'km4',
-    name: 'Yağlı Tip Dalgıç Motorlar (KM4)',
+    name: 'Yağlı Tip Dalgıç Motorlar',
+    modelCode: 'KM4',
     shortName: 'KM4 Serisi',
     category: 'motor',
     subCategory: 'Yağlı Tip',
@@ -1504,7 +1545,8 @@ export const products: Product[] = [
   // 6. HI-TEMP Dalgıç Motorlar (KM)
   {
     id: 'km',
-    name: 'HI-TEMP Dalgıç Motorlar (KM)',
+    name: 'HI-TEMP Dalgıç Motorlar',
+    modelCode: 'KM',
     shortName: 'KM Serisi',
     category: 'motor',
     subCategory: 'HI-TEMP',
@@ -1570,7 +1612,8 @@ export const products: Product[] = [
   // 7. S-Type Dalgıç Motorlar (KMS)
   {
     id: 'kms',
-    name: 'S-Type Dalgıç Motorlar (KMS)',
+    name: 'S-Type Dalgıç Motorlar',
+    modelCode: 'KMS',
     shortName: 'KMS Serisi',
     category: 'motor',
     subCategory: 'S-Type',

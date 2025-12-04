@@ -171,6 +171,11 @@ export default function ProductDetail() {
                       IP68
                     </span>
                   )}
+                  {product.modelCode && (
+                    <span className="bg-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 uppercase tracking-wider border border-slate-300">
+                      {product.modelCode}
+                    </span>
+                  )}
                 </div>
                 <h1 className="text-3xl font-heading font-bold text-slate-900 mb-4">
                   {product.name}
