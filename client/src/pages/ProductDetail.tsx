@@ -171,15 +171,19 @@ export default function ProductDetail() {
                       IP68
                     </span>
                   )}
-                  {product.modelCode && (
-                    <span className="bg-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 uppercase tracking-wider border border-slate-300">
-                      {product.modelCode}
-                    </span>
-                  )}
                 </div>
                 <h1 className="text-3xl font-heading font-bold text-slate-900 mb-4">
                   {product.name}
                 </h1>
+                
+                {product.modelCode && (
+                  <div className="mb-6 flex items-center gap-3">
+                    <span className="text-slate-500 font-bold text-sm uppercase tracking-wider">Model No:</span>
+                    <span className="text-slate-900 font-extrabold text-xl bg-slate-100 px-4 py-1.5 rounded border border-slate-200 shadow-sm">
+                      {product.modelCode}
+                    </span>
+                  </div>
+                )}
                 
                 {product.availableSizes && (
                   <div className="mb-6 inline-flex flex-col gap-1">
