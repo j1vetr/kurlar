@@ -59,7 +59,7 @@ export default function Home() {
                   <Building2 className="w-6 h-6 text-primary mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900">Yerli Üretim</h4>
-                    <p className="text-sm text-slate-500">%100 Yerli Sermaye Ve Üretim</p>
+                    <p className="text-sm text-slate-500">%100 Yerli Sermaye ve Üretim</p>
                   </div>
                 </div>
               </div>
