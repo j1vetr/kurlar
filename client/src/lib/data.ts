@@ -1532,19 +1532,22 @@ export const products: Product[] = [
       'NEMA Standartlarına Uygun Pompa Bağlantısı',
       'IP 68 Koruma'
     ],
-    specsImage: '/assets/details/km4-specs.png',
     specs: {
       'Güç Aralığı': '0.37 – 7.5 kW',
       'Maksimum Sıvı Sıcaklığı': '+35 °C',
       'Maksimum Daldırma': '200 metre',
       'Yol Verme Kapasitesi': '24 kez/saat',
+      'Asgari Soğutma Akış Hızı': '8 cm/s',
+      'Sürekli Servis Sınıfı': 'S1',
       'Koruma Sınıfı': 'IP68',
       'İzolasyon Sınıfı': 'F',
-      'Motor Tipi': '2 kutuplu, 50 Hz (n ≈ 2900 rpm)'
+      'Motor Tipi': '2 kutuplu, 50 Hz (n ≈ 2900 rpm)',
+      'Voltaj (Monofaz)': '210 – 220 – 230 V',
+      'Voltaj (Trifaz)': '380 – 400 – 415 V'
     },
     subSpecs: [
       {
-        title: 'Monofaze Dalgıç Motor Listesi (Düz – Alt Alta)',
+        title: 'Monofaze 4" Dalgıç Motor Listesi',
         columns: ['Model', 'Güç (HP/kW)', 'Devir', 'Eksenel Yük', 'cos φ', 'Verim', 'Kapasitör', 'Uzunluk', 'Ağırlık', 'Voltaj / Akım'],
         data: [
           ['KM4-0.55M', '0,55 HP / 0,37 kW', '2835 RPM', '2 kN', '0,87', '%60', '20 µF', '415 mm', '8,2 kg', '3,2 A'],
@@ -1557,7 +1560,7 @@ export const products: Product[] = [
         ]
       },
       {
-        title: 'Trifaze Dalgıç Motor Listesi (Düz – Alt Alta)',
+        title: 'Trifaze 4" Dalgıç Motor Listesi',
         columns: ['Model', 'Güç (HP/kW)', 'Devir', 'Eksenel Yük', 'cos φ', 'Verim', 'Uzunluk', 'Ağırlık', 'Akım (220-230V)', 'Akım (400-415V)'],
         data: [
           ['KM4-0.75T', '0,75 HP / 0,55 kW', '2825 RPM', '2 kN', '0,71', '%65', '415 mm', '7,8 kg', '3,8 A', '1,8 A'],
