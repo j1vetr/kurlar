@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -328,6 +328,66 @@ export default function ProductDetail() {
             </div>
           </div>
           
+          {/* Other Products - Infinite Marquee */}
+          <div className="mb-24 border-t border-slate-200 pt-16">
+            <div className="text-center mb-12">
+               <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
+                 <Settings className="w-8 h-8 text-primary" /> Diğer Ürünlerimiz
+               </h2>
+               <p className="text-slate-500">İlginizi çekebilecek diğer profesyonel çözümlerimiz.</p>
+            </div>
+
+            <div className="relative w-full overflow-hidden">
+               {/* Gradient Masks */}
+               <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+               <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+
+               <motion.div 
+                 className="flex gap-6 px-6"
+                 animate={{ x: ["0%", "-50%"] }}
+                 transition={{ 
+                   repeat: Infinity, 
+                   ease: "linear", 
+                   duration: 40 
+                 }}
+                 style={{ width: "fit-content" }}
+               >
+                 {[...products, ...products].filter(p => p.id !== product.id).map((p, index) => (
+                   <div key={`${p.id}-${index}`} className="w-[260px] md:w-[320px] flex-shrink-0">
+                     <Link href={`/urunler/${p.id}`}>
+                       <a className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
+                         <div className="aspect-[4/5] bg-white relative overflow-hidden flex items-center justify-center p-6 border-b border-slate-100">
+                           <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                           
+                           <div className="absolute top-3 left-3 z-20">
+                             <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider border border-slate-200">
+                               {p.subCategory}
+                             </span>
+                           </div>
+
+                           <img 
+                             src={p.image} 
+                             alt={p.name}
+                             className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-500 ease-out"
+                           />
+                         </div>
+                         
+                         <div className="p-5 flex flex-col flex-grow">
+                           <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                             {p.name}
+                           </h3>
+                           <div className="mt-auto flex items-center text-primary font-bold text-xs uppercase tracking-wide">
+                             İncele <ArrowRight className="ml-1 w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                           </div>
+                         </div>
+                       </a>
+                     </Link>
+                   </div>
+                 ))}
+               </motion.div>
+            </div>
+          </div>
+
           {/* FAQ Section - Beautiful Accordion Design */}
           {product.faq && product.faq.length > 0 && (
              <div className="max-w-4xl mx-auto mb-16">
