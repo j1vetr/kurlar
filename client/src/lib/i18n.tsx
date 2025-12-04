@@ -70,6 +70,17 @@ const translations: Translations = {
   'about.history.title': { TR: 'Tarihçe', EN: 'History', AR: 'تاريخ', ES: 'Historia', PT: 'História' },
   'about.history.subtitle': { TR: 'Başarılarla Dolu Yarım Asır', EN: 'Half a Century Full of Success', AR: 'نصف قرن مليء بالنجاح', ES: 'Medio Siglo Lleno de Éxito', PT: 'Meio Século Cheio de Sucesso' },
   
+  // Contact Form
+  'contact.form.title': { TR: 'Bize Ulaşın', EN: 'Get in Touch', AR: 'تواصل معنا', ES: 'Póngase en Contacto', PT: 'Entre em Contato' },
+  'contact.form.subtitle': { TR: 'Sorularınız, görüşleriniz veya teklif talepleriniz için aşağıdaki formu doldurabilirsiniz.', EN: 'You can fill out the form below for your questions, opinions or quote requests.', AR: 'يمكنك ملء النموذج أدناه لأسئلتك أو آرائك أو طلبات عروض الأسعار.', ES: 'Puede completar el formulario a continuación para sus preguntas, opiniones o solicitudes de cotización.', PT: 'Você pode preencher o formulário abaixo para suas dúvidas, opiniões ou solicitações de cotação.' },
+  'contact.form.name': { TR: 'Adınız Soyadınız', EN: 'Full Name', AR: 'الاسم الكامل', ES: 'Nombre Completo', PT: 'Nome Completo' },
+  'contact.form.email': { TR: 'E-posta Adresi', EN: 'Email Address', AR: 'عنوان البريد الإلكتروني', ES: 'Dirección de Correo Electrónico', PT: 'Endereço de E-mail' },
+  'contact.form.phone': { TR: 'Telefon Numarası', EN: 'Phone Number', AR: 'رقم الهاتف', ES: 'Número de Teléfono', PT: 'Número de Telefone' },
+  'contact.form.subject': { TR: 'Konu', EN: 'Subject', AR: 'الموضوع', ES: 'Asunto', PT: 'Assunto' },
+  'contact.form.message': { TR: 'Mesajınız', EN: 'Your Message', AR: 'رسالتك', ES: 'Su Mensaje', PT: 'Sua Mensagem' },
+  'contact.form.send': { TR: 'GÖNDER', EN: 'SEND', AR: 'إرسال', ES: 'ENVIAR', PT: 'ENVIAR' },
+  'contact.form.success': { TR: 'Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.', EN: 'Your message has been sent successfully. We will get back to you as soon as possible.', AR: 'تم إرسال رسالتك بنجاح. سنعود إليك في أقرب وقت ممكن.', ES: 'Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted lo antes posible.', PT: 'Sua mensagem foi enviada com sucesso. Entraremos em contato com você o mais breve possível.' },
+
   // Product Card UI
   'product.review': { TR: 'İncele', EN: 'Review', AR: 'مراجعة', ES: 'Revisar', PT: 'Revisão' },
   'product.category.pump': { TR: 'Dalgıç Pompa', EN: 'Submersible Pump', AR: 'مضخة غاطسة', ES: 'Bomba Sumergible', PT: 'Bomba Submersível' },

@@ -327,9 +327,11 @@ export default function ProductDetail() {
 
               {/* Footer Actions - Sticky on Mobile */}
               <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row gap-4 sticky bottom-0 lg:relative z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] lg:shadow-none">
-                <Button className="flex-1 bg-primary hover:bg-primary/90 text-white h-12 rounded-sm font-bold uppercase tracking-wide shadow-lg lg:shadow-none">
-                  {t('product.request_quote')}
-                </Button>
+                <Link href="/iletisim#contact-form" className="flex-1">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-white h-12 rounded-sm font-bold uppercase tracking-wide shadow-lg lg:shadow-none">
+                    {t('product.request_quote')}
+                  </Button>
+                </Link>
                 <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-1 hidden sm:block">
                   <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-white h-12 rounded-sm font-bold uppercase tracking-wide">
                     <Download className="mr-2 w-4 h-4" /> {t('product.download_catalog')}
