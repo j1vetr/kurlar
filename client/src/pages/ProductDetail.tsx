@@ -357,7 +357,9 @@ export default function ProductDetail() {
                  }}
                  style={{ width: "fit-content" }}
                >
-                 {[...products, ...products].filter(p => p.id !== product.id).map((p, index) => (
+                 {[...products, ...products].filter(p => p.id !== product.id).map((baseP, index) => {
+                   const p = getProductWithLanguage(baseP, language);
+                   return (
                    <div key={`${p.id}-${index}`} className="w-[260px] md:w-[320px] flex-shrink-0">
                      <Link href={`/urunler/${p.id}`}>
                        <a className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
@@ -388,7 +390,8 @@ export default function ProductDetail() {
                        </a>
                      </Link>
                    </div>
-                 ))}
+                   );
+                 })}
                </motion.div>
             </div>
           </div>

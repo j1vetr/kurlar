@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Hero } from "@/components/home/Hero";
 import { ProductCard } from "@/components/shared/ProductCard";
-import { products, categories } from "@/lib/data";
+import { products, categories, getProductWithLanguage } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Users, Globe, Building2, ArrowUpRight, ChevronRight } from "lucide-react";
@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // Explicitly select the main products for the homepage
   const featuredProducts = [
@@ -114,7 +114,9 @@ export default function Home() {
              style={{ width: "fit-content" }}
            >
              {/* Double the products array to create seamless loop */}
-             {[...products, ...products].map((product, index) => (
+             {[...products, ...products].map((baseProduct, index) => {
+               const product = getProductWithLanguage(baseProduct, language);
+               return (
                <div key={`${product.id}-${index}`} className="w-[300px] md:w-[380px] flex-shrink-0">
                  <Link href={`/urunler/${product.id}`}>
                    <a className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-xl flex flex-col h-full">
