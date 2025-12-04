@@ -2,6 +2,13 @@ import { Layout } from "@/components/layout/Layout";
 import { products } from "@/lib/data";
 import { useRoute, Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -254,14 +261,25 @@ export default function ProductDetail() {
                 )}
 
                 {activeTab === 'parts' && product.mechanicalPartsImages && (
-                   <div className="space-y-8">
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                      {product.mechanicalPartsImages.map((part, idx) => (
-                       <div key={idx}>
-                         <h4 className="font-bold text-slate-900 mb-2">{part.title}</h4>
-                         <div className="bg-white border border-slate-200 p-4 rounded-sm">
-                           <img src={part.image} alt={part.title} className="w-full h-auto" />
-                         </div>
-                       </div>
+                       <Dialog key={idx}>
+                         <DialogTrigger asChild>
+                           <Button variant="outline" className="h-auto py-8 flex flex-col items-center gap-3 border-slate-200 hover:border-primary hover:bg-slate-50 hover:text-primary transition-all group whitespace-normal text-center">
+                             <Layers className="w-8 h-8 text-slate-400 group-hover:text-primary mb-1 transition-colors" />
+                             <span className="font-bold text-lg">{part.title}</span>
+                             <span className="text-xs text-slate-500 font-normal bg-slate-100 px-3 py-1 rounded-full group-hover:bg-white transition-colors">Görüntülemek için tıklayın</span>
+                           </Button>
+                         </DialogTrigger>
+                         <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-hidden p-0 bg-white border-slate-200">
+                           <DialogHeader className="p-4 border-b border-slate-100 bg-white z-10">
+                              <DialogTitle className="text-lg font-bold text-slate-900 text-center sm:text-left">{part.title}</DialogTitle>
+                           </DialogHeader>
+                           <div className="p-4 w-full h-full overflow-auto flex items-center justify-center bg-slate-50/50 min-h-[300px]">
+                             <img src={part.image} alt={part.title} className="max-w-full h-auto object-contain" />
+                           </div>
+                         </DialogContent>
+                       </Dialog>
                      ))}
                    </div>
                 )}
