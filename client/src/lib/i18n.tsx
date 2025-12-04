@@ -13,6 +13,7 @@ const translations: Translations = {
   'wizard.title': { TR: 'Pompa Seçim Sihirbazı', EN: 'Pump Selection Wizard', AR: 'معالج اختيار المضخة', ES: 'Asistente de Selección de Bombas', PT: 'Assistente de Seleção de Bombas' },
   'wizard.subtitle': { TR: 'İhtiyacınıza en uygun pompayı saniyeler içinde bulun.', EN: 'Find the most suitable pump for your needs in seconds.', AR: 'اعثر على المضخة الأنسب لاحتياجاتك في ثوانٍ.', ES: 'Encuentre la bomba más adecuada para sus necesidades en segundos.', PT: 'Encontre a bomba mais adequada às suas necessidades em segundos.' },
   'wizard.start_btn': { TR: 'Sihirbazı Başlat', EN: 'Start Wizard', AR: 'بدء المعالج', ES: 'Iniciar Asistente', PT: 'Iniciar Assistente' },
+  'wizard.step1.badge': { TR: 'ADIM 1 / 3', EN: 'STEP 1 / 3', AR: 'الخطوة 1 / 3', ES: 'PASO 1 / 3', PT: 'PASSO 1 / 3' },
   'wizard.step1.title': { TR: 'Uygulama Alanı', EN: 'Application Area', AR: 'منطقة التطبيق', ES: 'Área de Aplicación', PT: 'Área de Aplicação' },
   'wizard.step1.subtitle': { TR: 'Pompayı nerede kullanacaksınız?', EN: 'Where will you use the pump?', AR: 'أين ستستخدم المضخة؟', ES: '¿Dónde utilizará la bomba?', PT: 'Onde você usará a bomba?' },
   'wizard.step2.title': { TR: 'Teknik Gereksinimler', EN: 'Technical Requirements', AR: 'المتطلبات الفنية', ES: 'Requisitos Técnicos', PT: 'Requisitos Técnicos' },
