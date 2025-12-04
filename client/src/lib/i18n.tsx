@@ -31,6 +31,17 @@ const translations: Translations = {
   'wizard.app.sewage': { TR: 'Atık Su / Foseptik', EN: 'Sewage / Wastewater', AR: 'مياه الصرف الصحي', ES: 'Aguas Residuales', PT: 'Esgoto / Águas Residuais' },
   'wizard.app.industrial': { TR: 'Endüstriyel', EN: 'Industrial', AR: 'صناعي', ES: 'Industrial', PT: 'Industrial' },
   'wizard.match_score': { TR: 'Eşleşme Skoru', EN: 'Match Score', AR: 'درجة التطابق', ES: 'Puntuación de Coincidencia', PT: 'Pontuação de Correspondência' },
+  'wizard.analysis': { TR: 'Teknik Analiz', EN: 'Technical Analysis', AR: 'التحليل الفني', ES: 'Análisis Técnico', PT: 'Análise Técnica' },
+  'wizard.performance': { TR: 'Performans', EN: 'Performance', AR: 'الأداء', ES: 'Rendimiento', PT: 'Desempenho' },
+  'wizard.capacity_usage': { TR: 'Kapasite Kullanımı', EN: 'Capacity Usage', AR: 'استخدام السعة', ES: 'Uso de Capacidad', PT: 'Uso da Capacidade' },
+  'wizard.status.optimal': { TR: 'OPTİMAL ÇALIŞMA', EN: 'OPTIMAL OPERATION', AR: 'تشغيل مثالي', ES: 'OPERACIÓN ÓPTIMA', PT: 'OPERAÇÃO OTIMIZADA' },
+  'wizard.status.efficient': { TR: 'YÜKSEK VERİM', EN: 'HIGH EFFICIENCY', AR: 'كفاءة عالية', ES: 'ALTA EFICIENCIA', PT: 'ALTA EFICIÊNCIA' },
+  'wizard.status.oversized': { TR: 'YÜKSEK KAPASİTE', EN: 'HIGH CAPACITY', AR: 'سعة عالية', ES: 'ALTA CAPACIDAD', PT: 'ALTA CAPACIDADE' },
+  'wizard.status.limit': { TR: 'SINIR DEĞER', EN: 'LIMIT VALUE', AR: 'قيمة الحد', ES: 'VALOR LÍMITE', PT: 'VALOR LIMITE' },
+  'wizard.tech.voltage': { TR: 'Voltaj', EN: 'Voltage', AR: 'الجهد', ES: 'Voltaje', PT: 'Tensão' },
+  'wizard.tech.outlet': { TR: 'Çıkış', EN: 'Outlet', AR: 'المخرج', ES: 'Salida', PT: 'Saída' },
+  'wizard.tech.diameter': { TR: 'Çap', EN: 'Diameter', AR: 'القطر', ES: 'Diámetro', PT: 'Diâmetro' },
+  'wizard.calc.note': { TR: 'Bu sonuçlar teorik verilere dayanmaktadır. Kesin seçim için uzmanlarımızla görüşün.', EN: 'These results are based on theoretical data. Consult our experts for precise selection.', AR: 'تستند هذه النتائج إلى بيانات نظرية. استشر خبراؤنا للاختيار الدقيق.', ES: 'Estos resultados se basan en datos teóricos. Consulte a nuestros expertos para una selección precisa.', PT: 'Esses resultados são baseados em dados teóricos. Consulte nossos especialistas para uma seleção precisa.' },
 
   // Navbar
   'nav.home': { TR: 'Ana Sayfa', EN: 'Home', AR: 'الرئيسية', ES: 'Inicio', PT: 'Início' },
