@@ -25,6 +25,9 @@ interface MatchResult {
   status: 'optimal' | 'efficient' | 'limit' | 'oversized';
   utilizationFlow: number; // 0-1
   utilizationHead: number; // 0-1
+  specificModel?: string;
+  specificFlow?: number;
+  specificHead?: number;
 }
 
 export default function PumpSelector() {
@@ -53,11 +56,6 @@ export default function PumpSelector() {
         if (p.category !== 'pump') return;
 
         const product = getProductWithLanguage(p, language);
-        const maxFlow = product.technicalData?.maxFlow || 0;
-        const maxHead = product.technicalData?.maxHead || 0;
-
-        // Hard fail if specs are below requirements
-        if (maxFlow < userFlow || maxHead < userHead) return;
 
         // Application filtering
         let appMatch = true;
@@ -67,50 +65,96 @@ export default function PumpSelector() {
 
         if (!appMatch) return;
 
-        // Calculate detailed score
-        // Ideal operating point is usually ~60-70% of max capacity
-        // We calculate "Utilization" = UserReq / MaxCap
-        
-        const utilFlow = userFlow / maxFlow;
-        const utilHead = userHead / maxHead;
-        
-        // Distance from "Ideal" (0.65 utilization)
-        // The closer to 0.65, the better the score. 
-        // If util is very low (<0.1), it's oversized (bad score).
-        // If util is very high (>0.9), it's pushed to limit (risky).
-        
-        const flowScore = 1 - Math.abs(utilFlow - 0.65); 
-        const headScore = 1 - Math.abs(utilHead - 0.65);
-        
-        // Weighted score (Head is usually more critical for pumps)
-        let rawScore = (flowScore * 0.4 + headScore * 0.6) * 100;
-        
-        // Normalize: Boost score visually for "good enough" matches
-        if (rawScore < 60) rawScore += 20; 
-        if (rawScore > 98) rawScore = 99;
+        // Check for detailed sub-models (subSpecs)
+        if (product.subSpecs && product.subSpecs.length > 0) {
+          product.subSpecs.forEach(specGroup => {
+            specGroup.data.forEach(row => {
+              // Assuming structure: [Model, Flow, Head, Motor, Outlet]
+              const modelName = row[0];
+              const modelFlow = parseFloat(row[1]);
+              const modelHead = parseFloat(row[2]);
 
-        let status: MatchResult['status'] = 'optimal';
-        
-        if (utilFlow < 0.3 || utilHead < 0.3) status = 'oversized';
-        else if (utilFlow > 0.85 || utilHead > 0.85) status = 'limit';
-        else if (utilFlow > 0.5 && utilHead > 0.5) status = 'efficient';
+              // Hard fail if specs are below requirements
+              if (modelFlow < userFlow || modelHead < userHead) return;
 
-        results.push({
-          product,
-          score: Math.round(rawScore),
-          status,
-          utilizationFlow: utilFlow,
-          utilizationHead: utilHead
-        });
+              // Calculate utilization
+              const utilFlow = userFlow / modelFlow;
+              const utilHead = userHead / modelHead;
+
+              // Scoring logic
+              // Optimal: 0.6 - 0.8
+              const flowScore = 1 - Math.abs(utilFlow - 0.7); 
+              const headScore = 1 - Math.abs(utilHead - 0.7);
+              
+              let rawScore = (flowScore * 0.4 + headScore * 0.6) * 100;
+              
+              // Penalize heavily if very oversized (utilization < 0.3)
+              if (utilFlow < 0.3) rawScore -= 20;
+              if (utilHead < 0.3) rawScore -= 20;
+
+              // Boost if very close to optimal
+              if (utilFlow > 0.5 && utilFlow < 0.9 && utilHead > 0.5 && utilHead < 0.9) {
+                rawScore += 15;
+              }
+
+              if (rawScore < 0) rawScore = 10; // Min score
+              if (rawScore > 99) rawScore = 99;
+
+              let status: MatchResult['status'] = 'optimal';
+              if (utilFlow < 0.4 || utilHead < 0.4) status = 'oversized';
+              else if (utilFlow > 0.9 || utilHead > 0.9) status = 'limit';
+              else if (utilFlow >= 0.5 && utilHead >= 0.5) status = 'efficient';
+
+              results.push({
+                product,
+                score: Math.round(rawScore),
+                status,
+                utilizationFlow: utilFlow,
+                utilizationHead: utilHead,
+                specificModel: modelName,
+                specificFlow: modelFlow,
+                specificHead: modelHead
+              });
+            });
+          });
+        } else {
+          // Fallback for products without subSpecs (using main technicalData)
+          const maxFlow = product.technicalData?.maxFlow || 0;
+          const maxHead = product.technicalData?.maxHead || 0;
+
+          if (maxFlow < userFlow || maxHead < userHead) return;
+
+          const utilFlow = userFlow / maxFlow;
+          const utilHead = userHead / maxHead;
+          
+          const flowScore = 1 - Math.abs(utilFlow - 0.65); 
+          const headScore = 1 - Math.abs(utilHead - 0.65);
+          
+          let rawScore = (flowScore * 0.4 + headScore * 0.6) * 100;
+          if (rawScore < 60) rawScore += 20; 
+          if (rawScore > 98) rawScore = 99;
+
+          let status: MatchResult['status'] = 'optimal';
+          if (utilFlow < 0.3 || utilHead < 0.3) status = 'oversized';
+          else if (utilFlow > 0.85 || utilHead > 0.85) status = 'limit';
+          else if (utilFlow > 0.5 && utilHead > 0.5) status = 'efficient';
+
+          results.push({
+            product,
+            score: Math.round(rawScore),
+            status,
+            utilizationFlow: utilFlow,
+            utilizationHead: utilHead
+          });
+        }
       });
 
-      // Sort by score descending
+      // Sort by score descending and take top 5
       results.sort((a, b) => b.score - a.score);
-
-      setMatches(results);
+      setMatches(results.slice(0, 5));
       setStep(3);
       setIsCalculating(false);
-    }, 1200); // Slightly longer for dramatic effect
+    }, 1200); 
   };
 
   const handleApplicationSelect = (appId: Application) => {
@@ -362,7 +406,8 @@ export default function PumpSelector() {
                               </div>
                               
                               <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
-                                {match.product.name}
+                                {match.specificModel ? `${match.specificModel}` : match.product.name}
+                                {match.specificModel && <span className="block text-sm font-normal text-slate-500 mt-1">{match.product.name}</span>}
                               </h3>
                               
                               <div className="relative h-48 w-full my-4 flex items-center justify-center">
@@ -429,7 +474,9 @@ export default function PumpSelector() {
                                       <span className="text-xs font-bold uppercase">{t('wizard.flow_rate')}</span>
                                     </div>
                                     <div className="flex items-end gap-2">
-                                      <span className="text-lg font-bold text-slate-900">{match.product.technicalData?.maxFlow}</span>
+                                      <span className="text-lg font-bold text-slate-900">
+                                        {match.specificFlow || match.product.technicalData?.maxFlow}
+                                      </span>
                                       <span className="text-xs text-slate-500 mb-1">m³/h (Max)</span>
                                     </div>
                                     {/* Utilization Bar */}
@@ -451,7 +498,9 @@ export default function PumpSelector() {
                                       <span className="text-xs font-bold uppercase">{t('wizard.head')}</span>
                                     </div>
                                     <div className="flex items-end gap-2">
-                                      <span className="text-lg font-bold text-slate-900">{match.product.technicalData?.maxHead}</span>
+                                      <span className="text-lg font-bold text-slate-900">
+                                        {match.specificHead || match.product.technicalData?.maxHead}
+                                      </span>
                                       <span className="text-xs text-slate-500 mb-1">mSS (Max)</span>
                                     </div>
                                     {/* Utilization Bar */}

@@ -16,6 +16,7 @@ export interface Product {
     maxFlow: number; // m³/h
     maxHead: number; // m
   };
+  availableSizes?: string;
   subSpecs?: { title: string; columns: string[]; data: string[][] }[];
   specsImage?: string;
   mechanicalPartsImages?: { title: string; image: string }[];
@@ -29,18 +30,19 @@ export const getProductWithLanguage = (product: Product, lang: 'TR' | 'EN' | 'AR
   const desc = descriptions[product.id as keyof typeof descriptions];
   if (!desc || !desc[lang]) return product;
 
+  const d = desc[lang] as any;
   return {
     ...product,
-    name: desc[lang].name || product.name,
-    subCategory: desc[lang].subCategory || product.subCategory,
-    description: desc[lang].description,
-    longDescription: desc[lang].longDescription,
-    features: desc[lang].features,
-    specs: desc[lang].specs || product.specs,
-    subSpecs: desc[lang].subSpecs || product.subSpecs,
-    mechanicalPartsImages: desc[lang].mechanicalPartsImages || product.mechanicalPartsImages,
-    options: desc[lang].options || product.options,
-    faq: desc[lang].faq || product.faq
+    name: d.name || product.name,
+    subCategory: d.subCategory || product.subCategory,
+    description: d.description,
+    longDescription: d.longDescription,
+    features: d.features,
+    specs: d.specs || product.specs,
+    subSpecs: d.subSpecs || product.subSpecs,
+    mechanicalPartsImages: d.mechanicalPartsImages || product.mechanicalPartsImages,
+    options: d.options || product.options,
+    faq: d.faq || product.faq
   };
 };
 
@@ -1296,6 +1298,43 @@ export const products: Product[] = [
       maxFlow: 290,
       maxHead: 700
     },
+    subSpecs: [
+      {
+        title: '4" KP Serisi (5-25 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KP 405/10', '8', '65', '1.5', '2"'],
+          ['KP 405/14', '8', '92', '2.2', '2"'],
+          ['KP 405/20', '8', '130', '3', '2"'],
+          ['KP 410/08', '15', '52', '2.2', '2"'],
+          ['KP 410/12', '15', '78', '3', '2"'],
+          ['KP 410/16', '15', '104', '4', '2"']
+        ]
+      },
+      {
+        title: '6" KP Serisi (20-80 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KP 625/05', '25', '60', '5.5', '3"'],
+          ['KP 625/08', '25', '96', '7.5', '3"'],
+          ['KP 625/12', '25', '144', '11', '3"'],
+          ['KP 640/04', '40', '52', '7.5', '3"'],
+          ['KP 640/07', '40', '91', '11', '3"'],
+          ['KP 660/03', '60', '42', '9.2', '4"'],
+          ['KP 660/05', '60', '70', '15', '4"']
+        ]
+      },
+      {
+        title: '8" KP Serisi (80-180 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KP 8100/02', '100', '45', '18.5', '5"'],
+          ['KP 8100/04', '100', '90', '37', '5"'],
+          ['KP 8125/03', '125', '75', '37', '5"'],
+          ['KP 8160/02', '160', '55', '37', '5"']
+        ]
+      }
+    ],
     specs: {
       'Maksimum Kapasite': '290 m³/saat',
       'Maksimum Basma Yüksekliği': '700m',
@@ -1379,6 +1418,22 @@ export const products: Product[] = [
       maxFlow: 24,
       maxHead: 200
     },
+    subSpecs: [
+      {
+        title: '4" KPN Serisi (1-8 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KPN 402/08', '2', '45', '0.37', '1 1/4"'],
+          ['KPN 402/14', '2', '80', '0.55', '1 1/4"'],
+          ['KPN 403/11', '3', '65', '0.75', '1 1/4"'],
+          ['KPN 403/16', '3', '95', '1.1', '1 1/4"'],
+          ['KPN 405/12', '5', '72', '1.5', '1 1/2"'],
+          ['KPN 405/18', '5', '108', '2.2', '1 1/2"'],
+          ['KPN 408/08', '8', '48', '1.5', '2"'],
+          ['KPN 408/15', '8', '90', '3', '2"']
+        ]
+      }
+    ],
     specs: {
       'Maksimum Kapasite': '24 m³/saat',
       'Maksimum Basma Yüksekliği': '200 m',
@@ -1443,6 +1498,42 @@ export const products: Product[] = [
       maxFlow: 350,
       maxHead: 650
     },
+    subSpecs: [
+      {
+        title: '6" KPD Serisi (20-60 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KPD 620/05', '20', '65', '5.5', '3"'],
+          ['KPD 620/10', '20', '130', '11', '3"'],
+          ['KPD 640/04', '40', '55', '7.5', '3"'],
+          ['KPD 640/08', '40', '110', '15', '3"'],
+          ['KPD 660/03', '60', '45', '9.2', '4"'],
+          ['KPD 660/06', '60', '90', '18.5', '4"']
+        ]
+      },
+      {
+        title: '8" KPD Serisi (60-150 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KPD 8080/03', '80', '55', '18.5', '5"'],
+          ['KPD 8080/06', '80', '110', '37', '5"'],
+          ['KPD 8120/02', '120', '40', '18.5', '5"'],
+          ['KPD 8120/04', '120', '80', '37', '5"'],
+          ['KPD 8150/02', '150', '35', '22', '5"'],
+          ['KPD 8150/04', '150', '70', '45', '5"']
+        ]
+      },
+      {
+        title: '10" KPD Serisi (150-300 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KPD 10200/02', '200', '45', '37', '6"'],
+          ['KPD 10200/04', '200', '90', '75', '6"'],
+          ['KPD 10300/02', '300', '38', '45', '6"'],
+          ['KPD 10300/03', '300', '57', '55', '6"']
+        ]
+      }
+    ],
     specs: {
       'Maksimum Kapasite': '290 m³/saat',
       'Maksimum Basma Yüksekliği': '700m',
@@ -1503,6 +1594,42 @@ export const products: Product[] = [
       maxFlow: 300,
       maxHead: 700
     },
+    subSpecs: [
+      {
+        title: '6" KSX Serisi (20-60 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KSX 620/05', '20', '65', '5.5', '3"'],
+          ['KSX 620/10', '20', '130', '11', '3"'],
+          ['KSX 640/04', '40', '55', '7.5', '3"'],
+          ['KSX 640/08', '40', '110', '15', '3"'],
+          ['KSX 660/03', '60', '45', '9.2', '4"'],
+          ['KSX 660/06', '60', '90', '18.5', '4"']
+        ]
+      },
+      {
+        title: '8" KSX Serisi (60-150 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KSX 8080/03', '80', '55', '18.5', '5"'],
+          ['KSX 8080/06', '80', '110', '37', '5"'],
+          ['KSX 8120/02', '120', '40', '18.5', '5"'],
+          ['KSX 8120/04', '120', '80', '37', '5"'],
+          ['KSX 8150/02', '150', '35', '22', '5"'],
+          ['KSX 8150/04', '150', '70', '45', '5"']
+        ]
+      },
+      {
+        title: '10" KSX Serisi (150-300 m³/h)',
+        columns: ['Model', 'Debi (m³/h)', 'Basma Yüksekliği (mSS)', 'Motor (kW)', 'Çıkış'],
+        data: [
+          ['KSX 10200/02', '200', '45', '37', '6"'],
+          ['KSX 10200/04', '200', '90', '75', '6"'],
+          ['KSX 10300/02', '300', '38', '45', '6"'],
+          ['KSX 10300/03', '300', '57', '55', '6"']
+        ]
+      }
+    ],
     specs: {
       'Maksimum Kapasite': '290 m³/saat',
       'Maksimum Basma Yüksekliği': '700m',
