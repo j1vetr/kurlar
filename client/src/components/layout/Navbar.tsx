@@ -76,16 +76,16 @@ export function Navbar() {
         {/* Logo Area */}
         <Link href="/">
           <a className="group relative z-50">
-            <div className="relative flex items-center justify-center px-4 py-1">
+            <div className="relative flex items-center justify-center px-6 py-4">
                <div className={cn(
-                 "absolute inset-0 rounded-full transition-all duration-500",
+                 "absolute inset-0 rounded-md transition-all duration-500",
                  isTransparent ? "bg-white shadow-lg opacity-90" : "bg-transparent"
                )} />
                <img 
                   src="/assets/logo.png" 
                   alt="Kurlar Logo" 
                   className={cn(
-                    "h-10 md:h-12 w-auto object-contain relative z-10 transition-all duration-300"
+                    "h-12 md:h-14 w-auto object-contain relative z-10 transition-all duration-300"
                   )} 
                 />
             </div>
