@@ -139,9 +139,9 @@ export default function About() {
         {/* History Timeline - Redesigned & Unique */}
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-heading font-bold text-slate-900 mb-3">Tarihçe</h2>
+            <h2 className="text-4xl font-heading font-bold text-slate-900 mb-3">{t('about.history.title')}</h2>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
-            <p className="text-slate-500 mt-4 text-lg">Başarılarla dolu yolculuğumuzun kilometre taşları.</p>
+            <p className="text-slate-500 mt-4 text-lg">{t('about.history.subtitle')}</p>
           </div>
           
           <div className="relative">

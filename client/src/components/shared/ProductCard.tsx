@@ -1,15 +1,19 @@
-import { Product } from "@/lib/data";
+import { Product, getProductWithLanguage } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Ruler } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/lib/i18n";
 
 interface ProductCardProps {
   product: Product;
   className?: string;
 }
 
-export function ProductCard({ product, className }: ProductCardProps) {
+export function ProductCard({ product: baseProduct, className }: ProductCardProps) {
+  const { t, language } = useLanguage();
+  const product = getProductWithLanguage(baseProduct, language);
+
   return (
     <Link href={`/urunler/${product.id}`}>
       <a className="block h-full">
@@ -60,7 +64,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
                   product.category === 'pump' ? "bg-primary" : "bg-orange-500"
                 )} />
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  {product.category === 'pump' ? 'Dalgıç Pompa' : 'Dalgıç Motor'}
+                  {product.category === 'pump' ? t('product.category.pump') : t('product.category.motor')}
                 </span>
               </div>
               
@@ -76,7 +80,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
             {/* Action Area */}
             <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between">
               <span className="text-sm font-medium text-primary group-hover:underline decoration-primary/30 underline-offset-4 transition-all">
-                İncele
+                {t('product.review')}
               </span>
               <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-[-45deg]">
                 <ArrowRight className="w-4 h-4" />

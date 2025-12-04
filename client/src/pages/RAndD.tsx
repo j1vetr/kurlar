@@ -72,18 +72,18 @@ export default function RAndD() {
           {[
             {
               icon: <PenTool className="w-8 h-8 text-primary" />,
-              title: "Ürün Tasarımı",
-              desc: "CAD/CAM yazılımları ile 3D modelleme ve hidrolik tasarım optimizasyonu."
+              title: t('rnd.features.design.title'),
+              desc: t('rnd.features.design.desc')
             },
             {
               icon: <Activity className="w-8 h-8 text-primary" />,
-              title: "Performans Testleri",
-              desc: "Bilgisayar kontrollü test istasyonlarında debi, basınç ve verimlilik ölçümleri."
+              title: t('rnd.features.performance.title'),
+              desc: t('rnd.features.performance.desc')
             },
             {
               icon: <ShieldCheck className="w-8 h-8 text-primary" />,
-              title: "Dayanıklılık Analizi",
-              desc: "Malzeme yorulma testleri ve korozyon direnci analizleri."
+              title: t('rnd.features.durability.title'),
+              desc: t('rnd.features.durability.desc')
             }
           ].map((item, i) => (
             <div key={i} className="bg-slate-50 p-8 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
@@ -105,25 +105,25 @@ export default function RAndD() {
               <ul className="space-y-4">
                 <li className="flex items-center gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">1</span>
-                  <span>İhtiyaç Analizi ve Pazar Araştırması</span>
+                  <span>{t('rnd.steps.1')}</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">2</span>
-                  <span>Teknik Tasarım ve Simülasyon</span>
+                  <span>{t('rnd.steps.2')}</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">3</span>
-                  <span>Prototip Üretimi ve Doğrulama</span>
+                  <span>{t('rnd.steps.3')}</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">4</span>
-                  <span>Seri Üretim ve Kalite Kontrol</span>
+                  <span>{t('rnd.steps.4')}</span>
                 </li>
               </ul>
             </div>
             <div className="relative h-96 md:h-auto">
                <img 
-                 src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 src="/assets/gallery/kurlarsld.png" 
                  alt="Engineering Process" 
                  className="absolute inset-0 w-full h-full object-cover"
                />
