@@ -235,12 +235,19 @@ export default function PumpSelector() {
                   exit={{ opacity: 0, x: -20 }}
                   className="flex-1 flex flex-col"
                 >
-                  <div className="text-center mb-8 md:mb-12">
-                    <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">{t('wizard.step1.title')}</h2>
-                    <p className="text-sm md:text-base text-slate-500">{t('wizard.step1.subtitle')}</p>
+                  <div className="text-center mb-12 md:mb-16">
+                    <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
+                      {t('wizard.step1.badge') || "ADIM 1 / 3"}
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                      {t('wizard.step1.title')}
+                    </h2>
+                    <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+                      {t('wizard.step1.subtitle')}
+                    </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
                     {applications.map((app) => {
                       const Icon = app.icon;
                       const isSelected = application === app.id;
@@ -249,22 +256,57 @@ export default function PumpSelector() {
                           key={app.id}
                           onClick={() => handleApplicationSelect(app.id as Application)}
                           className={`
-                            relative p-6 md:p-8 rounded-xl border-2 transition-all duration-300 flex flex-col items-center text-center group active:scale-95 touch-manipulation
-                            ${isSelected ? `border-primary ${app.bg}` : 'border-slate-100 hover:border-slate-300 bg-white hover:shadow-lg'}
+                            relative p-8 rounded-2xl border-2 transition-all duration-500 flex flex-col items-start text-left group overflow-hidden
+                            ${isSelected 
+                              ? `border-primary shadow-xl scale-[1.02] ${app.bg}` 
+                              : 'border-slate-100 hover:border-primary/30 bg-white hover:shadow-2xl hover:-translate-y-1'
+                            }
                           `}
                         >
+                          {/* Background Gradient Blob */}
+                          <div className={`absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${app.color.replace('text-', 'bg-')}`} />
+                          
                           {isSelected && (
-                            <div className="absolute top-3 right-3 md:top-4 md:right-4 text-primary">
-                              <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
-                            </div>
+                            <motion.div 
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="absolute top-4 right-4 text-primary bg-white rounded-full p-1 shadow-sm"
+                            >
+                              <CheckCircle2 className="w-6 h-6 fill-primary text-white" />
+                            </motion.div>
                           )}
-                          <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-4 md:mb-6 transition-colors ${isSelected ? 'bg-white shadow-sm' : 'bg-slate-50 group-hover:bg-slate-100'}`}>
-                            <Icon className={`w-6 h-6 md:w-8 md:h-8 ${isSelected ? app.color : 'text-slate-400'}`} />
+                          
+                          <div className={`
+                            w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm
+                            ${isSelected ? 'bg-white scale-110' : 'bg-slate-50 group-hover:scale-110 group-hover:bg-white'}
+                          `}>
+                            <Icon className={`w-8 h-8 transition-colors duration-300 ${isSelected ? app.color : 'text-slate-400 group-hover:text-primary'}`} />
                           </div>
-                          <h3 className={`font-bold text-base md:text-lg mb-1 md:mb-2 ${isSelected ? 'text-slate-900' : 'text-slate-600'}`}>{app.label}</h3>
+                          
+                          <h3 className={`font-bold text-xl mb-3 transition-colors duration-300 ${isSelected ? 'text-slate-900' : 'text-slate-700 group-hover:text-primary'}`}>
+                            {app.label}
+                          </h3>
+                          
+                          <p className="text-slate-500 text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                             {app.id === 'clean' && "İçme suyu, tarımsal sulama ve genel su temini için ideal çözümler."}
+                             {app.id === 'sandy' && "Kum içeren sular için özel olarak tasarlanmış, aşınmaya dayanıklı pompalar."}
+                             {app.id === 'industrial' && "Endüstriyel prosesler ve zorlu çalışma koşulları için yüksek performans."}
+                             {app.id === 'sewage' && "Atık sular ve foseptik tahliyesi için tıkanmaz yapılı pompalar."}
+                          </p>
+
+                          <div className={`mt-6 flex items-center text-sm font-bold transition-all duration-300 ${isSelected ? 'text-primary translate-x-2' : 'text-slate-300 group-hover:text-primary group-hover:translate-x-2'}`}>
+                            Seçim Yap <ChevronRight className="w-4 h-4 ml-1" />
+                          </div>
                         </button>
                       );
                     })}
+                  </div>
+                  
+                  <div className="mt-auto text-center">
+                    <p className="text-sm text-slate-400 flex items-center justify-center gap-2">
+                      <ShieldCheck className="w-4 h-4" /> 
+                      Kurlar Garantisi ile Doğru Seçim
+                    </p>
                   </div>
                 </motion.div>
               )}
@@ -418,7 +460,7 @@ export default function PumpSelector() {
                                 />
                               </div>
                               
-                              <Link href={`/products/${match.product.id}`}>
+                              <Link href={`/urunler/${match.product.id}`}>
                                 <Button className="w-full mt-auto gap-2 group-hover:bg-primary group-hover:text-white" variant="outline">
                                   {t('product.review')} <ArrowRight className="w-4 h-4" />
                                 </Button>
