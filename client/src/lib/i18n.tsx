@@ -84,6 +84,8 @@ const translations: Translations = {
   // Product Card UI
   'product.review': { TR: 'İncele', EN: 'Review', AR: 'مراجعة', ES: 'Revisar', PT: 'Revisão' },
   'product.general_specs': { TR: 'Genel Teknik Özellikler', EN: 'General Technical Specifications', AR: 'المواصفات الفنية العامة', ES: 'Especificaciones Técnicas Generales', PT: 'Especificações Técnicas Gerais' },
+  'product.monophase': { TR: 'Monofaze', EN: 'Monophase', AR: 'أحادي الطور', ES: 'Monofásico', PT: 'Monofásico' },
+  'product.triphase': { TR: 'Trifaze', EN: 'Triphase', AR: 'ثلاثي الطور', ES: 'Trifásico', PT: 'Trifásico' },
   'product.category.pump': { TR: 'Dalgıç Pompa', EN: 'Submersible Pump', AR: 'مضخة غاطسة', ES: 'Bomba Sumergible', PT: 'Bomba Submersível' },
   'product.category.motor': { TR: 'Dalgıç Motor', EN: 'Submersible Motor', AR: 'محرك غاطس', ES: 'Motor Sumergible', PT: 'Motor Submersível' },
   

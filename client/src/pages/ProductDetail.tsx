@@ -341,6 +341,25 @@ export default function ProductDetail() {
                         </div>
                       )}
 
+                      {product.id === 'km4' && (
+                        <div className="flex flex-wrap gap-3 mb-8">
+                          <Button 
+                            onClick={() => document.getElementById('spec-group-0')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                            className="bg-slate-800 hover:bg-slate-700 text-white font-bold shadow-sm"
+                          >
+                            <ArrowRight className="w-4 h-4 mr-2" />
+                            {t('product.monophase') || 'Monofaze'}
+                          </Button>
+                          <Button 
+                            onClick={() => document.getElementById('spec-group-1')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                            className="bg-slate-800 hover:bg-slate-700 text-white font-bold shadow-sm"
+                          >
+                            <ArrowRight className="w-4 h-4 mr-2" />
+                            {t('product.triphase') || 'Trifaze'}
+                          </Button>
+                        </div>
+                      )}
+
                       {product.subSpecs ? (
                         <div className="space-y-8">
                           {product.specs && (
@@ -366,7 +385,7 @@ export default function ProductDetail() {
                           
                           <div className="flex flex-col gap-8">
                             {product.subSpecs.map((group, idx) => (
-                              <div key={idx} className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+                              <div key={idx} id={`spec-group-${idx}`} className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm scroll-mt-24">
                                 <div className="bg-slate-100 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
                                   <div className="w-1.5 h-6 bg-primary rounded-full"></div>
                                   <h4 className="font-bold text-slate-900 text-lg uppercase tracking-wide">
