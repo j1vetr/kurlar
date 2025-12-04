@@ -24,7 +24,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-heading font-bold mb-6"
           >
-            {t('home.about.title').split(' ').slice(0, 3).join(' ')} <br/> <span className="text-primary">{t('home.about.title').split(' ').slice(3).join(' ')}</span>
+            {t('home.about.title_1')} <br/> <span className="text-primary">{t('home.about.title_2')}</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}

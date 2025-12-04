@@ -42,7 +42,7 @@ export default function Home() {
             </div>
             <div className="lg:w-1/2">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">
-                {t('home.about.title').split(' ')[0]} <br/> <span className="text-primary">{t('home.about.title').split(' ').slice(1).join(' ')}</span>
+                {t('home.about.title_1')} <br/> <span className="text-primary">{t('home.about.title_2')}</span>
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                 {t('home.about.desc')}
