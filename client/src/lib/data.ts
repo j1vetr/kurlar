@@ -16,6 +16,8 @@ export interface Product {
   applications?: string[];
   faq?: { question: string; answer: string }[];
   downloads?: { name: string; url: string }[];
+}
+
 // Helper to get product data with language
 export const getProductWithLanguage = (product: Product, lang: 'TR' | 'EN' | 'AR' | 'ES' | 'PT') => {
   const desc = descriptions[product.id as keyof typeof descriptions];
@@ -26,7 +28,8 @@ export const getProductWithLanguage = (product: Product, lang: 'TR' | 'EN' | 'AR
     description: desc[lang].description,
     longDescription: desc[lang].longDescription,
     features: desc[lang].features,
-    options: desc[lang].options || product.options
+    options: desc[lang].options || product.options,
+    faq: desc[lang].faq || product.faq
   };
 };
 
@@ -42,6 +45,10 @@ const descriptions = {
         'NEMA standartlarına uygun motor bağlantısı',
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Hem yatay hem de dikey çalışmaya uygun tasarım'
+      ],
+      faq: [
+        { question: "Paslanmaz çelik pompaların avantajı nedir?", answer: "AISI 304 paslanmaz çelik yapısı sayesinde korozyona karşı üstün dayanıklılık sağlar ve suyun hijyenik kalmasını korur." },
+        { question: "Hangi montaj pozisyonlarında çalışır?", answer: "Hem dikey hem de yatay montaj pozisyonlarında güvenle çalıştırılabilir." }
       ]
     },
     EN: {
@@ -54,6 +61,10 @@ const descriptions = {
         'Motor connection according to NEMA standards',
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for both horizontal and vertical operation'
+      ],
+      faq: [
+        { question: "What is the advantage of stainless steel pumps?", answer: "Thanks to its AISI 304 stainless steel structure, it provides superior resistance to corrosion and maintains the hygienic quality of the water." },
+        { question: "In which mounting positions does it work?", answer: "It can be operated safely in both vertical and horizontal mounting positions." }
       ]
     },
     AR: {
@@ -66,6 +77,10 @@ const descriptions = {
         'توصيل المحرك وفقًا لمعايير NEMA',
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
+      ],
+      faq: [
+        { question: "ما هي ميزة المضخات المصنوعة من الفولاذ المقاوم للصدأ؟", answer: "بفضل هيكلها المصنوع من الفولاذ المقاوم للصدأ AISI 304، فإنها توفر مقاومة فائقة للتآكل وتحافظ على الجودة الصحية للمياه." },
+        { question: "في أي مواضع تركيب تعمل؟", answer: "يمكن تشغيلها بأمان في كل من مواضع التركيب الرأسي والأفقي." }
       ]
     },
     ES: {
@@ -78,6 +93,10 @@ const descriptions = {
         'Conexión del motor según estándares NEMA',
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
+      ],
+      faq: [
+        { question: "¿Cuál es la ventaja de las bombas de acero inoxidable?", answer: "Gracias a su estructura de acero inoxidable AISI 304, proporciona una resistencia superior a la corrosión y mantiene la calidad higiénica del agua." },
+        { question: "¿En qué posiciones de montaje funciona?", answer: "Se puede operar de manera segura tanto en posiciones de montaje vertical como horizontal." }
       ]
     },
     PT: {
@@ -90,6 +109,10 @@ const descriptions = {
         'Conexão do motor de acordo com os padrões NEMA',
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
+      ],
+      faq: [
+        { question: "Qual a vantagem das bombas de aço inoxidável?", answer: "Graças à sua estrutura em aço inoxidável AISI 304, proporciona resistência superior à corrosão e mantém a qualidade higiênica da água." },
+        { question: "Em quais posições de montagem funciona?", answer: "Pode ser operado com segurança nas posições de montagem vertical e horizontal." }
       ]
     }
   },
@@ -104,6 +127,10 @@ const descriptions = {
         'NEMA standartlarına uygun motor bağlantısı',
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Hem yatay hem de dikey çalışmaya uygun tasarım'
+      ],
+      faq: [
+        { question: "Noryl malzemenin avantajı nedir?", answer: "Yüksek mukavemetli mühendislik plastiği olan Noryl, korozyona ve aşınmaya karşı yüksek direnç gösterir, hafiftir ve uzun ömürlüdür." },
+        { question: "Kumlu suda çalışır mı?", answer: "Evet, yüzer fan sistemi sayesinde kum ve aşındırıcı partiküllere karşı yüksek direnç gösterir." }
       ]
     },
     EN: {
@@ -116,6 +143,10 @@ const descriptions = {
         'Motor connection according to NEMA standards',
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for both horizontal and vertical operation'
+      ],
+      faq: [
+        { question: "What is the advantage of Noryl material?", answer: "Noryl, a high-strength engineering plastic, shows high resistance to corrosion and abrasion, is lightweight and long-lasting." },
+        { question: "Does it work in sandy water?", answer: "Yes, thanks to the floating impeller system, it shows high resistance to sand and abrasive particles." }
       ]
     },
     AR: {
@@ -128,6 +159,10 @@ const descriptions = {
         'توصيل المحرك وفقًا لمعايير NEMA',
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
+      ],
+      faq: [
+        { question: "ما هي ميزة مادة النوريل؟", answer: "النوريل، وهو بلاستيك هندسي عالي القوة، يظهر مقاومة عالية للتآكل والاحتكاك، وهو خفيف الوزن وطويل الأمد." },
+        { question: "هل يعمل في المياه الرملية؟", answer: "نعم، بفضل نظام المروحة العائمة، يظهر مقاومة عالية للرمل والجزيئات الكاشطة." }
       ]
     },
     ES: {
@@ -140,6 +175,10 @@ const descriptions = {
         'Conexión del motor según estándares NEMA',
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
+      ],
+      faq: [
+        { question: "¿Cuál es la ventaja del material Noryl?", answer: "Noryl, un plástico de ingeniería de alta resistencia, muestra una alta resistencia a la corrosión y la abrasión, es ligero y duradero." },
+        { question: "¿Funciona en agua arenosa?", answer: "Sí, gracias al sistema de impulsor flotante, muestra una alta resistencia a la arena y partículas abrasivas." }
       ]
     },
     PT: {
@@ -152,6 +191,10 @@ const descriptions = {
         'Conexão do motor de acordo com os padrões NEMA',
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
+      ],
+      faq: [
+        { question: "Qual a vantagem do material Noryl?", answer: "Noryl, um plástico de engenharia de alta resistência, mostra alta resistência à corrosão e abrasão, é leve e duradouro." },
+        { question: "Funciona em água arenosa?", answer: "Sim, graças ao sistema de impulsor flutuante, mostra alta resistência à areia e partículas abrasivas." }
       ]
     }
   },
@@ -165,6 +208,10 @@ const descriptions = {
         'NEMA standartlarına uygun motor bağlantısı',
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Yatay ve dikey çalışmaya uygun tasarım'
+      ],
+      faq: [
+        { question: "Pik döküm malzemenin avantajı nedir?", answer: "Pik döküm, yüksek mukavemeti ve darbelere karşı dayanıklılığı ile bilinir. Ağır hizmet koşulları için idealdir." },
+        { question: "Paslanma yapar mı?", answer: "Standart döküm malzemeler zamanla oksitlenebilir ancak özel boya ve kaplamalarla bu süre uzatılır. Korozyon riski yüksek sular için paslanmaz veya bronz opsiyonlarımızı değerlendirebilirsiniz." }
       ]
     },
     EN: {
@@ -176,6 +223,10 @@ const descriptions = {
         'Motor connection according to NEMA standards',
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for horizontal and vertical operation'
+      ],
+      faq: [
+        { question: "What is the advantage of cast iron material?", answer: "Cast iron is known for its high strength and impact resistance. Ideal for heavy duty conditions." },
+        { question: "Does it rust?", answer: "Standard casting materials may oxidize over time, but this period is extended with special paints and coatings. You can evaluate our stainless or bronze options for waters with high corrosion risk." }
       ]
     },
     AR: {
@@ -187,6 +238,10 @@ const descriptions = {
         'توصيل المحرك وفقًا لمعايير NEMA',
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
+      ],
+      faq: [
+        { question: "ما هي ميزة مادة الحديد الزهر؟", answer: "يُعرف الحديد الزهر بقوته العالية ومقاومته للصدمات. مثالي لظروف الخدمة الشاقة." },
+        { question: "هل يصدأ؟", answer: "قد تتأكسد مواد الصب القياسية بمرور الوقت، ولكن يتم تمديد هذه الفترة بطلاءات ودهانات خاصة. يمكنك تقييم خياراتنا المصنوعة من الفولاذ المقاوم للصدأ أو البرونز للمياه ذات مخاطر التآكل العالية." }
       ]
     },
     ES: {
@@ -198,6 +253,10 @@ const descriptions = {
         'Conexión del motor según estándares NEMA',
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
+      ],
+      faq: [
+        { question: "¿Cuál es la ventaja del material de hierro fundido?", answer: "El hierro fundido es conocido por su alta resistencia y resistencia al impacto. Ideal para condiciones de trabajo pesado." },
+        { question: "¿Se oxida?", answer: "Los materiales de fundición estándar pueden oxidarse con el tiempo, pero este período se extiende con pinturas y recubrimientos especiales. Puede evaluar nuestras opciones de acero inoxidable o bronce para aguas con alto riesgo de corrosión." }
       ]
     },
     PT: {
@@ -209,6 +268,10 @@ const descriptions = {
         'Conexão do motor de acordo com os padrões NEMA',
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
+      ],
+      faq: [
+        { question: "Qual a vantagem do material ferro fundido?", answer: "O ferro fundido é conhecido por sua alta resistência e resistência ao impacto. Ideal para condições de trabalho pesado." },
+        { question: "Enferruja?", answer: "Materiais de fundição padrão podem oxidar com o tempo, mas esse período é estendido com tintas e revestimentos especiais. Você pode avaliar nossas opções de aço inoxidável ou bronze para águas com alto risco de corrosão." }
       ]
     }
   },
@@ -222,6 +285,10 @@ const descriptions = {
         'NEMA standartlarına uygun motor bağlantısı',
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Yatay ve dikey çalışmaya uygun tasarım'
+      ],
+      faq: [
+        { question: "Döküm paslanmaz ile sac paslanmaz arasındaki fark nedir?", answer: "Döküm paslanmaz (AISI 304/316), sac paslanmazlara göre çok daha kalın et kalınlığına sahiptir, bu da daha yüksek basınç ve aşınma direnci sağlar." },
+        { question: "Deniz suyunda kullanılır mı?", answer: "Standart AISI 304 modeller tatlı su içindir. Deniz suyu uygulamaları için AISI 316L veya Dublex malzeme opsiyonlarımız mevcuttur." }
       ]
     },
     EN: {
@@ -233,6 +300,10 @@ const descriptions = {
         'Motor connection according to NEMA standards',
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for horizontal and vertical operation'
+      ],
+      faq: [
+        { question: "What is the difference between cast stainless and sheet stainless?", answer: "Cast stainless (AISI 304/316) has a much thicker wall thickness than sheet stainless, which provides higher pressure and wear resistance." },
+        { question: "Is it used in sea water?", answer: "Standard AISI 304 models are for fresh water. For sea water applications, we have AISI 316L or Duplex material options available." }
       ]
     },
     AR: {
@@ -244,6 +315,10 @@ const descriptions = {
         'توصيل المحرك وفقًا لمعايير NEMA',
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
+      ],
+      faq: [
+        { question: "ما الفرق بين الفولاذ المقاوم للصدأ المصبوب والفولاذ المقاوم للصدأ الصفيحي؟", answer: "يتميز الفولاذ المقاوم للصدأ المصبوب (AISI 304/316) بسماكة جدار أكبر بكثير من الفولاذ المقاوم للصدأ الصفيحي، مما يوفر مقاومة أعلى للضغط والتآكل." },
+        { question: "هل يستخدم في مياه البحر؟", answer: "نماذج AISI 304 القياسية مخصصة للمياه العذبة. لتطبيقات مياه البحر، تتوفر لدينا خيارات مواد AISI 316L أو Duplex." }
       ]
     },
     ES: {
@@ -255,6 +330,10 @@ const descriptions = {
         'Conexión del motor según estándares NEMA',
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
+      ],
+      faq: [
+        { question: "¿Cuál es la diferencia entre acero inoxidable fundido y acero inoxidable en lámina?", answer: "El acero inoxidable fundido (AISI 304/316) tiene un espesor de pared mucho mayor que el acero inoxidable en lámina, lo que proporciona mayor resistencia a la presión y al desgaste." },
+        { question: "¿Se usa en agua de mar?", answer: "Los modelos estándar AISI 304 son para agua dulce. Para aplicaciones de agua de mar, tenemos opciones de material AISI 316L o Duplex disponibles." }
       ]
     },
     PT: {
@@ -266,6 +345,10 @@ const descriptions = {
         'Conexão do motor de acordo com os padrões NEMA',
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
+      ],
+      faq: [
+        { question: "Qual a diferença entre aço inoxidável fundido e aço inoxidável em chapa?", answer: "O aço inoxidável fundido (AISI 304/316) tem uma espessura de parede muito maior que o aço inoxidável em chapa, o que proporciona maior resistência à pressão e ao desgaste." },
+        { question: "É usado em água do mar?", answer: "Os modelos padrão AISI 304 são para água doce. Para aplicações em água do mar, temos opções de material AISI 316L ou Duplex disponíveis." }
       ]
     }
   },
@@ -278,6 +361,10 @@ const descriptions = {
         'Yüksek Performans',
         'NEMA Standartlarına Uygun Pompa Bağlantısı',
         'IP 68 Koruma'
+      ],
+      faq: [
+        { question: "Motor yağı gıdaya uygun mu?", answer: "Evet, motorlarımızda kullanılan yağ toksik olmayan, gıdaya uygun ve çevre dostu bir yağdır." },
+        { question: "Sarma işlemi yapılabilir mi?", answer: "Evet, yağlı tip motorlarımız tekrar sarılabilir (rewindable) özelliktedir." }
       ]
     },
     EN: {
@@ -288,6 +375,10 @@ const descriptions = {
         'High Performance',
         'Pump Connection According to NEMA Standards',
         'IP 68 Protection'
+      ],
+      faq: [
+        { question: "Is the motor oil food grade?", answer: "Yes, the oil used in our motors is non-toxic, food grade and environmentally friendly." },
+        { question: "Can it be rewound?", answer: "Yes, our oil-filled motors are rewindable." }
       ]
     },
     AR: {
@@ -298,6 +389,10 @@ const descriptions = {
         'أداء عالي',
         'توصيل المضخة وفقًا لمعايير NEMA',
         'حماية IP 68'
+      ],
+      faq: [
+        { question: "هل زيت المحرك صالح للطعام؟", answer: "نعم، الزيت المستخدم في محركاتنا غير سام وصالح للطعام وصديق للبيئة." },
+        { question: "هل يمكن إعادة لفه؟", answer: "نعم، محركاتنا المملوءة بالزيت قابلة لإعادة اللف." }
       ]
     },
     ES: {
@@ -308,6 +403,10 @@ const descriptions = {
         'Alto Rendimiento',
         'Conexión de Bomba Según Estándares NEMA',
         'Protección IP 68'
+      ],
+      faq: [
+        { question: "¿El aceite del motor es apto para uso alimentario?", answer: "Sí, el aceite utilizado en nuestros motores no es tóxico, es apto para uso alimentario y respetuoso con el medio ambiente." },
+        { question: "¿Se puede rebobinar?", answer: "Sí, nuestros motores llenos de aceite son rebobinables." }
       ]
     },
     PT: {
@@ -318,6 +417,10 @@ const descriptions = {
         'Alto Desempenho',
         'Conexão da Bomba de Acordo com os Padrões NEMA',
         'Proteção IP 68'
+      ],
+      faq: [
+        { question: "O óleo do motor é de qualidade alimentar?", answer: "Sim, o óleo utilizado em nossos motores é atóxico, de qualidade alimentar e ecologicamente correto." },
+        { question: "Pode ser rebobinado?", answer: "Sim, nossos motores a óleo são rebobináveis." }
       ]
     }
   },
@@ -344,6 +447,10 @@ const descriptions = {
         '500V, 525V, 630V, 1000V uyumlu üretim',
         'SIC/SIC-NBR-304 mekanik keçe seçeneği',
         'Maksimum 75°C ve 90°C sıcaklık opsiyonu'
+      ],
+      faq: [
+        { question: "Maksimum çalışma sıcaklığı nedir?", answer: "Hi-Temp motorlarımız standart olarak 75°C, opsiyonel olarak 90°C su sıcaklığına kadar sorunsuz çalışır." },
+        { question: "Standart motordan farkı nedir?", answer: "Yüksek sıcaklığa dayanıklı özel bobin teli (XLPE) ve yalıtım malzemeleri kullanılarak üretilmiştir." }
       ]
     },
     EN: {
@@ -368,6 +475,10 @@ const descriptions = {
         'Production compatible with 500V, 525V, 630V, 1000V',
         'SIC/SIC-NBR-304 mechanical seal option',
         'Maximum 75°C and 90°C temperature option'
+      ],
+      faq: [
+        { question: "What is the maximum operating temperature?", answer: "Our Hi-Temp motors operate smoothly up to 75°C as standard and optionally up to 90°C water temperature." },
+        { question: "What is the difference from a standard motor?", answer: "It is produced using high temperature resistant special winding wire (XLPE) and insulation materials." }
       ]
     },
     AR: {
@@ -392,6 +503,10 @@ const descriptions = {
         'إنتاج متوافق مع 500 فولت، 525 فولت، 630 فولت، 1000 فولت',
         'خيار ختم ميكانيكي SIC/SIC-NBR-304',
         'خيار درجة حرارة قصوى 75 درجة مئوية و 90 درجة مئوية'
+      ],
+      faq: [
+        { question: "ما هي أقصى درجة حرارة للتشغيل؟", answer: "تعمل محركاتنا ذات درجة الحرارة العالية بسلاسة حتى 75 درجة مئوية كمعيار قياسي واختياريًا حتى 90 درجة مئوية لدرجة حرارة الماء." },
+        { question: "ما الفرق بينه وبين المحرك القياسي؟", answer: "يتم إنتاجه باستخدام سلك لف خاص مقاوم لدرجات الحرارة العالية (XLPE) ومواد عازلة." }
       ]
     },
     ES: {
@@ -416,6 +531,10 @@ const descriptions = {
         'Producción compatible con 500V, 525V, 630V, 1000V',
         'Opción de sello mecánico SIC/SIC-NBR-304',
         'Opción de temperatura máxima de 75°C y 90°C'
+      ],
+      faq: [
+        { question: "¿Cuál es la temperatura máxima de funcionamiento?", answer: "Nuestros motores de alta temperatura funcionan sin problemas hasta 75°C como estándar y opcionalmente hasta 90°C de temperatura del agua." },
+        { question: "¿Cuál es la diferencia con un motor estándar?", answer: "Se produce utilizando alambre de bobinado especial resistente a altas temperaturas (XLPE) y materiales de aislamiento." }
       ]
     },
     PT: {
@@ -440,128 +559,82 @@ const descriptions = {
         'Produção compatível com 500V, 525V, 630V, 1000V',
         'Opção de selo mecânico SIC/SIC-NBR-304',
         'Opção de temperatura máxima de 75°C e 90°C'
+      ],
+      faq: [
+        { question: "Qual a temperatura máxima de operação?", answer: "Nossos motores Hi-Temp operam suavemente até 75°C como padrão e opcionalmente até 90°C de temperatura da água." },
+        { question: "Qual a diferença de um motor padrão?", answer: "É produzido utilizando fio de enrolamento especial resistente a altas temperaturas (XLPE) e materiais de isolamento." }
       ]
     }
   },
   kms: {
     TR: {
-      description: '6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde üretilmiştir.',
-      longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde düşük işletme maliyeti için özel izolasyonulu Bobin Teli (PBN) ile yüksek sıcaklığa özel üretilmiştir.  Su soğutmalı 6″ HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar özel basınç dengeleyici çek-valf, diyafram, kum çanı, su ile yağlamalı yüksek dayanım gösteren eksenel ve radyal yataklar ile donatılmıştır. Motorlar, -15°C’ye kadar muhafaza edilmek için saf su ve gliserin karışımı ile doldurulmuştur.`,
+      description: 'S-Type Dalgıç Motorlar, enerji verimliliği ve dayanıklılık için optimize edilmiş, yeni nesil su soğutmalı motorlardır.',
+      longDescription: `S-Type Dalgıç Motorlar, enerji verimliliği ve dayanıklılık için optimize edilmiş, yeni nesil su soğutmalı motorlardır. Düşük enerji tüketimi ve yüksek performansı bir arada sunar. Paslanmaz çelik gövde ve korozyona dayanıklı bileşenler, uzun ömürlü kullanım sağlar. Voltaj dalgalanmalarına karşı toleransı yüksektir.`,
       features: [
-        'Düşük işletme maliyeti için yüksek verimli dizayn',
-        'Yüksek sıcaklık için özel izolasyonlu bobin teli (PBN)',
-        'Standart motorlara göre daha uzun ömürlü',
-        'Su soğutmalı dalgıç motor',
-        'Voltaj dalgalanmalarına karşı yüksek dayanım',
-        'Paslanmaz çelik motor mili'
-      ],
-      options: [
-        'Motorlar AISI 304, AISI 316 veya DUBLEX olarak üretilebilir',
-        '6” NEMA standardında çift flanş üretim seçeneği',
-        'PT100 sensör entegrasyonu',
-        'İçme suyu mevzuatına uygun kablo seçeneği (VDE, ACS, KTW onaylı)',
-        '100 metreye kadar özel kablo üretimi',
-        'Direkt veya yıldız/üçgen yol verme',
-        '4 damarlı kablo üretimi (3 faz + 1 topraklama)',
-        '500V, 525V, 630V ve 1000V’a uygun üretim',
-        'Mekanik keçe SIC/SIC-NBR-304 olarak üretilebilir',
+        'Yüksek enerji verimliliği ve düşük işletme maliyeti',
+        'Dayanıklı paslanmaz çelik gövde',
+        'Kolay bakım ve onarım imkanı',
         'Maksimum 75°C ve 90°C sıcaklık opsiyonları'
+      ],
+      faq: [
+        { question: "S-Type motorların farkı nedir?", answer: "S-Type motorlar, enerji verimliliği ve düşük işletme maliyeti odaklı tasarlanmıştır. Özel bobin yapısı ve hidrolik tasarımı ile standart motorlara göre daha az enerji tüketir." },
+        { question: "Hangi voltaj aralıklarında çalışır?", answer: "380-415V aralığında çalışır ve voltaj dalgalanmalarına karşı yüksek dayanım gösterir." }
       ]
     },
     EN: {
-      description: '6”-7”-8”-10” HI-TEMP (60°C) Rewindable Submersible Motors are produced in our ISO 9001 certified facilities.',
-      longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Rewindable Submersible Motors are specially produced for high temperatures with special insulated Coil Wire (PBN) for low operating costs in our ISO 9001 certified facilities. Water-cooled 6″ HI-TEMP (60°C) Rewindable Submersible Motors are equipped with special pressure compensating check valve, diaphragm, sand slinger, water-lubricated high-resistance axial and radial bearings. Motors are filled with a mixture of pure water and glycerin for storage down to -15°C.`,
+      description: 'S-Type Submersible Motors are new generation water-cooled motors optimized for energy efficiency and durability.',
+      longDescription: `S-Type Submersible Motors are new generation water-cooled motors optimized for energy efficiency and durability. It offers low energy consumption and high performance together. Stainless steel body and corrosion-resistant components ensure long-lasting use. High tolerance to voltage fluctuations.`,
       features: [
-        'High efficiency design for low operating cost',
-        'Special insulated coil wire (PBN) for high temperature',
-        'Longer life compared to standard motors',
-        'Water-cooled submersible motor',
-        'High resistance to voltage fluctuations',
-        'Stainless steel motor shaft'
-      ],
-      options: [
-        'Motors can be produced as AISI 304, AISI 316 or DUBLEX',
-        '6” NEMA standard double flange production option',
-        'PT100 sensor integration',
-        'Cable option suitable for drinking water legislation (VDE, ACS, KTW approved)',
-        'Special cable production up to 100 meters',
-        'Direct or star/delta starting',
-        '4-core cable production (3 phases + 1 ground)',
-        'Production suitable for 500V, 525V, 630V and 1000V',
-        'Mechanical seal can be produced as SIC/SIC-NBR-304',
+        'High energy efficiency and low operating cost',
+        'Durable stainless steel body',
+        'Easy maintenance and repair',
         'Maximum 75°C and 90°C temperature options'
+      ],
+      faq: [
+        { question: "What is the difference of S-Type motors?", answer: "S-Type motors are designed with a focus on energy efficiency and low operating costs. It consumes less energy than standard motors with its special coil structure and hydraulic design." },
+        { question: "In which voltage ranges does it operate?", answer: "It operates in the 380-415V range and shows high resistance to voltage fluctuations." }
       ]
     },
     AR: {
-      description: 'يتم إنتاج محركات غاطسة قابلة لإعادة اللف 6"-7"-8"-10" HI-TEMP (60 درجة مئوية) في مرافقنا الحاصلة على شهادة ISO 9001.',
-      longDescription: `يتم إنتاج محركات غاطسة قابلة لإعادة اللف 6"-7"-8"-10" HI-TEMP (60 درجة مئوية) خصيصًا لدرجات الحرارة المرتفعة باستخدام سلك ملف معزول خاص (PBN) لتكاليف تشغيل منخفضة في مرافقنا الحاصلة على شهادة ISO 9001. تم تجهيز محركات غاطسة قابلة لإعادة اللف مبردة بالماء مقاس 6 بوصات HI-TEMP (60 درجة مئوية) بصمام فحص خاص لتعويض الضغط، وحجاب حاجز، ومانع رمل، ومحامل محورية ونصف قطرية عالية المقاومة مشحمة بالماء. تمتلئ المحركات بخليط من الماء النقي والجلسرين للتخزين حتى -15 درجة مئوية.`,
+      description: 'محركات S-Type الغاطسة هي جيل جديد من المحركات المبردة بالماء والمحسنة لكفاءة الطاقة والمتانة.',
+      longDescription: `محركات S-Type الغاطسة هي جيل جديد من المحركات المبردة بالماء والمحسنة لكفاءة الطاقة والمتانة. يوفر استهلاكًا منخفضًا للطاقة وأداءً عاليًا معًا. يضمن الهيكل المصنوع من الفولاذ المقاوم للصدأ والمكونات المقاومة للتآكل استخدامًا طويل الأمد. تحمل عالي لتقلبات الجهد.`,
       features: [
-        'تصميم عالي الكفاءة لتكلفة تشغيل منخفضة',
-        'سلك ملف معزول خاص (PBN) لدرجة حرارة عالية',
-        'عمر أطول مقارنة بالمحركات القياسية',
-        'محرك غاطس مبرد بالماء',
-        'مقاومة عالية لتقلبات الجهد',
-        'عمود محرك من الفولاذ المقاوم للصدأ'
-      ],
-      options: [
-        'يمكن إنتاج المحركات كـ AISI 304 أو AISI 316 أو DUBLEX',
-        'خيار إنتاج شفة مزدوجة قياسية 6 بوصة NEMA',
-        'تكامل مستشعر PT100',
-        'خيار كابل مناسب لتشريعات مياه الشرب (معتمد من VDE، ACS، KTW)',
-        'إنتاج كابل خاص يصل إلى 100 متر',
-        'بدء تشغيل مباشر أو نجمة/دلتا',
-        'إنتاج كابل 4 نوى (3 مراحل + 1 أرضي)',
-        'إنتاج مناسب لـ 500 فولت، 525 فولت، 630 فولت و 1000 فولت',
-        'يمكن إنتاج الختم الميكانيكي كـ SIC/SIC-NBR-304',
+        'كفاءة عالية في استخدام الطاقة وتكلفة تشغيل منخفضة',
+        'هيكل متين من الفولاذ المقاوم للصدأ',
+        'سهولة الصيانة والإصلاح',
         'خيارات درجة حرارة قصوى 75 درجة مئوية و 90 درجة مئوية'
+      ],
+      faq: [
+        { question: "ما هو الفرق بين محركات S-Type؟", answer: "تم تصميم محركات S-Type مع التركيز على كفاءة الطاقة وتكاليف التشغيل المنخفضة. تستهلك طاقة أقل من المحركات القياسية بفضل هيكل الملف الخاص والتصميم الهيدروليكي." },
+        { question: "في أي نطاقات الجهد تعمل؟", answer: "تعمل في نطاق 380-415 فولت وتظهر مقاومة عالية لتقلبات الجهد." }
       ]
     },
     ES: {
-      description: 'Los motores sumergibles rebobinables HI-TEMP (60°C) de 6”-7”-8”-10” se producen en nuestras instalaciones certificadas ISO 9001.',
-      longDescription: `Los motores sumergibles rebobinables HI-TEMP (60°C) de 6”-7”-8”-10” se producen especialmente para altas temperaturas con alambre de bobina con aislamiento especial (PBN) para bajos costos operativos en nuestras instalaciones certificadas ISO 9001. Los motores sumergibles rebobinables HI-TEMP (60°C) de 6″ enfriados por agua están equipados con válvula de retención de compensación de presión especial, diafragma, deflector de arena, cojinetes axiales y radiales de alta resistencia lubricados por agua. Los motores están llenos de una mezcla de agua pura y glicerina para almacenamiento hasta -15°C.`,
+      description: 'Los motores sumergibles S-Type son motores de nueva generación enfriados por agua optimizados para la eficiencia energética y la durabilidad.',
+      longDescription: `Los motores sumergibles S-Type son motores de nueva generación enfriados por agua optimizados para la eficiencia energética y la durabilidad. Ofrece bajo consumo de energía y alto rendimiento juntos. El cuerpo de acero inoxidable y los componentes resistentes a la corrosión garantizan un uso duradero. Alta tolerancia a las fluctuaciones de voltaje.`,
       features: [
-        'Diseño de alta eficiencia para bajo costo operativo',
-        'Alambre de bobina con aislamiento especial (PBN) para alta temperatura',
-        'Vida útil más larga en comparación con los motores estándar',
-        'Motor sumergible enfriado por agua',
-        'Alta resistencia a las fluctuaciones de voltaje',
-        'Eje del motor de acero inoxidable'
-      ],
-      options: [
-        'Los motores se pueden producir como AISI 304, AISI 316 o DUBLEX',
-        'Opción de producción de doble brida estándar NEMA de 6”',
-        'Integración de sensor PT100',
-        'Opción de cable adecuada para la legislación de agua potable (aprobado por VDE, ACS, KTW)',
-        'Producción de cable especial hasta 100 metros',
-        'Arranque directo o estrella/triángulo',
-        'Producción de cable de 4 núcleos (3 fases + 1 tierra)',
-        'Producción adecuada para 500V, 525V, 630V y 1000V',
-        'El sello mecánico se puede producir como SIC/SIC-NBR-304',
+        'Alta eficiencia energética y bajo costo operativo',
+        'Cuerpo de acero inoxidable duradero',
+        'Fácil mantenimiento y reparación',
         'Opciones de temperatura máxima de 75°C y 90°C'
+      ],
+      faq: [
+        { question: "¿Cuál es la diferencia de los motores S-Type?", answer: "Los motores S-Type están diseñados con un enfoque en la eficiencia energética y los bajos costos operativos. Consume menos energía que los motores estándar con su estructura de bobina especial y diseño hidráulico." },
+        { question: "¿En qué rangos de voltaje funciona?", answer: "Funciona en el rango de 380-415V y muestra una alta resistencia a las fluctuaciones de voltaje." }
       ]
     },
     PT: {
-      description: 'Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6”-7”-8”-10” são produzidos em nossas instalações certificadas ISO 9001.',
-      longDescription: `Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6”-7”-8”-10” são produzidos especialmente para altas temperaturas com fio de bobina isolado especial (PBN) para baixos custos operacionais em nossas instalações certificadas ISO 9001. Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6″ resfriados a água são equipados com válvula de retenção de compensação de pressão especial, diafragma, defletor de areia, rolamentos axiais e radiais de alta resistência lubrificados a água. Os motores são preenchidos com uma mistura de água pura e glicerina para armazenamento até -15°C.`,
+      description: 'Os Motores Submersíveis S-Type são motores de nova geração resfriados a água otimizados para eficiência energética e durabilidade.',
+      longDescription: `Os Motores Submersíveis S-Type são motores de nova geração resfriados a água otimizados para eficiência energética e durabilidade. Oferece baixo consumo de energia e alto desempenho juntos. Corpo em aço inoxidável e componentes resistentes à corrosão garantem uso duradouro. Alta tolerância a flutuações de tensão.`,
       features: [
-        'Design de alta eficiência para baixo custo operacional',
-        'Fio de bobina isolado especial (PBN) para alta temperatura',
-        'Vida útil mais longa em comparação com motores padrão',
-        'Motor submersível resfriado a água',
-        'Alta resistência a flutuações de tensão',
-        'Eixo do motor de aço inoxidável'
-      ],
-      options: [
-        'Motores podem ser produzidos como AISI 304, AISI 316 ou DUBLEX',
-        'Opção de produção de flange dupla padrão NEMA de 6”',
-        'Integração do sensor PT100',
-        'Opção de cabo adequada para legislação de água potável (aprovado por VDE, ACS, KTW)',
-        'Produção de cabo especial até 100 metros',
-        'Partida direta ou estrela/triângulo',
-        'Produção de cabo de 4 núcleos (3 fases + 1 terra)',
-        'Produção adequada para 500V, 525V, 630V e 1000V',
-        'Selo mecânico pode ser produzido como SIC/SIC-NBR-304',
+        'Alta eficiência energética e baixo custo operacional',
+        'Corpo em aço inoxidável durável',
+        'Fácil manutenção e reparo',
         'Opções de temperatura máxima de 75°C e 90°C'
+      ],
+      faq: [
+        { question: "Qual a diferença dos motores S-Type?", answer: "Os motores S-Type são projetados com foco na eficiência energética e baixos custos operacionais. Consome menos energia que os motores padrão com sua estrutura de bobina especial e design hidráulico." },
+        { question: "Em quais faixas de tensão opera?", answer: "Opera na faixa de 380-415V e apresenta alta resistência a flutuações de tensão." }
       ]
     }
   }
