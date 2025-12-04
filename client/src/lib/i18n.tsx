@@ -378,6 +378,10 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('TR');
 
+  useEffect(() => {
+    document.documentElement.lang = language.toLowerCase();
+  }, [language]);
+
   const t = (key: string): string => {
     const entry = translations[key];
     if (!entry) return key;
