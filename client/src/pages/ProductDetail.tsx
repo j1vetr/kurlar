@@ -81,7 +81,7 @@ export default function ProductDetail() {
             <div className="lg:w-1/2 bg-white p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col">
                <div className="flex-grow flex items-center justify-center bg-slate-50/50 border border-slate-100 mb-4 p-8 h-[350px] md:h-[450px] overflow-hidden relative group cursor-zoom-in">
                  {/* Quality Badges */}
-                 <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
+                 <div className="absolute top-2 left-2 md:top-4 md:left-4 z-10 flex flex-col gap-2">
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-1.5 rounded shadow-sm" title="Türk Standartları Enstitüsü">
                      <div className="w-8 h-8 flex items-center justify-center">
                        <img src="/assets/quality/tse.png" alt="TSE" className="w-full h-full object-contain" />
@@ -95,6 +95,20 @@ export default function ProductDetail() {
                  </div>
                  
                  <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
+
+                 {/* Zoom Hint Badge */}
+                 <div className="absolute bottom-4 right-4 z-10 bg-white/80 backdrop-blur text-slate-500 text-[10px] md:text-xs px-2 py-1 rounded-full shadow-sm border border-slate-200 flex items-center gap-1 pointer-events-none">
+                    <span className="md:hidden">Büyütmek için dokunun</span>
+                    <span className="hidden md:inline">Büyütmek için üzerine gelin</span>
+                    <div className="w-3 h-3 md:w-4 md:h-4">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="M21 21L16.65 16.65" />
+                        <path d="M11 8V14" />
+                        <path d="M8 11H14" />
+                      </svg>
+                    </div>
+                 </div>
                </div>
                
                {galleryImages.length > 1 && (
@@ -148,7 +162,10 @@ export default function ProductDetail() {
               </div>
 
               {/* Tabs / Sections */}
-              <div className="flex border-b border-slate-200 bg-slate-50 overflow-x-auto">
+              <div className="flex border-b border-slate-200 bg-slate-50 overflow-x-auto relative scrollbar-hide">
+                {/* Scroll Hint Gradient */}
+                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-50 to-transparent pointer-events-none md:hidden" />
+                
                 <button 
                   onClick={() => setActiveTab('overview')}
                   className={cn(
@@ -250,12 +267,12 @@ export default function ProductDetail() {
                 )}
               </div>
 
-              {/* Footer Actions */}
-              <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row gap-4">
-                <Button className="flex-1 bg-primary hover:bg-primary/90 text-white h-12 rounded-sm font-bold uppercase tracking-wide">
+              {/* Footer Actions - Sticky on Mobile */}
+              <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row gap-4 sticky bottom-0 lg:relative z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] lg:shadow-none">
+                <Button className="flex-1 bg-primary hover:bg-primary/90 text-white h-12 rounded-sm font-bold uppercase tracking-wide shadow-lg lg:shadow-none">
                   Teklif İste
                 </Button>
-                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-1">
+                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-1 hidden sm:block">
                   <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-white h-12 rounded-sm font-bold uppercase tracking-wide">
                     <Download className="mr-2 w-4 h-4" /> 2025 Kataloğu İndir
                   </Button>
