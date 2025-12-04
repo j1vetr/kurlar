@@ -738,13 +738,17 @@ const descriptions = {
         'IP 68 Koruma'
       ],
       specs: {
-        'Maksimum Eksenel Yük': '45.000 N',
-        'Maksimum Ortam Sıcaklığı': '35°C',
-        'İzolasyon Sınıfı': 'F Sınıfı',
+        'Güç Aralığı': '0.37 – 7.5 kW',
+        'Maksimum Sıvı Sıcaklığı': '+35 °C',
+        'Maksimum Daldırma': '200 metre',
+        'Yol Verme Kapasitesi': '24 kez/saat',
+        'Asgari Soğutma Akış Hızı': '8 cm/s',
+        'Sürekli Servis Sınıfı': 'S1',
         'Koruma Sınıfı': 'IP68',
-        'Bağlantı': 'NEMA Standart',
-        'Yol Verme': 'Direkt / Yıldız-Üçgen',
-        'Verimlilik': '%82 - %85'
+        'İzolasyon Sınıfı': 'F',
+        'Motor Tipi': '2 kutuplu, 50 Hz (n ≈ 2900 rpm)',
+        'Voltaj (Monofaz)': '210 – 220 – 230 V',
+        'Voltaj (Trifaz)': '380 – 400 – 415 V'
       },
       faq: [
         { question: "Motor yağı gıdaya uygun mu?", answer: "Evet, motorlarımızda kullanılan yağ toksik olmayan, gıdaya uygun ve çevre dostu bir yağdır." },
@@ -764,13 +768,17 @@ const descriptions = {
         'IP 68 Protection'
       ],
       specs: {
-        'Maximum Axial Load': '45.000 N',
-        'Max Ambient Temp': '35°C',
-        'Insulation Class': 'Class F',
+        'Power Range': '0.37 – 7.5 kW',
+        'Max Liquid Temp': '+35 °C',
+        'Max Immersion': '200 meters',
+        'Start Capacity': '24 times/hour',
+        'Min Cooling Flow': '8 cm/s',
+        'Service Class': 'S1',
         'Protection Class': 'IP68',
-        'Connection': 'NEMA Standard',
-        'Starting': 'Direct / Star-Delta',
-        'Efficiency': '82% - 85%'
+        'Insulation Class': 'F',
+        'Motor Type': '2-pole, 50 Hz (n ≈ 2900 rpm)',
+        'Voltage (Monophase)': '210 – 220 – 230 V',
+        'Voltage (Triphase)': '380 – 400 – 415 V'
       },
       faq: [
         { question: "Is the motor oil food grade?", answer: "Yes, the oil used in our motors is non-toxic, food grade and environmentally friendly." },
@@ -790,13 +798,17 @@ const descriptions = {
         'حماية IP 68'
       ],
       specs: {
-        'أقصى حمل محوري': '45.000 نيوتن',
-        'أقصى درجة حرارة محيطة': '35 درجة مئوية',
-        'فئة العزل': 'الفئة F',
+        'نطاق الطاقة': '0.37 – 7.5 كيلوواط',
+        'أقصى درجة حرارة للسائل': '+35 درجة مئوية',
+        'أقصى غمر': '200 متر',
+        'سعة البدء': '24 مرة/ساعة',
+        'الحد الأدنى لتدفق التبريد': '8 سم/ثانية',
+        'فئة الخدمة': 'S1',
         'فئة الحماية': 'IP68',
-        'الاتصال': 'معيار NEMA',
-        'بدء التشغيل': 'مباشر / نجمة-دلتا',
-        'الكفاءة': '82٪ - 85٪'
+        'فئة العزل': 'F',
+        'نوع المحرك': '2 قطب، 50 هرتز (n ≈ 2900 دورة في الدقيقة)',
+        'الجهد (أحادي الطور)': '210 – 220 – 230 فولت',
+        'الجهد (ثلاثي الطور)': '380 – 400 – 415 فولت'
       },
       faq: [
         { question: "هل زيت المحرك صالح للطعام؟", answer: "نعم، الزيت المستخدم في محركاتنا غير سام وصالح للطعام وصديق للبيئة." },
@@ -816,13 +828,17 @@ const descriptions = {
         'Protección IP 68'
       ],
       specs: {
-        'Carga Axial Máxima': '45.000 N',
-        'Temp. Amb. Máx.': '35°C',
-        'Clase de Aislamiento': 'Clase F',
+        'Rango de Potencia': '0.37 – 7.5 kW',
+        'Temp. Máx. del Líquido': '+35 °C',
+        'Inmersión Máxima': '200 metros',
+        'Capacidad de Arranque': '24 veces/hora',
+        'Flujo Mín. de Refrigeración': '8 cm/s',
+        'Clase de Servicio': 'S1',
         'Clase de Protección': 'IP68',
-        'Conexión': 'Estándar NEMA',
-        'Arranque': 'Directo / Estrella-Triángulo',
-        'Eficiencia': '82% - 85%'
+        'Clase de Aislamiento': 'F',
+        'Tipo de Motor': '2 polos, 50 Hz (n ≈ 2900 rpm)',
+        'Voltaje (Monofásico)': '210 – 220 – 230 V',
+        'Voltaje (Trifásico)': '380 – 400 – 415 V'
       },
       faq: [
         { question: "¿El aceite del motor es apto para uso alimentario?", answer: "Sí, el aceite utilizado en nuestros motores no es tóxico, es apto para uso alimentario y respetuoso con el medio ambiente." },
@@ -842,13 +858,17 @@ const descriptions = {
         'Proteção IP 68'
       ],
       specs: {
-        'Carga Axial Máxima': '45.000 N',
-        'Temp. Amb. Máx.': '35°C',
-        'Classe de Isolamento': 'Classe F',
+        'Faixa de Potência': '0.37 – 7.5 kW',
+        'Temp. Máx. do Líquido': '+35 °C',
+        'Imersão Máxima': '200 metros',
+        'Capacidade de Partida': '24 vezes/hora',
+        'Fluxo Mín. de Resfriamento': '8 cm/s',
+        'Classe de Serviço': 'S1',
         'Classe de Proteção': 'IP68',
-        'Conexão': 'Padrão NEMA',
-        'Partida': 'Direta / Estrela-Triângulo',
-        'Eficiência': '82% - 85%'
+        'Classe de Isolamento': 'F',
+        'Tipo de Motor': '2 polos, 50 Hz (n ≈ 2900 rpm)',
+        'Tensão (Monofásica)': '210 – 220 – 230 V',
+        'Tensão (Trifásica)': '380 – 400 – 415 V'
       },
       faq: [
         { question: "O óleo do motor é de qualidade alimentar?", answer: "Sim, o óleo utilizado em nossos motores é atóxico, de qualidade alimentar e ecologicamente correto." },
