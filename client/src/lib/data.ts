@@ -12,6 +12,10 @@ export interface Product {
   longDescription?: string;
   features?: string[];
   specs?: Record<string, string>;
+  technicalData?: {
+    maxFlow: number; // m³/h
+    maxHead: number; // m
+  };
   subSpecs?: { title: string; columns: string[]; data: string[][] }[];
   specsImage?: string;
   mechanicalPartsImages?: { title: string; image: string }[];
@@ -287,7 +291,7 @@ const descriptions = {
       ],
       specs: {
         'Maximum Capacity': '24 m³/h',
-        'Maximum Head': '600m',
+        'Maximum Head': '200m',
         'Max Sand Amount': '50g/m³',
         'Max Water Temp': '35°C',
         'Max Immersion': '150m',
@@ -319,7 +323,7 @@ const descriptions = {
       ],
       specs: {
         'السعة القصوى': '24 متر مكعب/ساعة',
-        'أقصى ارتفاع للضخ': '600 متر',
+        'أقصى ارتفاع للضخ': '200 متر',
         'أقصى كمية رمل': '50 جم/متر مكعب',
         'أقصى درجة حرارة للماء': '35 درجة مئوية',
         'أقصى غمر': '150 متر',
@@ -351,7 +355,7 @@ const descriptions = {
       ],
       specs: {
         'Capacidad Máxima': '24 m³/h',
-        'Altura Máxima': '600m',
+        'Altura Máxima': '200m',
         'Cantidad Máx. de Arena': '50g/m³',
         'Temp. Máx. del Agua': '35°C',
         'Inmersión Máxima': '150m',
@@ -383,7 +387,7 @@ const descriptions = {
       ],
       specs: {
         'Capacidade Máxima': '24 m³/h',
-        'Altura Máxima': '600m',
+        'Altura Máxima': '200m',
         'Quantidade Máx. de Areia': '50g/m³',
         'Temp. Máx. da Água': '35°C',
         'Imersão Máxima': '150m',
@@ -1288,6 +1292,10 @@ export const products: Product[] = [
       'Aşınmaya dirençli, su ile yağlanan yataklar',
       'Hem yatay hem de dikey çalışmaya uygun tasarım'
     ],
+    technicalData: {
+      maxFlow: 290,
+      maxHead: 700
+    },
     specs: {
       'Maksimum Kapasite': '290 m³/saat',
       'Maksimum Basma Yüksekliği': '700m',
@@ -1367,6 +1375,10 @@ export const products: Product[] = [
       'Aşınmaya dirençli, su ile yağlanan yataklar',
       'Hem yatay hem de dikey çalışmaya uygun tasarım'
     ],
+    technicalData: {
+      maxFlow: 24,
+      maxHead: 200
+    },
     specs: {
       'Maksimum Kapasite': '24 m³/saat',
       'Maksimum Basma Yüksekliği': '200 m',
@@ -1427,6 +1439,10 @@ export const products: Product[] = [
       'Aşınmaya dirençli, su ile yağlanan yataklar',
       'Yatay ve dikey çalışmaya uygun tasarım'
     ],
+    technicalData: {
+      maxFlow: 350,
+      maxHead: 650
+    },
     specs: {
       'Maksimum Kapasite': '290 m³/saat',
       'Maksimum Basma Yüksekliği': '700m',
@@ -1483,6 +1499,10 @@ export const products: Product[] = [
       'Aşınmaya dirençli, su ile yağlanan yataklar',
       'Yatay ve dikey çalışmaya uygun tasarım'
     ],
+    technicalData: {
+      maxFlow: 300,
+      maxHead: 700
+    },
     specs: {
       'Maksimum Kapasite': '290 m³/saat',
       'Maksimum Basma Yüksekliği': '700m',

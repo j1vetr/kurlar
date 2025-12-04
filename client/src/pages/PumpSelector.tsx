@@ -42,50 +42,28 @@ export default function PumpSelector() {
         // Only look at pumps, not motors
         if (p.category !== 'pump') return false;
 
-        const localizedProduct = getProductWithLanguage(p, language);
-        
-        // Get max capacity and head from specs
-        // Note: In a real app, we would have min/max ranges or performance curves.
-        // Here we check if the requested value is within the product's maximum capabilities.
-        // We assume if a pump has Max Q=290, it can cover Q=10. 
-        // Ideally we'd check if it's not *too* powerful (e.g. > 10x required), but for now simple max check.
-        
-        // Different keys for languages? No, data.ts structure uses localized keys in `specs` object.
-        // We need to handle the keys dynamically based on language or normalize data.
-        // Actually `getProductWithLanguage` returns localized specs.
-        // Let's try to find the keys by keyword or just index if consistent.
-        // The keys are localized in data.ts: 'Maksimum Kapasite' vs 'Maximum Capacity'
-        
-        const specs = localizedProduct.specs || {};
-        let maxFlow = 0;
-        let maxHead = 0;
-
-        // Find Flow Rate Key (contains m³/h or m³/saat)
-        Object.entries(specs).forEach(([key, val]) => {
-          if (val.includes('m³/')) {
-             maxFlow = parseValue(val);
-          }
-          if (val.includes('m') && !val.includes('m³') && !val.includes('mm') && (key.includes('Head') || key.includes('Basma') || key.includes('ارتفاع') || key.includes('Altura'))) {
-             maxHead = parseValue(val);
-          }
-        });
-
-        // Fallback logic if parsing failed (hardcoded for demo based on known products)
-        if (maxFlow === 0) maxFlow = 100; 
-        if (maxHead === 0) maxHead = 100;
+        // Use standardized technical data if available
+        const maxFlow = p.technicalData?.maxFlow || 0;
+        const maxHead = p.technicalData?.maxHead || 0;
 
         // Filter logic: Product must be able to handle the requested flow and head
-        // i.e., Product Max > Requested
         const capable = maxFlow >= userFlow && maxHead >= userHead;
 
         // Application logic
         let appMatch = true;
         if (application === 'sandy') {
-           // Noryl and some stainless are good for sand. Cast iron maybe less so?
-           // Just a simple heuristic for the demo
-           if (p.id === 'kpn') appMatch = true; // Noryl is great for sand
-           else if (p.id === 'kp') appMatch = true; // Stainless also good
-           else appMatch = false; // Cast iron maybe not preferred for high sand? (Just assumption for demo)
+           // Noryl (kpn) and Stainless (kp) are good for sand
+           if (p.id === 'kpn' || p.id === 'kp') appMatch = true;
+           else appMatch = false; 
+        } else if (application === 'industrial') {
+           // Cast iron (kpd) and Cast Stainless (ksx) are best for heavy industrial
+           if (p.id === 'kpd' || p.id === 'ksx') appMatch = true;
+           else if (p.id === 'kp') appMatch = true; // Stainless is also good
+           else appMatch = false; // Noryl not for heavy industrial
+        } else if (application === 'sewage') {
+           // Assuming Cast Iron is best for dirty water/sewage if available, but for now generic
+           if (p.id === 'kpd') appMatch = true;
+           else appMatch = false;
         }
 
         return capable && appMatch;
