@@ -81,6 +81,12 @@ export default function PumpSelector() {
     setTimeout(() => setStep(2), 300);
   };
 
+  const applications = [
+    { id: 'clean', label: t('wizard.app.clean'), icon: Droplets, color: "text-blue-500", bg: "bg-blue-50 border-blue-200" },
+    { id: 'sandy', label: t('wizard.app.sandy'), icon: Waves, color: "text-amber-600", bg: "bg-amber-50 border-amber-200" },
+    { id: 'industrial', label: t('wizard.app.industrial'), icon: Factory, color: "text-slate-600", bg: "bg-slate-50 border-slate-200" },
+  ];
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
       <Navbar />
