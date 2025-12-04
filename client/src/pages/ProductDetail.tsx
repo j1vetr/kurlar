@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -79,13 +79,24 @@ export default function ProductDetail() {
         description={product.description} 
         canonical={`https://kurlar.com.tr/urunler/${product.id}`}
       />
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-slate-200 py-4">
+      {/* Breadcrumb - Redesigned */}
+      <div className="bg-slate-50 border-b border-slate-200 py-8">
         <div className="container mx-auto px-6">
-          <div className="flex items-center text-xs font-medium text-slate-500 uppercase tracking-wide gap-2">
-            <Link href="/" className="hover:text-slate-900">{t('nav.home')}</Link> / 
-            <Link href="/urunler" className="hover:text-slate-900">{t('nav.products')}</Link> / 
-            <span className="text-slate-900">{product.name}</span>
+          <div className="flex flex-col items-center justify-center text-center">
+            <div className="flex items-center gap-2 text-sm font-medium text-slate-500 mb-1">
+              <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
+                <Home className="w-3.5 h-3.5" />
+                {t('nav.home')}
+              </Link>
+              <ChevronRight className="w-4 h-4 text-slate-300" />
+              <Link href="/urunler" className="hover:text-primary transition-colors">
+                {t('nav.products')}
+              </Link>
+              <ChevronRight className="w-4 h-4 text-slate-300" />
+              <span className="text-primary font-bold bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm text-xs uppercase tracking-wide">
+                {product.name}
+              </span>
+            </div>
           </div>
         </div>
       </div>
