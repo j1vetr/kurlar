@@ -38,28 +38,55 @@ export const blogPosts: BlogPost[] = [
     translations: {
       tr: {
         title: 'Doğru Dalgıç Pompa Seçimi Nasıl Yapılır?',
-        excerpt: 'İhtiyaçlarınıza en uygun dalgıç pompayı seçerken dikkat etmeniz gereken debi, basma yüksekliği ve kuyu çapı gibi kritik faktörler.',
+        excerpt: 'İhtiyaçlarınıza en uygun dalgıç pompayı seçerken dikkat etmeniz gereken debi, basma yüksekliği ve kuyu çapı gibi kritik faktörler hakkında kapsamlı bir rehber.',
         content: `
-          <p>Dalgıç pompa seçimi, verimli bir su temini sistemi kurmanın en kritik adımıdır. Yanlış pompa seçimi, hem enerji israfına hem de sistemin sık sık arızalanmasına neden olabilir. İşte doğru seçimi yapmanız için temel kriterler:</p>
+          <p class="lead">Dalgıç pompa seçimi, verimli bir su temini sistemi kurmanın en kritik adımıdır. Yanlış pompa seçimi, hem enerji israfına hem de sistemin sık sık arızalanmasına neden olabilir. Bu rehberde, doğru seçimi yapmanız için gereken tüm teknik detayları ele alıyoruz.</p>
           
-          <h3>1. Debi (Q) İhtiyacının Belirlenmesi</h3>
-          <p>İlk adım, saatte ne kadar suya ihtiyacınız olduğunu belirlemektir. Tarımsal sulama için bitki türü ve arazi büyüklüğü, endüstriyel kullanım için ise proses gereksinimleri dikkate alınmalıdır.</p>
-          
-          <h3>2. Basma Yüksekliği (H) Hesabı</h3>
-          <p>Suyun ne kadar yükseğe taşınacağı, pompanın gücünü belirler. Bu hesaplamada:</p>
-          <ul>
-            <li>Kuyunun derinliği</li>
-            <li>Suyun iletileceği noktanın yüksekliği</li>
-            <li>Boru hattındaki sürtünme kayıpları</li>
-          </ul>
-          <p>mutlaka göz önünde bulundurulmalıdır.</p>
+          <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500 my-8">
+            <h4 class="text-blue-900 font-bold mb-2">Neden Doğru Seçim Önemli?</h4>
+            <p class="text-blue-800 text-sm m-0">İstatistiklere göre, pompa arızalarının %60'ı yanlış seçimden kaynaklanmaktadır. Doğru seçilmiş bir pompa, %30'a varan enerji tasarrufu sağlar.</p>
+          </div>
 
-          <h3>3. Kuyu Çapı ve Özellikleri</h3>
-          <p>Pompanızın kuyuya fiziksel olarak sığması gerekir. 4", 6", 8" gibi standart kuyu çaplarına uygun serilerimizden seçim yapabilirsiniz. Ayrıca suyun temiz, kumlu veya kireçli olması da fan malzemesi seçimini (Noryl vs Paslanmaz) etkiler.</p>
+          <h2>1. Debi (Q) İhtiyacının Belirlenmesi</h2>
+          <p>İlk adım, saatte ne kadar suya ihtiyacınız olduğunu net bir şekilde belirlemektir. Bu değer, kullanım alanına göre değişiklik gösterir:</p>
+          <ul>
+            <li><strong>Tarımsal Sulama:</strong> Bitki türü, ekilen alanın büyüklüğü ve sulama yöntemi (damlama/yağmurlama) belirleyicidir. Örneğin, mısır sulaması ile buğday sulaması farklı debi ihtiyaçları doğurur.</li>
+            <li><strong>Konut ve Bina:</strong> Daire sayısı, kat sayısı ve yaşayan kişi sayısı dikkate alınır.</li>
+            <li><strong>Endüstriyel Kullanım:</strong> Üretim prosesinin gerektirdiği anlık su miktarı hesaplanmalıdır.</li>
+          </ul>
           
-          <p>Kurlar Pompa olarak, uzman mühendis kadromuzla size en uygun seçimi yapmanızda yardımcı oluyoruz. Gelişmiş pompa seçim sihirbazımızı kullanarak saniyeler içinde öneri alabilirsiniz.</p>
+          <h2>2. Basma Yüksekliği (H) Hesabı</h2>
+          <p>Suyun ne kadar yükseğe taşınacağı, pompanın gücünü (HP/kW) ve kademe sayısını belirler. Bu hesaplama sadece kuyunun derinliği ile sınırlı değildir. Aşağıdaki faktörlerin toplamı "Manometrik Yükseklik" (Hm) değerini verir:</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <div class="bg-slate-50 p-4 rounded-lg">
+              <strong class="block text-slate-900 mb-1">Statik Yükseklik</strong>
+              <span class="text-sm text-slate-600">Kuyudaki su seviyesi ile suyun boşaltılacağı en yüksek nokta arasındaki dikey mesafe.</span>
+            </div>
+            <div class="bg-slate-50 p-4 rounded-lg">
+              <strong class="block text-slate-900 mb-1">Sürtünme Kayıpları</strong>
+              <span class="text-sm text-slate-600">Boruların çapı, uzunluğu, dirsekler ve vanaların oluşturduğu direnç.</span>
+            </div>
+          </div>
+
+          <h2>3. Kuyu Çapı ve Özellikleri</h2>
+          <p>Pompanızın kuyuya fiziksel olarak sığması gerekir. Piyasada en yaygın olarak 4", 6", 8" ve 10" kuyu çaplarına uygun pompalar bulunur. Ancak dikkat edilmesi gereken bir diğer husus da suyun kalitesidir:</p>
+          
+          <ul>
+            <li><strong>Temiz Su:</strong> Standart pompalar kullanılabilir.</li>
+            <li><strong>Kumlu Su:</strong> Noryl fanlı (KPN serisi) veya özel tasarımlı paslanmaz pompalar tercih edilmelidir. Kum, standart fanları zımpara gibi aşındırabilir.</li>
+            <li><strong>Kireçli/Agresif Su:</strong> AISI 304 veya 316 paslanmaz çelik pompalar korozyona karşı en iyi çözümdür.</li>
+          </ul>
+          
+          <h2>4. Elektrik Bağlantısı ve Pano</h2>
+          <p>Pompanızın voltajı (220V Monofaze veya 380V Trifaze) şebekenize uygun olmalıdır. Ayrıca motor koruma panosu kullanımı, voltaj dalgalanmalarına ve susuz çalışmaya karşı pompanızı koruyan en önemli sigortadır.</p>
+
+          <hr class="my-8 border-slate-200" />
+
+          <h3>Uzman Tavsiyesi</h3>
+          <p>Kurlar Pompa olarak, sadece ürün satmıyor, mühendislik çözümleri sunuyoruz. İhtiyacınızı tam olarak belirlemek için uzman kadromuzla iletişime geçebilir veya web sitemizdeki <strong>Pompa Seçim Sihirbazı</strong>'nı kullanarak saniyeler içinde size en uygun modeli bulabilirsiniz.</p>
         `,
-        tags: ['Pompa Seçimi', 'Rehber', 'Verimlilik']
+        tags: ['Pompa Seçimi', 'Rehber', 'Verimlilik', 'Mühendislik']
       },
       en: {
         title: 'How to Choose the Right Submersible Pump?',
@@ -98,27 +125,48 @@ export const blogPosts: BlogPost[] = [
     translations: {
       tr: {
         title: 'Noryl vs Paslanmaz Çelik: Hangi Malzeme Daha İyi?',
-        excerpt: 'Dalgıç pompalarda kullanılan Noryl plastik ve paslanmaz çelik malzemelerin avantajları, dezavantajları ve kullanım alanları.',
+        excerpt: 'Dalgıç pompalarda kullanılan Noryl plastik ve paslanmaz çelik malzemelerin avantajları, dezavantajları ve kullanım alanları hakkında detaylı karşılaştırma.',
         content: `
-          <p>Dalgıç pompalarda malzeme seçimi, pompanın ömrünü ve performansını doğrudan etkiler. En yaygın iki seçenek olan Noryl (mühendislik plastiği) ve Paslanmaz Çelik arasındaki farkları inceliyoruz.</p>
+          <p class="lead">Dalgıç pompalarda malzeme seçimi, pompanın ömrünü ve performansını doğrudan etkiler. "Plastik mi yoksa metal mi?" sorusu müşterilerimizden en sık duyduğumuz sorulardan biridir. Bu yazıda, en yaygın iki seçenek olan Noryl (mühendislik plastiği) ve Paslanmaz Çelik arasındaki farkları teknik detaylarıyla inceliyoruz.</p>
 
-          <h3>Noryl Pompalar (KPN Serisi)</h3>
-          <p>Noryl, yüksek dayanıklılığa sahip özel bir termoplastiktir.</p>
-          <ul>
-            <li><strong>Avantajları:</strong> Kuma karşı yüksek direnç, hafiflik, pürüzsüz yüzey sayesinde düşük sürtünme kaybı.</li>
-            <li><strong>Kullanım Alanı:</strong> Özellikle kumlu sularda ve 4"-6" kuyularda tercih edilir.</li>
-          </ul>
+          <div class="my-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+             <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Noryl (PPO) Nedir?</h3>
+                <p class="text-sm text-slate-600 mb-4">Polifenilen Oksit (PPO) bazlı, yüksek performanslı bir mühendislik plastiğidir. Sıradan plastiklerden çok daha dayanıklı, sert ve ısıya dirençlidir.</p>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full"></span>Kuma karşı mükemmel direnç</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full"></span>Hafiflik (Montaj kolaylığı)</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full"></span>Düşük maliyet</li>
+                </ul>
+             </div>
+             <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Paslanmaz Çelik (AISI 304)</h3>
+                <p class="text-sm text-slate-600 mb-4">Krom-nikel alaşımlı çelik. Korozyona karşı üstün direnç sağlar ve endüstriyel standarttır.</p>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span>Yüksek basınç dayanımı</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span>Sıcak su dayanımı</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span>Uzun mekanik ömür</li>
+                </ul>
+             </div>
+          </div>
 
-          <h3>Paslanmaz Çelik Pompalar (KP/KSX Serisi)</h3>
-          <p>AISI 304 veya 316 kalite paslanmaz çelikten üretilirler.</p>
-          <ul>
-            <li><strong>Avantajları:</strong> Yüksek korozyon direnci, endüstriyel dayanıklılık, sıcak suya dayanım.</li>
-            <li><strong>Kullanım Alanı:</strong> Endüstriyel tesisler, içme suyu şebekeleri ve agresif sular.</li>
-          </ul>
+          <h2>Hangi Durumda Hangisi Seçilmeli?</h2>
+          
+          <h3>1. Kumlu Sular için: KPN Serisi (Noryl)</h3>
+          <p>Eğer kuyunuzda kum oranı yüksekse (50g/m³ üzeri), Noryl fanlar daha iyi bir seçenektir. Paslanmaz çelik fanlar kumla temas ettiğinde zamanla aşınabilir, ancak Noryl malzemenin esnek yapısı ve pürüzsüz yüzeyi kumun fan üzerinden kayıp gitmesini sağlar. Bu nedenle tarımsal sulamada 4" ve 6" kuyularda sıklıkla tercih edilir.</p>
 
-          <p>Hangi malzemenin sizin için daha iyi olduğu, suyunuzun kimyasal ve fiziksel özelliklerine bağlıdır. Kumlu bir kuyunuz varsa Noryl, endüstriyel bir uygulamanız varsa Paslanmaz Çelik daha doğru bir tercih olabilir.</p>
+          <h3>2. Endüstriyel ve Hijyenik Kullanım: KP/KSX Serisi (Paslanmaz)</h3>
+          <p>İçme suyu basılacaksa, gıda tesislerinde kullanılacaksa veya suyun basıncı çok yüksek olacaksa Paslanmaz Çelik vazgeçilmezdir. Bakteri barındırmaz, paslanma yapmaz ve çok yüksek basınca dayanabilir.</p>
+
+          <h3>3. Verimlilik Karşılaştırması</h3>
+          <p>Noryl fanlar, kalıplama teknolojisi sayesinde çok pürüzsüz bir yüzeye sahiptir. Bu, suyun fan içindeki sürtünmesini azaltarak hidrolik verimliliği artırır. Ancak paslanmaz çelik fanlar da modern lazer kaynak teknolojileri ile çok hassas üretilmektedir. Günümüzde her iki malzeme de A sınıfı enerji verimliliği sunabilmektedir.</p>
+
+          <div class="bg-amber-50 p-6 rounded-xl border border-amber-200 my-8">
+            <h4 class="text-amber-900 font-bold mb-2 flex items-center gap-2">⚠️ Önemli Uyarı</h4>
+            <p class="text-amber-800 text-sm m-0">Hangi malzemeyi seçerseniz seçin, pompanın "susuz çalıştırılmaması" en önemli kuraldır. Susuz çalışma durumunda Noryl fanlar ısıdan dolayı deforme olabilir, paslanmaz fanlar ise yatakları sarabilir. Mutlaka seviye elektrodu veya koruma rölesi kullanın.</p>
+          </div>
         `,
-        tags: ['Malzeme Bilgisi', 'Teknoloji', 'Karşılaştırma']
+        tags: ['Malzeme Bilgisi', 'Teknoloji', 'Karşılaştırma', 'Mühendislik']
       },
       en: {
         title: 'Noryl vs Stainless Steel: Which Material is Best?',
@@ -159,20 +207,60 @@ export const blogPosts: BlogPost[] = [
         title: 'Uzun Ömürlü Pompalar İçin Temel Bakım İpuçları',
         excerpt: 'Dalgıç pompa ve motorlarınızın ömrünü uzatacak, arızaları önleyecek periyodik bakım ve kontrol önerileri.',
         content: `
-          <p>Dalgıç pompalar zorlu koşullar altında çalışırlar. Düzenli bakım, plansız duruşların önüne geçer ve ekipman ömrünü uzatır.</p>
+          <p class="lead">Dalgıç pompalar, suyun metrelerce altında, gözden uzak ve zorlu koşullar altında çalışırlar. Genellikle arıza yapana kadar unutulurlar, ancak düzenli bakım, plansız duruşların önüne geçer ve ekipman ömrünü yıllarca uzatır.</p>
 
-          <h3>1. Elektrik Değerlerinin Kontrolü</h3>
-          <p>Voltaj ve amper değerleri düzenli olarak ölçülmelidir. Aşırı akım çekimi, mekanik bir zorlanmanın veya motor sargı problemlerinin habercisi olabilir.</p>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 my-8">
+            <h3 class="text-lg font-bold text-slate-900 mb-4">Periyodik Bakım Takvimi</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-left">
+                <thead class="bg-slate-50 text-slate-700 font-bold uppercase">
+                  <tr>
+                    <th class="px-4 py-3 rounded-tl-lg">Kontrol Noktası</th>
+                    <th class="px-4 py-3">Sıklık</th>
+                    <th class="px-4 py-3 rounded-tr-lg">İşlem</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr>
+                    <td class="px-4 py-3 font-medium">Elektrik Değerleri</td>
+                    <td class="px-4 py-3 text-slate-500">Aylık</td>
+                    <td class="px-4 py-3 text-slate-600">Voltaj ve Amper ölçümü</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 font-medium">Pano Temizliği</td>
+                    <td class="px-4 py-3 text-slate-500">3 Ayda Bir</td>
+                    <td class="px-4 py-3 text-slate-600">Toz temizliği ve fan kontrolü</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 font-medium">İzolasyon Testi</td>
+                    <td class="px-4 py-3 text-slate-500">Yıllık</td>
+                    <td class="px-4 py-3 text-slate-600">Megger testi ile kaçak kontrolü</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-          <h3>2. Pano Kontrolleri</h3>
-          <p>Kontrol panosundaki kontaktörler, termikler ve faz koruma röleleri test edilmelidir. Gevşek bağlantılar ark yapabilir ve motorun yanmasına neden olabilir.</p>
+          <h2>1. Elektrik Değerlerinin Kontrolü</h2>
+          <p>Voltaj ve amper değerleri pompanızın sağlık karnesidir. Etiket değerinin üzerindeki akım çekimi, mekanik bir zorlanmanın (sıkışma, sürtme) veya motor sargı problemlerinin habercisi olabilir. Ayrıca voltaj dengesizliği (%5'ten fazla) motorun aşırı ısınmasına neden olur.</p>
 
-          <h3>3. İzolasyon Testi (Megger)</h3>
-          <p>Yılda en az bir kez motorun izolasyon direnci ölçülmelidir. Düşük değerler, su sızdırmazlığının bozulduğunu gösterebilir.</p>
+          <h2>2. Pano ve Kontaktör Kontrolleri</h2>
+          <p>Kontrol panosundaki kontaktörler, termikler ve faz koruma röleleri zamanla oksitlenebilir veya gevşeyebilir. Gevşek bağlantılar "ark" yapabilir ve bu durum ani voltaj düşümlerine, dolayısıyla motorun yanmasına neden olabilir. Panonuzun temiz, kuru ve havadar olduğundan emin olun.</p>
 
-          <p>Kurlar Pompa yetkili servisleri, profesyonel bakım hizmetleri ile ekipmanlarınızın her zaman en yüksek performansta çalışmasını sağlar.</p>
+          <h2>3. Hidrolik Performans Takibi</h2>
+          <p>Pompanızın debisinde veya basıncında zamanla bir düşüş fark ederseniz, bu durumu görmezden gelmeyin. Bu şunların işareti olabilir:</p>
+          <ul>
+            <li>Fanlarda aşınma</li>
+            <li>Emiş ızgarasında tıkanıklık</li>
+            <li>Boru hattında kaçak</li>
+          </ul>
+
+          <h2>4. İzolasyon (Megger) Testi</h2>
+          <p>Bu işlem profesyonel bir cihaz gerektirir ancak motorun ömrü için kritiktir. Motor sargılarının ve kablonun suya karşı izolasyonu ölçülür. Düşük değerler, su sızdırmazlığının bozulduğunu ve motorun kısa devre yapma riskinin olduğunu gösterir.</p>
+
+          <p><strong>Unutmayın:</strong> Kurlar Pompa yetkili servisleri, profesyonel bakım hizmetleri ile ekipmanlarınızın her zaman en yüksek performansta çalışmasını sağlar. Bakım maliyeti, yeni bir pompa maliyetinin yanında önemsiz kalır.</p>
         `,
-        tags: ['Bakım', 'Servis', 'İpuçları']
+        tags: ['Bakım', 'Servis', 'İpuçları', 'Güvenlik']
       },
       en: {
         title: 'Essential Maintenance Tips for Long-Lasting Pumps',
