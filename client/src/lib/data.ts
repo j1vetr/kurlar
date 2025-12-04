@@ -16,7 +16,6 @@ export interface Product {
     maxFlow: number; // m³/h
     maxHead: number; // m
   };
-  availableSizes?: string;
   subSpecs?: { title: string; columns: string[]; data: string[][] }[];
   specsImage?: string;
   mechanicalPartsImages?: { title: string; image: string }[];

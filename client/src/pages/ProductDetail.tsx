@@ -185,14 +185,7 @@ export default function ProductDetail() {
                   </div>
                 )}
                 
-                {product.availableSizes && (
-                  <div className="mb-6 inline-flex flex-col gap-1">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('product.available_sizes')}</span>
-                    <span className="bg-primary text-white text-sm font-bold px-4 py-2 rounded-sm shadow-sm flex items-center gap-2 self-start">
-                      <Ruler className="w-4 h-4" /> {product.availableSizes}
-                    </span>
-                  </div>
-                )}
+                {/* product.availableSizes removed as per request */}
 
                 <p className="text-slate-600 leading-relaxed">
                   {product.description}
@@ -360,74 +353,12 @@ export default function ProductDetail() {
                         </div>
                       )}
 
-                      {product.subSpecs ? (
-                        <div className="space-y-8">
-                          {product.specs && (
-                            <div>
-                              <h4 className="font-bold text-slate-800 mb-3 text-base flex items-center gap-2 uppercase tracking-wider">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                                {t('product.general_specs')}
-                              </h4>
-                              <div className="border border-slate-200 rounded-sm overflow-hidden mb-6">
-                                <table className="w-full text-sm text-left">
-                                  <tbody className="divide-y divide-slate-200">
-                                    {Object.entries(product.specs).map(([key, value], i) => (
-                                      <tr key={i} className={i % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
-                                        <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-200 w-1/2">{key}</td>
-                                        <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
-                                      </tr>
-                                    ))}
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          )}
-                          
-                          <div className="flex flex-col gap-8">
-                            {product.subSpecs.map((group, idx) => (
-                              <div key={idx} id={`spec-group-${idx}`} className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm scroll-mt-24">
-                                <div className="bg-slate-100 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
-                                  <div className="w-1.5 h-6 bg-primary rounded-full"></div>
-                                  <h4 className="font-bold text-slate-900 text-lg uppercase tracking-wide">
-                                    {group.title}
-                                  </h4>
-                                </div>
-                                <div className="overflow-x-auto">
-                                  <table className="w-full text-sm text-left border-collapse min-w-[800px]">
-                                    <thead>
-                                      <tr className="bg-slate-50 border-b border-slate-200">
-                                        {group.columns.map((col, cIdx) => (
-                                          <th key={cIdx} className="px-4 py-3 font-bold text-slate-700 border-r border-slate-200 last:border-r-0 whitespace-nowrap">
-                                            {col}
-                                          </th>
-                                        ))}
-                                      </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-slate-200">
-                                      {group.data.map((row, rIdx) => (
-                                        <tr key={rIdx} className="hover:bg-slate-50 transition-colors">
-                                          {row.map((cell, cIdx) => (
-                                            <td key={cIdx} className={cn(
-                                              "px-4 py-3 border-r border-slate-100 last:border-r-0",
-                                              cIdx === 0 ? "font-bold text-primary" : "text-slate-600 font-medium"
-                                            )}>
-                                              {cell}
-                                            </td>
-                                          ))}
-                                        </tr>
-                                      ))}
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ) : (
+                      {/* product.subSpecs logic removed as per request to only show generic specs */}
+                      {product.specs && (
                         <div className="border border-slate-200 rounded-sm overflow-hidden">
                           <table className="w-full text-sm text-left">
                             <tbody className="divide-y divide-slate-200">
-                              {product.specs && Object.entries(product.specs).map(([key, value], i) => (
+                              {Object.entries(product.specs).map(([key, value], i) => (
                                 <tr key={i} className={i % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
                                   <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-200 w-1/2">{key}</td>
                                   <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
