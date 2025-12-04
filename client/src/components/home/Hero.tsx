@@ -3,8 +3,10 @@ import { Link } from "wouter";
 import { ArrowRight, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 export function Hero() {
+  const { t } = useLanguage();
   const [showSecondText, setShowSecondText] = useState(false);
   
   // Text animation sequence
@@ -16,7 +18,7 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  const firstText = "TARİHİMİZDEN İLHAM ALINDI,";
+  const firstText = t('hero.inspired_by_history');
 
   return (
     <div className="relative w-full h-screen min-h-[700px] overflow-hidden flex items-center justify-center bg-black">
@@ -79,7 +81,7 @@ export function Hero() {
               >
                 <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold leading-none tracking-tight drop-shadow-2xl text-center uppercase text-white/90">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white animate-pulse">
-                    GELECEK İÇİN TASARLANDI
+                    {t('hero.designed_for_future')}
                   </span>
                 </h1>
                 
@@ -91,7 +93,7 @@ export function Hero() {
                 >
                   <Link href="/bayi-servis">
                     <Button size="lg" variant="outline" className="bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 font-semibold px-10 h-14 text-lg rounded-full backdrop-blur-sm transition-all duration-300">
-                      <MapPin className="mr-3 w-6 h-6" /> Bayi Ağı
+                      <MapPin className="mr-3 w-6 h-6" /> {t('hero.dealer_network_btn')}
                     </Button>
                   </Link>
                 </motion.div>
@@ -109,7 +111,7 @@ export function Hero() {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/70 cursor-pointer hover:text-white transition-colors"
         onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
       >
-        <span className="text-xs uppercase tracking-[0.2em] mb-2 font-bold animate-pulse">Aşağı Kaydır</span>
+        <span className="text-xs uppercase tracking-[0.2em] mb-2 font-bold animate-pulse">{t('hero.scroll_down')}</span>
         <div className="w-[1px] h-16 bg-gradient-to-b from-white to-transparent relative overflow-hidden">
            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-white to-transparent animate-water-flow opacity-50" style={{ animationDuration: '1.5s' }}></div>
         </div>

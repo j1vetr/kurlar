@@ -34,6 +34,10 @@ const translations: Translations = {
   'nav.open_positions': { TR: 'Açık Pozisyonlar', EN: 'Open Positions', AR: 'الوظائف المتاحة', ES: 'Posiciones Abiertas', PT: 'Vagas Abertas' },
 
   // Hero
+  'hero.inspired_by_history': { TR: 'TARİHİMİZDEN İLHAM ALINDI,', EN: 'INSPIRED BY OUR HISTORY,', AR: 'مستوحى من تاريخنا،', ES: 'INSPIRADO EN NUESTRA HISTORIA,', PT: 'INSPIRADO EM NOSSA HISTÓRIA,' },
+  'hero.designed_for_future': { TR: 'GELECEK İÇİN TASARLANDI', EN: 'DESIGNED FOR THE FUTURE', AR: 'صممت للمستقبل', ES: 'DISEÑADO PARA EL FUTURO', PT: 'PROJETADO PARA O FUTURO' },
+  'hero.dealer_network_btn': { TR: 'Bayi Ağı', EN: 'Dealer Network', AR: 'شبكة الوكلاء', ES: 'Red de Distribuidores', PT: 'Rede de Revendedores' },
+  'hero.scroll_down': { TR: 'Aşağı Kaydır', EN: 'Scroll Down', AR: 'للمزيد', ES: 'Desplazarse', PT: 'Rolar para Baixo' },
   'hero.title': { TR: 'Suyun Gücünü Yöneten Teknoloji', EN: 'Technology Managing the Power of Water', AR: 'التكنولوجيا التي تدير قوة المياه', ES: 'Tecnología que Gestiona el Poder del Agua', PT: 'Tecnologia Gerenciando o Poder da Água' },
   'hero.subtitle': { TR: 'Yüksek verimli dalgıç pompa ve motor çözümleri ile geleceği tasarlıyoruz.', EN: 'We design the future with high-efficiency submersible pump and motor solutions.', AR: 'نصمم المستقبل بحلول مضخات ومحركات غاطسة عالية الكفاءة.', ES: 'Diseñamos el futuro con soluciones de bombas y motores sumergibles de alta eficiencia.', PT: 'Projetamos o futuro com soluções de bombas e motores submersíveis de alta eficiência.' },
   'hero.discover': { TR: 'Ürünleri Keşfet', EN: 'Discover Products', AR: 'اكتشف المنتجات', ES: 'Descubrir Productos', PT: 'Descobrir Produtos' },
