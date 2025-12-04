@@ -10,6 +10,7 @@ import Products from "@/pages/Products";
 import ProductDetail from "@/pages/ProductDetail";
 import Dealers from "@/pages/Dealers";
 import Contact from "@/pages/Contact";
+import PumpSelector from "@/pages/PumpSelector";
 import About from "@/pages/About";
 import RAndD from "@/pages/RAndD";
 import Certificates from "@/pages/Certificates";
@@ -43,6 +44,7 @@ function Router() {
         <Route path="/urunler/:id" component={ProductDetail} />
         <Route path="/bayi-servis" component={Dealers} />
         <Route path="/iletisim" component={Contact} />
+        <Route path="/pompa-secim-sihirbazi" component={PumpSelector} />
         <Route path="/gizlilik-politikasi" component={PrivacyPolicy} />
         <Route path="/cerez-politikasi" component={CookiePolicy} />
         <Route component={NotFound} />

@@ -9,6 +9,29 @@ interface Translations {
 }
 
 const translations: Translations = {
+  // Pump Selector Wizard
+  'wizard.title': { TR: 'Pompa Seçim Sihirbazı', EN: 'Pump Selection Wizard', AR: 'معالج اختيار المضخة', ES: 'Asistente de Selección de Bombas', PT: 'Assistente de Seleção de Bombas' },
+  'wizard.subtitle': { TR: 'İhtiyacınıza en uygun pompayı saniyeler içinde bulun.', EN: 'Find the most suitable pump for your needs in seconds.', AR: 'اعثر على المضخة الأنسب لاحتياجاتك في ثوانٍ.', ES: 'Encuentre la bomba más adecuada para sus necesidades en segundos.', PT: 'Encontre a bomba mais adequada às suas necessidades em segundos.' },
+  'wizard.start_btn': { TR: 'Sihirbazı Başlat', EN: 'Start Wizard', AR: 'بدء المعالج', ES: 'Iniciar Asistente', PT: 'Iniciar Assistente' },
+  'wizard.step1.title': { TR: 'Uygulama Alanı', EN: 'Application Area', AR: 'منطقة التطبيق', ES: 'Área de Aplicación', PT: 'Área de Aplicação' },
+  'wizard.step1.subtitle': { TR: 'Pompayı nerede kullanacaksınız?', EN: 'Where will you use the pump?', AR: 'أين ستستخدم المضخة؟', ES: '¿Dónde utilizará la bomba?', PT: 'Onde você usará a bomba?' },
+  'wizard.step2.title': { TR: 'Teknik Gereksinimler', EN: 'Technical Requirements', AR: 'المتطلبات الفنية', ES: 'Requisitos Técnicos', PT: 'Requisitos Técnicos' },
+  'wizard.step2.subtitle': { TR: 'İstenen debi ve basma yüksekliği değerleri', EN: 'Desired flow rate and head values', AR: 'قيم معدل التدفق والرأس المطلوبة', ES: 'Valores deseados de caudal y altura', PT: 'Valores desejados de vazão e altura manométrica' },
+  'wizard.step3.title': { TR: 'Sonuçlar', EN: 'Results', AR: 'النتائج', ES: 'Resultados', PT: 'Resultados' },
+  'wizard.step3.subtitle': { TR: 'Sizin için seçtiğimiz pompalar', EN: 'Pumps we selected for you', AR: 'المضخات التي اخترناها لك', ES: 'Bombas que seleccionamos para usted', PT: 'Bombas que selecionamos para você' },
+  'wizard.flow_rate': { TR: 'Debi (m³/saat)', EN: 'Flow Rate (m³/h)', AR: 'معدل التدفق (متر مكعب/ساعة)', ES: 'Caudal (m³/h)', PT: 'Vazão (m³/h)' },
+  'wizard.head': { TR: 'Basma Yüksekliği (mSS)', EN: 'Head (m)', AR: 'الرأس (متر)', ES: 'Altura (m)', PT: 'Altura Manométrica (m)' },
+  'wizard.calculate': { TR: 'POMPALARI BUL', EN: 'FIND PUMPS', AR: 'ابحث عن المضخات', ES: 'ENCONTRAR BOMBAS', PT: 'ENCONTRAR BOMBAS' },
+  'wizard.back': { TR: 'Geri', EN: 'Back', AR: 'خلف', ES: 'Atrás', PT: 'Voltar' },
+  'wizard.next': { TR: 'İleri', EN: 'Next', AR: 'التالي', ES: 'Siguiente', PT: 'Próximo' },
+  'wizard.reset': { TR: 'Baştan Başla', EN: 'Start Over', AR: 'ابدأ من جديد', ES: 'Empezar de Nuevo', PT: 'Começar de Novo' },
+  'wizard.no_results': { TR: 'Kriterlerinize uygun pompa bulunamadı.', EN: 'No pumps found matching your criteria.', AR: 'لم يتم العثور على مضخات تطابق معاييرك.', ES: 'No se encontraron bombas que coincidan con sus criterios.', PT: 'Nenhuma bomba encontrada correspondente aos seus critérios.' },
+  'wizard.app.clean': { TR: 'Temiz Su', EN: 'Clean Water', AR: 'مياه نظيفة', ES: 'Agua Limpia', PT: 'Água Limpa' },
+  'wizard.app.sandy': { TR: 'Kumlu Su', EN: 'Sandy Water', AR: 'مياه رملية', ES: 'Agua Arenosa', PT: 'Água Arenosa' },
+  'wizard.app.sewage': { TR: 'Atık Su / Foseptik', EN: 'Sewage / Wastewater', AR: 'مياه الصرف الصحي', ES: 'Aguas Residuales', PT: 'Esgoto / Águas Residuais' },
+  'wizard.app.industrial': { TR: 'Endüstriyel', EN: 'Industrial', AR: 'صناعي', ES: 'Industrial', PT: 'Industrial' },
+  'wizard.match_score': { TR: 'Eşleşme Skoru', EN: 'Match Score', AR: 'درجة التطابق', ES: 'Puntuación de Coincidencia', PT: 'Pontuação de Correspondência' },
+
   // Navbar
   'nav.home': { TR: 'Ana Sayfa', EN: 'Home', AR: 'الرئيسية', ES: 'Inicio', PT: 'Início' },
   'nav.corporate': { TR: 'Kurumsal', EN: 'Corporate', AR: 'الشركة', ES: 'Corporativo', PT: 'Corporativo' },
