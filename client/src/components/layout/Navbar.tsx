@@ -262,7 +262,7 @@ export function Navbar() {
               "flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-colors",
               isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary"
             )}>
-              <img src={currentLang.flag} alt={currentLang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
+              <img src={currentLang.flag} alt={currentLang.code} className="w-8 h-5 object-cover shadow-sm rounded-[2px]" />
               <span className="hidden xl:inline">{currentLang.code}</span>
               <ChevronDown className="w-3 h-3" />
             </button>
@@ -275,7 +275,7 @@ export function Navbar() {
                       onClick={() => setLanguage(lang.code as any)}
                       className="w-full px-4 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left"
                     >
-                      <img src={lang.flag} alt={lang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
+                      <img src={lang.flag} alt={lang.code} className="w-8 h-5 object-cover shadow-sm rounded-[2px]" />
                       <span className="font-medium">{lang.name}</span>
                     </button>
                   </li>
@@ -296,7 +296,7 @@ export function Navbar() {
                  isTransparent ? "text-white" : "text-slate-900"
                )}
              >
-               <img src={currentLang.flag} alt={currentLang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
+               <img src={currentLang.flag} alt={currentLang.code} className="w-8 h-5 object-cover shadow-sm rounded-[2px]" />
                <ChevronDown className={cn("w-3 h-3 transition-transform", mobileLangOpen && "rotate-180")} />
              </button>
              
@@ -312,7 +312,7 @@ export function Navbar() {
                      }}
                      className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
                    >
-                     <img src={lang.flag} alt={lang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
+                     <img src={lang.flag} alt={lang.code} className="w-8 h-5 object-cover shadow-sm rounded-[2px]" />
                      <span className="font-medium">{lang.name}</span>
                    </button>
                  ))}
@@ -348,7 +348,7 @@ export function Navbar() {
                    onClick={() => setMobileOverlayLangOpen(!mobileOverlayLangOpen)}
                    className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-slate-900"
                  >
-                   <img src={currentLang.flag} alt={currentLang.code} className="w-6 h-4 object-cover shadow-sm rounded-[1px]" />
+                   <img src={currentLang.flag} alt={currentLang.code} className="w-8 h-5 object-cover shadow-sm rounded-[2px]" />
                    <ChevronDown className={cn("w-3 h-3 transition-transform", mobileOverlayLangOpen && "rotate-180")} />
                  </button>
                  
@@ -363,7 +363,7 @@ export function Navbar() {
                          }}
                          className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
                        >
-                         <img src={lang.flag} alt={lang.code} className="w-5 h-3.5 object-cover shadow-sm rounded-[1px]" />
+                         <img src={lang.flag} alt={lang.code} className="w-8 h-5 object-cover shadow-sm rounded-[2px]" />
                          <span className="font-medium">{lang.name}</span>
                        </button>
                      ))}

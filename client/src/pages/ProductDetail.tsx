@@ -199,7 +199,7 @@ export default function ProductDetail() {
                 </p>
               </div>
 
-              {/* Tabs / Sections */}
+              {/* Tabs / Sections - Improved for Mobile */}
               <div className="flex border-b border-slate-200 bg-slate-50 overflow-x-auto relative scrollbar-hide">
                 {/* Scroll Hint Gradient */}
                 <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-50 to-transparent pointer-events-none md:hidden" />
@@ -207,41 +207,41 @@ export default function ProductDetail() {
                 <button 
                   onClick={() => setActiveTab('overview')}
                   className={cn(
-                    "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                    "flex-1 min-w-[140px] py-4 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap",
                     activeTab === 'overview' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
-                  <Info className="w-4 h-4" /> {t('product.overview')}
+                  <Info className="w-4 h-4 flex-shrink-0" /> {t('product.overview')}
                 </button>
                 <button 
                   onClick={() => setActiveTab('specs')}
                   className={cn(
-                    "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                    "flex-1 min-w-[140px] py-4 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap",
                     activeTab === 'specs' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                   )}
                 >
-                  <Ruler className="w-4 h-4" /> {t('product.specs')}
+                  <Ruler className="w-4 h-4 flex-shrink-0" /> {t('product.specs')}
                 </button>
                 {product.mechanicalPartsImages && (
                   <button 
                     onClick={() => setActiveTab('parts')}
                     className={cn(
-                      "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                      "flex-1 min-w-[140px] py-4 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap",
                       activeTab === 'parts' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                     )}
                   >
-                    <Layers className="w-4 h-4" /> {t('product.parts')}
+                    <Layers className="w-4 h-4 flex-shrink-0" /> {t('product.parts')}
                   </button>
                 )}
                 {product.options && (
                   <button 
                     onClick={() => setActiveTab('options')}
                     className={cn(
-                      "flex-1 min-w-[120px] py-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors",
+                      "flex-1 min-w-[140px] py-4 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap",
                       activeTab === 'options' ? "bg-white border-b-2 border-primary text-primary" : "text-slate-500 hover:text-slate-700"
                     )}
                   >
-                    <Sliders className="w-4 h-4" /> {t('product.options')}
+                    <Sliders className="w-4 h-4 flex-shrink-0" /> {t('product.options')}
                   </button>
                 )}
               </div>
