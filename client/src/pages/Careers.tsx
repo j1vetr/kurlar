@@ -10,11 +10,11 @@ export default function Careers() {
   const positions = [
     {
       id: 1,
-      title: "Bobinaj Ustası",
+      title: t('careers.pos.winding.title'),
       department: "Üretim",
       type: "Tam Zamanlı",
       location: "İzmir Fabrika",
-      description: "Dalgıç motor üretim hattımızda görev alacak, bobin sarımı konusunda deneyimli çalışma arkadaşları arıyoruz.",
+      description: t('careers.pos.winding.desc'),
       requirements: [
         "Endüstri Meslek Lisesi veya Meslek Yüksekokulu Elektrik/Elektronik bölümlerinden mezun",
         "Bobinaj sarımı konusunda en az 3 yıl deneyimli",
@@ -25,11 +25,11 @@ export default function Careers() {
     },
     {
       id: 2,
-      title: "CNC Operatörü",
+      title: t('careers.pos.cnc.title'),
       department: "Talaşlı İmalat",
       type: "Tam Zamanlı",
       location: "İzmir Fabrika",
-      description: "Modern makine parkurumuzda CNC tezgahlarını kullanacak, teknik resim okuma bilgisine sahip operatörler arıyoruz.",
+      description: t('careers.pos.cnc.desc'),
       requirements: [
         "Tercihen Meslek Lisesi Tesviye, Makine veya CNC bölümlerinden mezun",
         "CNC Torna veya Freze tezgahlarında en az 2 yıl deneyimli",
@@ -40,11 +40,11 @@ export default function Careers() {
     },
     {
       id: 3,
-      title: "Montaj Teknisyeni",
+      title: t('careers.pos.assembly.title'),
       department: "Üretim",
       type: "Tam Zamanlı",
       location: "İzmir Fabrika",
-      description: "Dalgıç pompa ve motor montaj hattında görev alacak, mekanik montaj konusunda yetkin çalışma arkadaşları.",
+      description: t('careers.pos.assembly.desc'),
       requirements: [
         "Meslek Lisesi Makine veya Metal İşleri bölümlerinden mezun",
         "Mekanik montaj konusunda deneyimli",
@@ -55,11 +55,11 @@ export default function Careers() {
     },
     {
       id: 4,
-      title: "Kalite Kontrol Uzmanı",
+      title: t('careers.pos.qc.title'),
       department: "Kalite",
       type: "Tam Zamanlı",
       location: "İzmir Fabrika",
-      description: "Üretim süreçlerinin kalite standartlarına uygunluğunu denetleyecek, raporlama yapabilecek uzmanlar.",
+      description: t('careers.pos.qc.desc'),
       requirements: [
         "Üniversitelerin Makine Mühendisliği veya ilgili bölümlerinden mezun",
         "Kalite yönetim sistemleri (ISO 9001) konusunda bilgi sahibi",

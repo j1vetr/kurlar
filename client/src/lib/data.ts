@@ -25,9 +25,13 @@ export const getProductWithLanguage = (product: Product, lang: 'TR' | 'EN' | 'AR
 
   return {
     ...product,
+    name: desc[lang].name || product.name,
+    subCategory: desc[lang].subCategory || product.subCategory,
     description: desc[lang].description,
     longDescription: desc[lang].longDescription,
     features: desc[lang].features,
+    specs: desc[lang].specs || product.specs,
+    mechanicalPartsImages: desc[lang].mechanicalPartsImages || product.mechanicalPartsImages,
     options: desc[lang].options || product.options,
     faq: desc[lang].faq || product.faq
   };
@@ -36,6 +40,8 @@ export const getProductWithLanguage = (product: Product, lang: 'TR' | 'EN' | 'AR
 const descriptions = {
   kp: {
     TR: {
+      name: 'Paslanmaz Çelik Dalgıç Pompalar (KP)',
+      subCategory: 'Paslanmaz Çelik',
       description: 'Kurlar tarafından üretilen paslanmaz çelik dalgıç pompalar, korozyona dayanıklı yapısı sayesinde uzun ömürlü ve güvenilir performans sunar.',
       longDescription: `Kurlar tarafından üretilen paslanmaz çelik dalgıç pompalar, korozyona dayanıklı yapısı sayesinde uzun ömürlü ve güvenilir performans sunar. Tarımsal sulama, endüstriyel su temini ve yer altı suyu tahliyesi gibi zorlu uygulamalar için idealdir. Yüksek verimlilik ve bakım kolaylığı ile suyun olduğu her alanda maksimum dayanım sağlar.`,
       features: [
@@ -46,12 +52,32 @@ const descriptions = {
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Hem yatay hem de dikey çalışmaya uygun tasarım'
       ],
+      specs: {
+        'Maksimum Kapasite': '290 m³/saat',
+        'Maksimum Basma Yüksekliği': '700m',
+        'Maksimum Kum Miktarı': '50g/m³',
+        'Maksimum Su Sıcaklığı': '60°C',
+        'Maksimum Daldırma': '300m',
+        'Koruma Sınıfı': 'IP68',
+        'Çıkış Bağlantısı': 'BSP & NPT',
+        'Fan Malzemesi': 'AISI 304',
+        'Mil & Kaplin': 'AISI 304',
+        'Difüzör': 'AISI 304',
+        'Süzgeç': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: '4" Mekanik Parçalar', image: '/assets/details/4inc-mech.png' },
+        { title: '6" Mekanik Parçalar', image: '/assets/details/6inc-mech.png' },
+        { title: '8" - 10" Mekanik Parçalar', image: '/assets/details/8inc-mech.png' }
+      ],
       faq: [
         { question: "Paslanmaz çelik pompaların avantajı nedir?", answer: "AISI 304 paslanmaz çelik yapısı sayesinde korozyona karşı üstün dayanıklılık sağlar ve suyun hijyenik kalmasını korur." },
         { question: "Hangi montaj pozisyonlarında çalışır?", answer: "Hem dikey hem de yatay montaj pozisyonlarında güvenle çalıştırılabilir." }
       ]
     },
     EN: {
+      name: 'Stainless Steel Submersible Pumps (KP)',
+      subCategory: 'Stainless Steel',
       description: 'Stainless steel submersible pumps manufactured by Kurlar offer long-lasting and reliable performance thanks to their corrosion-resistant structure.',
       longDescription: `Stainless steel submersible pumps manufactured by Kurlar offer long-lasting and reliable performance thanks to their corrosion-resistant structure. Ideal for demanding applications such as agricultural irrigation, industrial water supply, and groundwater extraction. It provides maximum durability in every area with water thanks to high efficiency and ease of maintenance.`,
       features: [
@@ -62,12 +88,32 @@ const descriptions = {
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for both horizontal and vertical operation'
       ],
+      specs: {
+        'Maximum Capacity': '290 m³/h',
+        'Maximum Head': '700m',
+        'Max Sand Amount': '50g/m³',
+        'Max Water Temp': '60°C',
+        'Max Immersion': '300m',
+        'Protection Class': 'IP68',
+        'Outlet Connection': 'BSP & NPT',
+        'Impeller Material': 'AISI 304',
+        'Shaft & Coupling': 'AISI 304',
+        'Diffuser': 'AISI 304',
+        'Strainer': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: '4" Mechanical Parts', image: '/assets/details/4inc-mech.png' },
+        { title: '6" Mechanical Parts', image: '/assets/details/6inc-mech.png' },
+        { title: '8" - 10" Mechanical Parts', image: '/assets/details/8inc-mech.png' }
+      ],
       faq: [
         { question: "What is the advantage of stainless steel pumps?", answer: "Thanks to its AISI 304 stainless steel structure, it provides superior resistance to corrosion and maintains the hygienic quality of the water." },
         { question: "In which mounting positions does it work?", answer: "It can be operated safely in both vertical and horizontal mounting positions." }
       ]
     },
     AR: {
+      name: 'مضخات غاطسة من الفولاذ المقاوم للصدأ (KP)',
+      subCategory: 'الفولاذ المقاوم للصدأ',
       description: 'توفر المضخات الغاطسة المصنوعة من الفولاذ المقاوم للصدأ التي تصنعها كورلار أداءً طويل الأمد وموثوقًا بفضل هيكلها المقاوم للتآكل.',
       longDescription: `توفر المضخات الغاطسة المصنوعة من الفولاذ المقاوم للصدأ التي تصنعها كورلار أداءً طويل الأمد وموثوقًا بفضل هيكلها المقاوم للتآكل. مثالية للتطبيقات الصعبة مثل الري الزراعي وإمدادات المياه الصناعية واستخراج المياه الجوفية. توفر أقصى درجات المتانة في كل منطقة توجد بها مياه بفضل الكفاءة العالية وسهولة الصيانة.`,
       features: [
@@ -78,12 +124,32 @@ const descriptions = {
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
       ],
+      specs: {
+        'السعة القصوى': '290 متر مكعب/ساعة',
+        'أقصى ارتفاع للضخ': '700 متر',
+        'أقصى كمية رمل': '50 جم/متر مكعب',
+        'أقصى درجة حرارة للماء': '60 درجة مئوية',
+        'أقصى غمر': '300 متر',
+        'فئة الحماية': 'IP68',
+        'وصلة المخرج': 'BSP & NPT',
+        'مادة المروحة': 'AISI 304',
+        'العمود والاقتران': 'AISI 304',
+        'الموزع': 'AISI 304',
+        'المصفاة': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: 'أجزاء ميكانيكية 4 بوصة', image: '/assets/details/4inc-mech.png' },
+        { title: 'أجزاء ميكانيكية 6 بوصة', image: '/assets/details/6inc-mech.png' },
+        { title: 'أجزاء ميكانيكية 8 - 10 بوصة', image: '/assets/details/8inc-mech.png' }
+      ],
       faq: [
         { question: "ما هي ميزة المضخات المصنوعة من الفولاذ المقاوم للصدأ؟", answer: "بفضل هيكلها المصنوع من الفولاذ المقاوم للصدأ AISI 304، فإنها توفر مقاومة فائقة للتآكل وتحافظ على الجودة الصحية للمياه." },
         { question: "في أي مواضع تركيب تعمل؟", answer: "يمكن تشغيلها بأمان في كل من مواضع التركيب الرأسي والأفقي." }
       ]
     },
     ES: {
+      name: 'Bombas Sumergibles de Acero Inoxidable (KP)',
+      subCategory: 'Acero Inoxidable',
       description: 'Las bombas sumergibles de acero inoxidable fabricadas por Kurlar ofrecen un rendimiento duradero y fiable gracias a su estructura resistente a la corrosión.',
       longDescription: `Las bombas sumergibles de acero inoxidable fabricadas por Kurlar ofrecen un rendimiento duradero y fiable gracias a su estructura resistente a la corrosión. Ideal para aplicaciones exigentes como riego agrícola, suministro de agua industrial y extracción de agua subterránea. Proporciona la máxima durabilidad en cualquier área con agua gracias a su alta eficiencia y facilidad de mantenimiento.`,
       features: [
@@ -94,12 +160,32 @@ const descriptions = {
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
       ],
+      specs: {
+        'Capacidad Máxima': '290 m³/h',
+        'Altura Máxima': '700m',
+        'Cantidad Máx. de Arena': '50g/m³',
+        'Temp. Máx. del Agua': '60°C',
+        'Inmersión Máxima': '300m',
+        'Clase de Protección': 'IP68',
+        'Conexión de Salida': 'BSP & NPT',
+        'Material del Impulsor': 'AISI 304',
+        'Eje y Acoplamiento': 'AISI 304',
+        'Difusor': 'AISI 304',
+        'Filtro': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: 'Partes Mecánicas de 4"', image: '/assets/details/4inc-mech.png' },
+        { title: 'Partes Mecánicas de 6"', image: '/assets/details/6inc-mech.png' },
+        { title: 'Partes Mecánicas de 8" - 10"', image: '/assets/details/8inc-mech.png' }
+      ],
       faq: [
         { question: "¿Cuál es la ventaja de las bombas de acero inoxidable?", answer: "Gracias a su estructura de acero inoxidable AISI 304, proporciona una resistencia superior a la corrosión y mantiene la calidad higiénica del agua." },
         { question: "¿En qué posiciones de montaje funciona?", answer: "Se puede operar de manera segura tanto en posiciones de montaje vertical como horizontal." }
       ]
     },
     PT: {
+      name: 'Bombas Submersíveis de Aço Inoxidável (KP)',
+      subCategory: 'Aço Inoxidável',
       description: 'As bombas submersíveis de aço inoxidável fabricadas pela Kurlar oferecem desempenho duradouro e confiável graças à sua estrutura resistente à corrosão.',
       longDescription: `As bombas submersíveis de aço inoxidável fabricadas pela Kurlar oferecem desempenho duradouro e confiável graças à sua estrutura resistente à corrosão. Ideal para aplicações exigentes como irrigação agrícola, abastecimento de água industrial e extração de água subterrânea. Proporciona máxima durabilidade em qualquer área com água graças à alta eficiência e facilidade de manutenção.`,
       features: [
@@ -110,6 +196,24 @@ const descriptions = {
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
       ],
+      specs: {
+        'Capacidade Máxima': '290 m³/h',
+        'Altura Máxima': '700m',
+        'Quantidade Máx. de Areia': '50g/m³',
+        'Temp. Máx. da Água': '60°C',
+        'Imersão Máxima': '300m',
+        'Classe de Proteção': 'IP68',
+        'Conexão de Saída': 'BSP & NPT',
+        'Material do Impulsor': 'AISI 304',
+        'Eixo e Acoplamento': 'AISI 304',
+        'Difusor': 'AISI 304',
+        'Filtro': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: 'Peças Mecânicas de 4"', image: '/assets/details/4inc-mech.png' },
+        { title: 'Peças Mecânicas de 6"', image: '/assets/details/6inc-mech.png' },
+        { title: 'Peças Mecânicas de 8" - 10"', image: '/assets/details/8inc-mech.png' }
+      ],
       faq: [
         { question: "Qual a vantagem das bombas de aço inoxidável?", answer: "Graças à sua estrutura em aço inoxidável AISI 304, proporciona resistência superior à corrosão e mantém a qualidade higiênica da água." },
         { question: "Em quais posições de montagem funciona?", answer: "Pode ser operado com segurança nas posições de montagem vertical e horizontal." }
@@ -118,6 +222,8 @@ const descriptions = {
   },
   kpn: {
     TR: {
+      name: '4” Kurlar Noryl Dalgıç Pompa',
+      subCategory: 'Noryl Seri',
       description: '4” Kurlar Noryl Dalgıç Pompa çarkları ve difüzörleri, mükemmel tasarımları sayesinde yüksek hidrolik verimlilik ve performans sunar.',
       longDescription: `4” Kurlar Noryl Dalgıç Pompa çarkları ve difüzörleri, mükemmel tasarımları sayesinde yüksek hidrolik verimlilik ve performans sunar; ayrıca yüzer fan sistemi sayesinde kum ve aşındırıcı maddelere karşı mükemmel bir koruma sağlamaktadır. Paslanmaz çelikten üretilen süzgeç, 50 g/m³ olarak belirlenen boyutun üzerindeki parçaların pompanın içine girmesini önleyerek, pompanın ömrünü uzatmaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. Çıkış haznesi bağlantısı hem NPT hem BSP uygun olup, NEMA standartlarına göre motor bağlantısına uygun tasarlanmıştır.`,
       features: [
@@ -128,12 +234,30 @@ const descriptions = {
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Hem yatay hem de dikey çalışmaya uygun tasarım'
       ],
+      specs: {
+        'Maksimum Kapasite': '24 m³/saat',
+        'Maksimum Basma Yüksekliği': '600m',
+        'Maksimum Kum Miktarı': '50g/m³',
+        'Maksimum Su Sıcaklığı': '35°C',
+        'Maksimum Daldırma': '150m',
+        'Koruma Sınıfı': 'IP68',
+        'Çıkış Bağlantısı': '1 1/4" - 2"',
+        'Fan Malzemesi': 'Noryl',
+        'Mil & Kaplin': 'AISI 304',
+        'Difüzör': 'Noryl',
+        'Süzgeç': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: '4" Noryl Mekanik Parçalar', image: '/assets/details/noryl-mech.png' }
+      ],
       faq: [
         { question: "Noryl malzemenin avantajı nedir?", answer: "Yüksek mukavemetli mühendislik plastiği olan Noryl, korozyona ve aşınmaya karşı yüksek direnç gösterir, hafiftir ve uzun ömürlüdür." },
         { question: "Kumlu suda çalışır mı?", answer: "Evet, yüzer fan sistemi sayesinde kum ve aşındırıcı partiküllere karşı yüksek direnç gösterir." }
       ]
     },
     EN: {
+      name: '4” Kurlar Noryl Submersible Pump',
+      subCategory: 'Noryl Series',
       description: '4” Kurlar Noryl Submersible Pump impellers and diffusers offer high hydraulic efficiency and performance thanks to their excellent designs.',
       longDescription: `4” Kurlar Noryl Submersible Pump impellers and diffusers offer high hydraulic efficiency and performance thanks to their excellent designs; it also provides excellent protection against sand and abrasive materials thanks to the floating impeller system. The stainless steel strainer prevents particles larger than 50 g/m³ from entering the pump, extending the pump's life. Suitable for horizontal and vertical installation. The discharge chamber connection is suitable for both NPT and BSP and is designed for motor connection according to NEMA standards.`,
       features: [
@@ -144,12 +268,30 @@ const descriptions = {
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for both horizontal and vertical operation'
       ],
+      specs: {
+        'Maximum Capacity': '24 m³/h',
+        'Maximum Head': '600m',
+        'Max Sand Amount': '50g/m³',
+        'Max Water Temp': '35°C',
+        'Max Immersion': '150m',
+        'Protection Class': 'IP68',
+        'Outlet Connection': '1 1/4" - 2"',
+        'Impeller Material': 'Noryl',
+        'Shaft & Coupling': 'AISI 304',
+        'Diffuser': 'Noryl',
+        'Strainer': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: '4" Noryl Mechanical Parts', image: '/assets/details/noryl-mech.png' }
+      ],
       faq: [
         { question: "What is the advantage of Noryl material?", answer: "Noryl, a high-strength engineering plastic, shows high resistance to corrosion and abrasion, is lightweight and long-lasting." },
         { question: "Does it work in sandy water?", answer: "Yes, thanks to the floating impeller system, it shows high resistance to sand and abrasive particles." }
       ]
     },
     AR: {
+      name: 'مضخة غاطسة نوريل 4 بوصة من كورلار',
+      subCategory: 'سلسلة نوريل',
       description: 'توفر دافعات وموزعات مضخة Noryl الغاطسة مقاس 4 بوصة من كورلار كفاءة هيدروليكية عالية وأداءً بفضل تصميماتها الممتازة.',
       longDescription: `توفر دافعات وموزعات مضخة Noryl الغاطسة مقاس 4 بوصة من كورلار كفاءة هيدروليكية عالية وأداءً بفضل تصميماتها الممتازة؛ كما أنها توفر حماية ممتازة ضد الرمل والمواد الكاشطة بفضل نظام المروحة العائمة. تمنع المصفاة المصنوعة من الفولاذ المقاوم للصدأ الجزيئات الأكبر من 50 جم/م³ من دخول المضخة، مما يطيل عمر المضخة. مناسب للتركيب الأفقي والرأسي. وصلة غرفة التفريغ مناسبة لكل من NPT و BSP ومصممة لتوصيل المحرك وفقًا لمعايير NEMA.`,
       features: [
@@ -160,12 +302,30 @@ const descriptions = {
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
       ],
+      specs: {
+        'السعة القصوى': '24 متر مكعب/ساعة',
+        'أقصى ارتفاع للضخ': '600 متر',
+        'أقصى كمية رمل': '50 جم/متر مكعب',
+        'أقصى درجة حرارة للماء': '35 درجة مئوية',
+        'أقصى غمر': '150 متر',
+        'فئة الحماية': 'IP68',
+        'وصلة المخرج': '1 1/4" - 2"',
+        'مادة المروحة': 'نوريل',
+        'العمود والاقتران': 'AISI 304',
+        'الموزع': 'نوريل',
+        'المصفاة': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: 'أجزاء ميكانيكية نوريل 4 بوصة', image: '/assets/details/noryl-mech.png' }
+      ],
       faq: [
         { question: "ما هي ميزة مادة النوريل؟", answer: "النوريل، وهو بلاستيك هندسي عالي القوة، يظهر مقاومة عالية للتآكل والاحتكاك، وهو خفيف الوزن وطويل الأمد." },
         { question: "هل يعمل في المياه الرملية؟", answer: "نعم، بفضل نظام المروحة العائمة، يظهر مقاومة عالية للرمل والجزيئات الكاشطة." }
       ]
     },
     ES: {
+      name: 'Bomba Sumergible Noryl de 4” de Kurlar',
+      subCategory: 'Serie Noryl',
       description: 'Los impulsores y difusores de la bomba sumergible Noryl de 4” de Kurlar ofrecen una alta eficiencia hidráulica y rendimiento gracias a sus excelentes diseños.',
       longDescription: `Los impulsores y difusores de la bomba sumergible Noryl de 4” de Kurlar ofrecen una alta eficiencia hidráulica y rendimiento gracias a sus excelentes diseños; también proporciona una excelente protección contra arena y materiales abrasivos gracias al sistema de impulsor flotante. El filtro de acero inoxidable evita que entren partículas mayores de 50 g/m³ en la bomba, extendiendo su vida útil. Adecuado para instalación horizontal y vertical. La conexión de la cámara de descarga es adecuada tanto para NPT como para BSP y está diseñada para la conexión del motor según los estándares NEMA.`,
       features: [
@@ -176,12 +336,30 @@ const descriptions = {
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
       ],
+      specs: {
+        'Capacidad Máxima': '24 m³/h',
+        'Altura Máxima': '600m',
+        'Cantidad Máx. de Arena': '50g/m³',
+        'Temp. Máx. del Agua': '35°C',
+        'Inmersión Máxima': '150m',
+        'Clase de Protección': 'IP68',
+        'Conexión de Salida': '1 1/4" - 2"',
+        'Material del Impulsor': 'Noryl',
+        'Eje y Acoplamiento': 'AISI 304',
+        'Difusor': 'Noryl',
+        'Filtro': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: 'Partes Mecánicas Noryl de 4"', image: '/assets/details/noryl-mech.png' }
+      ],
       faq: [
         { question: "¿Cuál es la ventaja del material Noryl?", answer: "Noryl, un plástico de ingeniería de alta resistencia, muestra una alta resistencia a la corrosión y la abrasión, es ligero y duradero." },
         { question: "¿Funciona en agua arenosa?", answer: "Sí, gracias al sistema de impulsor flotante, muestra una alta resistencia a la arena y partículas abrasivas." }
       ]
     },
     PT: {
+      name: 'Bomba Submersível Noryl de 4” da Kurlar',
+      subCategory: 'Série Noryl',
       description: 'Os impulsores e difusores da Bomba Submersível Noryl de 4” da Kurlar oferecem alta eficiência hidráulica e desempenho graças aos seus excelentes designs.',
       longDescription: `Os impulsores e difusores da Bomba Submersível Noryl de 4” da Kurlar oferecem alta eficiência hidráulica e desempenho graças aos seus excelentes designs; também oferece excelente proteção contra areia e materiais abrasivos graças ao sistema de impulsor flutuante. O filtro de aço inoxidável evita que partículas maiores que 50 g/m³ entrem na bomba, estendendo a vida útil da bomba. Adequado para instalação horizontal e vertical. A conexão da câmara de descarga é adequada para NPT e BSP e é projetada para conexão do motor de acordo com os padrões NEMA.`,
       features: [
@@ -192,6 +370,22 @@ const descriptions = {
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
       ],
+      specs: {
+        'Capacidade Máxima': '24 m³/h',
+        'Altura Máxima': '600m',
+        'Quantidade Máx. de Areia': '50g/m³',
+        'Temp. Máx. da Água': '35°C',
+        'Imersão Máxima': '150m',
+        'Classe de Proteção': 'IP68',
+        'Conexão de Saída': '1 1/4" - 2"',
+        'Material do Impulsor': 'Noryl',
+        'Eixo e Acoplamento': 'AISI 304',
+        'Difusor': 'Noryl',
+        'Filtro': 'AISI 304'
+      },
+      mechanicalPartsImages: [
+        { title: 'Peças Mecânicas Noryl de 4"', image: '/assets/details/noryl-mech.png' }
+      ],
       faq: [
         { question: "Qual a vantagem do material Noryl?", answer: "Noryl, um plástico de engenharia de alta resistência, mostra alta resistência à corrosão e abrasão, é leve e duradouro." },
         { question: "Funciona em água arenosa?", answer: "Sim, graças ao sistema de impulsor flutuante, mostra alta resistência à areia e partículas abrasivas." }
@@ -200,6 +394,8 @@ const descriptions = {
   },
   kpd: {
     TR: {
+      name: 'KPD Serisi Pik Döküm Dalgıç Pompalar',
+      subCategory: 'Pik Döküm',
       description: 'KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Pik Döküm Dalgıç Pompalar tamamen pik döküm malzemeden yapılmıştır.',
       longDescription: `KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Pik Döküm Dalgıç Pompalar tamamen pik döküm (talep üzerine pompalar komple bronz malzemeden üretilebilmektedir) malzemeden yapılmıştır. Tamamen pik döküm olarak imal edilen difüzörler, fanlar, emiş ve çıkış haznesi korozyona karşı son derece dayanıklı kılar. Tasarım ve malzeme özellikleriyle yüksek verimlilik, yüksek dayanıklık, uzun ömür ve istikrarlı performans sağlamaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. NEMA standartlarına göre motor bağlantısına uygundur.`,
       features: [
@@ -209,12 +405,26 @@ const descriptions = {
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Yatay ve dikey çalışmaya uygun tasarım'
       ],
+      specs: {
+        'Maksimum Kapasite': '350 m³/saat',
+        'Maksimum Basma Yüksekliği': '650m',
+        'Maksimum Kum Miktarı': '50g/m³',
+        'Maksimum Su Sıcaklığı': '40°C',
+        'Maksimum Daldırma': '350m',
+        'Koruma Sınıfı': 'IP68',
+        'Çıkış Bağlantısı': 'Flanşlı',
+        'Gövde Malzemesi': 'GG25 Pik Döküm',
+        'Fan Malzemesi': 'GG25 Pik Döküm',
+        'Mil': 'AISI 420'
+      },
       faq: [
         { question: "Pik döküm malzemenin avantajı nedir?", answer: "Pik döküm, yüksek mukavemeti ve darbelere karşı dayanıklılığı ile bilinir. Ağır hizmet koşulları için idealdir." },
         { question: "Paslanma yapar mı?", answer: "Standart döküm malzemeler zamanla oksitlenebilir ancak özel boya ve kaplamalarla bu süre uzatılır. Korozyon riski yüksek sular için paslanmaz veya bronz opsiyonlarımızı değerlendirebilirsiniz." }
       ]
     },
     EN: {
+      name: 'KPD Series Cast Iron Submersible Pumps',
+      subCategory: 'Cast Iron',
       description: 'KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Cast Iron Submersible Pumps are made entirely of cast iron material.',
       longDescription: `KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Cast Iron Submersible Pumps are made entirely of cast iron material (pumps can be produced entirely from bronze material upon request). Diffusers, impellers, suction and discharge chambers made entirely of cast iron make it extremely resistant to corrosion. It provides high efficiency, high durability, long life and stable performance with its design and material properties. Suitable for horizontal and vertical installation. Suitable for motor connection according to NEMA standards.`,
       features: [
@@ -224,12 +434,26 @@ const descriptions = {
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for horizontal and vertical operation'
       ],
+      specs: {
+        'Maximum Capacity': '350 m³/h',
+        'Maximum Head': '650m',
+        'Max Sand Amount': '50g/m³',
+        'Max Water Temp': '40°C',
+        'Max Immersion': '350m',
+        'Protection Class': 'IP68',
+        'Outlet Connection': 'Flanged',
+        'Body Material': 'GG25 Cast Iron',
+        'Impeller Material': 'GG25 Cast Iron',
+        'Shaft': 'AISI 420'
+      },
       faq: [
         { question: "What is the advantage of cast iron material?", answer: "Cast iron is known for its high strength and impact resistance. Ideal for heavy duty conditions." },
         { question: "Does it rust?", answer: "Standard casting materials may oxidize over time, but this period is extended with special paints and coatings. You can evaluate our stainless or bronze options for waters with high corrosion risk." }
       ]
     },
     AR: {
+      name: 'سلسلة KPD مضخات غاطسة من الحديد الزهر',
+      subCategory: 'الحديد الزهر',
       description: 'مضخات KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ الغاطسة من الحديد الزهر من كورلار مصنوعة بالكامل من مادة الحديد الزهر.',
       longDescription: `مضخات KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ الغاطسة من الحديد الزهر من كورلار مصنوعة بالكامل من مادة الحديد الزهر (يمكن إنتاج المضخات بالكامل من مادة البرونز عند الطلب). تجعل الموزعات والدوافع وغرف الشفط والتفريغ المصنوعة بالكامل من الحديد الزهر مقاومة للغاية للتآكل. توفر كفاءة عالية ومتانة عالية وعمرًا طويلاً وأداءً مستقرًا بفضل تصميمها وخصائص موادها. مناسب للتركيب الأفقي والرأسي. مناسب لتوصيل المحرك وفقًا لمعايير NEMA.`,
       features: [
@@ -239,12 +463,26 @@ const descriptions = {
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
       ],
+      specs: {
+        'السعة القصوى': '350 متر مكعب/ساعة',
+        'أقصى ارتفاع للضخ': '650 متر',
+        'أقصى كمية رمل': '50 جم/متر مكعب',
+        'أقصى درجة حرارة للماء': '40 درجة مئوية',
+        'أقصى غمر': '350 متر',
+        'فئة الحماية': 'IP68',
+        'وصلة المخرج': 'شفة',
+        'مادة الجسم': 'GG25 حديد زهر',
+        'مادة المروحة': 'GG25 حديد زهر',
+        'العمود': 'AISI 420'
+      },
       faq: [
         { question: "ما هي ميزة مادة الحديد الزهر؟", answer: "يُعرف الحديد الزهر بقوته العالية ومقاومته للصدمات. مثالي لظروف الخدمة الشاقة." },
         { question: "هل يصدأ؟", answer: "قد تتأكسد مواد الصب القياسية بمرور الوقت، ولكن يتم تمديد هذه الفترة بطلاءات ودهانات خاصة. يمكنك تقييم خياراتنا المصنوعة من الفولاذ المقاوم للصدأ أو البرونز للمياه ذات مخاطر التآكل العالية." }
       ]
     },
     ES: {
+      name: 'Serie KPD Bombas Sumergibles de Hierro Fundido',
+      subCategory: 'Hierro Fundido',
       description: 'Las bombas sumergibles de hierro fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ de Kurlar están hechas completamente de material de hierro fundido.',
       longDescription: `Las bombas sumergibles de hierro fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ de Kurlar están hechas completamente de material de hierro fundido (las bombas se pueden producir completamente de material de bronce bajo pedido). Los difusores, impulsores, cámaras de succión y descarga hechos completamente de hierro fundido lo hacen extremadamente resistente a la corrosión. Proporciona alta eficiencia, alta durabilidad, larga vida útil y rendimiento estable con su diseño y propiedades materiales. Adecuado para instalación horizontal y vertical. Adecuado para conexión de motor según estándares NEMA.`,
       features: [
@@ -254,12 +492,26 @@ const descriptions = {
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
       ],
+      specs: {
+        'Capacidad Máxima': '350 m³/h',
+        'Altura Máxima': '650m',
+        'Cantidad Máx. de Arena': '50g/m³',
+        'Temp. Máx. del Agua': '40°C',
+        'Inmersión Máxima': '350m',
+        'Clase de Protección': 'IP68',
+        'Conexión de Salida': 'Bridada',
+        'Material del Cuerpo': 'GG25 Hierro Fundido',
+        'Material del Impulsor': 'GG25 Hierro Fundido',
+        'Eje': 'AISI 420'
+      },
       faq: [
         { question: "¿Cuál es la ventaja del material de hierro fundido?", answer: "El hierro fundido es conocido por su alta resistencia y resistencia al impacto. Ideal para condiciones de trabajo pesado." },
         { question: "¿Se oxida?", answer: "Los materiales de fundición estándar pueden oxidarse con el tiempo, pero este período se extiende con pinturas y recubrimientos especiales. Puede evaluar nuestras opciones de acero inoxidable o bronce para aguas con alto riesgo de corrosión." }
       ]
     },
     PT: {
+      name: 'Série KPD Bombas Submersíveis de Ferro Fundido',
+      subCategory: 'Ferro Fundido',
       description: 'As Bombas Submersíveis de Ferro Fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ da Kurlar são feitas inteiramente de material de ferro fundido.',
       longDescription: `As Bombas Submersíveis de Ferro Fundido KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ da Kurlar são feitas inteiramente de material de ferro fundido (bombas podem ser produzidas inteiramente de material de bronze mediante solicitação). Difusores, impulsores, câmaras de sucção e descarga feitos inteiramente de ferro fundido tornam-no extremamente resistente à corrosão. Proporciona alta eficiência, alta durabilidade, longa vida útil e desempenho estável com seu design e propriedades materiais. Adequado para instalação horizontal e vertical. Adequado para conexão do motor de acordo com os padrões NEMA.`,
       features: [
@@ -269,6 +521,18 @@ const descriptions = {
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
       ],
+      specs: {
+        'Capacidade Máxima': '350 m³/h',
+        'Altura Máxima': '650m',
+        'Quantidade Máx. de Areia': '50g/m³',
+        'Temp. Máx. da Água': '40°C',
+        'Imersão Máxima': '350m',
+        'Classe de Proteção': 'IP68',
+        'Conexão de Saída': 'Flangeada',
+        'Material do Corpo': 'GG25 Ferro Fundido',
+        'Material do Impulsor': 'GG25 Ferro Fundido',
+        'Eixo': 'AISI 420'
+      },
       faq: [
         { question: "Qual a vantagem do material ferro fundido?", answer: "O ferro fundido é conhecido por sua alta resistência e resistência ao impacto. Ideal para condições de trabalho pesado." },
         { question: "Enferruja?", answer: "Materiais de fundição padrão podem oxidar com o tempo, mas esse período é estendido com tintas e revestimentos especiais. Você pode avaliar nossas opções de aço inoxidável ou bronze para águas com alto risco de corrosão." }
@@ -277,6 +541,8 @@ const descriptions = {
   },
   ksx: {
     TR: {
+      name: 'KSX Serisi Paslanmaz Döküm Dalgıç Pompalar',
+      subCategory: 'Paslanmaz Döküm',
       description: 'KSX 6″-8-“10” Kurlar Paslanmaz Döküm Dalgıç Pompalar tamamen AISI 304 döküm malzemeden yapılmıştır.',
       longDescription: `KSX 6″-8-“10” Kurlar Paslanmaz Döküm Dalgıç Pompalar tamamen AISI 304 döküm (talep üzerine pompalar komple AISI 316L malzemeden üretilebilmektedir) malzemeden yapılmıştır. Tamamen paslanmaz çelik olarak imal edilen difüzörler, fanlar, emiş ve çıkış haznesi, süzgeç korozyona karşı son derece dayanıklı kılar. Tasarım ve malzeme özellikleriyle yüksek verimlilik, yüksek dayanıklık, uzun ömür ve istikrarlı performans sağlamaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. NEMA standartlarına göre motor bağlantısına uygundur.`,
       features: [
@@ -286,12 +552,25 @@ const descriptions = {
         'Aşınmaya dirençli, su ile yağlanan yataklar',
         'Yatay ve dikey çalışmaya uygun tasarım'
       ],
+      specs: {
+        'Maksimum Kapasite': '300 m³/saat',
+        'Maksimum Basma Yüksekliği': '700m',
+        'Maksimum Kum Miktarı': '50g/m³',
+        'Maksimum Su Sıcaklığı': '60°C',
+        'Maksimum Daldırma': '350m',
+        'Koruma Sınıfı': 'IP68',
+        'Gövde Malzemesi': 'AISI 304 Döküm',
+        'Fan Malzemesi': 'AISI 304 Döküm',
+        'Mil': 'AISI 420'
+      },
       faq: [
         { question: "Döküm paslanmaz ile sac paslanmaz arasındaki fark nedir?", answer: "Döküm paslanmaz (AISI 304/316), sac paslanmazlara göre çok daha kalın et kalınlığına sahiptir, bu da daha yüksek basınç ve aşınma direnci sağlar." },
         { question: "Deniz suyunda kullanılır mı?", answer: "Standart AISI 304 modeller tatlı su içindir. Deniz suyu uygulamaları için AISI 316L veya Dublex malzeme opsiyonlarımız mevcuttur." }
       ]
     },
     EN: {
+      name: 'KSX Series Cast Stainless Submersible Pumps',
+      subCategory: 'Cast Stainless',
       description: 'KSX 6″-8-“10” Kurlar Cast Stainless Steel Submersible Pumps are made entirely of AISI 304 cast material.',
       longDescription: `KSX 6″-8-“10” Kurlar Cast Stainless Steel Submersible Pumps are made entirely of AISI 304 cast material (pumps can be produced entirely from AISI 316L material upon request). Diffusers, impellers, suction and discharge chambers, strainers made entirely of stainless steel make it extremely resistant to corrosion. It provides high efficiency, high durability, long life and stable performance with its design and material properties. Suitable for horizontal and vertical installation. Suitable for motor connection according to NEMA standards.`,
       features: [
@@ -301,12 +580,25 @@ const descriptions = {
         'Wear-resistant, water-lubricated bearings',
         'Design suitable for horizontal and vertical operation'
       ],
+      specs: {
+        'Maximum Capacity': '300 m³/h',
+        'Maximum Head': '700m',
+        'Max Sand Amount': '50g/m³',
+        'Max Water Temp': '60°C',
+        'Max Immersion': '350m',
+        'Protection Class': 'IP68',
+        'Body Material': 'AISI 304 Cast',
+        'Impeller Material': 'AISI 304 Cast',
+        'Shaft': 'AISI 420'
+      },
       faq: [
         { question: "What is the difference between cast stainless and sheet stainless?", answer: "Cast stainless (AISI 304/316) has a much thicker wall thickness than sheet stainless, which provides higher pressure and wear resistance." },
         { question: "Is it used in sea water?", answer: "Standard AISI 304 models are for fresh water. For sea water applications, we have AISI 316L or Duplex material options available." }
       ]
     },
     AR: {
+      name: 'سلسلة KSX مضخات غاطسة من الفولاذ المقاوم للصدأ المصبوب',
+      subCategory: 'الفولاذ المقاوم للصدأ المصبوب',
       description: 'مضخات KSX 6″-8-“10” الغاطسة المصنوعة من الفولاذ المقاوم للصدأ المصبوب من كورلار مصنوعة بالكامل من مادة AISI 304 المصبوبة.',
       longDescription: `مضخات KSX 6″-8-“10” الغاطسة المصنوعة من الفولاذ المقاوم للصدأ المصبوب من كورلار مصنوعة بالكامل من مادة AISI 304 المصبوبة (يمكن إنتاج المضخات بالكامل من مادة AISI 316L عند الطلب). تجعل الموزعات والدوافع وغرف الشفط والتفريغ والمصافي المصنوعة بالكامل من الفولاذ المقاوم للصدأ مقاومة للغاية للتآكل. توفر كفاءة عالية ومتانة عالية وعمرًا طويلاً وأداءً مستقرًا بفضل تصميمها وخصائص موادها. مناسب للتركيب الأفقي والرأسي. مناسب لتوصيل المحرك وفقًا لمعايير NEMA.`,
       features: [
@@ -316,12 +608,25 @@ const descriptions = {
         'محامل مقاومة للتآكل ومزلقة بالماء',
         'تصميم مناسب للتشغيل الأفقي والرأسي'
       ],
+      specs: {
+        'السعة القصوى': '300 متر مكعب/ساعة',
+        'أقصى ارتفاع للضخ': '700 متر',
+        'أقصى كمية رمل': '50 جم/متر مكعب',
+        'أقصى درجة حرارة للماء': '60 درجة مئوية',
+        'أقصى غمر': '350 متر',
+        'فئة الحماية': 'IP68',
+        'مادة الجسم': 'AISI 304 مصبوب',
+        'مادة المروحة': 'AISI 304 مصبوب',
+        'العمود': 'AISI 420'
+      },
       faq: [
         { question: "ما الفرق بين الفولاذ المقاوم للصدأ المصبوب والفولاذ المقاوم للصدأ الصفيحي؟", answer: "يتميز الفولاذ المقاوم للصدأ المصبوب (AISI 304/316) بسماكة جدار أكبر بكثير من الفولاذ المقاوم للصدأ الصفيحي، مما يوفر مقاومة أعلى للضغط والتآكل." },
         { question: "هل يستخدم في مياه البحر؟", answer: "نماذج AISI 304 القياسية مخصصة للمياه العذبة. لتطبيقات مياه البحر، تتوفر لدينا خيارات مواد AISI 316L أو Duplex." }
       ]
     },
     ES: {
+      name: 'Serie KSX Bombas Sumergibles de Acero Inoxidable Fundido',
+      subCategory: 'Acero Inoxidable Fundido',
       description: 'Las bombas sumergibles de acero inoxidable fundido KSX 6″-8-“10” de Kurlar están hechas completamente de material fundido AISI 304.',
       longDescription: `Las bombas sumergibles de acero inoxidable fundido KSX 6″-8-“10” de Kurlar están hechas completamente de material fundido AISI 304 (las bombas se pueden producir completamente de material AISI 316L bajo pedido). Los difusores, impulsores, cámaras de succión y descarga, filtros hechos completamente de acero inoxidable lo hacen extremadamente resistente a la corrosión. Proporciona alta eficiencia, alta durabilidad, larga vida útil y rendimiento estable con su diseño y propiedades materiales. Adecuado para instalación horizontal y vertical. Adecuado para conexión de motor según estándares NEMA.`,
       features: [
@@ -331,12 +636,25 @@ const descriptions = {
         'Cojinetes lubricados por agua resistentes al desgaste',
         'Diseño adecuado para funcionamiento horizontal y vertical'
       ],
+      specs: {
+        'Capacidad Máxima': '300 m³/h',
+        'Altura Máxima': '700m',
+        'Cantidad Máx. de Arena': '50g/m³',
+        'Temp. Máx. del Agua': '60°C',
+        'Inmersión Máxima': '350m',
+        'Clase de Protección': 'IP68',
+        'Material del Cuerpo': 'AISI 304 Fundido',
+        'Material del Impulsor': 'AISI 304 Fundido',
+        'Eje': 'AISI 420'
+      },
       faq: [
         { question: "¿Cuál es la diferencia entre acero inoxidable fundido y acero inoxidable en lámina?", answer: "El acero inoxidable fundido (AISI 304/316) tiene un espesor de pared mucho mayor que el acero inoxidable en lámina, lo que proporciona mayor resistencia a la presión y al desgaste." },
         { question: "¿Se usa en agua de mar?", answer: "Los modelos estándar AISI 304 son para agua dulce. Para aplicaciones de agua de mar, tenemos opciones de material AISI 316L o Duplex disponibles." }
       ]
     },
     PT: {
+      name: 'Série KSX Bombas Submersíveis de Aço Inoxidável Fundido',
+      subCategory: 'Aço Inoxidável Fundido',
       description: 'As Bombas Submersíveis de Aço Inoxidável Fundido KSX 6″-8-“10” da Kurlar são feitas inteiramente de material fundido AISI 304.',
       longDescription: `As Bombas Submersíveis de Aço Inoxidável Fundido KSX 6″-8-“10” da Kurlar são feitas inteiramente de material fundido AISI 304 (bombas podem ser produzidas inteiramente de material AISI 316L mediante solicitação). Difusores, impulsores, câmaras de sucção e descarga, filtros feitos inteiramente de aço inoxidável tornam-no extremamente resistente à corrosão. Proporciona alta eficiência, alta durabilidade, longa vida útil e desempenho estável com seu design e propriedades materiais. Adequado para instalação horizontal e vertical. Adequado para conexão do motor de acordo com os padrões NEMA.`,
       features: [
@@ -346,6 +664,17 @@ const descriptions = {
         'Rolamentos lubrificados a água resistentes ao desgaste',
         'Design adequado para operação horizontal e vertical'
       ],
+      specs: {
+        'Capacidade Máxima': '300 m³/h',
+        'Altura Máxima': '700m',
+        'Quantidade Máx. de Areia': '50g/m³',
+        'Temp. Máx. da Água': '60°C',
+        'Imersão Máxima': '350m',
+        'Classe de Proteção': 'IP68',
+        'Material do Corpo': 'AISI 304 Fundido',
+        'Material do Impulsor': 'AISI 304 Fundido',
+        'Eixo': 'AISI 420'
+      },
       faq: [
         { question: "Qual a diferença entre aço inoxidável fundido e aço inoxidável em chapa?", answer: "O aço inoxidável fundido (AISI 304/316) tem uma espessura de parede muito maior que o aço inoxidável em chapa, o que proporciona maior resistência à pressão e ao desgaste." },
         { question: "É usado em água do mar?", answer: "Os modelos padrão AISI 304 são para água doce. Para aplicações em água do mar, temos opções de material AISI 316L ou Duplex disponíveis." }
@@ -354,6 +683,8 @@ const descriptions = {
   },
   km4: {
     TR: {
+      name: 'Yağlı Tip Dalgıç Motorlar',
+      subCategory: 'Dalgıç Motorlar',
       description: 'Yağlı Tip Dalgıç Motorlar, yağ soğutmalı geri sarılabilir motorlardır (gıdada kullanılan toksik olmayan yağ).',
       longDescription: `Yağlı Tip Dalgıç Motorlar, yağ soğutmalı geri sarılabilir motorlardır (gıdada kullanılan toksik olmayan yağ). Gürültüsüz çalışır ve uzun ömürlü hizmet sağlamaktadır. Hem yatay hem dikey çalışmaya uygundur. Boyutları ve NEMA standartlarına göre uygun flanş bağlantısı bulunmaktadır.`,
       features: [
@@ -362,12 +693,23 @@ const descriptions = {
         'NEMA Standartlarına Uygun Pompa Bağlantısı',
         'IP 68 Koruma'
       ],
+      specs: {
+        'Maksimum Eksenel Yük': '45.000 N',
+        'Maksimum Ortam Sıcaklığı': '35°C',
+        'İzolasyon Sınıfı': 'F Sınıfı',
+        'Koruma Sınıfı': 'IP68',
+        'Bağlantı': 'NEMA Standart',
+        'Yol Verme': 'Direkt / Yıldız-Üçgen',
+        'Verimlilik': '%82 - %85'
+      },
       faq: [
         { question: "Motor yağı gıdaya uygun mu?", answer: "Evet, motorlarımızda kullanılan yağ toksik olmayan, gıdaya uygun ve çevre dostu bir yağdır." },
         { question: "Sarma işlemi yapılabilir mi?", answer: "Evet, yağlı tip motorlarımız tekrar sarılabilir (rewindable) özelliktedir." }
       ]
     },
     EN: {
+      name: 'Oil Filled Submersible Motors',
+      subCategory: 'Submersible Motors',
       description: 'Oil Filled Submersible Motors are oil-cooled rewindable motors (non-toxic oil used in food).',
       longDescription: `Oil Filled Submersible Motors are oil-cooled rewindable motors (non-toxic oil used in food). It works silently and provides long-lasting service. Suitable for both horizontal and vertical operation. It has flange connection suitable for dimensions and NEMA standards.`,
       features: [
@@ -376,12 +718,23 @@ const descriptions = {
         'Pump Connection According to NEMA Standards',
         'IP 68 Protection'
       ],
+      specs: {
+        'Maximum Axial Load': '45.000 N',
+        'Max Ambient Temp': '35°C',
+        'Insulation Class': 'Class F',
+        'Protection Class': 'IP68',
+        'Connection': 'NEMA Standard',
+        'Starting': 'Direct / Star-Delta',
+        'Efficiency': '82% - 85%'
+      },
       faq: [
         { question: "Is the motor oil food grade?", answer: "Yes, the oil used in our motors is non-toxic, food grade and environmentally friendly." },
         { question: "Can it be rewound?", answer: "Yes, our oil-filled motors are rewindable." }
       ]
     },
     AR: {
+      name: 'محركات غاطسة مملوءة بالزيت',
+      subCategory: 'محركات غاطسة',
       description: 'محركات الغاطسة المملوءة بالزيت هي محركات قابلة لإعادة اللف مبردة بالزيت (زيت غير سام يستخدم في الغذاء).',
       longDescription: `محركات الغاطسة المملوءة بالزيت هي محركات قابلة لإعادة اللف مبردة بالزيت (زيت غير سام يستخدم في الغذاء). يعمل بصمت ويوفر خدمة طويلة الأمد. مناسب للتشغيل الأفقي والرأسي. يحتوي على وصلة شفة مناسبة للأبعاد ومعايير NEMA.`,
       features: [
@@ -390,12 +743,23 @@ const descriptions = {
         'توصيل المضخة وفقًا لمعايير NEMA',
         'حماية IP 68'
       ],
+      specs: {
+        'أقصى حمل محوري': '45.000 نيوتن',
+        'أقصى درجة حرارة محيطة': '35 درجة مئوية',
+        'فئة العزل': 'الفئة F',
+        'فئة الحماية': 'IP68',
+        'الاتصال': 'معيار NEMA',
+        'بدء التشغيل': 'مباشر / نجمة-دلتا',
+        'الكفاءة': '82٪ - 85٪'
+      },
       faq: [
         { question: "هل زيت المحرك صالح للطعام؟", answer: "نعم، الزيت المستخدم في محركاتنا غير سام وصالح للطعام وصديق للبيئة." },
         { question: "هل يمكن إعادة لفه؟", answer: "نعم، محركاتنا المملوءة بالزيت قابلة لإعادة اللف." }
       ]
     },
     ES: {
+      name: 'Motores Sumergibles Llenos de Aceite',
+      subCategory: 'Motores Sumergibles',
       description: 'Los motores sumergibles llenos de aceite son motores rebobinables enfriados por aceite (aceite no tóxico utilizado en alimentos).',
       longDescription: `Los motores sumergibles llenos de aceite son motores rebobinables enfriados por aceite (aceite no tóxico utilizado en alimentos). Funciona silenciosamente y proporciona un servicio duradero. Adecuado para funcionamiento horizontal y vertical. Tiene conexión de brida adecuada para dimensiones y estándares NEMA.`,
       features: [
@@ -404,12 +768,23 @@ const descriptions = {
         'Conexión de Bomba Según Estándares NEMA',
         'Protección IP 68'
       ],
+      specs: {
+        'Carga Axial Máxima': '45.000 N',
+        'Temp. Amb. Máx.': '35°C',
+        'Clase de Aislamiento': 'Clase F',
+        'Clase de Protección': 'IP68',
+        'Conexión': 'Estándar NEMA',
+        'Arranque': 'Directo / Estrella-Triángulo',
+        'Eficiencia': '82% - 85%'
+      },
       faq: [
         { question: "¿El aceite del motor es apto para uso alimentario?", answer: "Sí, el aceite utilizado en nuestros motores no es tóxico, es apto para uso alimentario y respetuoso con el medio ambiente." },
         { question: "¿Se puede rebobinar?", answer: "Sí, nuestros motores llenos de aceite son rebobinables." }
       ]
     },
     PT: {
+      name: 'Motores Submersíveis a Óleo',
+      subCategory: 'Motores Submersíveis',
       description: 'Motores Submersíveis Preenchidos com Óleo são motores rebobináveis resfriados a óleo (óleo não tóxico usado em alimentos).',
       longDescription: `Motores Submersíveis Preenchidos com Óleo são motores rebobináveis resfriados a óleo (óleo não tóxico usado em alimentos). Funciona silenciosamente e oferece serviço duradouro. Adequado para operação horizontal e vertical. Possui conexão de flange adequada para dimensões e padrões NEMA.`,
       features: [
@@ -418,6 +793,15 @@ const descriptions = {
         'Conexão da Bomba de Acordo com os Padrões NEMA',
         'Proteção IP 68'
       ],
+      specs: {
+        'Carga Axial Máxima': '45.000 N',
+        'Temp. Amb. Máx.': '35°C',
+        'Classe de Isolamento': 'Classe F',
+        'Classe de Proteção': 'IP68',
+        'Conexão': 'Padrão NEMA',
+        'Partida': 'Direta / Estrela-Triângulo',
+        'Eficiência': '82% - 85%'
+      },
       faq: [
         { question: "O óleo do motor é de qualidade alimentar?", answer: "Sim, o óleo utilizado em nossos motores é atóxico, de qualidade alimentar e ecologicamente correto." },
         { question: "Pode ser rebobinado?", answer: "Sim, nossos motores a óleo são rebobináveis." }
@@ -426,6 +810,8 @@ const descriptions = {
   },
   km: {
     TR: {
+      name: 'HI-TEMP Dalgıç Motorlar (60°C - 90°C)',
+      subCategory: 'Dalgıç Motorlar',
       description: '6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde üretilmiştir.',
       longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde düşük işletme maliyeti için özel izolasyonulu Bobin Teli (PBN) ile yüksek sıcaklığa özel üretilmiştir.  Su soğutmalı 6″ HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar özel basınç dengeleyici çek-valf, diyafram, kum çanı, su ile yağlamalı yüksek dayanım gösteren eksenel ve radyal yataklar ile donatılmıştır. Motorlar, -15°C’ye kadar muhafaza edilmek için saf su ve gliserin karışımı ile doldurulmuştur.`,
       features: [
@@ -436,6 +822,15 @@ const descriptions = {
         'Voltaj dalgalanmalarına karşı yüksek direnç',
         'Paslanmaz çelik motor mili & NBR kum çanı'
       ],
+      specs: {
+        'Maksimum Eksenel Yük': '60.000 N',
+        'Maksimum Ortam Sıcaklığı': '60°C / 90°C (Opsiyonel)',
+        'İzolasyon Sınıfı': 'Yüksek Isı Dayanımlı (PBN)',
+        'Koruma Sınıfı': 'IP68',
+        'Bağlantı': 'NEMA Standart',
+        'Soğutma': 'Su Soğutmalı',
+        'Verimlilik': '%84 - %87'
+      },
       options: [
         'Komple AISI 304, 316 veya DUBLEX üretim',
         '6’’ NEMA çift flanş üretim seçeneği',
@@ -454,6 +849,8 @@ const descriptions = {
       ]
     },
     EN: {
+      name: 'HI-TEMP Submersible Motors (60°C - 90°C)',
+      subCategory: 'Submersible Motors',
       description: '6”-7”-8”-10” HI-TEMP (60°C) Rewindable Submersible Motors are produced in our ISO 9001 certified facilities.',
       longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Rewindable Submersible Motors are specially produced for high temperatures with special insulated Coil Wire (PBN) for low operating costs in our ISO 9001 certified facilities. Water-cooled 6″ HI-TEMP (60°C) Rewindable Submersible Motors are equipped with special pressure compensating check valve, diaphragm, sand slinger, water-lubricated high-resistance axial and radial bearings. Motors are filled with a mixture of pure water and glycerin for storage down to -15°C.`,
       features: [
@@ -464,6 +861,15 @@ const descriptions = {
         'High resistance to voltage fluctuations',
         'Stainless steel motor shaft & NBR sand slinger'
       ],
+      specs: {
+        'Maximum Axial Load': '60.000 N',
+        'Max Ambient Temp': '60°C / 90°C (Optional)',
+        'Insulation Class': 'High Heat Resistant (PBN)',
+        'Protection Class': 'IP68',
+        'Connection': 'NEMA Standard',
+        'Cooling': 'Water Cooled',
+        'Efficiency': '84% - 87%'
+      },
       options: [
         'Complete AISI 304, 316 or DUBLEX production',
         '6’’ NEMA double flange production option',
@@ -482,6 +888,8 @@ const descriptions = {
       ]
     },
     AR: {
+      name: 'محركات غاطسة HI-TEMP (60 درجة - 90 درجة مئوية)',
+      subCategory: 'محركات غاطسة',
       description: 'يتم إنتاج محركات غاطسة قابلة لإعادة اللف 6"-7"-8"-10" HI-TEMP (60 درجة مئوية) في مرافقنا الحاصلة على شهادة ISO 9001.',
       longDescription: `يتم إنتاج محركات غاطسة قابلة لإعادة اللف 6"-7"-8"-10" HI-TEMP (60 درجة مئوية) خصيصًا لدرجات الحرارة المرتفعة باستخدام سلك ملف معزول خاص (PBN) لتكاليف تشغيل منخفضة في مرافقنا الحاصلة على شهادة ISO 9001. تم تجهيز محركات غاطسة قابلة لإعادة اللف مبردة بالماء مقاس 6 بوصات HI-TEMP (60 درجة مئوية) بصمام فحص خاص لتعويض الضغط، وحجاب حاجز، ومانع رمل، ومحامل محورية ونصف قطرية عالية المقاومة مشحمة بالماء. تمتلئ المحركات بخليط من الماء النقي والجلسرين للتخزين حتى -15 درجة مئوية.`,
       features: [
@@ -492,6 +900,15 @@ const descriptions = {
         'مقاومة عالية لتقلبات الجهد',
         'عمود محرك من الفولاذ المقاوم للصدأ ومانع رمل NBR'
       ],
+      specs: {
+        'أقصى حمل محوري': '60.000 نيوتن',
+        'أقصى درجة حرارة محيطة': '60 درجة / 90 درجة (اختياري)',
+        'فئة العزل': 'مقاوم للحرارة العالية (PBN)',
+        'فئة الحماية': 'IP68',
+        'الاتصال': 'معيار NEMA',
+        'التبريد': 'تبريد مائي',
+        'الكفاءة': '84٪ - 87٪'
+      },
       options: [
         'إنتاج كامل من AISI 304 أو 316 أو DUBLEX',
         'خيار إنتاج شفة مزدوجة NEMA 6 بوصة',
@@ -510,6 +927,8 @@ const descriptions = {
       ]
     },
     ES: {
+      name: 'Motores Sumergibles HI-TEMP (60°C - 90°C)',
+      subCategory: 'Motores Sumergibles',
       description: 'Los motores sumergibles rebobinables HI-TEMP (60°C) de 6”-7”-8”-10” se producen en nuestras instalaciones certificadas ISO 9001.',
       longDescription: `Los motores sumergibles rebobinables HI-TEMP (60°C) de 6”-7”-8”-10” se producen especialmente para altas temperaturas con alambre de bobina con aislamiento especial (PBN) para bajos costos operativos en nuestras instalaciones certificadas ISO 9001. Los motores sumergibles rebobinables HI-TEMP (60°C) de 6″ enfriados por agua están equipados con válvula de retención de compensación de presión especial, diafragma, deflector de arena, cojinetes axiales y radiales de alta resistencia lubricados por agua. Los motores están llenos de una mezcla de agua pura y glicerina para almacenamiento hasta -15°C.`,
       features: [
@@ -520,6 +939,15 @@ const descriptions = {
         'Alta resistencia a las fluctuaciones de voltaje',
         'Eje del motor de acero inoxidable y deflector de arena NBR'
       ],
+      specs: {
+        'Carga Axial Máxima': '60.000 N',
+        'Temp. Amb. Máx.': '60°C / 90°C (Opcional)',
+        'Clase de Aislamiento': 'Resistente al Alto Calor (PBN)',
+        'Clase de Protección': 'IP68',
+        'Conexión': 'Estándar NEMA',
+        'Refrigeración': 'Enfriado por Agua',
+        'Eficiencia': '84% - 87%'
+      },
       options: [
         'Producción completa AISI 304, 316 o DUBLEX',
         'Opción de producción de doble brida NEMA de 6’’',
@@ -538,6 +966,8 @@ const descriptions = {
       ]
     },
     PT: {
+      name: 'Motores Submersíveis HI-TEMP (60°C - 90°C)',
+      subCategory: 'Motores Submersíveis',
       description: 'Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6”-7”-8”-10” são produzidos em nossas instalações certificadas ISO 9001.',
       longDescription: `Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6”-7”-8”-10” são produzidos especialmente para altas temperaturas com fio de bobina isolado especial (PBN) para baixos custos operacionais em nossas instalações certificadas ISO 9001. Motores Submersíveis Rebobináveis HI-TEMP (60°C) de 6″ resfriados a água são equipados com válvula de retenção de compensação de pressão especial, diafragma, defletor de areia, rolamentos axiais e radiais de alta resistência lubrificados a água. Os motores são preenchidos com uma mistura de água pura e glicerina para armazenamento até -15°C.`,
       features: [
@@ -548,6 +978,15 @@ const descriptions = {
         'Alta resistência a flutuações de tensão',
         'Eixo do motor de aço inoxidável e defletor de areia NBR'
       ],
+      specs: {
+        'Carga Axial Máxima': '60.000 N',
+        'Temp. Amb. Máx.': '60°C / 90°C (Opcional)',
+        'Classe de Isolamento': 'Resistente ao Alto Calor (PBN)',
+        'Classe de Proteção': 'IP68',
+        'Conexão': 'Padrão NEMA',
+        'Resfriamento': 'Resfriado a Água',
+        'Eficiência': '84% - 87%'
+      },
       options: [
         'Produção completa AISI 304, 316 ou DUBLEX',
         'Opção de produção de flange dupla NEMA de 6’’',
@@ -568,6 +1007,8 @@ const descriptions = {
   },
   kms: {
     TR: {
+      name: 'S-TYPE Dalgıç Motorlar',
+      subCategory: 'Dalgıç Motorlar',
       description: 'S-Type Dalgıç Motorlar, enerji verimliliği ve dayanıklılık için optimize edilmiş, yeni nesil su soğutmalı motorlardır.',
       longDescription: `S-Type Dalgıç Motorlar, enerji verimliliği ve dayanıklılık için optimize edilmiş, yeni nesil su soğutmalı motorlardır. Düşük enerji tüketimi ve yüksek performansı bir arada sunar. Paslanmaz çelik gövde ve korozyona dayanıklı bileşenler, uzun ömürlü kullanım sağlar. Voltaj dalgalanmalarına karşı toleransı yüksektir.`,
       features: [
@@ -576,12 +1017,35 @@ const descriptions = {
         'Kolay bakım ve onarım imkanı',
         'Maksimum 75°C ve 90°C sıcaklık opsiyonları'
       ],
+      specs: {
+        'Maksimum Eksenel Yük': '50.000 N',
+        'Maksimum Ortam Sıcaklığı': '35°C (Opsiyonel 90°C)',
+        'İzolasyon Sınıfı': 'F Sınıfı',
+        'Koruma Sınıfı': 'IP68',
+        'Bağlantı': 'NEMA Standart',
+        'Soğutma': 'Su Soğutmalı',
+        'Verimlilik': '%80 - %83'
+      },
+      options: [
+        'Motorlar AISI 304, AISI 316 veya DUBLEX olarak üretilebilir',
+        '6” NEMA standardında çift flanş üretim seçeneği',
+        'PT100 sensör entegrasyonu',
+        'İçme suyu mevzuatına uygun kablo seçeneği (VDE, ACS, KTW onaylı)',
+        '100 metreye kadar özel kablo üretimi',
+        'Direkt veya yıldız/üçgen yol verme',
+        '4 damarlı kablo üretimi (3 faz + 1 topraklama)',
+        '500V, 525V, 630V ve 1000V’a uygun üretim',
+        'Mekanik keçe SIC/SIC-NBR-304 olarak üretilebilir',
+        'Maksimum 75°C ve 90°C sıcaklık opsiyonları'
+      ],
       faq: [
         { question: "S-Type motorların farkı nedir?", answer: "S-Type motorlar, enerji verimliliği ve düşük işletme maliyeti odaklı tasarlanmıştır. Özel bobin yapısı ve hidrolik tasarımı ile standart motorlara göre daha az enerji tüketir." },
         { question: "Hangi voltaj aralıklarında çalışır?", answer: "380-415V aralığında çalışır ve voltaj dalgalanmalarına karşı yüksek dayanım gösterir." }
       ]
     },
     EN: {
+      name: 'S-TYPE Submersible Motors',
+      subCategory: 'Submersible Motors',
       description: 'S-Type Submersible Motors are new generation water-cooled motors optimized for energy efficiency and durability.',
       longDescription: `S-Type Submersible Motors are new generation water-cooled motors optimized for energy efficiency and durability. It offers low energy consumption and high performance together. Stainless steel body and corrosion-resistant components ensure long-lasting use. High tolerance to voltage fluctuations.`,
       features: [
@@ -590,12 +1054,35 @@ const descriptions = {
         'Easy maintenance and repair',
         'Maximum 75°C and 90°C temperature options'
       ],
+      specs: {
+        'Maximum Axial Load': '50.000 N',
+        'Max Ambient Temp': '35°C (Optional 90°C)',
+        'Insulation Class': 'Class F',
+        'Protection Class': 'IP68',
+        'Connection': 'NEMA Standard',
+        'Cooling': 'Water Cooled',
+        'Efficiency': '80% - 83%'
+      },
+      options: [
+        'Motors can be produced as AISI 304, AISI 316 or DUBLEX',
+        '6” NEMA standard double flange production option',
+        'PT100 sensor integration',
+        'Cable option suitable for drinking water legislation (VDE, ACS, KTW approved)',
+        'Special cable production up to 100 meters',
+        'Direct or star/delta starting',
+        '4-core cable production (3 phases + 1 ground)',
+        'Production suitable for 500V, 525V, 630V and 1000V',
+        'Mechanical seal can be produced as SIC/SIC-NBR-304',
+        'Maximum 75°C and 90°C temperature options'
+      ],
       faq: [
         { question: "What is the difference of S-Type motors?", answer: "S-Type motors are designed with a focus on energy efficiency and low operating costs. It consumes less energy than standard motors with its special coil structure and hydraulic design." },
         { question: "In which voltage ranges does it operate?", answer: "It operates in the 380-415V range and shows high resistance to voltage fluctuations." }
       ]
     },
     AR: {
+      name: 'محركات غاطسة S-TYPE',
+      subCategory: 'محركات غاطسة',
       description: 'محركات S-Type الغاطسة هي جيل جديد من المحركات المبردة بالماء والمحسنة لكفاءة الطاقة والمتانة.',
       longDescription: `محركات S-Type الغاطسة هي جيل جديد من المحركات المبردة بالماء والمحسنة لكفاءة الطاقة والمتانة. يوفر استهلاكًا منخفضًا للطاقة وأداءً عاليًا معًا. يضمن الهيكل المصنوع من الفولاذ المقاوم للصدأ والمكونات المقاومة للتآكل استخدامًا طويل الأمد. تحمل عالي لتقلبات الجهد.`,
       features: [
@@ -604,12 +1091,35 @@ const descriptions = {
         'سهولة الصيانة والإصلاح',
         'خيارات درجة حرارة قصوى 75 درجة مئوية و 90 درجة مئوية'
       ],
+      specs: {
+        'أقصى حمل محوري': '50.000 نيوتن',
+        'أقصى درجة حرارة محيطة': '35 درجة مئوية (اختياري 90 درجة)',
+        'فئة العزل': 'الفئة F',
+        'فئة الحماية': 'IP68',
+        'الاتصال': 'معيار NEMA',
+        'التبريد': 'تبريد مائي',
+        'الكفاءة': '80٪ - 83٪'
+      },
+      options: [
+        'يمكن إنتاج المحركات كـ AISI 304 أو AISI 316 أو DUBLEX',
+        'خيار إنتاج شفة مزدوجة قياسية 6 بوصة NEMA',
+        'تكامل مستشعر PT100',
+        'خيار كابل مناسب لتشريعات مياه الشرب (معتمد من VDE، ACS، KTW)',
+        'إنتاج كابل خاص يصل إلى 100 متر',
+        'بدء تشغيل مباشر أو نجمة/دلتا',
+        'إنتاج كابل 4 نوى (3 مراحل + 1 أرضي)',
+        'إنتاج مناسب لـ 500 فولت، 525 فولت، 630 فولت و 1000 فولت',
+        'يمكن إنتاج الختم الميكانيكي كـ SIC/SIC-NBR-304',
+        'خيارات درجة حرارة قصوى 75 درجة مئوية و 90 درجة مئوية'
+      ],
       faq: [
         { question: "ما هو الفرق بين محركات S-Type؟", answer: "تم تصميم محركات S-Type مع التركيز على كفاءة الطاقة وتكاليف التشغيل المنخفضة. تستهلك طاقة أقل من المحركات القياسية بفضل هيكل الملف الخاص والتصميم الهيدروليكي." },
         { question: "في أي نطاقات الجهد تعمل؟", answer: "تعمل في نطاق 380-415 فولت وتظهر مقاومة عالية لتقلبات الجهد." }
       ]
     },
     ES: {
+      name: 'Motores Sumergibles S-TYPE',
+      subCategory: 'Motores Sumergibles',
       description: 'Los motores sumergibles S-Type son motores de nueva generación enfriados por agua optimizados para la eficiencia energética y la durabilidad.',
       longDescription: `Los motores sumergibles S-Type son motores de nueva generación enfriados por agua optimizados para la eficiencia energética y la durabilidad. Ofrece bajo consumo de energía y alto rendimiento juntos. El cuerpo de acero inoxidable y los componentes resistentes a la corrosión garantizan un uso duradero. Alta tolerancia a las fluctuaciones de voltaje.`,
       features: [
@@ -618,18 +1128,62 @@ const descriptions = {
         'Fácil mantenimiento y reparación',
         'Opciones de temperatura máxima de 75°C y 90°C'
       ],
+      specs: {
+        'Carga Axial Máxima': '50.000 N',
+        'Temp. Amb. Máx.': '35°C (Opcional 90°C)',
+        'Clase de Aislamiento': 'Clase F',
+        'Clase de Protección': 'IP68',
+        'Conexión': 'Estándar NEMA',
+        'Refrigeración': 'Enfriado por Agua',
+        'Eficiencia': '80% - 83%'
+      },
+      options: [
+        'Los motores se pueden producir como AISI 304, AISI 316 o DUBLEX',
+        'Opción de producción de doble brida estándar NEMA de 6”',
+        'Integración de sensor PT100',
+        'Opción de cable adecuada para la legislación de agua potable (aprobado por VDE, ACS, KTW)',
+        'Producción de cable especial hasta 100 metros',
+        'Arranque directo o estrella/triángulo',
+        'Producción de cable de 4 núcleos (3 fases + 1 tierra)',
+        'Producción adecuada para 500V, 525V, 630V y 1000V',
+        'El sello mecánico se puede producir como SIC/SIC-NBR-304',
+        'Opciones de temperatura máxima de 75°C y 90°C'
+      ],
       faq: [
         { question: "¿Cuál es la diferencia de los motores S-Type?", answer: "Los motores S-Type están diseñados con un enfoque en la eficiencia energética y los bajos costos operativos. Consume menos energía que los motores estándar con su estructura de bobina especial y diseño hidráulico." },
         { question: "¿En qué rangos de voltaje funciona?", answer: "Funciona en el rango de 380-415V y muestra una alta resistencia a las fluctuaciones de voltaje." }
       ]
     },
     PT: {
+      name: 'Motores Submersíveis S-TYPE',
+      subCategory: 'Motores Submersíveis',
       description: 'Os Motores Submersíveis S-Type são motores de nova geração resfriados a água otimizados para eficiência energética e durabilidade.',
       longDescription: `Os Motores Submersíveis S-Type são motores de nova geração resfriados a água otimizados para eficiência energética e durabilidade. Oferece baixo consumo de energia e alto desempenho juntos. Corpo em aço inoxidável e componentes resistentes à corrosão garantem uso duradouro. Alta tolerância a flutuações de tensão.`,
       features: [
         'Alta eficiência energética e baixo custo operacional',
         'Corpo em aço inoxidável durável',
         'Fácil manutenção e reparo',
+        'Opções de temperatura máxima de 75°C e 90°C'
+      ],
+      specs: {
+        'Carga Axial Máxima': '50.000 N',
+        'Temp. Amb. Máx.': '35°C (Opcional 90°C)',
+        'Classe de Isolamento': 'Classe F',
+        'Classe de Proteção': 'IP68',
+        'Conexão': 'Padrão NEMA',
+        'Resfriamento': 'Resfriado a Água',
+        'Eficiência': '80% - 83%'
+      },
+      options: [
+        'Motores podem ser produzidos como AISI 304, AISI 316 ou DUBLEX',
+        'Opção de produção de flange dupla padrão NEMA de 6”',
+        'Integração do sensor PT100',
+        'Opção de cabo adequada para legislação de água potável (aprovado por VDE, ACS, KTW)',
+        'Produção de cabo especial até 100 metros',
+        'Partida direta ou estrela/triângulo',
+        'Produção de cabo de 4 núcleos (3 fases + 1 terra)',
+        'Produção adequada para 500V, 525V, 630V e 1000V',
+        'Selo mecânico pode ser produzido como SIC/SIC-NBR-304',
         'Opções de temperatura máxima de 75°C e 90°C'
       ],
       faq: [

@@ -154,14 +154,14 @@ export default function About() {
 
             <div className="space-y-12">
               {[
-                { year: '2022', title: 'İzmir Fabrika', desc: 'Dalgıç pompa fabrikası İzmir\'e taşındı.' },
-                { year: '2019', title: 'Yeni Motor Tesisi', desc: 'Dalgıç motor üretimi için İzmir’de 25.000m² açık – 10.250m² kapalı alana sahip fabrika kuruldu.' },
-                { year: '2012', title: 'Küresel Erişim', desc: 'İhracat hacmi 6 kıtaya ulaştı.' },
-                { year: '2008', title: 'Büyüme', desc: '4000 m² ilave fabrika kuruldu.' },
-                { year: '2000', title: 'Bir İlk', desc: 'Türkiye\'de ilk kez paslanmaz çelik dalgıç pompa üretimine başlandı.' },
-                { year: '1996', title: 'İlk İhracat', desc: 'İlk ihracat gerçekleştirildi.' },
-                { year: '1989', title: 'Test Laboratuvarı', desc: 'Türkiye\'nin ilk teknolojik pompa ve motor test laboratuvarı kuruldu.' },
-                { year: '1975', title: 'Kuruluş', desc: 'Yaşar Kurfeyiz önderliğinde şirketimizin kurulduğu yıl.' }
+                { year: '2022', title: t('about.history.2022.title'), desc: t('about.history.2022.desc') },
+                { year: '2019', title: t('about.history.2019.title'), desc: t('about.history.2019.desc') },
+                { year: '2012', title: t('about.history.2012.title'), desc: t('about.history.2012.desc') },
+                { year: '2008', title: t('about.history.2008.title'), desc: t('about.history.2008.desc') },
+                { year: '2000', title: t('about.history.2000.title'), desc: t('about.history.2000.desc') },
+                { year: '1996', title: t('about.history.1996.title'), desc: t('about.history.1996.desc') },
+                { year: '1989', title: t('about.history.1989.title'), desc: t('about.history.1989.desc') },
+                { year: '1975', title: t('about.history.1975.title'), desc: t('about.history.1975.desc') }
               ].map((item, index) => (
                 <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                   {/* Content Side */}

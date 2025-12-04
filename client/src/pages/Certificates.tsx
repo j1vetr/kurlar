@@ -10,7 +10,7 @@ export default function Certificates() {
       id: 'iso14001',
       code: 'ISO 14001',
       title: 'Çevre Yönetim Sistemi',
-      description: 'Çevresel etkiyi azaltmayı ve sürdürülebilirliği hedefleyen uluslararası standart. Doğal kaynakları verimli kullanıyor ve atıkları minimize ediyoruz.',
+      description: t('certs.iso14001.desc'),
       image: '/assets/certificates/iso14001.webp',
       color: 'green'
     },
@@ -18,7 +18,7 @@ export default function Certificates() {
       id: 'iso9001',
       code: 'ISO 9001',
       title: 'Kalite Yönetim Sistemi',
-      description: 'Müşteri memnuniyetini ve süreç kalitesini garanti altına alan yönetim sistemi. Her aşamada mükemmeliyet odaklı yaklaşımımızı belgeliyor.',
+      description: t('certs.iso9001.desc'),
       image: '/assets/certificates/iso9001.png',
       color: 'blue'
     },
@@ -26,7 +26,7 @@ export default function Certificates() {
       id: 'iso45001',
       code: 'ISO 45001',
       title: 'İş Sağlığı ve Güvenliği',
-      description: 'Çalışan güvenliğini en üst düzeyde tutan uluslararası standart. Riskleri minimize ederek güvenli bir çalışma ortamı sunuyoruz.',
+      description: t('certs.iso45001.desc'),
       image: '/assets/certificates/iso45001.png',
       color: 'orange'
     }
@@ -101,10 +101,10 @@ export default function Certificates() {
                  <h2 className="text-3xl font-bold mb-6">{t('certs.quality_policy')}</h2>
                  <div className="space-y-4">
                     {[
-                      "Müşteri memnuniyetini en üst düzeyde tutmak",
-                      "Sürekli iyileştirme ve gelişim odaklı olmak",
-                      "Çevreye duyarlı üretim teknolojileri kullanmak",
-                      "İş sağlığı ve güvenliği standartlarına tam uyum"
+                      t('certs.policy.customer'),
+                      t('certs.policy.standard'),
+                      t('certs.policy.improvement'),
+                      t('certs.policy.environment')
                     ].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                          <CheckCircle className="w-5 h-5 text-primary/60 shrink-0" />
