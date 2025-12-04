@@ -1,0 +1,179 @@
+🔵 MONOFAZE DALGIÇ MOTOR LİSTESİ (DÜZ – ALT ALTA)
+
+KM4-0.55M
+Motor Gücü: 0,55 HP / 0,37 kW
+Devir: 2835 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,87
+Verim: %60
+Kondansatör: 20 µF
+Uzunluk: 415 mm
+Ağırlık: 8,2 kg
+Voltaj / Akım: 3,2 A
+
+KM4-0.75M
+Motor Gücü: 0,75 HP / 0,55 kW
+Devir: 2835 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,92
+Verim: %83
+Kondansatör: 30 µF
+Uzunluk: 430 mm
+Ağırlık: 9,1 kg
+Voltaj / Akım: 3,3 A
+
+KM4-1M
+Motor Gücü: 1 HP / 0,75 kW
+Devir: 2845 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,88
+Verim: %71
+Kondansatör: 35 µF
+Uzunluk: 465 mm
+Ağırlık: 10,5 kg
+Voltaj / Akım: 5,4 A
+
+KM4-1.5M
+Motor Gücü: 1,5 HP / 1,1 kW
+Devir: 2820 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,88
+Verim: %67
+Kondansatör: 45 µF
+Uzunluk: 475 mm
+Ağırlık: 11,2 kg
+Voltaj / Akım: 8,5 A
+
+KM4-2M
+Motor Gücü: 2 HP / 1,5 kW
+Devir: 2825 RPM
+Eksenel Yük: 3 kN
+cos φ: 0,87
+Verim: %74
+Kondansatör: 60 µF
+Uzunluk: 538 mm
+Ağırlık: 15 kg
+Voltaj / Akım: 10,7 A
+
+KM4-3M
+Motor Gücü: 3 HP / 2,2 kW
+Devir: 2840 RPM
+Eksenel Yük: 3 kN
+cos φ: 0,87
+Verim: %87
+Kondansatör: 75 µF
+Uzunluk: 600 mm
+Ağırlık: 17 kg
+Voltaj / Akım: 13,2 A
+
+KM4-4M
+Motor Gücü: 4 HP / 3 kW
+Devir: 2840 RPM
+Eksenel Yük: 3 kN
+cos φ: 0,89
+Verim: %75
+Kondansatör: 90 µF
+Uzunluk: 635 mm
+Ağırlık: 20 kg
+Voltaj / Akım: 20,5 A
+
+🔵 TRİFAZE DALGIÇ MOTOR LİSTESİ (DÜZ – ALT ALTA)
+
+KM4-0.75T
+Motor Gücü: 0,75 HP / 0,55 kW
+Devir: 2825 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,71
+Verim: %65
+Uzunluk: 415 mm
+Ağırlık: 7,8 kg
+Akım (220-230V): 3,8 A
+Akım (400-415V): 1,8 A
+
+KM4-1T
+Motor Gücü: 1 HP / 0,75 kW
+Devir: 2825 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,71
+Verim: %65
+Uzunluk: 430 mm
+Ağırlık: 9,2 kg
+Akım (220-230V): 4,7 A
+Akım (400-415V): 2,5 A
+
+KM4-1.5T
+Motor Gücü: 1,5 HP / 1,1 kW
+Devir: 2820 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,77
+Verim: %64
+Uzunluk: 465 mm
+Ağırlık: 10,6 kg
+Akım (220-230V): 6,5 A
+Akım (400-415V): 3,4 A
+
+KM4-2T
+Motor Gücü: 2 HP / 1,5 kW
+Devir: 2820 RPM
+Eksenel Yük: 2 kN
+cos φ: 0,75
+Verim: %71
+Uzunluk: 473 mm
+Ağırlık: 11,4 kg
+Akım (220-230V): 8,1 A
+Akım (400-415V): 4,3 A
+
+KM4-3T
+Motor Gücü: 3 HP / 2,2 kW
+Devir: 2810 RPM
+Eksenel Yük: 3 kN
+cos φ: 0,77
+Verim: %73
+Uzunluk: 566 mm
+Ağırlık: 14,8 kg
+Akım (220-230V): 10,4 A
+Akım (400-415V): 6 A
+
+KM4-4T
+Motor Gücü: 4 HP / 3 kW
+Devir: 2800 RPM
+Eksenel Yük: 3 kN
+cos φ: 0,77
+Verim: %80
+Uzunluk: 600 mm
+Ağırlık: 17,9 kg
+Akım (220-230V): 12,3 A
+Akım (400-415V): 7,4 A
+
+KM4-5.5T
+Motor Gücü: 5,5 HP / 4 kW
+Devir: 2810 RPM
+Eksenel Yük: 3 kN
+cos φ: 0,78
+Verim: %83
+Uzunluk: 635 mm
+Ağırlık: 19,9 kg
+Akım (220-230V): 16 A
+Akım (400-415V): 9,5 A
+
+KM4-7.5T
+Motor Gücü: 7,5 HP / 5,5 kW
+Devir: 2840 RPM
+Eksenel Yük: 5 kN
+cos φ: 0,78
+Verim: %88
+Uzunluk: 775 mm
+Ağırlık: 25 kg
+Akım (220-230V): 25 A
+Akım (400-415V): 12,2 A
+
+KM4-10T
+Motor Gücü: 10 HP / 7,5 kW
+Devir: 2830 RPM
+Eksenel Yük: 5 kN
+cos φ: 0,77
+Verim: %85
+Uzunluk: 862 mm
+Ağırlık: 29,4 kg
+Akım (220-230V): 32 A
+Akım (400-415V): 17,5 A

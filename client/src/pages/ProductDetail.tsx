@@ -341,18 +341,65 @@ export default function ProductDetail() {
                         </div>
                       )}
 
-                      <div className="border border-slate-200 rounded-sm overflow-hidden">
-                        <table className="w-full text-sm text-left">
-                          <tbody className="divide-y divide-slate-200">
-                            {product.specs && Object.entries(product.specs).map(([key, value], i) => (
-                              <tr key={i} className={i % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
-                                <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-200 w-1/2">{key}</td>
-                                <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
-                              </tr>
+                      {product.subSpecs ? (
+                        <div className="space-y-8">
+                          {product.specs && (
+                            <div>
+                              <h4 className="font-bold text-slate-800 mb-3 text-base flex items-center gap-2 uppercase tracking-wider">
+                                <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                                {t('product.general_specs')}
+                              </h4>
+                              <div className="border border-slate-200 rounded-sm overflow-hidden mb-6">
+                                <table className="w-full text-sm text-left">
+                                  <tbody className="divide-y divide-slate-200">
+                                    {Object.entries(product.specs).map(([key, value], i) => (
+                                      <tr key={i} className={i % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
+                                        <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-200 w-1/2">{key}</td>
+                                        <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          )}
+                          
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            {product.subSpecs.map((group, idx) => (
+                              <div key={idx} className="bg-slate-50/50 rounded-lg border border-slate-200 overflow-hidden">
+                                <div className="bg-slate-100 px-4 py-3 border-b border-slate-200">
+                                  <h4 className="font-bold text-primary text-base text-center uppercase tracking-wider">
+                                    {group.title}
+                                  </h4>
+                                </div>
+                                <table className="w-full text-sm text-left">
+                                  <tbody className="divide-y divide-slate-200">
+                                    {Object.entries(group.specs).map(([key, value], i) => (
+                                      <tr key={i} className="bg-white hover:bg-slate-50 transition-colors">
+                                        <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-100 w-1/2">{key}</td>
+                                        <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
                             ))}
-                          </tbody>
-                        </table>
-                      </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="border border-slate-200 rounded-sm overflow-hidden">
+                          <table className="w-full text-sm text-left">
+                            <tbody className="divide-y divide-slate-200">
+                              {product.specs && Object.entries(product.specs).map(([key, value], i) => (
+                                <tr key={i} className={i % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
+                                  <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-200 w-1/2">{key}</td>
+                                  <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
                   </div>
                 )}
 

@@ -12,6 +12,7 @@ export interface Product {
   longDescription?: string;
   features?: string[];
   specs?: Record<string, string>;
+  subSpecs?: { title: string; specs: Record<string, string> }[];
   specsImage?: string;
   mechanicalPartsImages?: { title: string; image: string }[];
   applications?: string[];
@@ -32,6 +33,7 @@ export const getProductWithLanguage = (product: Product, lang: 'TR' | 'EN' | 'AR
     longDescription: desc[lang].longDescription,
     features: desc[lang].features,
     specs: desc[lang].specs || product.specs,
+    subSpecs: desc[lang].subSpecs || product.subSpecs,
     mechanicalPartsImages: desc[lang].mechanicalPartsImages || product.mechanicalPartsImages,
     options: desc[lang].options || product.options,
     faq: desc[lang].faq || product.faq
@@ -1538,10 +1540,28 @@ export const products: Product[] = [
       'Yol Verme Kapasitesi': '24 kez/saat',
       'Koruma Sınıfı': 'IP68',
       'İzolasyon Sınıfı': 'F',
-      'Motor Tipi': '2 kutuplu, 50 Hz (n ≈ 2900 rpm)',
-      'Voltaj (Monofaz)': '210 – 220 – 230 V',
-      'Voltaj (Trifaz)': '380 – 400 – 415 V'
+      'Motor Tipi': '2 kutuplu, 50 Hz (n ≈ 2900 rpm)'
     },
+    subSpecs: [
+      {
+        title: 'Monofaze (Tek Fazlı)',
+        specs: {
+          'Voltaj': '220V - 230V',
+          'Güç Aralığı': '0.37 kW - 2.2 kW',
+          'Kapasitör': 'Dahili / Harici',
+          'Akım Aralığı': '3.2A - 14.5A'
+        }
+      },
+      {
+        title: 'Trifaze (Üç Fazlı)',
+        specs: {
+          'Voltaj': '380V - 415V',
+          'Güç Aralığı': '0.37 kW - 7.5 kW',
+          'Yol Verme': 'Direkt',
+          'Akım Aralığı': '1.1A - 16.8A'
+        }
+      }
+    ],
     faq: [
       {
         question: "Yağlı tip dalgıç motor nedir?",
