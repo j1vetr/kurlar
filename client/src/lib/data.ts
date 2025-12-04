@@ -266,9 +266,6 @@ const descriptions = {
         'Çıkış Haznesi': 'AISI 304',
         'Dif. Tası / Kademe': 'AISI 304'
       },
-      mechanicalPartsImages: [
-        { title: '4" Noryl Mekanik Parçalar', image: '/assets/details/noryl-mech.png' }
-      ],
       faq: [
         { question: "Noryl malzemenin avantajı nedir?", answer: "Yüksek mukavemetli mühendislik plastiği olan Noryl, korozyona ve aşınmaya karşı yüksek direnç gösterir, hafiftir ve uzun ömürlüdür." },
         { question: "Kumlu suda çalışır mı?", answer: "Evet, yüzer fan sistemi sayesinde kum ve aşındırıcı partiküllere karşı yüksek direnç gösterir." }
@@ -301,9 +298,6 @@ const descriptions = {
         'Diffuser': 'Noryl',
         'Strainer': 'AISI 304'
       },
-      mechanicalPartsImages: [
-        { title: '4" Noryl Mechanical Parts', image: '/assets/details/noryl-mech.png' }
-      ],
       faq: [
         { question: "What is the advantage of Noryl material?", answer: "Noryl, a high-strength engineering plastic, shows high resistance to corrosion and abrasion, is lightweight and long-lasting." },
         { question: "Does it work in sandy water?", answer: "Yes, thanks to the floating impeller system, it shows high resistance to sand and abrasive particles." }
@@ -336,9 +330,6 @@ const descriptions = {
         'الموزع': 'نوريل',
         'المصفاة': 'AISI 304'
       },
-      mechanicalPartsImages: [
-        { title: 'أجزاء ميكانيكية نوريل 4 بوصة', image: '/assets/details/noryl-mech.png' }
-      ],
       faq: [
         { question: "ما هي ميزة مادة النوريل؟", answer: "النوريل، وهو بلاستيك هندسي عالي القوة، يظهر مقاومة عالية للتآكل والاحتكاك، وهو خفيف الوزن وطويل الأمد." },
         { question: "هل يعمل في المياه الرملية؟", answer: "نعم، بفضل نظام المروحة العائمة، يظهر مقاومة عالية للرمل والجزيئات الكاشطة." }
@@ -371,9 +362,6 @@ const descriptions = {
         'Difusor': 'Noryl',
         'Filtro': 'AISI 304'
       },
-      mechanicalPartsImages: [
-        { title: 'Partes Mecánicas Noryl de 4"', image: '/assets/details/noryl-mech.png' }
-      ],
       faq: [
         { question: "¿Cuál es la ventaja del material Noryl?", answer: "Noryl, un plástico de ingeniería de alta resistencia, muestra una alta resistencia a la corrosión y la abrasión, es ligero y duradero." },
         { question: "¿Funciona en agua arenosa?", answer: "Sí, gracias al sistema de impulsor flotante, muestra una alta resistencia a la arena y partículas abrasivas." }
@@ -406,9 +394,6 @@ const descriptions = {
         'Difusor': 'Noryl',
         'Filtro': 'AISI 304'
       },
-      mechanicalPartsImages: [
-        { title: 'Peças Mecânicas Noryl de 4"', image: '/assets/details/noryl-mech.png' }
-      ],
       faq: [
         { question: "Qual a vantagem do material Noryl?", answer: "Noryl, um plástico de engenharia de alta resistência, mostra alta resistência à corrosão e abrasão, é leve e duradouro." },
         { question: "Funciona em água arenosa?", answer: "Sim, graças ao sistema de impulsor flutuante, mostra alta resistência à areia e partículas abrasivas." }
