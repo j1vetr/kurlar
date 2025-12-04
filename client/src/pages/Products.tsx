@@ -5,6 +5,7 @@ import { useRoute, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Filter, SlidersHorizontal, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 export default function Products() {
   const [location] = useLocation();
@@ -44,6 +45,11 @@ export default function Products() {
 
   return (
     <Layout>
+      <SEO 
+        title={t('seo.products.title')} 
+        description={t('seo.products.desc')} 
+        canonical="https://kurlar.com.tr/urunler"
+      />
       {/* Hero Header */}
       <div className="bg-slate-900 py-20 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>

@@ -14,6 +14,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
   const [zoom, setZoom] = useState(false);
@@ -73,6 +74,11 @@ export default function ProductDetail() {
 
   return (
     <Layout>
+      <SEO 
+        title={product.name} 
+        description={product.description} 
+        canonical={`https://kurlar.com.tr/urunler/${product.id}`}
+      />
       {/* Breadcrumb */}
       <div className="bg-white border-b border-slate-200 py-4">
         <div className="container mx-auto px-6">

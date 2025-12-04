@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Award, CheckCircle, Shield, FileCheck } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 export default function Certificates() {
   const { t } = useLanguage();
@@ -34,6 +35,11 @@ export default function Certificates() {
 
   return (
     <Layout>
+      <SEO 
+        title={t('seo.certificates.title')} 
+        description={t('seo.certificates.desc')} 
+        canonical="https://kurlar.com.tr/sertifikalarimiz"
+      />
       {/* Hero Section */}
       <div className="bg-slate-50 border-b border-slate-200 py-20">
         <div className="container mx-auto px-6 text-center">

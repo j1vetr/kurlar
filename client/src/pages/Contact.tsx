@@ -2,12 +2,18 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Globe, Clock, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 export default function Contact() {
   const { t } = useLanguage();
 
   return (
     <Layout>
+      <SEO 
+        title={t('seo.contact.title')} 
+        description={t('seo.contact.desc')} 
+        canonical="https://kurlar.com.tr/iletisim"
+      />
       {/* Elegant Hero */}
       <div className="relative bg-slate-900 py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>

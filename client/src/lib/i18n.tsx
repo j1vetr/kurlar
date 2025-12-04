@@ -114,6 +114,31 @@ const translations: Translations = {
   'careers.benefits.dev.desc': { TR: 'Mesleki eğitimler ve kariyer gelişim programları ile potansiyelinizi artırın.', EN: 'Increase your potential with vocational trainings and career development programs.', AR: 'زد من إمكاناتك من خلال التدريب المهني وبرامج التطوير الوظيفي.', ES: 'Aumente su potencial con capacitaciones vocacionales y programas de desarrollo profesional.', PT: 'Aumente seu potencial com treinamentos vocacionais e programas de desenvolvimento de carreira.' },
   'careers.benefits.tech.title': { TR: 'Öncü Teknoloji', EN: 'Pioneering Technology', AR: 'تكنولوجيا رائدة', ES: 'Tecnología Pionera', PT: 'Tecnologia Pioneira' },
   'careers.benefits.tech.desc': { TR: 'Sektörün en modern üretim teknolojileri ile çalışma imkanı.', EN: 'Opportunity to work with the sector\'s most modern production technologies.', AR: 'فرصة للعمل بأحدث تقنيات الإنتاج في القطاع.', ES: 'Oportunidad de trabajar con las tecnologías de producción más modernas del sector.', PT: 'Oportunidade de trabalhar com as tecnologias de produção mais modernas do setor.' },
+
+  // SEO Titles & Descriptions
+  'seo.home.title': { TR: 'Ana Sayfa', EN: 'Home', AR: 'الرئيسية', ES: 'Inicio', PT: 'Início' },
+  'seo.home.desc': { TR: 'Kurlar Pompa - Yüksek verimli dalgıç pompa ve motor çözümleri.', EN: 'Kurlar Pump - High efficiency submersible pump and motor solutions.', AR: 'مضخات كورلار - حلول مضخات ومحركات غاطسة عالية الكفاءة.', ES: 'Bombas Kurlar - Soluciones de bombas y motores sumergibles de alta eficiencia.', PT: 'Bombas Kurlar - Soluções de bombas e motores submersíveis de alta eficiência.' },
+  
+  'seo.about.title': { TR: 'Hakkımızda', EN: 'About Us', AR: 'من نحن', ES: 'Sobre Nosotros', PT: 'Sobre Nós' },
+  'seo.about.desc': { TR: 'Kurlar Pompa hakkında detaylı bilgi, tarihçemiz ve vizyonumuz.', EN: 'Detailed information about Kurlar Pump, our history and vision.', AR: 'معلومات مفصلة عن مضخات كورلار، تاريخنا ورؤيتنا.', ES: 'Información detallada sobre Bombas Kurlar, nuestra historia y visión.', PT: 'Informações detalhadas sobre Bombas Kurlar, nossa história e visão.' },
+
+  'seo.products.title': { TR: 'Ürünler', EN: 'Products', AR: 'المنتجات', ES: 'Productos', PT: 'Produtos' },
+  'seo.products.desc': { TR: 'Geniş ürün yelpazemizi keşfedin: Dalgıç pompalar, motorlar ve daha fazlası.', EN: 'Discover our wide product range: Submersible pumps, motors and more.', AR: 'اكتشف مجموعتنا الواسعة من المنتجات: مضخات غاطسة، محركات والمزيد.', ES: 'Descubra nuestra amplia gama de productos: Bombas sumergibles, motores y más.', PT: 'Descubra nossa ampla gama de produtos: Bombas submersíveis, motores e mais.' },
+
+  'seo.dealers.title': { TR: 'Bayi ve Servis Ağı', EN: 'Dealer and Service Network', AR: 'شبكة الوكلاء والخدمة', ES: 'Red de Distribuidores y Servicio', PT: 'Rede de Revendedores e Serviço' },
+  'seo.dealers.desc': { TR: 'Size en yakın Kurlar bayi ve servis noktalarını bulun.', EN: 'Find the nearest Kurlar dealer and service points.', AR: 'اعثر على أقرب وكيل ومركز خدمة لكورلار.', ES: 'Encuentre los puntos de venta y servicio de Kurlar más cercanos.', PT: 'Encontre os revendedores e pontos de serviço Kurlar mais próximos.' },
+
+  'seo.contact.title': { TR: 'İletişim', EN: 'Contact', AR: 'اتصل بنا', ES: 'Contacto', PT: 'Contato' },
+  'seo.contact.desc': { TR: 'Bizimle iletişime geçin. Adres, telefon ve iletişim formu.', EN: 'Contact us. Address, phone and contact form.', AR: 'اتصل بنا. العنوان والهاتف ونموذج الاتصال.', ES: 'Contáctenos. Dirección, teléfono y formulario de contacto.', PT: 'Entre em contato conosco. Endereço, telefone e formulário de contato.' },
+
+  'seo.rnd.title': { TR: 'Ar-Ge Merkezi', EN: 'R&D Center', AR: 'مركز البحث والتطوير', ES: 'Centro de I+D', PT: 'Centro de P&D' },
+  'seo.rnd.desc': { TR: 'Kurlar Ar-Ge Merkezi ve teknolojik yeniliklerimiz.', EN: 'Kurlar R&D Center and our technological innovations.', AR: 'مركز كورلار للبحث والتطوير وابتكاراتنا التكنولوجية.', ES: 'Centro de I+D de Kurlar e innovaciones tecnológicas.', PT: 'Centro de P&D Kurlar e nossas inovações tecnológicas.' },
+
+  'seo.certificates.title': { TR: 'Sertifikalarımız', EN: 'Certificates', AR: 'الشهادات', ES: 'Certificados', PT: 'Certificados' },
+  'seo.certificates.desc': { TR: 'Kalite ve standart belgelerimiz.', EN: 'Our quality and standard documents.', AR: 'وثائق الجودة والمعايير الخاصة بنا.', ES: 'Nuestros documentos de calidad y estándares.', PT: 'Nossos documentos de qualidade e padrões.' },
+
+  'seo.careers.title': { TR: 'Kariyer', EN: 'Careers', AR: 'وظائف', ES: 'Carreras', PT: 'Carreiras' },
+  'seo.careers.desc': { TR: 'Kurlar ailesine katılın. Açık pozisyonlar ve kariyer fırsatları.', EN: 'Join the Kurlar family. Open positions and career opportunities.', AR: 'انضم إلى عائلة كورلار. الوظائف المتاحة وفرص العمل.', ES: 'Únase a la familia Kurlar. Posiciones abiertas y oportunidades de carrera.', PT: 'Junte-se à família Kurlar. Vagas abertas e oportunidades de carreira.' },
   'careers.benefits.social.title': { TR: 'Sosyal Haklar', EN: 'Social Rights', AR: 'الحقوق الاجتماعية', ES: 'Derechos Sociales', PT: 'Direitos Sociais' },
   'careers.benefits.social.desc': { TR: 'Rekabetçi maaş, özel sağlık sigortası, servis ve yemek imkanları.', EN: 'Competitive salary, private health insurance, shuttle and meal facilities.', AR: 'راتب تنافسي، تأمين صحي خاص، خدمات النقل والوجبات.', ES: 'Salario competitivo, seguro médico privado, servicio de transporte y comidas.', PT: 'Salário competitivo, seguro saúde privado, transporte e refeições.' },
   'careers.days_ago': { TR: 'gün önce', EN: 'days ago', AR: 'منذ أيام', ES: 'días atrás', PT: 'dias atrás' },

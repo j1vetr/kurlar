@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Briefcase, Clock, MapPin, ArrowRight, CheckCircle2, Users, Zap, Trophy } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 export default function Careers() {
   const { t } = useLanguage();
@@ -95,6 +96,11 @@ export default function Careers() {
 
   return (
     <Layout>
+      <SEO 
+        title={t('seo.careers.title')} 
+        description={t('seo.careers.desc')} 
+        canonical="https://kurlar.com.tr/kariyer"
+      />
       {/* Hero Section */}
       <div className="relative bg-slate-900 py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-10"></div>

@@ -2,12 +2,18 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Globe, Award, Users, Building2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 export default function About() {
   const { t } = useLanguage();
 
   return (
     <Layout>
+      <SEO 
+        title={t('seo.about.title')} 
+        description={t('seo.about.desc')} 
+        canonical="https://kurlar.com.tr/hakkimizda"
+      />
       {/* Hero Section */}
       <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Tooltip } from "react-tooltip";
 import { geoMercator, geoPath } from "d3-geo";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 // Turkey GeoJSON URL (Local)
 const TURKEY_GEO_JSON = "/assets/turkey-cities.json";
@@ -128,6 +129,11 @@ export default function Dealers() {
 
   return (
     <Layout>
+      <SEO 
+        title={t('seo.dealers.title')} 
+        description={t('seo.dealers.desc')} 
+        canonical="https://kurlar.com.tr/bayi-servis"
+      />
       <div className="bg-slate-900 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">

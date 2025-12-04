@@ -1,12 +1,18 @@
 import { Layout } from "@/components/layout/Layout";
 import { Shield, Lock, Eye, FileText, Server } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 export default function PrivacyPolicy() {
   const { t } = useLanguage();
 
   return (
     <Layout>
+      <SEO 
+        title={t('footer.privacy')} 
+        description={t('privacy.subtitle')} 
+        canonical="https://kurlar.com.tr/gizlilik-politikasi"
+      />
       <div className="bg-slate-50 min-h-screen py-20">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">

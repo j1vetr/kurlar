@@ -7,20 +7,18 @@ import { Link } from "wouter";
 import { ArrowRight, Users, Globe, Building2, ArrowUpRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/shared/SEO";
 
 export default function Home() {
   const { t, language } = useLanguage();
 
-  // Explicitly select the main products for the homepage
-  const featuredProducts = [
-    products.find(p => p.id === 'kp'),
-    products.find(p => p.id === 'kpn'),
-    products.find(p => p.id === 'kpd'),
-    products.find(p => p.id === 'ksx'),
-  ].filter(Boolean) as typeof products;
-
   return (
     <Layout noTopPadding={true}>
+      <SEO 
+        title={t('seo.home.title')} 
+        description={t('seo.home.desc')} 
+        canonical="https://kurlar.com.tr/"
+      />
       <Hero />
 
       {/* Hakkımızda Section - Clean, Corporate */}
