@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { products } from "@/lib/data";
-import { useRoute, useLocation } from "wouter";
+import { useRoute, useLocation, useSearch } from "wouter";
 import { motion } from "framer-motion";
 import { Filter, SlidersHorizontal, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
@@ -9,7 +9,9 @@ import { SEO } from "@/components/shared/SEO";
 
 export default function Products() {
   const [location] = useLocation();
-  const searchParams = new URLSearchParams(window.location.search);
+  // useSearch hook from wouter v3 listens to search params changes
+  const searchString = useSearch();
+  const searchParams = new URLSearchParams(searchString);
   const categoryFilter = searchParams.get('category');
   const searchQuery = searchParams.get('search');
   const { t } = useLanguage();
