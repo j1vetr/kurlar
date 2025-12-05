@@ -116,7 +116,13 @@ export default function Careers() {
             <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
               {t('careers.subtitle')}
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-sm uppercase tracking-wider">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-sm uppercase tracking-wider"
+              onClick={() => {
+                document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               {t('careers.cta')}
             </Button>
           </motion.div>
