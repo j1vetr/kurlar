@@ -14,8 +14,6 @@ import About from "@/pages/About";
 import RAndD from "@/pages/RAndD";
 import Certificates from "@/pages/Certificates";
 import Careers from "@/pages/Careers";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
 import { LanguageProvider } from "./lib/i18n";
 
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -41,8 +39,6 @@ function Router() {
         <Route path="/arge-merkezi" component={RAndD} />
         <Route path="/sertifikalarimiz" component={Certificates} />
         <Route path="/kariyer" component={Careers} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/urunler" component={Products} />
         <Route path="/urunler/:id" component={ProductDetail} />
         <Route path="/bayi-servis" component={Dealers} />
