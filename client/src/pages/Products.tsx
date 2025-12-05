@@ -37,11 +37,18 @@ export default function Products() {
   // But the current UI shows "Pumps Section" and "Motors Section" separately.
   // Let's adapt the UI to show filtered results if a search is active.
 
-  const showFilteredView = !!searchQuery;
+  const showFilteredView = !!searchQuery || !!categoryFilter;
   
   // Group products by category for display
   const pumpProducts = showFilteredView ? filteredProducts.filter(p => p.category === 'pump') : products.filter(p => p.category === 'pump');
   const motorProducts = showFilteredView ? filteredProducts.filter(p => p.category === 'motor') : products.filter(p => p.category === 'motor');
+
+  const getPageTitle = () => {
+    if (searchQuery) return `${t('products.search_results')}: "${searchQuery}"`;
+    if (categoryFilter === 'pump') return t('nav.pumps');
+    if (categoryFilter === 'motor') return t('nav.motors');
+    return t('products.title');
+  };
 
   return (
     <Layout>
@@ -55,7 +62,7 @@ export default function Products() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container mx-auto px-6 relative z-10">
            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
-             {searchQuery ? `${t('products.search_results')}: "${searchQuery}"` : t('products.title')}
+             {getPageTitle()}
            </h1>
            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
              {t('products.subtitle')}
