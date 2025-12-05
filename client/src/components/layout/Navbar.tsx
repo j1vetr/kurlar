@@ -42,11 +42,6 @@ export function Navbar() {
       name: t('nav.products'),
       href: "/urunler"
     },
-    { 
-      type: "link", 
-      name: t('wizard.title'), 
-      href: "/pompa-secim-sihirbazi" 
-    },
     { type: "link", name: "Blog", href: "/blog" },
     { type: "link", name: t('nav.dealer_service'), href: "/bayi-servis" },
     {
