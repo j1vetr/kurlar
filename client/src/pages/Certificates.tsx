@@ -13,8 +13,8 @@ export default function Certificates() {
     {
       id: 'tse',
       code: 'TSE',
-      title: 'Türk Standartlarına Uygunluk Belgesi',
-      description: 'Ürünlerimizin Türk Standartları Enstitüsü tarafından belirlenen standartlara uygunluğunu belgeleyen sertifika.',
+      title: t('certs.tse.title'),
+      description: t('certs.tse.desc'),
       image: '/assets/certificates/tse.pdf', // Using PDF as source
       thumbnail: '/assets/quality/tse.png', // Fallback or generic thumb if needed, reusing existing asset or icon
       color: 'red'
@@ -22,8 +22,8 @@ export default function Certificates() {
     {
       id: 'ce-kp',
       code: 'CE - KP',
-      title: 'CE Uygunluk Beyanı (Pompalar)',
-      description: 'KP Serisi Dalgıç Pompaların Avrupa Birliği güvenlik, sağlık ve çevre koruma standartlarına uygunluğunu gösterir.',
+      title: t('certs.cekp.title'),
+      description: t('certs.cekp.desc'),
       image: '/assets/certificates/ce-kp.pdf',
       thumbnail: '/assets/quality/ce.png',
       color: 'blue'
@@ -31,8 +31,8 @@ export default function Certificates() {
     {
       id: 'ce-km',
       code: 'CE - KM',
-      title: 'CE Uygunluk Beyanı (Motorlar)',
-      description: 'KM Serisi Dalgıç Motorların Avrupa Birliği direktiflerine (LVD, EMC) tam uyumlu olduğunu belgeleyen deklarasyon.',
+      title: t('certs.cekm.title'),
+      description: t('certs.cekm.desc'),
       image: '/assets/certificates/ce-km.pdf',
       thumbnail: '/assets/quality/ce.png',
       color: 'blue'
