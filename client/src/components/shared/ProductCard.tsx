@@ -25,12 +25,8 @@ export function ProductCard({ product: baseProduct, className }: ProductCardProp
             className
           )}
         >
-          {/* Premium Badge for specific items if needed (optional logic) */}
-          {product.category === 'pump' && (
-            <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm border border-slate-100 text-[10px] font-bold px-2 py-1 rounded-full text-slate-600 shadow-sm uppercase tracking-wider">
-              {product.subCategory}
-            </div>
-          )}
+          {/* Premium Badge removed as per user request */}
+
 
           {/* Available Sizes Badge - NEW */}
           {product.availableSizes && (
