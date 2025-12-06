@@ -368,6 +368,35 @@ export default function ProductDetail() {
                           </table>
                         </div>
                       )}
+
+                      {/* Detailed SubSpecs Tables (from PDF) */}
+                      {product.subSpecs && product.subSpecs.map((spec, idx) => (
+                        <div key={idx} className="mt-8 border border-slate-200 rounded-sm overflow-hidden shadow-sm">
+                          <h4 className="bg-slate-100 px-4 py-3 font-bold text-slate-900 border-b border-slate-200 flex items-center gap-2">
+                             <Ruler className="w-4 h-4 text-primary" /> {spec.title}
+                          </h4>
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm text-left whitespace-nowrap">
+                              <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
+                                <tr>
+                                  {spec.columns.map((col, i) => (
+                                    <th key={i} className="px-4 py-3 border-b border-slate-200 border-r border-slate-200 last:border-r-0">{col}</th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200 bg-white">
+                                {spec.data.map((row, i) => (
+                                  <tr key={i} className="hover:bg-blue-50/50 transition-colors">
+                                    {row.map((cell, j) => (
+                                      <td key={j} className="px-4 py-3 font-medium text-slate-700 border-r border-slate-100 last:border-r-0 tabular-nums">{cell}</td>
+                                    ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      ))}
                   </div>
                 )}
 
