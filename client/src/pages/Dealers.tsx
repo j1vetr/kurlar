@@ -315,7 +315,7 @@ export default function Dealers() {
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h4 className="font-bold text-lg text-slate-800 group-hover:text-primary transition-colors">
-                        {dealer.name}
+                        {dealer.name.toLocaleUpperCase('tr-TR')}
                       </h4>
                       <div className="flex items-center gap-2 mt-1">
                          <span className="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
