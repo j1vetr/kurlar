@@ -122,12 +122,8 @@ export default function Home() {
                      <div className="aspect-[4/5] bg-slate-100 relative overflow-hidden flex items-center justify-center p-8">
                        <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        
-                       {/* Subcategory Badge */}
-                       <div className="absolute top-4 left-4 z-20">
-                         <span className="bg-white/90 backdrop-blur text-slate-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider border border-slate-100">
-                           {product.subCategory}
-                         </span>
-                       </div>
+                       {/* Subcategory Badge removed as per request */}
+
 
                        <img 
                          src={product.image} 

@@ -464,9 +464,7 @@ export default function ProductDetail() {
                            <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                            
                            <div className="absolute top-3 left-3 z-20">
-                             <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider border border-slate-200">
-                               {p.subCategory}
-                             </span>
+                             {/* Subcategory Badge removed as per request */}
                            </div>
 
                            <img 
