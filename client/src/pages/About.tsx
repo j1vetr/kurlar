@@ -142,63 +142,71 @@ export default function About() {
           </div>
         </div>
 
-        {/* History Timeline - Redesigned & Unique */}
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
+        {/* History Timeline - Horizontal Journey */}
+        <div className="max-w-full overflow-hidden">
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold text-slate-900 mb-3">{t('about.history.title')}</h2>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
             <p className="text-slate-500 mt-4 text-lg">{t('about.history.subtitle')}</p>
           </div>
           
-          <div className="relative">
-            {/* Central Line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-100 via-primary to-blue-100 transform -translate-x-1/2"></div>
+          <div className="relative py-20 overflow-x-auto custom-scrollbar pb-12">
+            <div className="min-w-max px-12 flex items-center relative">
+               {/* Central Horizontal Line */}
+               <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30"></div>
+               
+               <div className="flex gap-0">
+                  {[
+                    { year: '2022', desc: 'DALGIÇ POMPA FABRİKASININ İZMİR’E TAŞINMASI' },
+                    { year: '2019', desc: 'DALGIÇ MOTOR ÜRETİMİ İÇİN İZMİR’DE 25.000m² AÇIK – 10.250m² KAPALI ALANA SAHİP FABRİKA KURULUMU' },
+                    { year: '2012', desc: 'İHRACAT HACMİNDE 6 KITAYA ULAŞILDI' },
+                    { year: '2008', desc: '4000m²’LİK İLAVE FABRİKA KURULUMU' },
+                    { year: '2002', desc: 'DÜNYA’DA İLK KEZ BORU MUHAFAZALI UZUN KADEMELİ PASLANMAZ ÇELİK DALGIÇ POMPA YAPILMASI' },
+                    { year: '2000', desc: 'TÜRKİYE’DE İLK PASLANMAZ ÇELİK DALGIÇ POMPA İMALATINA BAŞLANMASI' },
+                    { year: '1999', desc: '2500m²’LİK İLAVE FABRİKA KURULUMU' },
+                    { year: '1996', desc: 'KURLAR İLK İHRACATINI GERÇEKLEŞTİRMESİ' },
+                    { year: '1991', desc: 'AR&GE’NİN İLK ADIMLARI ATILMASI, POMPA VE MOTORLARDA DİZAYN DEĞİŞİKLİĞİ YAPILMASI' },
+                    { year: '1989', desc: 'TÜRKİYE’NİN İLK TEKNOLOJİK POMPA VE MOTOR TEST LABORATUVARI KURULUMU' },
+                    { year: '1983', desc: '200m²’LİK FABRİKA KURULUMU' },
+                    { year: '1979', desc: 'DALGIÇ MOTOR ÜRETİMİNE BAŞLANMASI' },
+                    { year: '1977', desc: 'PİK DÖKÜM DALGIÇ POMPA ÜRETİMİNE BAŞLANMASI' },
+                    { year: '1975', desc: 'KURULUŞ' }
+                  ].map((item, index) => (
+                    <div key={index} className="w-[400px] flex flex-col items-center group relative px-4">
+                      
+                      {/* Top Card (Even Index) */}
+                      <div className={`mb-8 transition-all duration-500 transform ${index % 2 === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 hidden md:block md:opacity-0'}`}>
+                        {index % 2 === 0 && (
+                          <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative">
+                            <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-b border-r border-slate-100 rotate-45 group-hover:border-primary/30 transition-colors"></div>
+                            <span className="text-primary font-black text-3xl block mb-2">{item.year}</span>
+                            <p className="text-slate-600 text-sm font-medium uppercase leading-relaxed">{item.desc}</p>
+                          </div>
+                        )}
+                      </div>
 
-            <div className="space-y-12">
-              {[
-                { year: '2022', desc: 'DALGIÇ POMPA FABRİKASININ İZMİR’E TAŞINMASI' },
-                { year: '2019', desc: 'DALGIÇ MOTOR ÜRETİMİ İÇİN İZMİR’DE 25.000m² AÇIK – 10.250m² KAPALI ALANA SAHİP FABRİKA KURULUMU' },
-                { year: '2012', desc: 'İHRACAT HACMİNDE 6 KITAYA ULAŞILDI' },
-                { year: '2008', desc: '4000m²’LİK İLAVE FABRİKA KURULUMU' },
-                { year: '2002', desc: 'DÜNYA’DA İLK KEZ BORU MUHAFAZALI UZUN KADEMELİ PASLANMAZ ÇELİK DALGIÇ POMPA YAPILMASI' },
-                { year: '2000', desc: 'TÜRKİYE’DE İLK PASLANMAZ ÇELİK DALGIÇ POMPA İMALATINA BAŞLANMASI' },
-                { year: '1999', desc: '2500m²’LİK İLAVE FABRİKA KURULUMU' },
-                { year: '1996', desc: 'KURLAR İLK İHRACATINI GERÇEKLEŞTİRMESİ' },
-                { year: '1991', desc: 'AR&GE’NİN İLK ADIMLARI ATILMASI, POMPA VE MOTORLARDA DİZAYN DEĞİŞİKLİĞİ YAPILMASI' },
-                { year: '1989', desc: 'TÜRKİYE’NİN İLK TEKNOLOJİK POMPA VE MOTOR TEST LABORATUVARI KURULUMU' },
-                { year: '1983', desc: '200m²’LİK FABRİKA KURULUMU' },
-                { year: '1979', desc: 'DALGIÇ MOTOR ÜRETİMİNE BAŞLANMASI' },
-                { year: '1977', desc: 'PİK DÖKÜM DALGIÇ POMPA ÜRETİMİNE BAŞLANMASI' },
-                { year: '1975', desc: 'KURULUŞ' }
-              ].map((item, index) => (
-                <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                  {/* Content Side */}
-                  <div className="w-full md:w-1/2 text-center md:text-left p-8 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-2xl hover:border-blue-200 transition-all duration-300 relative group z-10">
-                     {/* Triangle Pointer */}
-                     <div className={`absolute top-1/2 transform -translate-y-1/2 w-5 h-5 bg-white border-t border-r border-slate-100 rotate-45 hidden md:block transition-all duration-300 group-hover:border-blue-200 ${index % 2 === 0 ? '-left-2.5 border-l border-b border-t-0 border-r-0' : '-right-2.5'}`}></div>
-                     
-                     {/* Background Year Watermark */}
-                     <span className="text-6xl font-black text-slate-50 absolute -top-2 right-4 select-none group-hover:text-blue-50 transition-colors duration-500 z-0">{item.year}</span>
-                     
-                     <div className="relative z-10">
-                       <div className="flex items-center gap-4 mb-3 justify-center md:justify-start">
-                         <span className="inline-block px-4 py-1.5 bg-primary text-white font-bold rounded-lg text-lg shadow-md shadow-primary/30">{item.year}</span>
-                         <div className="h-px flex-1 bg-slate-100"></div>
-                       </div>
-                       <p className="text-slate-700 font-medium leading-relaxed text-lg uppercase tracking-wide">{item.desc}</p>
-                     </div>
-                  </div>
+                      {/* Center Dot on Line */}
+                      <div className="relative z-10 flex items-center justify-center w-12 h-12 shrink-0 my-4">
+                        <div className="w-4 h-4 bg-white rounded-full border-4 border-primary shadow-lg z-10 group-hover:scale-150 group-hover:border-blue-400 transition-transform duration-300"></div>
+                        <div className="absolute w-10 h-10 bg-primary/10 rounded-full animate-pulse group-hover:bg-primary/20"></div>
+                        {/* Vertical connector line */}
+                        <div className={`absolute w-0.5 bg-primary/20 h-12 z-0 ${index % 2 === 0 ? 'bottom-1/2' : 'top-1/2'}`}></div>
+                      </div>
 
-                  {/* Center Point */}
-                  <div className="relative flex items-center justify-center w-12 h-12 shrink-0">
-                    <div className="w-4 h-4 bg-white rounded-full border-4 border-primary shadow-lg z-10 group-hover:scale-125 transition-transform duration-300"></div>
-                    <div className="absolute w-8 h-8 bg-primary/20 rounded-full animate-pulse"></div>
-                  </div>
-
-                  {/* Empty Side for Balance */}
-                  <div className="w-full md:w-1/2 hidden md:block"></div>
-                </div>
-              ))}
+                      {/* Bottom Card (Odd Index) */}
+                      <div className={`mt-8 transition-all duration-500 transform ${index % 2 !== 0 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 hidden md:block md:opacity-0'}`}>
+                        {index % 2 !== 0 && (
+                          <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative">
+                            <div className="absolute top-[-8px] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 rotate-45 group-hover:border-primary/30 transition-colors"></div>
+                            <span className="text-primary font-black text-3xl block mb-2">{item.year}</span>
+                            <p className="text-slate-600 text-sm font-medium uppercase leading-relaxed">{item.desc}</p>
+                          </div>
+                        )}
+                      </div>
+                      
+                    </div>
+                  ))}
+               </div>
             </div>
           </div>
         </div>
