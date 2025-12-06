@@ -142,21 +142,36 @@ export default function About() {
           </div>
         </div>
 
-        {/* History Timeline - Horizontal Journey */}
-        <div className="max-w-full overflow-hidden">
-          <div className="text-center mb-16">
+        {/* History Timeline - Horizontal Infinite Scroll */}
+        <div className="w-full overflow-hidden py-12 bg-slate-50/50 border-y border-slate-200/60">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-heading font-bold text-slate-900 mb-3">{t('about.history.title')}</h2>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
             <p className="text-slate-500 mt-4 text-lg">{t('about.history.subtitle')}</p>
           </div>
           
-          <div className="relative py-20 overflow-x-auto custom-scrollbar pb-12">
-            <div className="min-w-max px-12 flex items-center relative">
-               {/* Central Horizontal Line */}
-               <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30"></div>
-               
-               <div className="flex gap-0">
-                  {[
+          <div className="relative w-full">
+            {/* Gradient Masks */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none"></div>
+
+            {/* Central Line Background */}
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/5 via-primary/20 to-primary/5 z-0"></div>
+
+            <motion.div 
+              className="flex gap-0 items-center"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ 
+                repeat: Infinity, 
+                ease: "linear", 
+                duration: 60, // Slow and steady
+              }}
+              style={{ width: "fit-content" }}
+              whileHover={{ animationPlayState: "paused" }} // Note: specific CSS override might be needed for true pause
+            >
+               {/* Duplicate data for seamless loop */}
+               {[
+                 ...[
                     { year: '2022', desc: 'DALGIÇ POMPA FABRİKASININ İZMİR’E TAŞINMASI' },
                     { year: '2019', desc: 'DALGIÇ MOTOR ÜRETİMİ İÇİN İZMİR’DE 25.000m² AÇIK – 10.250m² KAPALI ALANA SAHİP FABRİKA KURULUMU' },
                     { year: '2012', desc: 'İHRACAT HACMİNDE 6 KITAYA ULAŞILDI' },
@@ -171,43 +186,65 @@ export default function About() {
                     { year: '1979', desc: 'DALGIÇ MOTOR ÜRETİMİNE BAŞLANMASI' },
                     { year: '1977', desc: 'PİK DÖKÜM DALGIÇ POMPA ÜRETİMİNE BAŞLANMASI' },
                     { year: '1975', desc: 'KURULUŞ' }
-                  ].map((item, index) => (
-                    <div key={index} className="w-[400px] flex flex-col items-center group relative px-4">
+                  ],
+                  ...[
+                    { year: '2022', desc: 'DALGIÇ POMPA FABRİKASININ İZMİR’E TAŞINMASI' },
+                    { year: '2019', desc: 'DALGIÇ MOTOR ÜRETİMİ İÇİN İZMİR’DE 25.000m² AÇIK – 10.250m² KAPALI ALANA SAHİP FABRİKA KURULUMU' },
+                    { year: '2012', desc: 'İHRACAT HACMİNDE 6 KITAYA ULAŞILDI' },
+                    { year: '2008', desc: '4000m²’LİK İLAVE FABRİKA KURULUMU' },
+                    { year: '2002', desc: 'DÜNYA’DA İLK KEZ BORU MUHAFAZALI UZUN KADEMELİ PASLANMAZ ÇELİK DALGIÇ POMPA YAPILMASI' },
+                    { year: '2000', desc: 'TÜRKİYE’DE İLK PASLANMAZ ÇELİK DALGIÇ POMPA İMALATINA BAŞLANMASI' },
+                    { year: '1999', desc: '2500m²’LİK İLAVE FABRİKA KURULUMU' },
+                    { year: '1996', desc: 'KURLAR İLK İHRACATINI GERÇEKLEŞTİRMESİ' },
+                    { year: '1991', desc: 'AR&GE’NİN İLK ADIMLARI ATILMASI, POMPA VE MOTORLARDA DİZAYN DEĞİŞİKLİĞİ YAPILMASI' },
+                    { year: '1989', desc: 'TÜRKİYE’NİN İLK TEKNOLOJİK POMPA VE MOTOR TEST LABORATUVARI KURULUMU' },
+                    { year: '1983', desc: '200m²’LİK FABRİKA KURULUMU' },
+                    { year: '1979', desc: 'DALGIÇ MOTOR ÜRETİMİNE BAŞLANMASI' },
+                    { year: '1977', desc: 'PİK DÖKÜM DALGIÇ POMPA ÜRETİMİNE BAŞLANMASI' },
+                    { year: '1975', desc: 'KURULUŞ' }
+                  ]
+               ].map((item, index) => (
+                    <div key={index} className="w-[400px] flex flex-col items-center group relative px-6 shrink-0">
                       
                       {/* Top Card (Even Index) */}
-                      <div className={`mb-8 transition-all duration-500 transform ${index % 2 === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 hidden md:block md:opacity-0'}`}>
-                        {index % 2 === 0 && (
-                          <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative">
-                            <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-b border-r border-slate-100 rotate-45 group-hover:border-primary/30 transition-colors"></div>
-                            <span className="text-primary font-black text-3xl block mb-2">{item.year}</span>
-                            <p className="text-slate-600 text-sm font-medium uppercase leading-relaxed">{item.desc}</p>
+                      <div className={`mb-8 transition-all duration-500 transform w-full ${index % 2 === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                        {index % 2 === 0 ? (
+                          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-lg hover:shadow-xl hover:border-primary/50 transition-all duration-300 relative min-h-[160px] flex flex-col justify-center text-center group-hover:-translate-y-2">
+                            <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-b border-r border-slate-200 rotate-45 group-hover:border-primary/50 transition-colors"></div>
+                            <span className="text-5xl font-black text-slate-100 absolute top-2 right-4 z-0 group-hover:text-blue-50 transition-colors">{item.year}</span>
+                            <div className="relative z-10">
+                               <span className="text-primary font-bold text-2xl block mb-2">{item.year}</span>
+                               <p className="text-slate-600 text-xs font-bold uppercase leading-relaxed tracking-wide line-clamp-4">{item.desc}</p>
+                            </div>
                           </div>
-                        )}
+                        ) : <div className="min-h-[160px]"></div>}
                       </div>
 
                       {/* Center Dot on Line */}
-                      <div className="relative z-10 flex items-center justify-center w-12 h-12 shrink-0 my-4">
-                        <div className="w-4 h-4 bg-white rounded-full border-4 border-primary shadow-lg z-10 group-hover:scale-150 group-hover:border-blue-400 transition-transform duration-300"></div>
-                        <div className="absolute w-10 h-10 bg-primary/10 rounded-full animate-pulse group-hover:bg-primary/20"></div>
+                      <div className="relative z-10 flex items-center justify-center w-10 h-10 shrink-0 my-0">
+                        <div className="w-3 h-3 bg-white rounded-full border-[3px] border-primary shadow-lg z-10 group-hover:scale-150 group-hover:border-blue-400 transition-transform duration-300"></div>
+                        <div className="absolute w-8 h-8 bg-primary/10 rounded-full animate-pulse group-hover:bg-primary/20"></div>
                         {/* Vertical connector line */}
-                        <div className={`absolute w-0.5 bg-primary/20 h-12 z-0 ${index % 2 === 0 ? 'bottom-1/2' : 'top-1/2'}`}></div>
+                        <div className={`absolute w-0.5 bg-primary/20 h-[180px] z-0 ${index % 2 === 0 ? 'bottom-1/2' : 'top-1/2'}`}></div>
                       </div>
 
                       {/* Bottom Card (Odd Index) */}
-                      <div className={`mt-8 transition-all duration-500 transform ${index % 2 !== 0 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 hidden md:block md:opacity-0'}`}>
-                        {index % 2 !== 0 && (
-                          <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative">
-                            <div className="absolute top-[-8px] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 rotate-45 group-hover:border-primary/30 transition-colors"></div>
-                            <span className="text-primary font-black text-3xl block mb-2">{item.year}</span>
-                            <p className="text-slate-600 text-sm font-medium uppercase leading-relaxed">{item.desc}</p>
+                      <div className={`mt-8 transition-all duration-500 transform w-full ${index % 2 !== 0 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+                        {index % 2 !== 0 ? (
+                          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-lg hover:shadow-xl hover:border-primary/50 transition-all duration-300 relative min-h-[160px] flex flex-col justify-center text-center group-hover:translate-y-2">
+                            <div className="absolute top-[-8px] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-200 rotate-45 group-hover:border-primary/50 transition-colors"></div>
+                            <span className="text-5xl font-black text-slate-100 absolute bottom-2 right-4 z-0 group-hover:text-blue-50 transition-colors">{item.year}</span>
+                            <div className="relative z-10">
+                               <span className="text-primary font-bold text-2xl block mb-2">{item.year}</span>
+                               <p className="text-slate-600 text-xs font-bold uppercase leading-relaxed tracking-wide line-clamp-4">{item.desc}</p>
+                            </div>
                           </div>
-                        )}
+                        ) : <div className="min-h-[160px]"></div>}
                       </div>
                       
                     </div>
                   ))}
-               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
