@@ -903,8 +903,8 @@ const descriptions = {
         'Maksimum 75°C ve 90°C sıcaklık opsiyonu'
       ],
       faq: [
-        { question: "Maksimum çalışma sıcaklığı nedir?", answer: "Hi-Temp motorlarımız standart olarak 75°C, opsiyonel olarak 90°C su sıcaklığına kadar sorunsuz çalışır." },
-        { question: "Standart motordan farkı nedir?", answer: "Yüksek sıcaklığa dayanıklı özel bobin teli (XLPE) ve yalıtım malzemeleri kullanılarak üretilmiştir." }
+        { question: "Maksimum çalışma sıcaklığı nedir?", answer: "60 derece standart , 75 - 90 derece opsiyonel" },
+        { question: "Standart motordan farkı nedir?", answer: "Yüksek sıcaklığa dayanıklı özel bobin teli ve yalıtım malzemeleri kullanılarak üretilmiştir." }
       ]
     },
     EN: {

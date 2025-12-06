@@ -166,7 +166,7 @@ export default function ProductDetail() {
                   <span className="bg-slate-900 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
                     {product.subCategory}
                   </span>
-                  {product.category === 'pump' && (
+                  {product.category === 'motor' && (
                     <span className="bg-primary text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
                       IP68
                     </span>
