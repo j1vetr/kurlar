@@ -132,6 +132,8 @@ const translations: Translations = {
   'product.efficiency_value': { TR: 'Yüksek (PBN Tel)', EN: 'High (PBN Wire)', AR: 'عالية (سلك PBN)', ES: 'Alta (Cable PBN)', PT: 'Alta (Fio PBN)' },
   'product.why_choose': { TR: 'Neden Bu Seri?', EN: 'Why Choose This Series?', AR: 'لماذا تختار هذه السلسلة؟', ES: '¿Por Qué Elegir Esta Serie?', PT: 'Por Que Escolher Esta Série?' },
   'product.customization_options': { TR: 'Özelleştirme Seçenekleri', EN: 'Customization Options', AR: 'خيارات التخصيص', ES: 'Opciones de Personalización', PT: 'Opções de Personalização' },
+  'product.jump_to_technical': { TR: 'Teknik Verilere Git', EN: 'Go to Technical Data', AR: 'الذهاب إلى البيانات الفنية', ES: 'Ir a Datos Técnicos', PT: 'Ir para Dados Técnicos' },
+  'product.jump_to_dimensions': { TR: 'Ölçü ve Ağırlıklara Git', EN: 'Go to Dimensions & Weights', AR: 'الذهاب إلى الأبعاد والأوزان', ES: 'Ir a Dimensiones y Pesos', PT: 'Ir para Dimensões e Pesos' },
   
   // Products Page
   'products.search_results': { TR: 'Arama Sonuçları', EN: 'Search Results', AR: 'نتائج البحث', ES: 'Resultados de la Búsqueda', PT: 'Resultados da Pesquisa' },

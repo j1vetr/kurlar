@@ -464,7 +464,32 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       </div>
                                     ))}
                                  </div>
-                              </motion.div>
+
+                                 {/* Quick Navigation Buttons */}
+                                 <div className="mt-8 flex flex-wrap gap-4">
+                                    <button 
+                                      onClick={() => {
+                                        const el = document.getElementById('performance-section');
+                                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      }}
+                                      className="flex items-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold transition-all text-sm group"
+                                    >
+                                      <Activity className="w-4 h-4 text-slate-500 group-hover:text-primary transition-colors" />
+                                      {t('product.jump_to_technical')}
+                                      <ArrowDown className="w-4 h-4 ml-1 opacity-50" />
+                                    </button>
+                                    <button 
+                                      onClick={() => {
+                                        const el = document.getElementById('dimensions-section');
+                                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      }}
+                                      className="flex items-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold transition-all text-sm group"
+                                    >
+                                      <Box className="w-4 h-4 text-slate-500 group-hover:text-primary transition-colors" />
+                                      {t('product.jump_to_dimensions')}
+                                      <ArrowDown className="w-4 h-4 ml-1 opacity-50" />
+                                    </button>
+                                 </div>                              </motion.div>
                             )}
 
                             {activeDetailTab === 'options' && (
@@ -523,7 +548,11 @@ function HiTempProductLayout({ product }: { product: any }) {
 
                  {/* Data Tables - "Monitor" Style */}
                  {product.subSpecs?.filter((s: any) => s.title.includes(activeSeries + '"')).map((spec: any, idx: number) => (
-                    <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div 
+                      key={idx} 
+                      id={spec.title.includes('Sandık') || spec.title.includes('Weights') ? "dimensions-section" : "performance-section"}
+                      className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+                    >
                        <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
                           <h3 className="font-bold text-slate-700 flex items-center gap-2 text-sm uppercase tracking-wider">
                              {spec.title.includes('Sandık') ? <Box className="w-4 h-4" /> : <Settings className="w-4 h-4" />}
