@@ -103,6 +103,16 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <span className="text-white font-black tracking-widest text-sm">KM</span>
                     </div>
                   </div>
+
+                  {/* Quality Logos */}
+                  <div className="absolute top-6 right-6 flex flex-col gap-2 z-20">
+                    <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50">
+                      <img src="/assets/quality/ce.png" alt="CE" className="w-8 h-8 object-contain" />
+                    </div>
+                    <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50">
+                      <img src="/assets/quality/tse.png" alt="TSE" className="w-8 h-8 object-contain" />
+                    </div>
+                  </div>
                   
                   <div className="relative h-[350px] md:h-[450px] flex items-center justify-center p-4 z-20">
                      <div className="relative w-full h-full filter drop-shadow-[0_0_25px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:drop-shadow-[0_0_35px_rgba(255,255,255,0.2)]">
