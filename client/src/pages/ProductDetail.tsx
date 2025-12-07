@@ -152,14 +152,11 @@ function HiTempProductLayout({ product }: { product: any }) {
             {/* Right Column: Text Content */}
             <div className="w-full lg:w-7/12">
               <div className="flex items-center gap-3 mb-6">
-                <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-lg shadow-primary/25">
-                  <Thermometer className="w-3 h-3" /> Hi-Temp Series
-                </span>
                 <span className="bg-slate-800/50 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-slate-700">
-                  IP68 Protection
+                  IP68
                 </span>
                 <span className="bg-slate-800/50 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-slate-700 flex items-center gap-1">
-                  <Box className="w-3 h-3" /> 6" - 7" - 8" - 10"
+                  <Ruler className="w-3 h-3" /> 6" - 7" - 8" - 10"
                 </span>
               </div>
               
@@ -168,7 +165,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                   {product.name}
                 </h1>
                 <div className="text-white/80 text-lg font-medium tracking-wide flex items-center gap-2">
-                  Model No : <span className="text-primary font-bold text-xl">KM</span>
+                  Model No : <span className="text-white font-bold text-xl bg-primary/20 px-2 py-0.5 rounded border border-primary/30">KM</span>
                 </div>
               </div>
               
@@ -180,15 +177,15 @@ function HiTempProductLayout({ product }: { product: any }) {
                  <div className="flex items-center gap-3 bg-slate-800/30 border border-slate-700/50 p-3 rounded-lg">
                     <Thermometer className="w-5 h-5 text-primary" />
                     <div className="text-sm">
-                       <div className="text-slate-400 text-xs uppercase font-bold">Max Temp</div>
-                       <div className="text-white font-bold">Up to 90°C</div>
+                       <div className="text-slate-400 text-xs uppercase font-bold">{t('product.max_temp')}</div>
+                       <div className="text-white font-bold">{t('product.temp_value')}</div>
                     </div>
                  </div>
                  <div className="flex items-center gap-3 bg-slate-800/30 border border-slate-700/50 p-3 rounded-lg">
                     <Zap className="w-5 h-5 text-primary" />
                     <div className="text-sm">
-                       <div className="text-slate-400 text-xs uppercase font-bold">Efficiency</div>
-                       <div className="text-white font-bold">High (PBN Wire)</div>
+                       <div className="text-slate-400 text-xs uppercase font-bold">{t('product.efficiency')}</div>
+                       <div className="text-white font-bold">{t('product.efficiency_value')}</div>
                     </div>
                  </div>
               </div>
