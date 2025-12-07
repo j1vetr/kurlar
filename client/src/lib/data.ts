@@ -1084,6 +1084,51 @@ const descriptions = {
             'Sarılabilir tip ve kolay ulaşılabilir yedek parçalar ile uzun ömürlü',
             'Mekanik keçe SIC/SIC-NBR-304 olarak üretilebilir'
           ]
+        },
+        '7': {
+          technicalSpecs: [
+            '22kW’tan 75kW’a (30HP’den 100HP’ye) Kadar Motor Opsiyonu',
+            '6" NEMA Standartlarına Uygun Üst Flanş',
+            'Koruma Sınıfı : IP86',
+            'Saat’teki Maksimum Yol Verme : 16',
+            'Kurulum Pozisyonu : Dikey ve Yatay',
+            'Saat Yönünde ve Tersine Çalışma Yönü',
+            'Motor Kablo Uzunluğu : 4m',
+            'Standart Voltaj : 380/415V – 50Hz',
+            'Voltaj Toleransı (50 Hz) ±%10',
+            '60°C Ortam Sıcaklığındaki Min. Soğutma Akış Hızı : v=0.5 m/s'
+          ],
+          options: [
+            'Motorlar komple AISI 304, AISI 316, 904L ve Bronz olarak üretilebilir',
+            'Motorlar 6" NEMA Standartı’nda Çift-Flanş olarak üretilebilir',
+            'PT100 Sensör',
+            'Motorlar İçme Suyu Mevzuatı’na uygun Kablo ile üretilebilir (VDE & ACS & KTW Onaylı)',
+            'Kablo 100m’ye kadar istenilen ölçüde üretilebilir',
+            'Direkt ve Yıldız/Üçgen Yol Verme',
+            '4 Damarlı Kablo ile Üretilebilir (3 Faz & 1 Topraklama)',
+            'Motorlar 500V, 525V, 630V ve 1000V’a uygun olarak üretilebilir (Teknik özellikler için KURLAR ile iletişime geçiniz)',
+            'Motorlar 75°C ve 90°C olarak üretilebilir',
+            '22kW–45kW (30HP–60HP) Motorlar 45kN Eksenel Yük Taşıma Kapasitesi ile üretilebilir',
+            'Mekanik Keçe SIC/SIC-NBR-304 olarak üretilebilir'
+          ],
+          advantages: [
+            'Düşük İşletme Maliyeti için Yüksek Verimli Dizayn',
+            'Yüksek Sıcaklık için Özel İzolasyonlu Bobin Teli (PBN)',
+            '60°C’de Üstün Performans',
+            'Standart Motorlara göre Daha Uzun Ömürlü',
+            'Su Soğutmalı Dalgıç Motor',
+            'Bütün Motorlar Saf Su ve Antifriz Karışımı ile Doldurulup Test Edilmiştir',
+            'Voltaj Dalgalanmalarına Karşı Yüksek Dayanım',
+            'Motorun Kendini Soğutamadığı ve Su Akışının Yetersiz Olduğu Kuyularda Yüksek Dayanıklılık',
+            'Paslanmaz Çelik Motor Mili',
+            'NBR Kum Çanı',
+            'Basınç değişikliklerini kontrol etmesi için Paslanmaz Çelik ya da Bronz Basınç Dengeleyici Çek-Valf',
+            'Genleşme Basıncını Minimize Eden NBR Diyafram',
+            'Mekanik Keçe : Hot CA-95CE-NBR-304',
+            'PT100 Sensörüne Uygun Dizayn',
+            'Yumuşak-Kalkış ve VFD (30 Hz üzerinde) ile Kullanılabilirlik',
+            'Sarılabilir Tip ve Kolay Ulaşılabilir Yedek Parçalar ile Uzun Ömürlü'
+          ]
         }
       }
     },
