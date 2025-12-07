@@ -123,6 +123,8 @@ const translations: Translations = {
   'product.triphase': { TR: 'Trifaze', EN: 'Triphase', AR: 'ثلاثي الطور', ES: 'Trifásico', PT: 'Trifásico' },
   'product.category.pump': { TR: 'Dalgıç Pompa', EN: 'Submersible Pump', AR: 'مضخة غاطسة', ES: 'Bomba Sumergible', PT: 'Bomba Submersível' },
   'product.category.motor': { TR: 'Dalgıç Motor', EN: 'Submersible Motor', AR: 'محرك غاطس', ES: 'Motor Sumergible', PT: 'Motor Submersível' },
+  'product.technical_details': { TR: 'Teknik Detaylar', EN: 'Technical Details', AR: 'تفاصيل فنية', ES: 'Detalles Técnicos', PT: 'Detalhes Técnicos' },
+  'product.download_catalog': { TR: 'Katalog İndir', EN: 'Download Catalog', AR: 'تحميل الكتالوج', ES: 'Descargar Catálogo', PT: 'Baixar Catálogo' },
   'product.hover_zoom': { TR: 'Yakınlaştırmak için üzerine gelin', EN: 'Hover to zoom', AR: 'تحوم للتكبير', ES: 'Pase el ratón para ampliar', PT: 'Passe o mouse para ampliar' },
   
   // Products Page
