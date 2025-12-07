@@ -179,11 +179,19 @@ function HiTempProductLayout({ product }: { product: any }) {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Link href="/iletisim#contact-form">
-                  <Button className="bg-primary hover:bg-primary/90 text-white h-12 px-8 rounded-full font-bold text-lg shadow-lg shadow-primary/25 transition-all hover:scale-105 active:scale-95">
-                    {t('product.request_quote')}
-                  </Button>
-                </Link>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('technical-details');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                      setActiveSeries("overview");
+                    }
+                  }}
+                  className="bg-primary hover:bg-primary/90 text-white h-12 px-8 rounded-full font-bold text-lg shadow-lg shadow-primary/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+                >
+                  <Settings className="w-5 h-5" />
+                  {t('product.technical_details') || "Teknik Detaylar"}
+                </button>
                 <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white h-12 px-8 rounded-full font-bold text-lg bg-transparent transition-all">
                     <Download className="mr-2 w-5 h-5" /> {t('product.download_catalog')}
@@ -196,53 +204,67 @@ function HiTempProductLayout({ product }: { product: any }) {
       </div>
 
       {/* Main Content - Industrial Dashboard Layout */}
-      <div className="bg-slate-50 min-h-screen relative">
+      <div className="bg-slate-50 min-h-screen relative" id="technical-details">
         {/* Technical Background Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
 
         {/* Sticky Industrial Navigation Bar */}
         <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
           <div className="container mx-auto px-6">
-            <div className="flex items-center justify-between h-16 md:h-20 overflow-x-auto scrollbar-hide gap-4">
+            <div className="flex items-center justify-between h-20 md:h-24 overflow-x-auto scrollbar-hide gap-4">
               
               {/* Overview Toggle */}
               <button 
                 onClick={() => setActiveSeries("overview")}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 whitespace-nowrap",
+                  "flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 whitespace-nowrap border-2",
                   activeSeries === "overview" 
-                    ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20" 
-                    : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+                    ? "bg-slate-900 text-white border-slate-900 shadow-lg shadow-slate-900/20 scale-105" 
+                    : "bg-white text-slate-500 border-slate-100 hover:border-slate-300 hover:text-slate-900"
                 )}
               >
-                <Info className="w-4 h-4" />
-                <span className="font-bold tracking-wide">SİSTEM GENEL BAKIŞ</span>
+                <Info className="w-5 h-5" />
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-[10px] uppercase tracking-wider opacity-60 font-bold">Sistem</span>
+                  <span className="font-bold tracking-wide text-sm">GENEL BAKIŞ</span>
+                </div>
               </button>
 
               {/* Connector Line */}
-              <div className="h-8 w-px bg-slate-200 hidden md:block"></div>
+              <div className="h-10 w-px bg-slate-200 hidden md:block"></div>
 
               {/* Series Selectors */}
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">Seri Seçimi:</span>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">Model Seçimi:</span>
                 {['6', '7', '8', '10'].map(size => (
                   <button
                     key={size}
                     onClick={() => setActiveSeries(size)}
                     className={cn(
-                      "relative group flex flex-col items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-xl border-2 transition-all duration-300",
+                      "relative group flex flex-col items-center justify-center w-14 h-14 md:w-20 md:h-16 rounded-xl border-2 transition-all duration-300 overflow-hidden",
                       activeSeries === size
-                        ? "border-primary bg-primary/5 shadow-lg shadow-primary/20 scale-110"
+                        ? "border-primary bg-primary/5 shadow-lg shadow-primary/20 scale-110 z-10"
                         : "border-slate-200 bg-white hover:border-primary/50 hover:bg-slate-50"
                     )}
                   >
-                    <span className={cn(
-                      "text-sm md:text-base font-bold",
-                      activeSeries === size ? "text-primary" : "text-slate-400 group-hover:text-slate-600"
-                    )}>{size}"</span>
+                    <div className="flex flex-col items-center leading-none relative z-10">
+                       <span className={cn(
+                         "text-lg md:text-xl font-black",
+                         activeSeries === size ? "text-primary" : "text-slate-600 group-hover:text-slate-800"
+                       )}>{size}"</span>
+                       <span className={cn(
+                         "text-[9px] uppercase font-bold tracking-wider mt-0.5",
+                         activeSeries === size ? "text-primary/80" : "text-slate-400"
+                       )}>Serisi</span>
+                    </div>
+                    
+                    {/* Active Indicator Line */}
                     {activeSeries === size && (
-                      <span className="absolute -bottom-1.5 w-1.5 h-1.5 bg-primary rounded-full"></span>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-primary"></div>
                     )}
+                    
+                    {/* Hover Effect Background */}
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </button>
                 ))}
               </div>
