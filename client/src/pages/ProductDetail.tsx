@@ -74,25 +74,43 @@ function HiTempProductLayout({ product }: { product: any }) {
             <div className="w-full lg:w-5/12">
               <div className="relative">
                 {/* Main Image Container */}
-                <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 mb-4 relative group">
+                <div className="relative rounded-2xl p-8 mb-4 group overflow-hidden border border-slate-700/50 shadow-2xl">
+                  
+                  {/* Studio Background - Radial Spotlight */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-700/80 via-slate-900 to-slate-950 z-0"></div>
+                  
+                  {/* Grid Pattern Overlay */}
+                  <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-0 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] z-0"></div>
+
+                  {/* Side "Lights" - Blue/Cold Tech Lighting */}
+                  <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-blue-500/10 to-transparent blur-2xl z-10"></div>
+                  <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-blue-500/10 to-transparent blur-2xl z-10"></div>
+                  
+                  {/* Top "Spotlight" - White/Bright */}
+                  <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-full h-40 bg-white/10 blur-[80px] z-10 rounded-full"></div>
+
+                  {/* Decorative Tech Corners */}
+                  <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-lg z-20"></div>
+                  <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary/50 rounded-tr-lg z-20"></div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary/50 rounded-bl-lg z-20"></div>
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-lg z-20"></div>
+
                   {/* Decorative Elements */}
-                  <div className="absolute top-4 left-4 flex flex-col gap-2 z-20">
-                    <div className="bg-slate-900/80 backdrop-blur border border-slate-700 p-2 rounded-lg shadow-xl">
+                  <div className="absolute top-6 left-6 flex flex-col gap-2 z-20">
+                    <div className="bg-slate-900/90 backdrop-blur border border-slate-700/50 p-2 rounded-lg shadow-xl">
                       <Thermometer className="w-5 h-5 text-red-500" />
                     </div>
                   </div>
                   
-                  <div className="relative h-[300px] md:h-[400px] flex items-center justify-center p-4">
-                     {/* Glow Effect behind image */}
-                     <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full transform scale-75 opacity-50 group-hover:opacity-75 transition-opacity duration-700"></div>
-                     
-                     <div className="relative z-10 w-full h-full">
+                  <div className="relative h-[350px] md:h-[450px] flex items-center justify-center p-4 z-20">
+                     <div className="relative w-full h-full filter drop-shadow-[0_0_25px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:drop-shadow-[0_0_35px_rgba(255,255,255,0.2)]">
                        <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
                      </div>
                   </div>
 
                   {/* Zoom Hint */}
-                  <div className="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur text-slate-400 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 pointer-events-none">
+                  <div className="absolute bottom-6 right-6 bg-slate-900/80 backdrop-blur text-slate-400 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 pointer-events-none z-20">
                     <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                     Hover to zoom
                   </div>
