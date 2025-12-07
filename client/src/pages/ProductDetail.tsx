@@ -387,6 +387,63 @@ function HiTempProductLayout({ product }: { product: any }) {
                     </div>
                  </div>
 
+                 {/* Series Specific Details (Specs, Options, Advantages) */}
+                 {product.seriesDetails && product.seriesDetails[activeSeries] && (
+                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                      {/* Technical Specs */}
+                      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-full">
+                        <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                           <div className="bg-slate-100 p-1.5 rounded-lg"><Settings className="w-4 h-4 text-slate-700"/></div>
+                           Technical Specifications
+                        </h3>
+                        <ul className="space-y-3">
+                           {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
+                             <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
+                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                               <span className="leading-relaxed">{item}</span>
+                             </li>
+                           ))}
+                        </ul>
+                      </div>
+
+                      {/* Options & Advantages */}
+                      <div className="space-y-6">
+                         {/* Options */}
+                         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+                            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                               <div className="bg-slate-100 p-1.5 rounded-lg"><Sliders className="w-4 h-4 text-slate-700"/></div>
+                               Options
+                            </h3>
+                            <ul className="space-y-3">
+                               {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
+                                 <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
+                                   <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-1.5 flex-shrink-0"></div>
+                                   <span className="leading-relaxed">{item}</span>
+                                 </li>
+                               ))}
+                            </ul>
+                         </div>
+
+                         {/* Advantages */}
+                         <div className="bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-lg p-6 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full"></div>
+                            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 relative z-10">
+                               <div className="bg-white/10 p-1.5 rounded-lg"><Zap className="w-4 h-4 text-primary"/></div>
+                               Product Advantages
+                            </h3>
+                            <ul className="space-y-3 relative z-10">
+                               {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
+                                 <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
+                                   <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-1.5 flex-shrink-0 shadow-[0_0_8px_rgba(74,222,128,0.5)]"></div>
+                                   <span className="leading-relaxed">{item}</span>
+                                 </li>
+                               ))}
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+                 )}
+
                  {/* Data Tables - "Monitor" Style */}
                  {product.subSpecs?.filter((s: any) => s.title.includes(activeSeries + '"')).map((spec: any, idx: number) => (
                     <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
