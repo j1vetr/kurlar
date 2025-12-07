@@ -421,36 +421,22 @@ function HiTempProductLayout({ product }: { product: any }) {
                             {activeDetailTab === 'specs' && (
                               <motion.div
                                 key="specs"
-                                initial={{ opacity: 0, scale: 0.98 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.98 }}
-                                transition={{ duration: 0.3 }}
-                                className="relative"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
                               >
-                                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                                    <Settings className="w-64 h-64 text-slate-900" />
+                                 <div className="flex items-center gap-3 mb-6">
+                                    <div className="bg-slate-100 p-2 rounded-lg"><Settings className="w-5 h-5 text-slate-700"/></div>
+                                    <h3 className="text-xl font-bold text-slate-900">Technical Specifications</h3>
                                  </div>
-                                 
-                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
-                                    {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => {
-                                      // Simple logic to guess icon based on content
-                                      let Icon = Activity;
-                                      if (item.includes('Power') || item.includes('kW') || item.includes('HP')) Icon = Zap;
-                                      if (item.includes('Voltage') || item.includes('Voltaj')) Icon = Zap;
-                                      if (item.includes('Protection') || item.includes('Koruma')) Icon = Shield;
-                                      if (item.includes('Temp') || item.includes('Sıcaklık')) Icon = Thermometer;
-                                      if (item.includes('Cable') || item.includes('Kablo')) Icon = Layers;
-                                      if (item.includes('Flange') || item.includes('Flanş')) Icon = Box;
-                                      
-                                      return (
-                                        <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-300 hover:shadow-md transition-all group">
-                                           <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:border-primary/50 transition-all">
-                                              <Icon className="w-5 h-5 text-slate-500 group-hover:text-primary transition-colors" />
-                                           </div>
-                                           <span className="text-sm font-medium text-slate-700 leading-relaxed group-hover:text-slate-900">{item}</span>
-                                        </div>
-                                      );
-                                    })}
+                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                                    {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
+                                      <div key={idx} className="flex items-start gap-3 py-2 border-b border-slate-50 last:border-0 group">
+                                        <div className="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 flex-shrink-0 group-hover:bg-primary transition-colors"></div>
+                                        <span className="text-slate-600 group-hover:text-slate-900 transition-colors leading-relaxed">{item}</span>
+                                      </div>
+                                    ))}
                                  </div>
                               </motion.div>
                             )}
@@ -458,25 +444,21 @@ function HiTempProductLayout({ product }: { product: any }) {
                             {activeDetailTab === 'options' && (
                               <motion.div
                                 key="options"
-                                initial={{ opacity: 0, scale: 0.98 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.98 }}
-                                transition={{ duration: 0.3 }}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
                               >
-                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                                 <div className="flex items-center gap-3 mb-6">
+                                    <div className="bg-blue-50 p-2 rounded-lg"><Sliders className="w-5 h-5 text-blue-600"/></div>
+                                    <h3 className="text-xl font-bold text-slate-900">Customization Options</h3>
+                                 </div>
+                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
-                                      <div key={idx} className="group relative overflow-hidden bg-white rounded-xl border border-slate-200 p-5 hover:shadow-lg hover:border-blue-300 transition-all duration-300">
-                                         <div className="absolute top-0 left-0 w-1 h-full bg-blue-500 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-                                         <div className="flex items-start gap-4">
-                                            <div className="mt-1">
-                                               <div className="w-5 h-5 rounded-full border-2 border-blue-100 bg-blue-50 text-blue-500 flex items-center justify-center group-hover:bg-blue-500 group-hover:border-blue-500 group-hover:text-white transition-all">
-                                                  <div className="w-1.5 h-1.5 rounded-full bg-current"></div>
-                                               </div>
-                                            </div>
-                                            <div>
-                                               <h4 className="text-sm font-bold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">Configuration Option {idx + 1}</h4>
-                                               <p className="text-sm text-slate-600 leading-relaxed">{item}</p>
-                                            </div>
+                                      <div key={idx} className="bg-slate-50 rounded-xl p-4 border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all group">
+                                         <div className="flex items-start gap-3">
+                                            <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></div>
+                                            <span className="text-slate-700 font-medium">{item}</span>
                                          </div>
                                       </div>
                                     ))}
@@ -487,30 +469,22 @@ function HiTempProductLayout({ product }: { product: any }) {
                             {activeDetailTab === 'advantages' && (
                               <motion.div
                                 key="advantages"
-                                initial={{ opacity: 0, scale: 0.98 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.98 }}
-                                transition={{ duration: 0.3 }}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
                               >
-                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                 <div className="flex items-center gap-3 mb-6">
+                                    <div className="bg-green-50 p-2 rounded-lg"><Zap className="w-5 h-5 text-green-600"/></div>
+                                    <h3 className="text-xl font-bold text-slate-900">Why Choose This Series?</h3>
+                                 </div>
+                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
-                                      <div key={idx} className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-6 text-white overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-lg">
-                                         {/* Abstract Shapes */}
-                                         <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:bg-primary/20 transition-colors duration-500"></div>
-                                         <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full blur-xl transform -translate-x-10 translate-y-10"></div>
-                                         
-                                         <div className="relative z-10 flex flex-col h-full">
-                                            <div className="mb-4 bg-white/10 w-fit p-2 rounded-lg backdrop-blur-sm border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/20 transition-all">
-                                               <Zap className="w-5 h-5 text-primary" />
-                                            </div>
-                                            <p className="text-sm font-medium text-slate-200 leading-relaxed group-hover:text-white transition-colors">
-                                               {item}
-                                            </p>
-                                            <div className="mt-auto pt-4 flex items-center gap-2 text-xs font-bold text-slate-500 group-hover:text-primary transition-colors uppercase tracking-wider">
-                                               <span>Performance</span>
-                                               <div className="h-px flex-1 bg-slate-700 group-hover:bg-primary/50 transition-colors"></div>
-                                            </div>
-                                         </div>
+                                      <div key={idx} className="relative pl-6 group">
+                                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 to-transparent rounded-full group-hover:h-full transition-all duration-500 h-1/2"></div>
+                                         <p className="text-slate-600 group-hover:text-slate-900 transition-colors leading-relaxed font-medium">
+                                            {item}
+                                         </p>
                                       </div>
                                     ))}
                                  </div>
