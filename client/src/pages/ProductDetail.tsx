@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box, ArrowDown } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -120,10 +120,18 @@ function HiTempProductLayout({ product }: { product: any }) {
                      </div>
                   </div>
 
-                  {/* Zoom Hint */}
-                  <div className="absolute bottom-6 right-6 bg-slate-900/80 backdrop-blur text-slate-400 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 pointer-events-none z-20">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                    {t('product.hover_zoom')}
+                  {/* Zoom Hint Badge - Icon Only */}
+                  <div className="absolute bottom-6 right-6 z-20">
+                    <div className="bg-slate-900/60 backdrop-blur-md p-2.5 rounded-full shadow-lg border border-white/10 text-white animate-pulse">
+                      <div className="w-5 h-5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <circle cx="11" cy="11" r="8" />
+                          <path d="M21 21L16.65 16.65" />
+                          <path d="M11 8V14" />
+                          <path d="M8 11H14" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
