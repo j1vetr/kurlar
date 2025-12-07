@@ -246,27 +246,6 @@ export default function Careers() {
         </div>
       </div>
 
-      {/* General Application CTA */}
-      <div className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="bg-slate-900 rounded-2xl p-12 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
-            
-            <div className="relative z-10">
-              <h2 className="text-3xl font-heading font-bold text-white mb-4">
-                {t('careers.general_app_title')}
-              </h2>
-              <p className="text-slate-300 max-w-2xl mx-auto mb-8 text-lg">
-                {t('careers.general_app_desc')}
-              </p>
-              <Button size="lg" variant="secondary" className="bg-white text-slate-900 hover:bg-slate-100 font-bold px-8 h-14 uppercase tracking-wider">
-                {t('careers.general_app_btn')}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
     </Layout>
   );
 }
