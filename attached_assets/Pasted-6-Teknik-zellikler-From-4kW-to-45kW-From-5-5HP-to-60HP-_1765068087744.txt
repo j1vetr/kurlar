@@ -1,0 +1,49 @@
+6" Teknik Özellikler :
+
+From 4kW to 45kW (From 5.5HP to 60HP) Motor Option / 4kW’tan 45kW’a (5.5HP’den 60HP’ye) Kadar Motor Opsiyonu
+6" NEMA Standart Flange with M12 Studs / M12 Saplamalar ile 6" NEMA Standartlarına Uygun Üst Flanş
+Protection Class: IP86 / Koruma Sınıfı : IP86
+Maximum Starts per Hour : 20 / Saat’teki Maksimum Yol Verme : 20
+Installation Position : Vertical and Horizontal / Kurulum Pozisyonu : Dikey ve Yatay
+CW & CCW Direction of Rotation / Saat Yönünde ve Tersinde Çalışma Yönü
+Motor Cable 4m Length / Motor Kablo Uzunluğu 4m
+Standart Voltage : 380/415V – 50Hz / Standart Voltaj : 380/415V – 50Hz
+Voltage Tolerance (50 Hz) : ±%10 / Voltaj Toleransı (50 Hz) : ±%10
+Max. Ambient Temperature of 60°C with a Min. Cooling Flow : / 60°C maks. Ortam Sıcaklığındaki min. Soğutma Akış Hızı : (4kW-15kW : v=0.2 m/s) (18.5kW-45kW : v=0.5 m/s)
+
+
+6" Opsiyonlar :
+
+Motors can be manufactured in AISI 304, AISI 316, 904L and Bronze Material / Motorlar komple AISI 304, AISI 316, 904L ve Bronz Olarak Üretilebilir
+Motors can be manufactured with 6" NEMA Standart Double-Flange / Motorlar 6" NEMA Standartı’nda Çift-Flanş Olarak Üretilebilir
+PT100 Sensor / PT100 Sensor
+Motors can be manufactured with Cable which are suitable for Drinkable Water Regulations (VDE & ACS & KTW Approved) / Motorlar İçme Suyu Mevzuatı’na uygun Kablo ile Üretilebilir (VDE & ACS
+& KTW Onaylı)
+Cable in Different Lengths up to 100m / 100m’ye Kadar İstenilen Ölçüde Kablo ile Üretilebilir
+DOL - Y/∆ Start / Direkt ve Yıldız/Üçgen Yol Verme
+Motors can be manufactured with 4-Core Cable (3 Phase & 1 Ground) / 4 Damarlı Kablo ile Üretilebilir (3 Faz & 1 Topraklama)
+Motors can be manufactured for 500V, 525V, 630V and 1000V (For specifications of these motors please contact with KURLAR Submersible Pump & Motor) / Motorlar 500V, 525V, 630V ve 1000V’a
+Uygun Olarak Üretilebilir. (Teknik özellikler için KURLAR Dalgıç Pompa & Motor ile iletişime geçiniz)
+Motors can be manufatured 75°C and 90°C / Motorlar 75°C ve 90°C olarak üretilebilir
+4kW-22kW (5.5HP-30HP) Motors can be manufactured with 26.5kN Axial Load Thrust Bearing Capacity / 4kW-22kW (5.5HP-30HP) Motorlar 26.5kN Eksenel Yük Taşıma Kapasitesi ile üretilebilir
+
+6" Ürün Avantajları :
+
+High Efficiency Electrical Design for Low Operational Costs / Düşük İşletme Maliyeti için Yüksek Verimli Dizayn
+Special Insulation Winding Wires (PBN) for High Temperature / Yüksek Sıcaklık için Özel İzolasyonlu Bobin Teli (PBN)
+Excellent Performance at 60°C / 60°C’de Üstün Performans
+Longer Life than Standart Submersible Motors / Standart Motorlara göre Daha Uzun Ömürlü
+Water Filled Submersible Motor / Su Soğutmalı Dalgıç Motor
+All Motors %100 Tested and Filled with Pure Water and Antifreeze Mix / Bütün Motorlar Saf Su ve Antifriz Karışımı ile Doldurulup Test Edilmiştir
+Better Resistant to Voltage Fluctuations / Voltaj Dalgalanmalarına Karşı Yüksek Dayanım
+Durability in Wells where Water Flow is Low and the Motor can not Cool Enough itself / Motorun Kendini Soğutamadığı ve Su Akışının Yetersiz Olduğu Kuyularda Yüksek Dayanıklılık
+Stainless Steel Rotor Shaft / Paslanmaz Çelik Motor Mili
+NBR Slinger (Sand Guard) / NBR Kum Çanı
+Stainless Steel or Bronze made Check-Valve Controls the Pressure Changes Balancing / Basınç Değişikliklerini kontrol etmesi için Paslanmaz Çelik ya da Bronz Basınç
+Dengeleyici Çek-Valf
+NBR Diaphragm minimize the Expansion Pressure / Genleşme Basıncını minimize Etmek için NBR Diyafram
+Mechanical Seal : Hot CA-95CE-NBR-304 / Mekanik Keçe : Hot CA-95CE-NBR-304
+Design for PT100 Sensor Suitability / PT100 Sensörüne Uygun Dizayn
+Availability to be Operated by Soft-Starter and VFD (over 30 Hz) / Yumuşak-Kalkış ve VFD (30 Hz üzerinde) ile Kullanılabilirlik
+Long Service Life with Rewindable Type feature and easily obtainable Spare Parts / Sarılabilir Tip ve Kolay Ulaşılabilir Yedek Parçalar ile Uzun Ömürlü
+Mechanical Seal can be SIC/SIC-NBR-304 / Mekanik Keçe SIC/SIC-NBR-304 olarak üretilebilir
