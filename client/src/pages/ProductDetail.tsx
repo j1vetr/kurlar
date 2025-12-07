@@ -194,155 +194,245 @@ function HiTempProductLayout({ product }: { product: any }) {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="bg-slate-50 min-h-screen">
-        <div className="container mx-auto px-6 py-12">
-          
-          <Tabs defaultValue="overview" className="space-y-12">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              
-              {/* Sidebar Navigation */}
-              <div className="w-full md:w-64 flex-shrink-0 space-y-8 sticky top-24">
-                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-2">
-                  <TabsList className="flex flex-col h-auto bg-transparent p-0 gap-1">
-                    <TabsTrigger value="overview" className="w-full justify-start px-4 py-3 text-base font-bold data-[state=active]:bg-slate-100 data-[state=active]:text-primary rounded-xl transition-all">
-                      <Info className="w-4 h-4 mr-3" /> {t('product.overview')}
-                    </TabsTrigger>
-                    <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider mt-2">Series Specs</div>
-                    {['6', '7', '8', '10'].map(size => (
-                      <TabsTrigger key={size} value={`series-${size}`} className="w-full justify-start px-4 py-3 text-base font-medium data-[state=active]:bg-primary data-[state=active]:text-white rounded-xl transition-all">
-                        <Ruler className="w-4 h-4 mr-3" /> {size}" Series
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                </div>
+      {/* Main Content - Industrial Dashboard Layout */}
+      <div className="bg-slate-50 min-h-screen relative">
+        {/* Technical Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
 
-                {/* Quick Contacts */}
-                <div className="bg-slate-900 rounded-2xl p-6 text-white shadow-lg">
-                   <h4 className="font-bold text-lg mb-2">Need Help?</h4>
-                   <p className="text-slate-400 text-sm mb-4">Our engineers are ready to assist with your specific requirements.</p>
-                   <Link href="/iletisim">
-                     <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 bg-transparent">
-                       Contact Engineering
-                     </Button>
-                   </Link>
-                </div>
+        {/* Sticky Industrial Navigation Bar */}
+        <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-between h-16 md:h-20 overflow-x-auto scrollbar-hide gap-4">
+              
+              {/* Overview Toggle */}
+              <button 
+                onClick={() => setActiveSeries("overview")}
+                className={cn(
+                  "flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 whitespace-nowrap",
+                  activeSeries === "overview" 
+                    ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20" 
+                    : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+                )}
+              >
+                <Info className="w-4 h-4" />
+                <span className="font-bold tracking-wide">SYSTEM OVERVIEW</span>
+              </button>
+
+              {/* Connector Line */}
+              <div className="h-8 w-px bg-slate-200 hidden md:block"></div>
+
+              {/* Series Selectors */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">Series Selection:</span>
+                {['6', '7', '8', '10'].map(size => (
+                  <button
+                    key={size}
+                    onClick={() => setActiveSeries(size)}
+                    className={cn(
+                      "relative group flex flex-col items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-xl border-2 transition-all duration-300",
+                      activeSeries === size
+                        ? "border-primary bg-primary/5 shadow-lg shadow-primary/20 scale-110"
+                        : "border-slate-200 bg-white hover:border-primary/50 hover:bg-slate-50"
+                    )}
+                  >
+                    <span className={cn(
+                      "text-sm md:text-base font-bold",
+                      activeSeries === size ? "text-primary" : "text-slate-400 group-hover:text-slate-600"
+                    )}>{size}"</span>
+                    {activeSeries === size && (
+                      <span className="absolute -bottom-1.5 w-1.5 h-1.5 bg-primary rounded-full"></span>
+                    )}
+                  </button>
+                ))}
               </div>
 
-              {/* Content Area */}
-              <div className="flex-1 min-w-0">
-                
-                {/* Overview Tab */}
-                <TabsContent value="overview" className="space-y-8 mt-0 focus-visible:outline-none animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  {/* Key Features Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                      <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-primary mb-6">
-                         <Thermometer className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3">High Temperature</h3>
-                      <p className="text-slate-600 leading-relaxed">
-                        Engineered to operate continuously at 60°C standard, with options up to 90°C. Perfect for geothermal and industrial applications.
-                      </p>
-                    </div>
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                      <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 mb-6">
-                         <Zap className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3">High Efficiency</h3>
-                      <p className="text-slate-600 leading-relaxed">
-                        Special PBN winding wire and optimized magnetic design deliver superior efficiency, reducing operational costs significantly.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Detailed Description */}
-                  <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-6">Product Description</h3>
-                    <div className="prose prose-slate max-w-none text-slate-600">
-                      <p className="whitespace-pre-line text-lg leading-relaxed">{product.longDescription}</p>
-                    </div>
-                    
-                    <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {product.features?.map((feature: string, i: number) => (
-                        <div key={i} className="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          <span className="font-medium text-slate-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </TabsContent>
-
-                {/* Series Tabs */}
-                {['6', '7', '8', '10'].map(size => {
-                   const specs = product.subSpecs?.filter((s: any) => s.title.includes(size + '"'));
-                   
-                   return (
-                    <TabsContent key={size} value={`series-${size}`} className="space-y-8 mt-0 focus-visible:outline-none animate-in fade-in slide-in-from-bottom-4 duration-500">
-                      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        <div className="bg-slate-900 text-white px-8 py-6 flex items-center justify-between">
-                           <div>
-                             <h2 className="text-2xl font-bold flex items-center gap-3">
-                               <span className="bg-primary px-3 py-1 rounded text-lg">{size}"</span>
-                               Series Technical Data
-                             </h2>
-                             <p className="text-slate-400 mt-1">High Temperature Submersible Motor Specifications</p>
-                           </div>
-                           <Activity className="w-8 h-8 text-slate-500 hidden sm:block" />
-                        </div>
-                        
-                        <div className="p-0">
-                          {specs && specs.length > 0 ? (
-                            specs.map((spec: any, idx: number) => (
-                              <div key={idx} className={cn("p-6 md:p-8", idx !== 0 && "border-t border-slate-200")}>
-                                <h3 className="font-bold text-lg text-slate-900 mb-6 flex items-center gap-2">
-                                  {spec.title.includes('Sandık') ? <Box className="w-5 h-5 text-primary" /> : <Settings className="w-5 h-5 text-primary" />}
-                                  {spec.title}
-                                </h3>
-                                
-                                <div className="overflow-x-auto rounded-xl border border-slate-200">
-                                  <table className="w-full text-sm text-left whitespace-nowrap border-separate border-spacing-0">
-                                    <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
-                                      <tr>
-                                        {spec.columns.map((col: string, i: number) => (
-                                          <th key={i} className={cn(
-                                            "px-6 py-4 border-b border-slate-200 border-r border-slate-200 last:border-r-0 bg-slate-50",
-                                            i === 0 && "sticky left-0 z-10 border-r-2 border-r-slate-200 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]"
-                                          )}>{col}</th>
-                                        ))}
-                                      </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-slate-100">
-                                      {spec.data.map((row: string[], i: number) => (
-                                        <tr key={i} className="hover:bg-blue-50/30 transition-colors group bg-white">
-                                          {row.map((cell: string, j: number) => (
-                                            <td key={j} className={cn(
-                                              "px-6 py-4 font-medium border-r border-slate-50 last:border-r-0 tabular-nums transition-colors",
-                                              j === 0 ? "text-primary font-bold bg-white sticky left-0 z-10 border-r-2 border-r-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] group-hover:bg-blue-50/50" : "text-slate-600"
-                                            )}>{cell}</td>
-                                          ))}
-                                        </tr>
-                                      ))}
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            ))
-                          ) : (
-                            <div className="p-12 text-center text-slate-400">
-                              No technical data available for this series yet.
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </TabsContent>
-                   );
-                })}
-
+              {/* Right Side Actions */}
+              <div className="hidden md:flex items-center gap-3 ml-auto">
+                 <div className="flex items-center gap-2 text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1.5 rounded border border-slate-200">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    SYSTEM READY
+                 </div>
               </div>
             </div>
-          </Tabs>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-6 py-12">
+          <AnimatePresence mode="wait">
+            
+            {/* OVERVIEW MODE */}
+            {activeSeries === "overview" && (
+              <motion.div 
+                key="overview"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-8"
+              >
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Thermal Module */}
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <Thermometer className="w-24 h-24 text-red-500" />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Thermal Capacity</div>
+                      <div className="text-4xl font-black text-slate-900 mb-1">90°C</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">Maximum Operation</div>
+                      <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-orange-400 to-red-500 w-[90%] rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Efficiency Module */}
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <Zap className="w-24 h-24 text-yellow-500" />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Energy Efficiency</div>
+                      <div className="text-4xl font-black text-slate-900 mb-1">84%</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">Peak Performance</div>
+                      <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-yellow-400 to-green-500 w-[84%] rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Durability Module */}
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <Shield className="w-24 h-24 text-blue-500" />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Protection Level</div>
+                      <div className="text-4xl font-black text-slate-900 mb-1">IP68</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">Water & Dust Proof</div>
+                      <div className="flex gap-1">
+                         {[1,2,3,4,5].map(i => (
+                           <div key={i} className="h-1.5 flex-1 bg-blue-500 rounded-full"></div>
+                         ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Technical Brief */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  {/* Main Text */}
+                  <div className="lg:col-span-2 bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                    <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
+                      <div className="bg-slate-100 p-2 rounded-lg">
+                        <FileText className="w-5 h-5 text-slate-700" />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900">Engineering Specification</h3>
+                    </div>
+                    <div className="prose prose-slate max-w-none">
+                      <p className="text-lg leading-relaxed text-slate-600">
+                        {product.longDescription}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Feature List */}
+                  <div className="bg-slate-900 text-white rounded-2xl p-8 shadow-xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[60px] rounded-full"></div>
+                    <h3 className="text-lg font-bold mb-6 flex items-center gap-2 relative z-10">
+                      <Layers className="w-5 h-5 text-primary" />
+                      Key Features
+                    </h3>
+                    <ul className="space-y-4 relative z-10">
+                      {product.features?.map((feature: string, i: number) => (
+                        <li key={i} className="flex items-start gap-3 text-slate-300">
+                          <div className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+                          <span className="text-sm font-medium">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* SERIES SPECS MODE */}
+            {activeSeries !== "overview" && (
+              <motion.div
+                key="specs"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-6"
+              >
+                 {/* Series Header */}
+                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div>
+                       <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
+                         <span className="text-primary">{activeSeries}"</span> SERIES
+                         <span className="text-base font-normal text-slate-400 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                           Technical Data Sheet
+                         </span>
+                       </h2>
+                       <p className="text-slate-500 mt-2">
+                         Comprehensive performance data for {activeSeries}-inch High Temperature submersible motors.
+                       </p>
+                    </div>
+                    <div className="flex gap-3">
+                       <Button variant="outline" className="border-slate-200 hover:bg-slate-50 gap-2">
+                          <Download className="w-4 h-4" /> Export Data
+                       </Button>
+                    </div>
+                 </div>
+
+                 {/* Data Tables - "Monitor" Style */}
+                 {product.subSpecs?.filter((s: any) => s.title.includes(activeSeries + '"')).map((spec: any, idx: number) => (
+                    <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                       <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+                          <h3 className="font-bold text-slate-700 flex items-center gap-2 text-sm uppercase tracking-wider">
+                             {spec.title.includes('Sandık') ? <Box className="w-4 h-4" /> : <Settings className="w-4 h-4" />}
+                             {spec.title}
+                          </h3>
+                          <div className="flex gap-1.5">
+                             <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                             <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                             <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                          </div>
+                       </div>
+                       
+                       <div className="p-0 overflow-x-auto">
+                          <table className="w-full text-sm text-left whitespace-nowrap border-separate border-spacing-0">
+                            <thead className="bg-slate-100/50 text-xs uppercase text-slate-500 font-bold tracking-wider">
+                              <tr>
+                                {spec.columns.map((col: string, i: number) => (
+                                  <th key={i} className={cn(
+                                    "px-6 py-4 border-b border-slate-200 border-r border-slate-200 last:border-r-0",
+                                    i === 0 && "sticky left-0 z-10 border-r-2 border-r-slate-200 bg-slate-50 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]"
+                                  )}>{col}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100 font-mono text-slate-600">
+                              {spec.data.map((row: string[], i: number) => (
+                                <tr key={i} className="hover:bg-primary/5 transition-colors group bg-white">
+                                  {row.map((cell: string, j: number) => (
+                                    <td key={j} className={cn(
+                                      "px-6 py-4 border-r border-slate-100 last:border-r-0 transition-colors",
+                                      j === 0 ? "text-primary font-bold font-sans bg-white sticky left-0 z-10 border-r-2 border-r-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] group-hover:bg-white" : ""
+                                    )}>{cell}</td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                       </div>
+                    </div>
+                 ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </Layout>
