@@ -50,11 +50,11 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6 text-white">{t('footer.quick_links')}</h4>
             <ul className="space-y-3 text-sm text-blue-50">
-              <li><Link href="/"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.home')}</a></Link></li>
-              <li><Link href="/hakkimizda"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.corporate')}</a></Link></li>
-              <li><Link href="/urunler"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.products')}</a></Link></li>
-              <li><Link href="/kariyer"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.career')}</a></Link></li>
-              <li><Link href="/iletisim"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.contact')}</a></Link></li>
+              <li><Link href="/" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.home')}</Link></li>
+              <li><Link href="/hakkimizda" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.corporate')}</Link></li>
+              <li><Link href="/urunler" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.products')}</Link></li>
+              <li><Link href="/kariyer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.career')}</Link></li>
+              <li><Link href="/iletisim" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.contact')}</Link></li>
             </ul>
           </div>
 
@@ -62,10 +62,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6 text-white">{t('footer.product_groups')}</h4>
             <ul className="space-y-3 text-sm text-blue-50">
-              <li><Link href="/urunler?category=pump"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.pumps')}</a></Link></li>
-              <li><Link href="/urunler?category=motor"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.motors')}</a></Link></li>
-              <li><Link href="/urunler?search=Paslanmaz"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.stainless_series')}</a></Link></li>
-              <li><Link href="/urunler?search=Döküm"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cast_series')}</a></Link></li>
+              <li><Link href="/urunler?category=pump" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.pumps')}</Link></li>
+              <li><Link href="/urunler?category=motor" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.motors')}</Link></li>
+              <li><Link href="/urunler?search=Paslanmaz" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.stainless_series')}</Link></li>
+              <li><Link href="/urunler?search=Döküm" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cast_series')}</Link></li>
             </ul>
           </div>
 
@@ -73,8 +73,8 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6 text-white">{t('footer.legal_contact')}</h4>
             <ul className="space-y-3 text-sm text-blue-50">
-              <li><Link href="/gizlilik-politikasi"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.privacy')}</a></Link></li>
-              <li><Link href="/cerez-politikasi"><a className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cookies')}</a></Link></li>
+              <li><Link href="/gizlilik-politikasi" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.privacy')}</Link></li>
+              <li><Link href="/cerez-politikasi" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cookies')}</Link></li>
               <li className="pt-4 text-blue-100/80">
                 İzmir, Türkiye <br/>
                 info@kurlar.com.tr

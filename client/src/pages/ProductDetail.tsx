@@ -216,7 +216,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                 )}
               >
                 <Info className="w-4 h-4" />
-                <span className="font-bold tracking-wide">SYSTEM OVERVIEW</span>
+                <span className="font-bold tracking-wide">SİSTEM GENEL BAKIŞ</span>
               </button>
 
               {/* Connector Line */}
@@ -224,7 +224,7 @@ function HiTempProductLayout({ product }: { product: any }) {
 
               {/* Series Selectors */}
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">Series Selection:</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">Seri Seçimi:</span>
                 {['6', '7', '8', '10'].map(size => (
                   <button
                     key={size}
@@ -251,7 +251,7 @@ function HiTempProductLayout({ product }: { product: any }) {
               <div className="hidden md:flex items-center gap-3 ml-auto">
                  <div className="flex items-center gap-2 text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1.5 rounded border border-slate-200">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                    SYSTEM READY
+                    SİSTEM HAZIR
                  </div>
               </div>
             </div>
@@ -279,9 +279,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <Thermometer className="w-24 h-24 text-red-500" />
                     </div>
                     <div className="relative z-10">
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Thermal Capacity</div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Termal Kapasite</div>
                       <div className="text-4xl font-black text-slate-900 mb-1">90°C</div>
-                      <div className="text-sm font-medium text-slate-500 mb-6">Maximum Operation</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">Maksimum Çalışma</div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-orange-400 to-red-500 w-[90%] rounded-full"></div>
                       </div>
@@ -294,9 +294,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <Zap className="w-24 h-24 text-yellow-500" />
                     </div>
                     <div className="relative z-10">
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Energy Efficiency</div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Enerji Verimliliği</div>
                       <div className="text-4xl font-black text-slate-900 mb-1">84%</div>
-                      <div className="text-sm font-medium text-slate-500 mb-6">Peak Performance</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">Üstün Performans</div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-yellow-400 to-green-500 w-[84%] rounded-full"></div>
                       </div>
@@ -309,9 +309,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <Shield className="w-24 h-24 text-blue-500" />
                     </div>
                     <div className="relative z-10">
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Protection Level</div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Koruma Seviyesi</div>
                       <div className="text-4xl font-black text-slate-900 mb-1">IP68</div>
-                      <div className="text-sm font-medium text-slate-500 mb-6">Water & Dust Proof</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">Su & Toz Geçirmez</div>
                       <div className="flex gap-1">
                          {[1,2,3,4,5].map(i => (
                            <div key={i} className="h-1.5 flex-1 bg-blue-500 rounded-full"></div>
@@ -329,7 +329,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <div className="bg-slate-100 p-2 rounded-lg">
                         <FileText className="w-5 h-5 text-slate-700" />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900">Engineering Specification</h3>
+                      <h3 className="text-xl font-bold text-slate-900">Mühendislik Özellikleri</h3>
                     </div>
                     <div className="prose prose-slate max-w-none">
                       <p className="text-lg leading-relaxed text-slate-600">
@@ -343,7 +343,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[60px] rounded-full"></div>
                     <h3 className="text-lg font-bold mb-6 flex items-center gap-2 relative z-10">
                       <Layers className="w-5 h-5 text-primary" />
-                      Key Features
+                      Temel Özellikler
                     </h3>
                     <ul className="space-y-4 relative z-10">
                       {product.features?.map((feature: string, i: number) => (
@@ -372,18 +372,18 @@ function HiTempProductLayout({ product }: { product: any }) {
                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                     <div>
                        <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
-                         <span className="text-primary">{activeSeries}"</span> SERIES
+                         <span className="text-primary">{activeSeries}"</span> SERİSİ
                          <span className="text-base font-normal text-slate-400 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
-                           Technical Data Sheet
+                           Teknik Veri Sayfası
                          </span>
                        </h2>
                        <p className="text-slate-500 mt-2">
-                         Comprehensive performance data for {activeSeries}-inch High Temperature submersible motors.
+                         {activeSeries} inç Yüksek Sıcaklık dalgıç motorları için kapsamlı performans verileri.
                        </p>
                     </div>
                     <div className="flex gap-3">
                        <Button variant="outline" className="border-slate-200 hover:bg-slate-50 gap-2">
-                          <Download className="w-4 h-4" /> Export Data
+                          <Download className="w-4 h-4" /> Veri Aktar
                        </Button>
                     </div>
                  </div>
@@ -404,9 +404,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                                  : "text-slate-400 hover:text-slate-600 hover:bg-slate-100/50"
                              )}
                            >
-                              {tab === 'specs' && "Technical Specifications"}
-                              {tab === 'options' && "Product Options"}
-                              {tab === 'advantages' && "Key Advantages"}
+                              {tab === 'specs' && "Teknik Özellikler"}
+                              {tab === 'options' && "Ürün Opsiyonları"}
+                              {tab === 'advantages' && "Temel Avantajlar"}
                               
                               {activeDetailTab === tab && (
                                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></div>
@@ -428,7 +428,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                               >
                                  <div className="flex items-center gap-3 mb-6">
                                     <div className="bg-slate-100 p-2 rounded-lg"><Settings className="w-5 h-5 text-slate-700"/></div>
-                                    <h3 className="text-xl font-bold text-slate-900">Technical Specifications</h3>
+                                    <h3 className="text-xl font-bold text-slate-900">Teknik Özellikler</h3>
                                  </div>
                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
                                     {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (

@@ -97,15 +97,13 @@ export function Navbar() {
           {menuStructure.map((item) => {
             if (item.type === "link") {
               return (
-                <Link key={item.name} href={item.href}>
-                  <a className={cn(
+                <Link key={item.name} href={item.href} className={cn(
                     "text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors", 
                     location === item.href 
                       ? "text-primary" 
                       : (isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary")
                   )}>
                     {item.name}
-                  </a>
                 </Link>
               );
             }
@@ -118,8 +116,7 @@ export function Navbar() {
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <Link href={item.href}>
-                    <a className={cn(
+                  <Link href={item.href} className={cn(
                       "text-sm font-bold uppercase tracking-wider flex items-center gap-1 py-4 transition-colors", 
                       (location.startsWith(item.href) || activeDropdown === item.name) 
                         ? "text-primary" 
@@ -127,7 +124,6 @@ export function Navbar() {
                     )}>
                       {item.name}
                       <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeDropdown === item.name && "rotate-180")} />
-                    </a>
                   </Link>
 
                   <div className={cn(
@@ -137,10 +133,8 @@ export function Navbar() {
                     <ul className="py-2">
                       {item.children?.map((child) => (
                         <li key={child.name}>
-                          <Link href={child.href}>
-                            <a className="block px-6 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">
+                          <Link href={child.href} className="block px-6 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">
                               {child.name}
-                            </a>
                           </Link>
                         </li>
                       ))}
@@ -158,8 +152,7 @@ export function Navbar() {
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <Link href={item.href}>
-                    <a className={cn(
+                  <Link href={item.href} className={cn(
                       "text-sm font-bold uppercase tracking-wider flex items-center gap-1 py-4 transition-colors", 
                       (location.startsWith(item.href) || activeDropdown === item.name) 
                         ? "text-primary" 
@@ -167,7 +160,6 @@ export function Navbar() {
                     )}>
                       {item.name}
                       <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeDropdown === item.name && "rotate-180")} />
-                    </a>
                   </Link>
 
                   {/* Mega Menu Content */}
@@ -193,10 +185,8 @@ export function Navbar() {
                               { name: t('nav.products.ksx'), id: "ksx" }
                             ].map((item) => (
                               <li key={item.id}>
-                                <Link href={`/urunler/${item.id}`}>
-                                  <a className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
+                                <Link href={`/urunler/${item.id}`} className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
                                     {item.name}
-                                  </a>
                                 </Link>
                               </li>
                             ))}
@@ -218,10 +208,8 @@ export function Navbar() {
                               { name: t('nav.products.km4'), id: "km4" }
                             ].map((item) => (
                               <li key={item.id}>
-                                <Link href={`/urunler/${item.id}`}>
-                                  <a className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
+                                <Link href={`/urunler/${item.id}`} className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
                                     {item.name}
-                                  </a>
                                 </Link>
                               </li>
                             ))}
@@ -392,13 +380,8 @@ export function Navbar() {
                   }}
                 >
                   {item.type === "link" ? (
-                    <Link href={item.href}>
-                      <a 
-                        className="text-lg font-bold text-slate-900 block w-full"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
+                    <Link href={item.href} className="text-lg font-bold text-slate-900 block w-full" onClick={() => setMobileMenuOpen(false)}>
                         {item.name}
-                      </a>
                     </Link>
                   ) : (
                     <>
@@ -425,13 +408,8 @@ export function Navbar() {
                     <ul className="pl-4 space-y-3 border-l-2 border-slate-100 ml-2">
                       {item.children.map(child => (
                         <li key={child.name}>
-                          <Link href={child.href}>
-                            <a 
-                              onClick={() => setMobileMenuOpen(false)} 
-                              className="text-slate-600 block hover:text-primary font-medium"
-                            >
+                          <Link href={child.href} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block hover:text-primary font-medium">
                               {child.name}
-                            </a>
                           </Link>
                         </li>
                       ))}
@@ -449,8 +427,8 @@ export function Navbar() {
                               { name: t('nav.products.kpd'), id: "kpd" },
                               { name: t('nav.products.ksx'), id: "ksx" }
                             ].map(sub => (
-                              <Link key={sub.id} href={`/urunler/${sub.id}`}>
-                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub.name}</a>
+                              <Link key={sub.id} href={`/urunler/${sub.id}`} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">
+                                {sub.name}
                               </Link>
                             ))}
                           </div>
@@ -463,8 +441,8 @@ export function Navbar() {
                               { name: t('nav.products.kms'), id: "kms" },
                               { name: t('nav.products.km4'), id: "km4" }
                             ].map(sub => (
-                              <Link key={sub.id} href={`/urunler/${sub.id}`}>
-                                <a onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">{sub.name}</a>
+                              <Link key={sub.id} href={`/urunler/${sub.id}`} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">
+                                {sub.name}
                               </Link>
                             ))}
                           </div>
