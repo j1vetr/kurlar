@@ -131,6 +131,7 @@ const translations: Translations = {
   'product.efficiency': { TR: 'Verimlilik', EN: 'Efficiency', AR: 'كفاءة', ES: 'Eficiencia', PT: 'Eficiência' },
   'product.efficiency_value': { TR: 'Yüksek (PBN Tel)', EN: 'High (PBN Wire)', AR: 'عالية (سلك PBN)', ES: 'Alta (Cable PBN)', PT: 'Alta (Fio PBN)' },
   'product.why_choose': { TR: 'Neden Bu Seri?', EN: 'Why Choose This Series?', AR: 'لماذا تختار هذه السلسلة؟', ES: '¿Por Qué Elegir Esta Serie?', PT: 'Por Que Escolher Esta Série?' },
+  'product.customization_options': { TR: 'Özelleştirme Seçenekleri', EN: 'Customization Options', AR: 'خيارات التخصيص', ES: 'Opciones de Personalización', PT: 'Opções de Personalização' },
   
   // Products Page
   'products.search_results': { TR: 'Arama Sonuçları', EN: 'Search Results', AR: 'نتائج البحث', ES: 'Resultados de la Búsqueda', PT: 'Resultados da Pesquisa' },

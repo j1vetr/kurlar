@@ -477,7 +477,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                               >
                                  <div className="flex items-center gap-3 mb-6">
                                     <div className="bg-blue-50 p-2 rounded-lg"><Sliders className="w-5 h-5 text-blue-600"/></div>
-                                    <h3 className="text-xl font-bold text-slate-900">Customization Options</h3>
+                                    <h3 className="text-xl font-bold text-slate-900">{t('product.customization_options')}</h3>
                                  </div>
                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
@@ -656,17 +656,17 @@ export default function ProductDetail() {
                  
                  <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
 
-                 {/* Zoom Hint Badge */}
-                 <div className="absolute bottom-4 right-4 z-10 bg-white/80 backdrop-blur text-slate-500 text-[10px] md:text-xs px-2 py-1 rounded-full shadow-sm border border-slate-200 flex items-center gap-1 pointer-events-none">
-                    <span className="md:hidden">{t('product.zoom_hint_mobile')}</span>
-                    <span className="hidden md:inline">{t('product.zoom_hint_desktop')}</span>
-                    <div className="w-3 h-3 md:w-4 md:h-4">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="M21 21L16.65 16.65" />
-                        <path d="M11 8V14" />
-                        <path d="M8 11H14" />
-                      </svg>
+                 {/* Zoom Hint Badge - Icon Only */}
+                 <div className="absolute bottom-4 right-4 z-10">
+                    <div className="bg-slate-900/40 backdrop-blur-md p-2.5 rounded-full shadow-lg border border-white/20 text-white animate-pulse">
+                      <div className="w-5 h-5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <circle cx="11" cy="11" r="8" />
+                          <path d="M21 21L16.65 16.65" />
+                          <path d="M11 8V14" />
+                          <path d="M8 11H14" />
+                        </svg>
+                      </div>
                     </div>
                  </div>
                </div>
