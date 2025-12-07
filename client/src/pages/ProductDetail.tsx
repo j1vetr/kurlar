@@ -9,7 +9,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,6 +48,209 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function HiTempProductLayout({ product }: { product: any }) {
+  const { t } = useLanguage();
+  const [activeSeries, setActiveSeries] = useState("6");
+
+  return (
+    <Layout>
+      <SEO 
+        title={product.name} 
+        description={product.description} 
+        canonical={`https://kurlar.com.tr/urunler/${product.id}`}
+      />
+      
+      {/* Hero Section */}
+      <div className="relative bg-slate-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-800/50 z-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+        
+        <div className="container mx-auto px-6 py-24 relative z-20">
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
+                <Thermometer className="w-3 h-3" /> Hi-Temp Series
+              </span>
+              <span className="bg-white/10 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
+                IP68 Protection
+              </span>
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
+              {product.name}
+            </h1>
+            <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
+              {product.description}
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+              <Link href="/iletisim#contact-form">
+                <Button className="bg-primary hover:bg-primary/90 text-white h-12 px-8 rounded-full font-bold text-lg shadow-lg shadow-primary/25">
+                  {t('product.request_quote')}
+                </Button>
+              </Link>
+              <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-12 px-8 rounded-full font-bold text-lg bg-transparent">
+                  <Download className="mr-2 w-5 h-5" /> {t('product.download_catalog')}
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="bg-slate-50 min-h-screen">
+        <div className="container mx-auto px-6 py-12">
+          
+          <Tabs defaultValue="overview" className="space-y-12">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              
+              {/* Sidebar Navigation */}
+              <div className="w-full md:w-64 flex-shrink-0 space-y-8 sticky top-24">
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-2">
+                  <TabsList className="flex flex-col h-auto bg-transparent p-0 gap-1">
+                    <TabsTrigger value="overview" className="w-full justify-start px-4 py-3 text-base font-bold data-[state=active]:bg-slate-100 data-[state=active]:text-primary rounded-xl transition-all">
+                      <Info className="w-4 h-4 mr-3" /> {t('product.overview')}
+                    </TabsTrigger>
+                    <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider mt-2">Series Specs</div>
+                    {['6', '7', '8', '10'].map(size => (
+                      <TabsTrigger key={size} value={`series-${size}`} className="w-full justify-start px-4 py-3 text-base font-medium data-[state=active]:bg-primary data-[state=active]:text-white rounded-xl transition-all">
+                        <Ruler className="w-4 h-4 mr-3" /> {size}" Series
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
+
+                {/* Quick Contacts */}
+                <div className="bg-slate-900 rounded-2xl p-6 text-white shadow-lg">
+                   <h4 className="font-bold text-lg mb-2">Need Help?</h4>
+                   <p className="text-slate-400 text-sm mb-4">Our engineers are ready to assist with your specific requirements.</p>
+                   <Link href="/iletisim">
+                     <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 bg-transparent">
+                       Contact Engineering
+                     </Button>
+                   </Link>
+                </div>
+              </div>
+
+              {/* Content Area */}
+              <div className="flex-1 min-w-0">
+                
+                {/* Overview Tab */}
+                <TabsContent value="overview" className="space-y-8 mt-0 focus-visible:outline-none animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  {/* Key Features Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                      <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-primary mb-6">
+                         <Thermometer className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-3">High Temperature</h3>
+                      <p className="text-slate-600 leading-relaxed">
+                        Engineered to operate continuously at 60°C standard, with options up to 90°C. Perfect for geothermal and industrial applications.
+                      </p>
+                    </div>
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                      <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 mb-6">
+                         <Zap className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-3">High Efficiency</h3>
+                      <p className="text-slate-600 leading-relaxed">
+                        Special PBN winding wire and optimized magnetic design deliver superior efficiency, reducing operational costs significantly.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Detailed Description */}
+                  <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-6">Product Description</h3>
+                    <div className="prose prose-slate max-w-none text-slate-600">
+                      <p className="whitespace-pre-line text-lg leading-relaxed">{product.longDescription}</p>
+                    </div>
+                    
+                    <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {product.features?.map((feature: string, i: number) => (
+                        <div key={i} className="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                          <div className="w-2 h-2 bg-primary rounded-full"></div>
+                          <span className="font-medium text-slate-700">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </TabsContent>
+
+                {/* Series Tabs */}
+                {['6', '7', '8', '10'].map(size => {
+                   const specs = product.subSpecs?.filter((s: any) => s.title.includes(size + '"'));
+                   
+                   return (
+                    <TabsContent key={size} value={`series-${size}`} className="space-y-8 mt-0 focus-visible:outline-none animate-in fade-in slide-in-from-bottom-4 duration-500">
+                      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div className="bg-slate-900 text-white px-8 py-6 flex items-center justify-between">
+                           <div>
+                             <h2 className="text-2xl font-bold flex items-center gap-3">
+                               <span className="bg-primary px-3 py-1 rounded text-lg">{size}"</span>
+                               Series Technical Data
+                             </h2>
+                             <p className="text-slate-400 mt-1">High Temperature Submersible Motor Specifications</p>
+                           </div>
+                           <Activity className="w-8 h-8 text-slate-500 hidden sm:block" />
+                        </div>
+                        
+                        <div className="p-0">
+                          {specs && specs.length > 0 ? (
+                            specs.map((spec: any, idx: number) => (
+                              <div key={idx} className={cn("p-6 md:p-8", idx !== 0 && "border-t border-slate-200")}>
+                                <h3 className="font-bold text-lg text-slate-900 mb-6 flex items-center gap-2">
+                                  {spec.title.includes('Sandık') ? <Box className="w-5 h-5 text-primary" /> : <Settings className="w-5 h-5 text-primary" />}
+                                  {spec.title}
+                                </h3>
+                                
+                                <div className="overflow-x-auto rounded-xl border border-slate-200">
+                                  <table className="w-full text-sm text-left whitespace-nowrap">
+                                    <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
+                                      <tr>
+                                        {spec.columns.map((col: string, i: number) => (
+                                          <th key={i} className="px-6 py-4 border-b border-slate-200 border-r border-slate-200 last:border-r-0 first:pl-6">{col}</th>
+                                        ))}
+                                      </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-slate-100">
+                                      {spec.data.map((row: string[], i: number) => (
+                                        <tr key={i} className="hover:bg-blue-50/30 transition-colors group bg-white">
+                                          {row.map((cell: string, j: number) => (
+                                            <td key={j} className={cn(
+                                              "px-6 py-4 font-medium border-r border-slate-50 last:border-r-0 tabular-nums transition-colors",
+                                              j === 0 ? "text-primary font-bold bg-slate-50/30 group-hover:bg-blue-50/50" : "text-slate-600"
+                                            )}>{cell}</td>
+                                          ))}
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="p-12 text-center text-slate-400">
+                              No technical data available for this series yet.
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </TabsContent>
+                   );
+                })}
+
+              </div>
+            </div>
+          </Tabs>
+        </div>
+      </div>
+    </Layout>
+  );
+}
+
 export default function ProductDetail() {
   const [, params] = useRoute("/urunler/:id");
   const productId = params?.id;
@@ -68,6 +272,11 @@ export default function ProductDetail() {
         </div>
       </Layout>
     );
+  }
+
+  // Use Special Layout for Hi-Temp Motors
+  if (product.id === 'km') {
+    return <HiTempProductLayout product={product} />;
   }
 
   const galleryImages = product.gallery || [product.image];
@@ -369,120 +578,34 @@ export default function ProductDetail() {
                         </div>
                       )}
 
-                      {/* HI-TEMP Exclusive Specs Design (Tabbed) */}
-                      {product.id === 'km' && product.subSpecs ? (
-                        <div className="mt-8">
-                          <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
-                            {['6"', '7"', '8"', '10"'].map((size) => (
-                              <button
-                                key={size}
-                                onClick={() => {
-                                  // Simple state management for this local tab via DOM manipulation or just re-render
-                                  // Since we don't have a state for this specific tab in top level, let's use a class based toggle or just inline state if I could.
-                                  // Better: add a state for subTab. But I cannot easily add state here without full file rewrite.
-                                  // Alternative: Use a new component or just render all but use anchor links?
-                                  // No, user wants "high level design".
-                                  // I will use a simple state workaround by adding state to the component.
-                                  // I'll assume I can add `activeSubTab` state to the main component. 
-                                  // Wait, I can't add state to the main component without rewriting the top part.
-                                  // I'll check if I can just edit the top part to add `activeSubTab`.
-                                  // Or I can just render them all in a nice grid or accordion?
-                                  // Accordion is safer without adding state.
-                                  // Let's use the shadcn Accordion or just a nice vertical list with sticky headers?
-                                  // User asked for "single page effective design".
-                                  // Let's use a clean vertical layout with distinct sections for each size, 
-                                  // but designed to look like a continuous technical sheet.
-                                }}
-                                className="hidden" // Placeholder for thought process
-                              />
-                            ))}
-                          </div>
-
-                          {/* Render as a sleek vertical list with size headers */}
-                           <div className="space-y-12">
-                             {['6"', '7"', '8"', '10"'].map((size) => {
-                               // Filter specs for this size
-                               const sizeSpecs = product.subSpecs!.filter(s => s.title.includes(size));
-                               if (sizeSpecs.length === 0) return null;
-
-                               return (
-                                 <div key={size} className="bg-slate-50/50 rounded-xl border border-slate-200 overflow-hidden">
-                                   <div className="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
-                                     <h4 className="text-xl font-bold flex items-center gap-3">
-                                       <span className="bg-primary text-white text-sm font-bold px-2 py-1 rounded-sm">{size}</span>
-                                       {size} Serisi Teknik Özellikler
-                                     </h4>
-                                     <span className="text-xs text-slate-400 font-mono uppercase tracking-widest hidden sm:block">HI-TEMP SERIES</span>
-                                   </div>
-                                   
-                                   <div className="p-6 grid gap-8">
-                                     {sizeSpecs.map((spec, idx) => (
-                                       <div key={idx}>
-                                         <h5 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm uppercase tracking-wide border-b border-slate-200 pb-2">
-                                           <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                                           {spec.title.replace(size, '').replace('HI-TEMP (60°C)', '').trim()}
-                                         </h5>
-                                         <div className="overflow-x-auto rounded-lg border border-slate-200 shadow-sm bg-white">
-                                           <table className="w-full text-sm text-left whitespace-nowrap">
-                                             <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
-                                               <tr>
-                                                 {spec.columns.map((col, i) => (
-                                                   <th key={i} className="px-4 py-3 border-b border-slate-200 border-r border-slate-100 last:border-r-0">{col}</th>
-                                                 ))}
-                                               </tr>
-                                             </thead>
-                                             <tbody className="divide-y divide-slate-100">
-                                               {spec.data.map((row, i) => (
-                                                 <tr key={i} className="hover:bg-blue-50/30 transition-colors group">
-                                                   {row.map((cell, j) => (
-                                                     <td key={j} className={cn(
-                                                       "px-4 py-2.5 font-medium border-r border-slate-50 last:border-r-0 tabular-nums transition-colors",
-                                                       j === 0 ? "text-primary font-bold bg-slate-50/30 group-hover:bg-blue-50/50" : "text-slate-600"
-                                                     )}>{cell}</td>
-                                                   ))}
-                                                 </tr>
-                                               ))}
-                                             </tbody>
-                                           </table>
-                                         </div>
-                                       </div>
-                                     ))}
-                                   </div>
-                                 </div>
-                               );
-                             })}
-                           </div>
-                        </div>
-                      ) : (
-                        /* Standard SubSpecs Rendering for other products */
-                        product.subSpecs && product.subSpecs.map((spec, idx) => (
-                          <div key={idx} className="mt-8 border border-slate-200 rounded-sm overflow-hidden shadow-sm">
-                            <h4 className="bg-slate-100 px-4 py-3 font-bold text-slate-900 border-b border-slate-200 flex items-center gap-2">
-                               <Ruler className="w-4 h-4 text-primary" /> {spec.title}
-                            </h4>
-                            <div className="overflow-x-auto">
-                              <table className="w-full text-sm text-left whitespace-nowrap">
-                                <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
-                                  <tr>
-                                    {spec.columns.map((col, i) => (
-                                      <th key={i} className="px-4 py-3 border-b border-slate-200 border-r border-slate-200 last:border-r-0">{col}</th>
+                      {/* Standard SubSpecs Rendering for other products */}
+                      {product.subSpecs && product.subSpecs.map((spec, idx) => (
+                        <div key={idx} className="mt-8 border border-slate-200 rounded-sm overflow-hidden shadow-sm">
+                          <h4 className="bg-slate-100 px-4 py-3 font-bold text-slate-900 border-b border-slate-200 flex items-center gap-2">
+                             <Ruler className="w-4 h-4 text-primary" /> {spec.title}
+                          </h4>
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm text-left whitespace-nowrap">
+                              <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
+                                <tr>
+                                  {spec.columns.map((col, i) => (
+                                    <th key={i} className="px-4 py-3 border-b border-slate-200 border-r border-slate-200 last:border-r-0">{col}</th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200 bg-white">
+                                {spec.data.map((row, i) => (
+                                  <tr key={i} className="hover:bg-blue-50/50 transition-colors">
+                                    {row.map((cell, j) => (
+                                      <td key={j} className="px-4 py-3 font-medium text-slate-700 border-r border-slate-100 last:border-r-0 tabular-nums">{cell}</td>
                                     ))}
                                   </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-200 bg-white">
-                                  {spec.data.map((row, i) => (
-                                    <tr key={i} className="hover:bg-blue-50/50 transition-colors">
-                                      {row.map((cell, j) => (
-                                        <td key={j} className="px-4 py-3 font-medium text-slate-700 border-r border-slate-100 last:border-r-0 tabular-nums">{cell}</td>
-                                      ))}
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
+                                ))}
+                              </tbody>
+                            </table>
                           </div>
-                        ))
-                      )}
+                        </div>
+                      ))}
                   </div>
                 )}
 
@@ -587,14 +710,27 @@ export default function ProductDetail() {
                              alt={p.name}
                              className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-500 ease-out"
                            />
+                           
+                           {/* Quick View Button */}
+                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 pointer-events-none">
+                             <div className="bg-white/90 text-slate-900 font-bold text-sm px-6 py-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 border border-slate-100">
+                               {t('product.view_details')}
+                             </div>
+                           </div>
                          </div>
                          
-                         <div className="p-5 flex flex-col flex-grow">
-                           <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                         <div className="p-5 flex flex-col flex-grow relative bg-white">
+                           <h3 className="font-bold text-lg text-slate-900 group-hover:text-primary transition-colors mb-2 line-clamp-2">
                              {p.name}
                            </h3>
-                           <div className="mt-auto flex items-center text-primary font-bold text-xs uppercase tracking-wide">
-                             {t('product.review')} <ArrowRight className="ml-1 w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                           <p className="text-slate-500 text-sm line-clamp-2 mb-4 flex-grow leading-relaxed">
+                             {p.description}
+                           </p>
+                           <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{p.modelCode}</span>
+                              <span className="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                {t('product.details')} <ArrowRight className="w-3.5 h-3.5" />
+                              </span>
                            </div>
                          </div>
                        </a>
@@ -605,52 +741,6 @@ export default function ProductDetail() {
                </motion.div>
             </div>
           </div>
-
-          {/* FAQ Section - Beautiful Accordion Design */}
-          {product.faq && product.faq.length > 0 && (
-             <div className="max-w-4xl mx-auto mb-16">
-                <div className="text-center mb-12">
-                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
-                     <HelpCircle className="w-8 h-8 text-primary" /> {t('product.faq_title')}
-                   </h2>
-                   <p className="text-slate-500">{t('product.faq_desc')}</p>
-                </div>
-                
-                <div className="space-y-4">
-                  {product.faq.map((item, index) => (
-                    <div key={index} className="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                      <button
-                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                        className="w-full flex items-center justify-between p-6 text-left bg-white hover:bg-slate-50 transition-colors"
-                      >
-                        <span className="font-bold text-slate-900 text-lg pr-8">{item.question}</span>
-                        <ChevronDown 
-                          className={cn(
-                            "w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0",
-                            openFaq === index ? "rotate-180 text-primary" : ""
-                          )} 
-                        />
-                      </button>
-                      
-                      <AnimatePresence>
-                        {openFaq === index && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                          >
-                            <div className="px-6 pb-6 pt-0 border-t border-slate-50">
-                              <p className="text-slate-600 leading-relaxed pt-4">{item.answer}</p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ))}
-                </div>
-             </div>
-          )}
         </div>
       </div>
     </Layout>
