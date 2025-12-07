@@ -207,11 +207,14 @@ function HiTempProductLayout({ product }: { product: any }) {
                                 </h3>
                                 
                                 <div className="overflow-x-auto rounded-xl border border-slate-200">
-                                  <table className="w-full text-sm text-left whitespace-nowrap">
+                                  <table className="w-full text-sm text-left whitespace-nowrap border-separate border-spacing-0">
                                     <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
                                       <tr>
                                         {spec.columns.map((col: string, i: number) => (
-                                          <th key={i} className="px-6 py-4 border-b border-slate-200 border-r border-slate-200 last:border-r-0 first:pl-6">{col}</th>
+                                          <th key={i} className={cn(
+                                            "px-6 py-4 border-b border-slate-200 border-r border-slate-200 last:border-r-0 bg-slate-50",
+                                            i === 0 && "sticky left-0 z-10 border-r-2 border-r-slate-200 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]"
+                                          )}>{col}</th>
                                         ))}
                                       </tr>
                                     </thead>
@@ -221,7 +224,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                           {row.map((cell: string, j: number) => (
                                             <td key={j} className={cn(
                                               "px-6 py-4 font-medium border-r border-slate-50 last:border-r-0 tabular-nums transition-colors",
-                                              j === 0 ? "text-primary font-bold bg-slate-50/30 group-hover:bg-blue-50/50" : "text-slate-600"
+                                              j === 0 ? "text-primary font-bold bg-white sticky left-0 z-10 border-r-2 border-r-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] group-hover:bg-blue-50/50" : "text-slate-600"
                                             )}>{cell}</td>
                                           ))}
                                         </tr>
