@@ -123,7 +123,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                   {/* Zoom Hint */}
                   <div className="absolute bottom-6 right-6 bg-slate-900/80 backdrop-blur text-slate-400 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 pointer-events-none z-20">
                     <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                    Hover to zoom
+                    {t('product.hover_zoom')}
                   </div>
                 </div>
 
@@ -163,12 +163,12 @@ function HiTempProductLayout({ product }: { product: any }) {
                 </span>
               </div>
               
-              <div className="flex items-center gap-4 mb-6">
-                <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight text-white">
+              <div className="mb-6">
+                <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight text-white mb-2">
                   {product.name}
                 </h1>
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-lg">
-                  <span className="text-primary font-black text-xl md:text-2xl tracking-widest">KM</span>
+                <div className="text-white/80 text-lg font-medium tracking-wide flex items-center gap-2">
+                  Model No : <span className="text-primary font-bold text-xl">KM</span>
                 </div>
               </div>
               
