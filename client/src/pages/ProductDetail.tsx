@@ -412,11 +412,6 @@ function HiTempProductLayout({ product }: { product: any }) {
                          {activeSeries} inç Yüksek Sıcaklık dalgıç motorları için kapsamlı performans verileri.
                        </p>
                     </div>
-                    <div className="flex gap-3">
-                       <Button variant="outline" className="border-slate-200 hover:bg-slate-50 gap-2">
-                          <Download className="w-4 h-4" /> Veri Aktar
-                       </Button>
-                    </div>
                  </div>
 
                  {/* Series Specific Details (Specs, Options, Advantages) - Tabbed Interface */}
