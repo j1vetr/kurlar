@@ -51,6 +51,7 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
 function HiTempProductLayout({ product }: { product: any }) {
   const { t } = useLanguage();
   const [activeSeries, setActiveSeries] = useState("6");
+  const [activeDetailTab, setActiveDetailTab] = useState("specs");
   const [activeImage, setActiveImage] = useState(0);
   const galleryImages = product.gallery || [product.image];
 
@@ -387,59 +388,109 @@ function HiTempProductLayout({ product }: { product: any }) {
                     </div>
                  </div>
 
-                 {/* Series Specific Details (Specs, Options, Advantages) */}
+                 {/* Series Specific Details (Specs, Options, Advantages) - Tabbed Interface */}
                  {product.seriesDetails && product.seriesDetails[activeSeries] && (
-                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                      {/* Technical Specs */}
-                      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-full">
-                        <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                           <div className="bg-slate-100 p-1.5 rounded-lg"><Settings className="w-4 h-4 text-slate-700"/></div>
-                           Technical Specifications
-                        </h3>
-                        <ul className="space-y-3">
-                           {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
-                             <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
-                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                               <span className="leading-relaxed">{item}</span>
-                             </li>
-                           ))}
-                        </ul>
+                   <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mb-8">
+                      {/* Tab Navigation */}
+                      <div className="flex border-b border-slate-200 bg-slate-50/50">
+                        {['specs', 'options', 'advantages'].map((tab) => (
+                           <button
+                             key={tab}
+                             onClick={() => setActiveDetailTab(tab)}
+                             className={cn(
+                               "flex-1 py-4 px-6 text-sm md:text-base font-bold uppercase tracking-wider transition-all relative",
+                               activeDetailTab === tab 
+                                 ? "text-primary bg-white" 
+                                 : "text-slate-400 hover:text-slate-600 hover:bg-slate-100/50"
+                             )}
+                           >
+                              {tab === 'specs' && "Technical Specifications"}
+                              {tab === 'options' && "Product Options"}
+                              {tab === 'advantages' && "Key Advantages"}
+                              
+                              {activeDetailTab === tab && (
+                                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></div>
+                              )}
+                           </button>
+                        ))}
                       </div>
 
-                      {/* Options & Advantages */}
-                      <div className="space-y-6">
-                         {/* Options */}
-                         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-                            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                               <div className="bg-slate-100 p-1.5 rounded-lg"><Sliders className="w-4 h-4 text-slate-700"/></div>
-                               Options
-                            </h3>
-                            <ul className="space-y-3">
-                               {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
-                                 <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
-                                   <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-1.5 flex-shrink-0"></div>
-                                   <span className="leading-relaxed">{item}</span>
-                                 </li>
-                               ))}
-                            </ul>
-                         </div>
+                      {/* Tab Content */}
+                      <div className="p-8 min-h-[400px]">
+                         <AnimatePresence mode="wait">
+                            {activeDetailTab === 'specs' && (
+                              <motion.div
+                                key="specs"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                 <div className="flex items-center gap-3 mb-6">
+                                    <div className="bg-slate-100 p-2 rounded-lg"><Settings className="w-5 h-5 text-slate-700"/></div>
+                                    <h3 className="text-xl font-bold text-slate-900">Technical Specifications</h3>
+                                 </div>
+                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                                    {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
+                                      <div key={idx} className="flex items-start gap-3 py-2 border-b border-slate-50 last:border-0 group">
+                                        <div className="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 flex-shrink-0 group-hover:bg-primary transition-colors"></div>
+                                        <span className="text-slate-600 group-hover:text-slate-900 transition-colors leading-relaxed">{item}</span>
+                                      </div>
+                                    ))}
+                                 </div>
+                              </motion.div>
+                            )}
 
-                         {/* Advantages */}
-                         <div className="bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-lg p-6 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full"></div>
-                            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 relative z-10">
-                               <div className="bg-white/10 p-1.5 rounded-lg"><Zap className="w-4 h-4 text-primary"/></div>
-                               Product Advantages
-                            </h3>
-                            <ul className="space-y-3 relative z-10">
-                               {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
-                                 <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
-                                   <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-1.5 flex-shrink-0 shadow-[0_0_8px_rgba(74,222,128,0.5)]"></div>
-                                   <span className="leading-relaxed">{item}</span>
-                                 </li>
-                               ))}
-                            </ul>
-                         </div>
+                            {activeDetailTab === 'options' && (
+                              <motion.div
+                                key="options"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                 <div className="flex items-center gap-3 mb-6">
+                                    <div className="bg-blue-50 p-2 rounded-lg"><Sliders className="w-5 h-5 text-blue-600"/></div>
+                                    <h3 className="text-xl font-bold text-slate-900">Customization Options</h3>
+                                 </div>
+                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
+                                      <div key={idx} className="bg-slate-50 rounded-xl p-4 border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all group">
+                                         <div className="flex items-start gap-3">
+                                            <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></div>
+                                            <span className="text-slate-700 font-medium">{item}</span>
+                                         </div>
+                                      </div>
+                                    ))}
+                                 </div>
+                              </motion.div>
+                            )}
+
+                            {activeDetailTab === 'advantages' && (
+                              <motion.div
+                                key="advantages"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                 <div className="flex items-center gap-3 mb-6">
+                                    <div className="bg-green-50 p-2 rounded-lg"><Zap className="w-5 h-5 text-green-600"/></div>
+                                    <h3 className="text-xl font-bold text-slate-900">Why Choose This Series?</h3>
+                                 </div>
+                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
+                                      <div key={idx} className="relative pl-6 group">
+                                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 to-transparent rounded-full group-hover:h-full transition-all duration-500 h-1/2"></div>
+                                         <p className="text-slate-600 group-hover:text-slate-900 transition-colors leading-relaxed font-medium">
+                                            {item}
+                                         </p>
+                                      </div>
+                                    ))}
+                                 </div>
+                              </motion.div>
+                            )}
+                         </AnimatePresence>
                       </div>
                    </div>
                  )}
