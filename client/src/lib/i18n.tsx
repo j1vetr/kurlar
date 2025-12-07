@@ -130,6 +130,7 @@ const translations: Translations = {
   'product.temp_value': { TR: '90°C\'ye kadar', EN: 'Up to 90°C', AR: 'تصل إلى 90 درجة مئوية', ES: 'Hasta 90°C', PT: 'Até 90°C' },
   'product.efficiency': { TR: 'Verimlilik', EN: 'Efficiency', AR: 'كفاءة', ES: 'Eficiencia', PT: 'Eficiência' },
   'product.efficiency_value': { TR: 'Yüksek (PBN Tel)', EN: 'High (PBN Wire)', AR: 'عالية (سلك PBN)', ES: 'Alta (Cable PBN)', PT: 'Alta (Fio PBN)' },
+  'product.why_choose': { TR: 'Neden Bu Seri?', EN: 'Why Choose This Series?', AR: 'لماذا تختار هذه السلسلة؟', ES: '¿Por Qué Elegir Esta Serie?', PT: 'Por Que Escolher Esta Série?' },
   
   // Products Page
   'products.search_results': { TR: 'Arama Sonuçları', EN: 'Search Results', AR: 'نتائج البحث', ES: 'Resultados de la Búsqueda', PT: 'Resultados da Pesquisa' },

@@ -507,7 +507,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                               >
                                  <div className="flex items-center gap-3 mb-6">
                                     <div className="bg-green-50 p-2 rounded-lg"><Zap className="w-5 h-5 text-green-600"/></div>
-                                    <h3 className="text-xl font-bold text-slate-900">Why Choose This Series?</h3>
+                                    <h3 className="text-xl font-bold text-slate-900">{t('product.why_choose')}</h3>
                                  </div>
                                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
