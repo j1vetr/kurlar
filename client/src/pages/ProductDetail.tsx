@@ -51,6 +51,8 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
 function HiTempProductLayout({ product }: { product: any }) {
   const { t } = useLanguage();
   const [activeSeries, setActiveSeries] = useState("6");
+  const [activeImage, setActiveImage] = useState(0);
+  const galleryImages = product.gallery || [product.image];
 
   return (
     <Layout>
@@ -62,38 +64,113 @@ function HiTempProductLayout({ product }: { product: any }) {
       
       {/* Hero Section */}
       <div className="relative bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-800/50 z-10"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-800/90 z-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
         
-        <div className="container mx-auto px-6 py-24 relative z-20">
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
-                <Thermometer className="w-3 h-3" /> Hi-Temp Series
-              </span>
-              <span className="bg-white/10 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
-                IP68 Protection
-              </span>
+        <div className="container mx-auto px-6 py-12 md:py-20 relative z-20">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            
+            {/* Left Column: Image Gallery */}
+            <div className="w-full lg:w-5/12">
+              <div className="relative">
+                {/* Main Image Container */}
+                <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 mb-4 relative group">
+                  {/* Decorative Elements */}
+                  <div className="absolute top-4 left-4 flex flex-col gap-2 z-20">
+                    <div className="bg-slate-900/80 backdrop-blur border border-slate-700 p-2 rounded-lg shadow-xl">
+                      <Thermometer className="w-5 h-5 text-red-500" />
+                    </div>
+                  </div>
+                  
+                  <div className="relative h-[300px] md:h-[400px] flex items-center justify-center p-4">
+                     {/* Glow Effect behind image */}
+                     <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full transform scale-75 opacity-50 group-hover:opacity-75 transition-opacity duration-700"></div>
+                     
+                     <div className="relative z-10 w-full h-full">
+                       <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
+                     </div>
+                  </div>
+
+                  {/* Zoom Hint */}
+                  <div className="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur text-slate-400 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 pointer-events-none">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                    Hover to zoom
+                  </div>
+                </div>
+
+                {/* Thumbnails */}
+                {galleryImages.length > 1 && (
+                  <div className="grid grid-cols-4 gap-3">
+                    {galleryImages.map((img: string, idx: number) => (
+                      <button 
+                        key={idx}
+                        onClick={() => setActiveImage(idx)}
+                        className={cn(
+                          "bg-slate-800/50 backdrop-blur-sm border rounded-xl p-2 h-20 flex items-center justify-center transition-all duration-300 relative overflow-hidden group",
+                          activeImage === idx 
+                            ? "border-primary ring-1 ring-primary shadow-[0_0_15px_-3px_rgba(59,130,246,0.5)]" 
+                            : "border-slate-700 hover:border-slate-600 hover:bg-slate-800"
+                        )}
+                      >
+                        <img src={img} alt="" className="max-w-full max-h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-300" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
-            
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-              {product.name}
-            </h1>
-            <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
-              {product.description}
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <Link href="/iletisim#contact-form">
-                <Button className="bg-primary hover:bg-primary/90 text-white h-12 px-8 rounded-full font-bold text-lg shadow-lg shadow-primary/25">
-                  {t('product.request_quote')}
-                </Button>
-              </Link>
-              <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-12 px-8 rounded-full font-bold text-lg bg-transparent">
-                  <Download className="mr-2 w-5 h-5" /> {t('product.download_catalog')}
-                </Button>
-              </a>
+
+            {/* Right Column: Text Content */}
+            <div className="w-full lg:w-7/12">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-lg shadow-primary/25">
+                  <Thermometer className="w-3 h-3" /> Hi-Temp Series
+                </span>
+                <span className="bg-slate-800/50 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-slate-700">
+                  IP68 Protection
+                </span>
+                <span className="bg-slate-800/50 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-slate-700 flex items-center gap-1">
+                  <Box className="w-3 h-3" /> 6" - 10"
+                </span>
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight text-white">
+                {product.name}
+              </h1>
+              
+              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl border-l-4 border-primary/50 pl-6">
+                {product.description}
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 mb-10 max-w-xl">
+                 <div className="flex items-center gap-3 bg-slate-800/30 border border-slate-700/50 p-3 rounded-lg">
+                    <Thermometer className="w-5 h-5 text-primary" />
+                    <div className="text-sm">
+                       <div className="text-slate-400 text-xs uppercase font-bold">Max Temp</div>
+                       <div className="text-white font-bold">Up to 90°C</div>
+                    </div>
+                 </div>
+                 <div className="flex items-center gap-3 bg-slate-800/30 border border-slate-700/50 p-3 rounded-lg">
+                    <Zap className="w-5 h-5 text-primary" />
+                    <div className="text-sm">
+                       <div className="text-slate-400 text-xs uppercase font-bold">Efficiency</div>
+                       <div className="text-white font-bold">High (PBN Wire)</div>
+                    </div>
+                 </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link href="/iletisim#contact-form">
+                  <Button className="bg-primary hover:bg-primary/90 text-white h-12 px-8 rounded-full font-bold text-lg shadow-lg shadow-primary/25 transition-all hover:scale-105 active:scale-95">
+                    {t('product.request_quote')}
+                  </Button>
+                </Link>
+                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white h-12 px-8 rounded-full font-bold text-lg bg-transparent transition-all">
+                    <Download className="mr-2 w-5 h-5" /> {t('product.download_catalog')}
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
