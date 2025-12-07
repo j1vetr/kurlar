@@ -223,13 +223,13 @@ function HiTempProductLayout({ product }: { product: any }) {
         {/* Sticky Industrial Navigation Bar */}
         <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
           <div className="container mx-auto px-6">
-            <div className="flex items-center justify-between h-20 md:h-24 overflow-x-auto scrollbar-hide gap-4">
+            <div className="flex items-center justify-between h-20 md:h-24 overflow-x-auto scrollbar-hide gap-4 py-2">
               
               {/* Overview Toggle */}
               <button 
                 onClick={() => setActiveSeries("overview")}
                 className={cn(
-                  "flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 whitespace-nowrap border-2",
+                  "flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 whitespace-nowrap border-2 ml-1",
                   activeSeries === "overview" 
                     ? "bg-slate-900 text-white border-slate-900 shadow-lg shadow-slate-900/20 scale-105" 
                     : "bg-white text-slate-500 border-slate-100 hover:border-slate-300 hover:text-slate-900"
@@ -237,7 +237,7 @@ function HiTempProductLayout({ product }: { product: any }) {
               >
                 <Info className="w-5 h-5" />
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[10px] uppercase tracking-wider opacity-60 font-bold">Sistem</span>
+                  <span className="text-[10px] uppercase tracking-wider opacity-60 font-bold">Ürün</span>
                   <span className="font-bold tracking-wide text-sm">GENEL BAKIŞ</span>
                 </div>
               </button>
