@@ -573,25 +573,32 @@ function HiTempProductLayout({ product }: { product: any }) {
                           </div>
                        </div>
                        
-                       <div className="p-0 overflow-x-auto">
-                          <table className="w-full text-sm text-left whitespace-nowrap border-separate border-spacing-0">
-                            <thead className="bg-slate-100/50 text-xs uppercase text-slate-500 font-bold tracking-wider">
+                       <div className="overflow-x-auto border-t border-slate-200">
+                          <table className="w-full text-sm text-left whitespace-nowrap border-collapse">
+                            <thead className="bg-slate-100 text-xs uppercase text-slate-700 font-bold tracking-wider">
                               <tr>
                                 {spec.columns.map((col: string, i: number) => (
                                   <th key={i} className={cn(
-                                    "px-6 py-4 border-b border-slate-200 border-r border-slate-200 last:border-r-0",
-                                    i === 0 && "sticky left-0 z-10 border-r-2 border-r-slate-200 bg-slate-50 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]"
+                                    "px-4 py-3 border-b border-slate-300 border-r border-slate-300 last:border-r-0 bg-slate-100",
+                                    i === 0 && "sticky left-0 z-10 border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]"
                                   )}>{col}</th>
                                 ))}
                               </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-100 font-mono text-slate-600">
+                            <tbody className="font-mono text-slate-600 text-xs md:text-sm">
                               {spec.data.map((row: string[], i: number) => (
-                                <tr key={i} className="hover:bg-primary/5 transition-colors group bg-white">
+                                <tr key={i} className={cn(
+                                  "hover:bg-blue-50/50 transition-colors group",
+                                  i % 2 === 1 ? "bg-slate-50" : "bg-white"
+                                )}>
                                   {row.map((cell: string, j: number) => (
                                     <td key={j} className={cn(
-                                      "px-6 py-4 border-r border-slate-100 last:border-r-0 transition-colors",
-                                      j === 0 ? "text-primary font-bold font-sans bg-white sticky left-0 z-10 border-r-2 border-r-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] group-hover:bg-white" : ""
+                                      "px-4 py-3 border-b border-r border-slate-200 last:border-r-0",
+                                      j === 0 && cn(
+                                        "text-primary font-bold font-sans sticky left-0 z-10 border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]",
+                                        i % 2 === 1 ? "bg-slate-50" : "bg-white",
+                                        "group-hover:bg-blue-50/50"
+                                      )
                                     )}>{cell}</td>
                                   ))}
                                 </tr>
