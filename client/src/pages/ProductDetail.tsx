@@ -634,24 +634,24 @@ function HiTempProductLayout({ product }: { product: any }) {
 
                                 {/* ROW 3 - Units */}
                                 <tr>
-                                  <th className="px-1 py-1 border border-black align-middle">HP</th>
-                                  <th className="px-1 py-1 border border-black align-middle">kW</th>
+                                  <th className="px-1 py-1 border border-black align-middle border-r border-black">HP</th>
+                                  <th className="px-1 py-1 border border-black align-middle border-r border-black">kW</th>
                                   
-                                  <th className="px-1 py-1 border border-black align-middle">V</th>
-                                  <th className="px-1 py-1 border border-black align-middle">rpm</th>
-                                  <th className="px-1 py-1 border border-black align-middle">A</th>
-                                  <th className="px-1 py-1 border border-black align-middle">A</th>
+                                  <th className="px-1 py-1 border border-black align-middle border-r border-black">V</th>
+                                  <th className="px-1 py-1 border border-black align-middle border-r border-black">rpm</th>
+                                  <th className="px-1 py-1 border border-black align-middle border-r border-black">A</th>
+                                  <th className="px-1 py-1 border border-black align-middle border-r border-black">A</th>
                                   
-                                  <th className="px-1 py-1 border border-black">50</th>
-                                  <th className="px-1 py-1 border border-black">75</th>
-                                  <th className="px-1 py-1 border border-black">100</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">50</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">75</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">100</th>
                                   
-                                  <th className="px-1 py-1 border border-black">50</th>
-                                  <th className="px-1 py-1 border border-black">75</th>
-                                  <th className="px-1 py-1 border border-black">100</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">50</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">75</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">100</th>
                                   
-                                  <th className="px-1 py-1 border border-black">Nm</th>
-                                  <th className="px-1 py-1 border border-black">Nm</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">Nm</th>
+                                  <th className="px-1 py-1 border border-black border-r border-black">Nm</th>
                                   <th className="px-1 py-1 border border-black">kN</th>
                                 </tr>
                               </thead>
@@ -689,7 +689,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       {/* Model Name - Col 0 - RowSpan 3 */}
                                       {isStartOfGroup && (
                                         <td rowSpan={3} className={cn(
-                                          "px-2 py-2 border border-black text-center font-bold text-black sticky left-0 z-10 align-middle",
+                                          "px-2 py-2 border border-black text-center font-bold text-black sticky left-0 z-10 align-middle border-r border-black",
                                           rowBgClass,
                                           hoverClass
                                         )}>
@@ -699,41 +699,41 @@ function HiTempProductLayout({ product }: { product: any }) {
 
                                       {/* Power HP - Col 1 - RowSpan 3 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold text-black", rowBgClass)}>{row[1]}</td>
+                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold text-black border-r border-black", rowBgClass)}>{row[1]}</td>
                                       )}
                                       
                                       {/* Power kW - Col 2 - RowSpan 3 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold text-black", rowBgClass)}>{row[2]}</td>
+                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold text-black border-r border-black", rowBgClass)}>{row[2]}</td>
                                       )}
 
                                       {/* V - Col 3 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[3]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[3]}</td>
                                       {/* rpm - Col 4 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[4]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[4]}</td>
                                       {/* In - Col 5 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[5]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[5]}</td>
                                       {/* Ia - Col 6 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[6]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[6]}</td>
                                       
                                       {/* Eff 50 - Col 7 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[7]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[7]}</td>
                                       {/* Eff 75 - Col 8 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[8]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[8]}</td>
                                       {/* Eff 100 - Col 9 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[9]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[9]}</td>
                                       
                                       {/* PF 50 - Col 10 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[10]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[10]}</td>
                                       {/* PF 75 - Col 11 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[11]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[11]}</td>
                                       {/* PF 100 - Col 12 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black">{row[12]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[12]}</td>
                                       
                                       {/* Tn - Col 13 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black font-semibold">{row[13]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black font-semibold border-r border-black">{row[13]}</td>
                                       {/* Ta - Col 14 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black font-semibold">{row[14]}</td>
+                                      <td className="px-2 py-1 border border-black text-center text-black font-semibold border-r border-black">{row[14]}</td>
 
                                       {/* Axial Load - Col 15 - RowSpan 3 */}
                                       {isStartOfGroup && (
