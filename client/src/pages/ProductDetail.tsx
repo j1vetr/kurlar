@@ -669,23 +669,34 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   const groupIndex = Math.floor(i / 3);
                                   // Alternating colors: White vs Light Gray
                                   const isEvenGroup = groupIndex % 2 === 0;
-                                  const rowBgClass = isEvenGroup ? "bg-white" : "bg-[#F3F4F6]"; // Slightly darker gray than slate-50
-                                  const hoverClass = "group-hover:bg-blue-50";
+                                  const isHovered = hoveredGroup === groupIndex;
+                                  
+                                  const rowBgClass = isHovered 
+                                    ? "bg-red-50" 
+                                    : (isEvenGroup ? "bg-white" : "bg-[#F3F4F6]");
+                                    
+                                  const textClass = isHovered ? "font-bold text-[#E30613]" : "text-slate-700";
+                                  const borderClass = isHovered ? "border-red-200" : "border-black";
                                   
                                   // Manual mapping of indices for absolute certainty
                                   // 0:Model, 1:HP, 2:kW, 3:V, 4:rpm, 5:In, 6:Ia, 7:Eff50, 8:Eff75, 9:Eff100, 10:PF50, 11:PF75, 12:PF100, 13:Tn, 14:Ta, 15:Axial
                                   
                                   return (
-                                    <tr key={i} className={cn(
-                                      "transition-colors group",
-                                      rowBgClass
-                                    )}>
+                                    <tr 
+                                      key={i} 
+                                      onMouseEnter={() => setHoveredGroup(groupIndex)}
+                                      onMouseLeave={() => setHoveredGroup(null)}
+                                      className={cn(
+                                        "transition-all duration-150 group",
+                                        rowBgClass
+                                      )}
+                                    >
                                       {/* Model Name - Col 0 - RowSpan 3 */}
                                       {isStartOfGroup && (
                                         <td rowSpan={3} className={cn(
-                                          "px-2 py-2 border border-black text-center font-bold text-black sticky left-0 z-10 align-middle border-r border-black",
-                                          rowBgClass,
-                                          hoverClass
+                                          "px-2 py-2 border text-center sticky left-0 z-10 align-middle border-r border-black",
+                                          isHovered ? "bg-red-100 text-[#E30613] font-black border-[#E30613]" : "bg-white font-bold text-black border-black",
+                                          !isHovered && rowBgClass
                                         )}>
                                           {row[0]}
                                         </td>
@@ -693,45 +704,57 @@ function HiTempProductLayout({ product }: { product: any }) {
 
                                       {/* Power HP - Col 1 - RowSpan 3 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold text-black border-r border-black", rowBgClass)}>{row[1]}</td>
+                                        <td rowSpan={3} className={cn(
+                                          "px-2 py-2 border text-center align-middle border-r border-black", 
+                                          isHovered ? "bg-red-50 text-[#E30613] font-black border-[#E30613]" : "font-bold text-black border-black",
+                                          !isHovered && rowBgClass
+                                        )}>{row[1]}</td>
                                       )}
                                       
                                       {/* Power kW - Col 2 - RowSpan 3 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold text-black border-r border-black", rowBgClass)}>{row[2]}</td>
+                                        <td rowSpan={3} className={cn(
+                                          "px-2 py-2 border text-center align-middle border-r border-black", 
+                                          isHovered ? "bg-red-50 text-[#E30613] font-black border-[#E30613]" : "font-bold text-black border-black",
+                                          !isHovered && rowBgClass
+                                        )}>{row[2]}</td>
                                       )}
 
                                       {/* V - Col 3 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[3]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[3]}</td>
                                       {/* rpm - Col 4 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[4]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[4]}</td>
                                       {/* In - Col 5 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[5]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[5]}</td>
                                       {/* Ia - Col 6 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[6]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[6]}</td>
                                       
                                       {/* Eff 50 - Col 7 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[7]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[7]}</td>
                                       {/* Eff 75 - Col 8 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[8]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[8]}</td>
                                       {/* Eff 100 - Col 9 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[9]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[9]}</td>
                                       
                                       {/* PF 50 - Col 10 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[10]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[10]}</td>
                                       {/* PF 75 - Col 11 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[11]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[11]}</td>
                                       {/* PF 100 - Col 12 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black border-r border-black">{row[12]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black", borderClass, textClass)}>{row[12]}</td>
                                       
                                       {/* Tn - Col 13 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black font-semibold border-r border-black">{row[13]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black font-semibold", borderClass, textClass)}>{row[13]}</td>
                                       {/* Ta - Col 14 */}
-                                      <td className="px-2 py-1 border border-black text-center text-black font-semibold border-r border-black">{row[14]}</td>
+                                      <td className={cn("px-2 py-1 border text-center border-r border-black font-semibold", borderClass, textClass)}>{row[14]}</td>
 
                                       {/* Axial Load - Col 15 - RowSpan 3 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold text-black", rowBgClass)}>{row[15]}</td>
+                                        <td rowSpan={3} className={cn(
+                                          "px-2 py-2 border text-center align-middle font-bold", 
+                                          isHovered ? "bg-red-50 text-[#E30613] font-black border-[#E30613]" : "text-black border-black",
+                                          !isHovered && rowBgClass
+                                        )}>{row[15]}</td>
                                       )}
                                     </tr>
                                   );
@@ -781,6 +804,7 @@ export default function ProductDetail() {
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'parts' | 'options'>('overview');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [hoveredGroup, setHoveredGroup] = useState<number | null>(null);
 
   if (!product) {
     return (
