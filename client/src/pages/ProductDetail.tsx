@@ -581,16 +581,10 @@ function HiTempProductLayout({ product }: { product: any }) {
                                 <tr className="border-b border-white/20">
                                   {/* Row 1 */}
                                   <th rowSpan={2} className="px-2 py-2 border-r border-white/20 sticky left-0 z-10 bg-[#E30613] align-middle">
-                                    <div className="flex flex-col gap-0.5">
-                                      <span>MOTOR TYPE</span>
-                                      <span className="text-white/80">MOTOR TİPİ</span>
-                                    </div>
+                                    {t('specs.motor_type') || 'MOTOR TİPİ'}
                                   </th>
                                   <th colSpan={2} className="px-2 py-2 border-r border-white/20">
-                                    <div className="flex flex-col gap-0.5">
-                                      <span>POWER</span>
-                                      <span className="text-white/80">GÜÇ</span>
-                                    </div>
+                                    {t('specs.power') || 'GÜÇ'}
                                   </th>
                                   <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">U<sub>N</sub></th>
                                   <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">n<sub>N</sub></th>
@@ -599,15 +593,13 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   
                                   <th colSpan={3} className="px-2 py-2 border-r border-white/20">
                                      <div className="flex flex-col gap-0.5">
-                                       <span>η - EFFICIENCY</span>
-                                       <span className="text-white/80">η - VERİMLİLİK</span>
+                                       <span>η - {t('specs.efficiency') || 'VERİMLİLİK'}</span>
                                      </div>
                                   </th>
                                   
                                   <th colSpan={3} className="px-2 py-2 border-r border-white/20">
                                      <div className="flex flex-col gap-0.5">
-                                       <span>Cosφ - POWER FACTOR</span>
-                                       <span className="text-white/80">Cosφ - GÜÇ FAKTÖRÜ</span>
+                                       <span>Cosφ - {t('specs.power_factor') || 'GÜÇ FAKTÖRÜ'}</span>
                                      </div>
                                   </th>
                                   
@@ -615,16 +607,12 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">T<sub>A</sub></th>
                                   
                                   <th rowSpan={2} className="px-2 py-2 align-middle">
-                                    <div className="flex flex-col gap-0.5">
-                                      <span>AXIAL LOAD</span>
-                                      <span className="text-white/80">EKSENEL YÜK</span>
-                                    </div>
+                                    {t('specs.axial_load') || 'EKSENEL YÜK'}
                                   </th>
                                 </tr>
                                 
                                 <tr className="border-b border-white/20">
-                                  {/* Row 2 (Part of Row 1 merged cells mostly, but defines structure for next rows) */}
-                                  {/* Empty because covered by rowspans/colspans in Row 1 logic effectively */}
+                                  {/* Row 2 - covered by rowspans */}
                                 </tr>
 
                                 <tr className="border-b border-white/20">
@@ -633,24 +621,18 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   <th rowSpan={2} className="px-2 py-2 border-r border-white/20 align-middle">HP</th>
                                   <th rowSpan={2} className="px-2 py-2 border-r border-white/20 align-middle">kW</th>
                                   
-                                  {/* U, n, I, I continued */}
-                                  
                                   <th colSpan={3} className="px-2 py-1 border-r border-white/20 text-[10px] bg-red-700/50">at % load / % yükte</th>
                                   <th colSpan={3} className="px-2 py-1 border-r border-white/20 text-[10px] bg-red-700/50">at % load / % yükte</th>
-                                  
-                                  {/* T, T continued */}
                                   
                                   <th rowSpan={2} className="px-2 py-2 align-middle">kN</th>
                                 </tr>
                                 
                                 <tr>
                                   {/* Row 4 */}
-                                  {/* Efficiency Loads */}
                                   <th className="px-2 py-1 border-r border-white/20">50</th>
                                   <th className="px-2 py-1 border-r border-white/20">75</th>
                                   <th className="px-2 py-1 border-r border-white/20">100</th>
                                   
-                                  {/* PF Loads */}
                                   <th className="px-2 py-1 border-r border-white/20">50</th>
                                   <th className="px-2 py-1 border-r border-white/20">75</th>
                                   <th className="px-2 py-1">100</th>
@@ -669,23 +651,73 @@ function HiTempProductLayout({ product }: { product: any }) {
                               </thead>
                             )}
                             <tbody className="font-mono text-slate-600 text-xs md:text-sm">
-                              {spec.data.map((row: string[], i: number) => (
-                                <tr key={i} className={cn(
-                                  "hover:bg-blue-50/50 transition-colors group",
-                                  i % 2 === 1 ? "bg-slate-50" : "bg-white"
-                                )}>
-                                  {row.map((cell: string, j: number) => (
-                                    <td key={j} className={cn(
-                                      "px-4 py-3 border-b border-r border-slate-200 last:border-r-0",
-                                      j === 0 && cn(
-                                        "text-primary font-bold font-sans sticky left-0 z-10 border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]",
-                                        i % 2 === 1 ? "bg-slate-50" : "bg-white",
-                                        "group-hover:bg-blue-50/50"
-                                      )
-                                    )}>{cell}</td>
-                                  ))}
-                                </tr>
-                              ))}
+                              {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
+                                // Optimized rendering for Hi-Temp with merging
+                                spec.data.map((row: string[], i: number) => {
+                                  const isStartOfGroup = i % 3 === 0;
+                                  const groupIndex = Math.floor(i / 3);
+                                  const isEvenGroup = groupIndex % 2 === 0;
+                                  const rowBgClass = isEvenGroup ? "bg-white" : "bg-slate-50";
+                                  const hoverClass = "group-hover:bg-blue-50/50";
+                                  
+                                  return (
+                                    <tr key={i} className={cn(
+                                      "transition-colors group border-b border-slate-200 last:border-b-0",
+                                      rowBgClass
+                                    )}>
+                                      {/* Model Name - Col 0 */}
+                                      {isStartOfGroup && (
+                                        <td rowSpan={3} className={cn(
+                                          "px-2 py-2 border-r border-slate-200 text-center font-bold text-slate-800 sticky left-0 z-10 align-middle border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]",
+                                          rowBgClass,
+                                          hoverClass
+                                        )}>
+                                          {row[0]}
+                                        </td>
+                                      )}
+
+                                      {/* Power HP - Col 1 */}
+                                      {isStartOfGroup && (
+                                        <td rowSpan={3} className="px-2 py-2 border-r border-slate-200 text-center align-middle">{row[1]}</td>
+                                      )}
+                                      
+                                      {/* Power kW - Col 2 */}
+                                      {isStartOfGroup && (
+                                        <td rowSpan={3} className="px-2 py-2 border-r border-slate-200 text-center align-middle font-bold">{row[2]}</td>
+                                      )}
+
+                                      {/* Voltage and Specs - Cols 3-14 */}
+                                      {row.slice(3, 15).map((cell: string, k: number) => (
+                                        <td key={k} className="px-2 py-2 border-r border-slate-200 text-center">{cell}</td>
+                                      ))}
+
+                                      {/* Axial Load - Col 15 */}
+                                      {isStartOfGroup && (
+                                        <td rowSpan={3} className="px-2 py-2 text-center align-middle font-bold">{row[15]}</td>
+                                      )}
+                                    </tr>
+                                  );
+                                })
+                              ) : (
+                                // Standard rendering for other tables
+                                spec.data.map((row: string[], i: number) => (
+                                  <tr key={i} className={cn(
+                                    "hover:bg-blue-50/50 transition-colors group",
+                                    i % 2 === 1 ? "bg-slate-50" : "bg-white"
+                                  )}>
+                                    {row.map((cell: string, j: number) => (
+                                      <td key={j} className={cn(
+                                        "px-4 py-3 border-b border-r border-slate-200 last:border-r-0",
+                                        j === 0 && cn(
+                                          "text-primary font-bold font-sans sticky left-0 z-10 border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]",
+                                          i % 2 === 1 ? "bg-slate-50" : "bg-white",
+                                          "group-hover:bg-blue-50/50"
+                                        )
+                                      )}>{cell}</td>
+                                    ))}
+                                  </tr>
+                                ))
+                              )}
                             </tbody>
                           </table>
                        </div>
