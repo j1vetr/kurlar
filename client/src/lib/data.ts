@@ -902,10 +902,10 @@ const descriptions = {
           title: '6" HI-TEMP (60°C) Teknik Veriler (50Hz)',
           columns: [
             'Model', 'HP', 'kW', 
-            'V', 'Devir', 'Nominal Akım', 'Kalkış Akımı', 
+            'V', 'rpm', 'A', 'A', 
             '50', '75', '100', // Efficiency
             '50', '75', '100', // PF
-            'Nominal Tork', 'Kalkış Torku', 
+            'Nm', 'Nm', 
             'kN'
           ],
           data: [
@@ -964,7 +964,7 @@ const descriptions = {
         },
         {
           title: '6" Sandık Ölçüleri ve Ağırlıklar',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk (mm)', 'Ağırlık (kg)', 'Sandık Eni (cm)', 'Sandık Boyu (cm)', 'Sandık Yüksekliği (cm)', 'Brüt Ağırlık (kg)'],
+          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk L (mm)', 'Ağırlık (kg)', 'Sandık W (cm)', 'Sandık L (cm)', 'Sandık H (cm)', 'Brüt Ağırlık (kg)'],
           data: [
             ['KM6-5.5', '5.5', '4', '721', '39', '17.4', '92.4', '27.4', '46'],
             ['KM6-7.5', '7.5', '5.5', '750', '43', '17.4', '92.4', '27.4', '50'],
@@ -983,7 +983,7 @@ const descriptions = {
         },
         {
           title: '7" HI-TEMP (60°C) Teknik Veriler (50Hz)',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Voltaj (V)', 'Devir (RPM)', 'Nominal Akım (A)', 'Kalkış Akımı (A)', 'Verim % (50/75/100)', 'Güç Faktörü (50/75/100)', 'Nominal Tork (Nm)', 'Kalkış Torku (Nm)', 'Eksenel Yük (kN)'],
+          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Voltaj (V)', 'RPM', 'Akım IN (A)', 'Start Akımı IA (A)', 'Verim % (50/75/100)', 'Güç Faktörü (50/75/100)', 'Tork TN (Nm)', 'Tork TA (Nm)', 'Eksenel Yük (kN)'],
           data: [
             ['KM7-30', '30', '22', '380', '2880', '46.3', '184', '83 / 84 / 84', '0.76 / 0.82 / 0.86', '71.9', '91.0', '26.5'],
             ['', '', '', '400', '2900', '44.5', '177', '82 / 84 / 85', '0.75 / 0.81 / 0.85', '71.7', '101.6', '26.5'],
@@ -1019,7 +1019,7 @@ const descriptions = {
         },
         {
           title: '7" Sandık Ölçüleri ve Ağırlıklar',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk (mm)', 'Ağırlık (kg)', 'Sandık Eni (cm)', 'Sandık Boyu (cm)', 'Sandık Yüksekliği (cm)', 'Brüt Ağırlık (kg)'],
+          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk L (mm)', 'Ağırlık (kg)', 'Sandık W (cm)', 'Sandık L (cm)', 'Sandık H (cm)', 'Brüt Ağırlık (kg)'],
           data: [
             ['KM7-30', '30', '22', '937', '98', '21.6', '113.6', '31.6', '113'],
             ['KM7-35', '35', '26.5', '977', '104', '21.6', '113.6', '31.6', '119'],
@@ -1035,7 +1035,7 @@ const descriptions = {
         },
         {
           title: '8" HI-TEMP (60°C) Teknik Veriler (50Hz)',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Voltaj (V)', 'Devir (RPM)', 'Nominal Akım (A)', 'Kalkış Akımı (A)', 'Verim % (50/75/100)', 'Güç Faktörü (50/75/100)', 'Nominal Tork (Nm)', 'Kalkış Torku (Nm)', 'Eksenel Yük (kN)'],
+          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Voltaj (V)', 'RPM', 'Akım IN (A)', 'Start Akımı IA (A)', 'Verim % (50/75/100)', 'Güç Faktörü (50/75/100)', 'Tork TN (Nm)', 'Tork TA (Nm)', 'Eksenel Yük (kN)'],
           data: [
             ['KM8-35', '35', '26.5', '380', '2890', '50', '193', '86 / 86 / 84', '0.85 / 0.88 / 0.88', '86', '109', '45'],
             ['', '', '', '400', '2890', '52.4', '202', '86 / 87 / 85', '0.84 / 0.88 / 0.88', '86', '122', '45'],
@@ -1080,7 +1080,7 @@ const descriptions = {
         },
         {
           title: '8" Sandık Ölçüleri ve Ağırlıklar',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk (mm)', 'Ağırlık (kg)', 'Sandık Eni (cm)', 'Sandık Boyu (cm)', 'Sandık Yüksekliği (cm)', 'Brüt Ağırlık (kg)'],
+          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk L (mm)', 'Ağırlık (kg)', 'Sandık W (cm)', 'Sandık L (cm)', 'Sandık H (cm)', 'Brüt Ağırlık (kg)'],
           data: [
             ['KM8-35', '35', '26.5', '1122', '123', '23.6', '128.6', '33.6', '141'],
             ['KM8-40', '40', '30', '1147', '128', '23.6', '128.6', '33.6', '146'],
@@ -1099,7 +1099,7 @@ const descriptions = {
         },
         {
           title: '10" HI-TEMP (60°C) Teknik Veriler (50Hz)',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Voltaj (V)', 'Devir (RPM)', 'Nominal Akım (A)', 'Kalkış Akımı (A)', 'Verim % (50/75/100)', 'Güç Faktörü (50/75/100)', 'Nominal Tork (Nm)', 'Kalkış Torku (Nm)', 'Eksenel Yük (kN)'],
+          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Voltaj (V)', 'RPM', 'Akım IN (A)', 'Start Akımı IA (A)', 'Verim % (50/75/100)', 'Güç Faktörü (50/75/100)', 'Tork TN (Nm)', 'Tork TA (Nm)', 'Eksenel Yük (kN)'],
           data: [
             ['KM10-100', '100', '75', '380', '2870', '144', '556', '83 / 84 / 84', '0.79 / 0.84 / 0.91', '244', '245', '75'],
             ['', '', '', '400', '2885', '136', '525', '85 / 86 / 86', '0.75 / 0.8 / 0.89', '243', '274', '75'],
@@ -1144,7 +1144,7 @@ const descriptions = {
         },
         {
           title: '10" Sandık Ölçüleri ve Ağırlıklar',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk (mm)', 'Ağırlık (kg)', 'Sandık Eni (cm)', 'Sandık Boyu (cm)', 'Sandık Yüksekliği (cm)', 'Brüt Ağırlık (kg)'],
+          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Uzunluk L (mm)', 'Ağırlık (kg)', 'Sandık W (cm)', 'Sandık L (cm)', 'Sandık H (cm)', 'Brüt Ağırlık (kg)'],
           data: [
             ['KM10-100', '100', '75', '1432', '246', '28.6', '163.6', '38.6', '274'],
             ['KM10-110', '110', '81', '1472', '255', '28.6', '163.6', '38.6', '283'],
