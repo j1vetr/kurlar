@@ -577,65 +577,82 @@ function HiTempProductLayout({ product }: { product: any }) {
                           <table className="w-full text-sm text-left whitespace-nowrap border-collapse">
                             {/* Custom Header for Hi-Temp Performance Data */}
                             {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
-                              <thead className="bg-[#E30613] text-white text-xs uppercase font-bold tracking-wider text-center border-b-2 border-slate-900">
-                                <tr className="border-b border-white/20">
-                                  {/* Row 1 */}
-                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 sticky left-0 z-10 bg-[#E30613] align-middle">
-                                    {t('specs.motor_type') || 'MOTOR TİPİ'}
+                              <thead className="bg-[#E30613] text-white text-[10px] md:text-xs uppercase font-bold tracking-wider text-center border-2 border-black">
+                                {/* ROW 1 */}
+                                <tr>
+                                  <th rowSpan={3} className="px-1 py-1 border border-black sticky left-0 z-10 bg-[#E30613] align-middle min-w-[80px]">
+                                    <div className="flex flex-col gap-0.5">
+                                      <span>MOTOR TYPE</span>
+                                      <span className="text-white/90 font-normal">MOTOR TİPİ</span>
+                                    </div>
                                   </th>
-                                  <th colSpan={2} className="px-2 py-2 border-r border-white/20">
-                                    {t('specs.power') || 'GÜÇ'}
+                                  <th colSpan={2} className="px-1 py-1 border border-black align-middle">
+                                    <div className="flex flex-col gap-0.5">
+                                      <span>POWER</span>
+                                    </div>
                                   </th>
-                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">U<sub>N</sub></th>
-                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">n<sub>N</sub></th>
-                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">I<sub>N</sub></th>
-                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">I<sub>A</sub></th>
+                                  <th rowSpan={2} className="px-1 py-1 border border-black align-middle">U<sub>N</sub></th>
+                                  <th rowSpan={2} className="px-1 py-1 border border-black align-middle">n<sub>N</sub></th>
+                                  <th rowSpan={2} className="px-1 py-1 border border-black align-middle">I<sub>N</sub></th>
+                                  <th rowSpan={2} className="px-1 py-1 border border-black align-middle">I<sub>A</sub></th>
                                   
-                                  <th colSpan={3} className="px-2 py-2 border-r border-white/20">
+                                  <th colSpan={3} className="px-1 py-1 border border-black align-middle">
                                      <div className="flex flex-col gap-0.5">
-                                       <span>η - {t('specs.efficiency') || 'VERİMLİLİK'}</span>
+                                       <span>η - EFFICIENCY</span>
+                                       <span className="text-white/90 font-normal">η - VERİMLİLİK</span>
                                      </div>
                                   </th>
                                   
-                                  <th colSpan={3} className="px-2 py-2 border-r border-white/20">
+                                  <th colSpan={3} className="px-1 py-1 border border-black align-middle">
                                      <div className="flex flex-col gap-0.5">
-                                       <span>Cosφ - {t('specs.power_factor') || 'GÜÇ FAKTÖRÜ'}</span>
+                                       <span>Cosφ - POWER FACTOR</span>
+                                       <span className="text-white/90 font-normal">Cosφ - GÜÇ FAKTÖRÜ</span>
                                      </div>
                                   </th>
                                   
-                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">T<sub>N</sub></th>
-                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">T<sub>A</sub></th>
+                                  <th rowSpan={2} className="px-1 py-1 border border-black align-middle">T<sub>N</sub></th>
+                                  <th rowSpan={2} className="px-1 py-1 border border-black align-middle">T<sub>A</sub></th>
                                   
-                                  <th rowSpan={2} className="px-2 py-2 align-middle">
-                                    {t('specs.axial_load') || 'EKSENEL YÜK'}
+                                  <th rowSpan={2} className="px-1 py-1 border border-black align-middle">
+                                    <div className="flex flex-col gap-0.5">
+                                      <span>AXIAL LOAD</span>
+                                      <span className="text-white/90 font-normal">EKSENEL YÜK</span>
+                                    </div>
                                   </th>
                                 </tr>
                                 
-                                <tr className="border-b border-white/20">
-                                  {/* Row 2 - covered by rowspans */}
+                                {/* ROW 2 */}
+                                <tr>
+                                  <th colSpan={2} className="px-1 py-1 border border-black align-middle text-white/90 font-normal">GÜÇ</th>
+                                  
+                                  {/* Efficiency Subheader */}
+                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">at % load / % yükte</th>
+                                  
+                                  {/* PF Subheader */}
+                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">at % load / % yükte</th>
                                 </tr>
 
-                                <tr className="border-b border-white/20">
-                                  {/* Row 3 */}
-                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 sticky left-0 z-10 bg-[#E30613] align-middle text-[10px]"></th>
-                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 align-middle">HP</th>
-                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 align-middle">kW</th>
-                                  
-                                  <th colSpan={3} className="px-2 py-1 border-r border-white/20 text-[10px] bg-red-700/50">at % load / % yükte</th>
-                                  <th colSpan={3} className="px-2 py-1 border-r border-white/20 text-[10px] bg-red-700/50">at % load / % yükte</th>
-                                  
-                                  <th rowSpan={2} className="px-2 py-2 align-middle">kN</th>
-                                </tr>
-                                
+                                {/* ROW 3 - Units */}
                                 <tr>
-                                  {/* Row 4 */}
-                                  <th className="px-2 py-1 border-r border-white/20">50</th>
-                                  <th className="px-2 py-1 border-r border-white/20">75</th>
-                                  <th className="px-2 py-1 border-r border-white/20">100</th>
+                                  <th className="px-1 py-1 border border-black align-middle">HP</th>
+                                  <th className="px-1 py-1 border border-black align-middle">kW</th>
                                   
-                                  <th className="px-2 py-1 border-r border-white/20">50</th>
-                                  <th className="px-2 py-1 border-r border-white/20">75</th>
-                                  <th className="px-2 py-1">100</th>
+                                  <th className="px-1 py-1 border border-black align-middle">V</th>
+                                  <th className="px-1 py-1 border border-black align-middle">rpm</th>
+                                  <th className="px-1 py-1 border border-black align-middle">A</th>
+                                  <th className="px-1 py-1 border border-black align-middle">A</th>
+                                  
+                                  <th className="px-1 py-1 border border-black">50</th>
+                                  <th className="px-1 py-1 border border-black">75</th>
+                                  <th className="px-1 py-1 border border-black">100</th>
+                                  
+                                  <th className="px-1 py-1 border border-black">50</th>
+                                  <th className="px-1 py-1 border border-black">75</th>
+                                  <th className="px-1 py-1 border border-black">100</th>
+                                  
+                                  <th className="px-1 py-1 border border-black">Nm</th>
+                                  <th className="px-1 py-1 border border-black">Nm</th>
+                                  <th className="px-1 py-1 border border-black">kN</th>
                                 </tr>
                               </thead>
                             ) : (
@@ -650,25 +667,26 @@ function HiTempProductLayout({ product }: { product: any }) {
                                 </tr>
                               </thead>
                             )}
-                            <tbody className="font-mono text-slate-600 text-xs md:text-sm">
+                            <tbody className="font-mono text-slate-700 text-xs md:text-sm">
                               {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
                                 // Optimized rendering for Hi-Temp with merging
                                 spec.data.map((row: string[], i: number) => {
                                   const isStartOfGroup = i % 3 === 0;
                                   const groupIndex = Math.floor(i / 3);
+                                  // Use more distinct colors: White vs Slate-200/300
                                   const isEvenGroup = groupIndex % 2 === 0;
-                                  const rowBgClass = isEvenGroup ? "bg-white" : "bg-slate-50";
-                                  const hoverClass = "group-hover:bg-blue-50/50";
+                                  const rowBgClass = isEvenGroup ? "bg-white" : "bg-slate-100";
+                                  const hoverClass = "group-hover:bg-blue-50";
                                   
                                   return (
                                     <tr key={i} className={cn(
-                                      "transition-colors group border-b border-slate-200 last:border-b-0",
+                                      "transition-colors group",
                                       rowBgClass
                                     )}>
                                       {/* Model Name - Col 0 */}
                                       {isStartOfGroup && (
                                         <td rowSpan={3} className={cn(
-                                          "px-2 py-2 border-r border-slate-200 text-center font-bold text-slate-800 sticky left-0 z-10 align-middle border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]",
+                                          "px-2 py-2 border border-black text-center font-bold text-black sticky left-0 z-10 align-middle",
                                           rowBgClass,
                                           hoverClass
                                         )}>
@@ -678,22 +696,22 @@ function HiTempProductLayout({ product }: { product: any }) {
 
                                       {/* Power HP - Col 1 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className="px-2 py-2 border-r border-slate-200 text-center align-middle">{row[1]}</td>
+                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold", rowBgClass)}>{row[1]}</td>
                                       )}
                                       
                                       {/* Power kW - Col 2 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className="px-2 py-2 border-r border-slate-200 text-center align-middle font-bold">{row[2]}</td>
+                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold", rowBgClass)}>{row[2]}</td>
                                       )}
 
                                       {/* Voltage and Specs - Cols 3-14 */}
                                       {row.slice(3, 15).map((cell: string, k: number) => (
-                                        <td key={k} className="px-2 py-2 border-r border-slate-200 text-center">{cell}</td>
+                                        <td key={k} className="px-2 py-1 border border-black text-center">{cell}</td>
                                       ))}
 
                                       {/* Axial Load - Col 15 */}
                                       {isStartOfGroup && (
-                                        <td rowSpan={3} className="px-2 py-2 text-center align-middle font-bold">{row[15]}</td>
+                                        <td rowSpan={3} className={cn("px-2 py-2 border border-black text-center align-middle font-bold", rowBgClass)}>{row[15]}</td>
                                       )}
                                     </tr>
                                   );
