@@ -673,11 +673,11 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   const isHovered = hoveredGroup === groupIndex;
                                   
                                   const rowBgClass = isHovered 
-                                    ? "bg-red-50" 
+                                    ? "bg-blue-50" 
                                     : (isEvenGroup ? "bg-white" : "bg-[#F3F4F6]");
                                     
-                                  const textClass = isHovered ? "font-bold text-[#E30613]" : "text-slate-700";
-                                  const borderClass = isHovered ? "border-red-200" : "border-black";
+                                  const textClass = isHovered ? "font-bold text-primary" : "text-slate-700";
+                                  const borderClass = isHovered ? "border-primary" : "border-black";
                                   
                                   // Manual mapping of indices for absolute certainty
                                   // 0:Model, 1:HP, 2:kW, 3:V, 4:rpm, 5:In, 6:Ia, 7:Eff50, 8:Eff75, 9:Eff100, 10:PF50, 11:PF75, 12:PF100, 13:Tn, 14:Ta, 15:Axial
@@ -696,7 +696,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       {isStartOfGroup && (
                                         <td rowSpan={3} className={cn(
                                           "px-2 py-2 border text-center sticky left-0 z-10 align-middle border-r border-black",
-                                          isHovered ? "bg-red-100 text-[#E30613] font-black border-[#E30613]" : "bg-white font-bold text-black border-black",
+                                          isHovered ? "bg-blue-100 text-primary font-black border-primary" : "bg-white font-bold text-black border-black",
                                           !isHovered && rowBgClass
                                         )}>
                                           {row[0]}
@@ -707,7 +707,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       {isStartOfGroup && (
                                         <td rowSpan={3} className={cn(
                                           "px-2 py-2 border text-center align-middle border-r border-black", 
-                                          isHovered ? "bg-red-50 text-[#E30613] font-black border-[#E30613]" : "font-bold text-black border-black",
+                                          isHovered ? "bg-blue-50 text-primary font-black border-primary" : "font-bold text-black border-black",
                                           !isHovered && rowBgClass
                                         )}>{row[1]}</td>
                                       )}
@@ -716,7 +716,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       {isStartOfGroup && (
                                         <td rowSpan={3} className={cn(
                                           "px-2 py-2 border text-center align-middle border-r border-black", 
-                                          isHovered ? "bg-red-50 text-[#E30613] font-black border-[#E30613]" : "font-bold text-black border-black",
+                                          isHovered ? "bg-blue-50 text-primary font-black border-primary" : "font-bold text-black border-black",
                                           !isHovered && rowBgClass
                                         )}>{row[2]}</td>
                                       )}
@@ -753,7 +753,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       {isStartOfGroup && (
                                         <td rowSpan={3} className={cn(
                                           "px-2 py-2 border text-center align-middle font-bold", 
-                                          isHovered ? "bg-red-50 text-[#E30613] font-black border-[#E30613]" : "text-black border-black",
+                                          isHovered ? "bg-blue-50 text-primary font-black border-primary" : "text-black border-black",
                                           !isHovered && rowBgClass
                                         )}>{row[15]}</td>
                                       )}
