@@ -582,13 +582,12 @@ function HiTempProductLayout({ product }: { product: any }) {
                                 <tr>
                                   <th rowSpan={3} className="px-1 py-1 border border-black sticky left-0 z-10 bg-[#E30613] align-middle min-w-[80px]">
                                     <div className="flex flex-col gap-0.5">
-                                      <span>MOTOR TYPE</span>
-                                      <span className="text-white/90 font-normal">MOTOR TİPİ</span>
+                                      <span className="text-white font-bold">MOTOR TİPİ</span>
                                     </div>
                                   </th>
                                   <th colSpan={2} className="px-1 py-1 border border-black align-middle">
                                     <div className="flex flex-col gap-0.5">
-                                      <span>POWER</span>
+                                      <span>GÜÇ</span>
                                     </div>
                                   </th>
                                   <th rowSpan={2} className="px-1 py-1 border border-black align-middle">U<sub>N</sub></th>
@@ -598,15 +597,13 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   
                                   <th colSpan={3} className="px-1 py-1 border border-black align-middle">
                                      <div className="flex flex-col gap-0.5">
-                                       <span>η - EFFICIENCY</span>
-                                       <span className="text-white/90 font-normal">η - VERİMLİLİK</span>
+                                       <span className="text-white font-bold">η - VERİMLİLİK</span>
                                      </div>
                                   </th>
                                   
                                   <th colSpan={3} className="px-1 py-1 border border-black align-middle">
                                      <div className="flex flex-col gap-0.5">
-                                       <span>Cosφ - POWER FACTOR</span>
-                                       <span className="text-white/90 font-normal">Cosφ - GÜÇ FAKTÖRÜ</span>
+                                       <span className="text-white font-bold">Cosφ - GÜÇ FAKTÖRÜ</span>
                                      </div>
                                   </th>
                                   
@@ -615,21 +612,20 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   
                                   <th rowSpan={2} className="px-1 py-1 border border-black align-middle">
                                     <div className="flex flex-col gap-0.5">
-                                      <span>AXIAL LOAD</span>
-                                      <span className="text-white/90 font-normal">EKSENEL YÜK</span>
+                                      <span className="text-white font-bold">EKSENEL YÜK</span>
                                     </div>
                                   </th>
                                 </tr>
                                 
                                 {/* ROW 2 */}
                                 <tr>
-                                  <th colSpan={2} className="px-1 py-1 border border-black align-middle text-white/90 font-normal">GÜÇ</th>
+                                  <th colSpan={2} className="hidden"></th>
                                   
                                   {/* Efficiency Subheader */}
-                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">at % load / % yükte</th>
+                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">% yükte</th>
                                   
                                   {/* PF Subheader */}
-                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">at % load / % yükte</th>
+                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">% yükte</th>
                                 </tr>
 
                                 {/* ROW 3 - Units */}
