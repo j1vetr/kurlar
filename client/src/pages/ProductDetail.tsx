@@ -575,16 +575,72 @@ function HiTempProductLayout({ product }: { product: any }) {
                        
                        <div className="overflow-x-auto border-t border-slate-200">
                           <table className="w-full text-sm text-left whitespace-nowrap border-collapse">
-                            <thead className="bg-slate-100 text-xs uppercase text-slate-700 font-bold tracking-wider">
-                              <tr>
-                                {spec.columns.map((col: string, i: number) => (
-                                  <th key={i} className={cn(
-                                    "px-4 py-3 border-b border-slate-300 border-r border-slate-300 last:border-r-0 bg-slate-100",
-                                    i === 0 && "sticky left-0 z-10 border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]"
-                                  )}>{col}</th>
-                                ))}
-                              </tr>
-                            </thead>
+                            {/* Custom Header for Hi-Temp Performance Data */}
+                            {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
+                              <thead className="bg-slate-100 text-xs uppercase text-slate-700 font-bold tracking-wider text-center">
+                                <tr>
+                                  <th rowSpan={3} className="px-4 py-3 border-b border-slate-300 border-r border-slate-300 bg-slate-100 sticky left-0 z-10 border-r-2 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] align-middle">
+                                    {t('specs.motor_type') || 'Motor Tipi'}
+                                  </th>
+                                  <th colSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">{t('specs.power') || 'Güç'}</th>
+                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">U<sub>N</sub></th>
+                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">n<sub>N</sub></th>
+                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">I<sub>N</sub></th>
+                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">I<sub>A</sub></th>
+                                  <th colSpan={3} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">{t('specs.efficiency') || 'Verimlilik'} (η)</th>
+                                  <th colSpan={3} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">{t('specs.power_factor') || 'Güç Faktörü'} (Cosφ)</th>
+                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">T<sub>N</sub></th>
+                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">T<sub>A</sub></th>
+                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300">{t('specs.axial_load') || 'Eksenel Yük'}</th>
+                                </tr>
+                                <tr>
+                                  {/* Power Sub-columns */}
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">HP</th>
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">kW</th>
+                                  
+                                  {/* Single Units */}
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">V</th>
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">rpm</th>
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">A</th>
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">A</th>
+                                  
+                                  {/* Efficiency Sub-header */}
+                                  <th colSpan={3} className="px-4 py-1 border-b border-slate-300 border-r border-slate-300 text-[10px]">{t('specs.at_load') || '% Yükte'}</th>
+                                  
+                                  {/* Power Factor Sub-header */}
+                                  <th colSpan={3} className="px-4 py-1 border-b border-slate-300 border-r border-slate-300 text-[10px]">{t('specs.at_load') || '% Yükte'}</th>
+                                  
+                                  {/* Torque Units */}
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">Nm</th>
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">Nm</th>
+                                  
+                                  {/* Axial Unit */}
+                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 align-middle">kN</th>
+                                </tr>
+                                <tr>
+                                  {/* Efficiency Loads */}
+                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">50</th>
+                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">75</th>
+                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">100</th>
+                                  
+                                  {/* PF Loads */}
+                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">50</th>
+                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">75</th>
+                                  <th className="px-2 py-2 border-b border-slate-300">100</th>
+                                </tr>
+                              </thead>
+                            ) : (
+                              <thead className="bg-slate-100 text-xs uppercase text-slate-700 font-bold tracking-wider">
+                                <tr>
+                                  {spec.columns.map((col: string, i: number) => (
+                                    <th key={i} className={cn(
+                                      "px-4 py-3 border-b border-slate-300 border-r border-slate-300 last:border-r-0 bg-slate-100",
+                                      i === 0 && "sticky left-0 z-10 border-r-2 border-r-slate-300 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]"
+                                    )}>{col}</th>
+                                  ))}
+                                </tr>
+                              </thead>
+                            )}
                             <tbody className="font-mono text-slate-600 text-xs md:text-sm">
                               {spec.data.map((row: string[], i: number) => (
                                 <tr key={i} className={cn(
