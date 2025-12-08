@@ -585,7 +585,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       <span className="text-white font-bold">MOTOR TİPİ</span>
                                     </div>
                                   </th>
-                                  <th colSpan={2} className="px-1 py-1 border border-black align-middle">
+                                  <th colSpan={2} rowSpan={2} className="px-1 py-1 border border-black align-middle">
                                     <div className="flex flex-col gap-0.5">
                                       <span>GÜÇ</span>
                                     </div>
@@ -619,8 +619,6 @@ function HiTempProductLayout({ product }: { product: any }) {
                                 
                                 {/* ROW 2 */}
                                 <tr>
-                                  <th colSpan={2} className="hidden"></th>
-                                  
                                   {/* Efficiency Subheader */}
                                   <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">% yükte</th>
                                   
