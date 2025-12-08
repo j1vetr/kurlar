@@ -53,6 +53,7 @@ function HiTempProductLayout({ product }: { product: any }) {
   const [activeSeries, setActiveSeries] = useState("6");
   const [activeDetailTab, setActiveDetailTab] = useState("specs");
   const [activeImage, setActiveImage] = useState(0);
+  const [hoveredGroup, setHoveredGroup] = useState<number | null>(null);
   const galleryImages = product.gallery || [product.image];
 
   return (
@@ -804,7 +805,6 @@ export default function ProductDetail() {
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'parts' | 'options'>('overview');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [hoveredGroup, setHoveredGroup] = useState<number | null>(null);
 
   if (!product) {
     return (
