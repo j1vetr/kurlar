@@ -577,56 +577,83 @@ function HiTempProductLayout({ product }: { product: any }) {
                           <table className="w-full text-sm text-left whitespace-nowrap border-collapse">
                             {/* Custom Header for Hi-Temp Performance Data */}
                             {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
-                              <thead className="bg-slate-100 text-xs uppercase text-slate-700 font-bold tracking-wider text-center">
-                                <tr>
-                                  <th rowSpan={3} className="px-4 py-3 border-b border-slate-300 border-r border-slate-300 bg-slate-100 sticky left-0 z-10 border-r-2 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] align-middle">
-                                    {t('specs.motor_type') || 'Motor Tipi'}
+                              <thead className="bg-[#E30613] text-white text-xs uppercase font-bold tracking-wider text-center border-b-2 border-slate-900">
+                                <tr className="border-b border-white/20">
+                                  {/* Row 1 */}
+                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 sticky left-0 z-10 bg-[#E30613] align-middle">
+                                    <div className="flex flex-col gap-0.5">
+                                      <span>MOTOR TYPE</span>
+                                      <span className="text-white/80">MOTOR TİPİ</span>
+                                    </div>
                                   </th>
-                                  <th colSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">{t('specs.power') || 'Güç'}</th>
-                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">U<sub>N</sub></th>
-                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">n<sub>N</sub></th>
-                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">I<sub>N</sub></th>
-                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">I<sub>A</sub></th>
-                                  <th colSpan={3} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">{t('specs.efficiency') || 'Verimlilik'} (η)</th>
-                                  <th colSpan={3} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">{t('specs.power_factor') || 'Güç Faktörü'} (Cosφ)</th>
-                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">T<sub>N</sub></th>
-                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300">T<sub>A</sub></th>
-                                  <th rowSpan={1} className="px-4 py-2 border-b border-slate-300">{t('specs.axial_load') || 'Eksenel Yük'}</th>
+                                  <th colSpan={2} className="px-2 py-2 border-r border-white/20">
+                                    <div className="flex flex-col gap-0.5">
+                                      <span>POWER</span>
+                                      <span className="text-white/80">GÜÇ</span>
+                                    </div>
+                                  </th>
+                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">U<sub>N</sub></th>
+                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">n<sub>N</sub></th>
+                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">I<sub>N</sub></th>
+                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">I<sub>A</sub></th>
+                                  
+                                  <th colSpan={3} className="px-2 py-2 border-r border-white/20">
+                                     <div className="flex flex-col gap-0.5">
+                                       <span>η - EFFICIENCY</span>
+                                       <span className="text-white/80">η - VERİMLİLİK</span>
+                                     </div>
+                                  </th>
+                                  
+                                  <th colSpan={3} className="px-2 py-2 border-r border-white/20">
+                                     <div className="flex flex-col gap-0.5">
+                                       <span>Cosφ - POWER FACTOR</span>
+                                       <span className="text-white/80">Cosφ - GÜÇ FAKTÖRÜ</span>
+                                     </div>
+                                  </th>
+                                  
+                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">T<sub>N</sub></th>
+                                  <th rowSpan={4} className="px-2 py-2 border-r border-white/20 align-middle">T<sub>A</sub></th>
+                                  
+                                  <th rowSpan={2} className="px-2 py-2 align-middle">
+                                    <div className="flex flex-col gap-0.5">
+                                      <span>AXIAL LOAD</span>
+                                      <span className="text-white/80">EKSENEL YÜK</span>
+                                    </div>
+                                  </th>
                                 </tr>
-                                <tr>
-                                  {/* Power Sub-columns */}
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">HP</th>
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">kW</th>
-                                  
-                                  {/* Single Units */}
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">V</th>
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">rpm</th>
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">A</th>
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">A</th>
-                                  
-                                  {/* Efficiency Sub-header */}
-                                  <th colSpan={3} className="px-4 py-1 border-b border-slate-300 border-r border-slate-300 text-[10px]">{t('specs.at_load') || '% Yükte'}</th>
-                                  
-                                  {/* Power Factor Sub-header */}
-                                  <th colSpan={3} className="px-4 py-1 border-b border-slate-300 border-r border-slate-300 text-[10px]">{t('specs.at_load') || '% Yükte'}</th>
-                                  
-                                  {/* Torque Units */}
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">Nm</th>
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 border-r border-slate-300 align-middle">Nm</th>
-                                  
-                                  {/* Axial Unit */}
-                                  <th rowSpan={2} className="px-4 py-2 border-b border-slate-300 align-middle">kN</th>
+                                
+                                <tr className="border-b border-white/20">
+                                  {/* Row 2 (Part of Row 1 merged cells mostly, but defines structure for next rows) */}
+                                  {/* Empty because covered by rowspans/colspans in Row 1 logic effectively */}
                                 </tr>
+
+                                <tr className="border-b border-white/20">
+                                  {/* Row 3 */}
+                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 sticky left-0 z-10 bg-[#E30613] align-middle text-[10px]"></th>
+                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 align-middle">HP</th>
+                                  <th rowSpan={2} className="px-2 py-2 border-r border-white/20 align-middle">kW</th>
+                                  
+                                  {/* U, n, I, I continued */}
+                                  
+                                  <th colSpan={3} className="px-2 py-1 border-r border-white/20 text-[10px] bg-red-700/50">at % load / % yükte</th>
+                                  <th colSpan={3} className="px-2 py-1 border-r border-white/20 text-[10px] bg-red-700/50">at % load / % yükte</th>
+                                  
+                                  {/* T, T continued */}
+                                  
+                                  <th rowSpan={2} className="px-2 py-2 align-middle">kN</th>
+                                </tr>
+                                
                                 <tr>
+                                  {/* Row 4 */}
                                   {/* Efficiency Loads */}
-                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">50</th>
-                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">75</th>
-                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">100</th>
+                                  <th className="px-2 py-1 border-r border-white/20">50</th>
+                                  <th className="px-2 py-1 border-r border-white/20">75</th>
+                                  <th className="px-2 py-1 border-r border-white/20">100</th>
                                   
                                   {/* PF Loads */}
-                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">50</th>
-                                  <th className="px-2 py-2 border-b border-slate-300 border-r border-slate-300">75</th>
-                                  <th className="px-2 py-2 border-b border-slate-300">100</th>
+                                  <th className="px-2 py-1 border-r border-white/20">50</th>
+                                  <th className="px-2 py-1 border-r border-white/20">75</th>
+                                  <th className="px-2 py-1">100</th>
                                 </tr>
                               </thead>
                             ) : (
