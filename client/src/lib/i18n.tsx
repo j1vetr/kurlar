@@ -125,6 +125,7 @@ const translations: Translations = {
   'product.category.motor': { TR: 'Dalgıç Motor', EN: 'Submersible Motor', AR: 'محرك غاطس', ES: 'Motor Sumergible', PT: 'Motor Submersível' },
   'product.technical_details': { TR: 'Teknik Detaylar', EN: 'Technical Details', AR: 'تفاصيل فنية', ES: 'Detalles Técnicos', PT: 'Detalhes Técnicos' },
   'product.download_catalog': { TR: 'Katalog İndir', EN: 'Download Catalog', AR: 'تحميل الكتالوج', ES: 'Descargar Catálogo', PT: 'Baixar Catálogo' },
+  'product.view_technical_data': { TR: 'Teknik Verileri Görüntüle', EN: 'View Technical Data', AR: 'عرض البيانات الفنية', ES: 'Ver Datos Técnicos', PT: 'Ver Dados Técnicos' },
   'product.hover_zoom': { TR: 'Yakınlaştırmak için üzerine gelin', EN: 'Hover to zoom', AR: 'تحوم للتكبير', ES: 'Pase el ratón para ampliar', PT: 'Passe o mouse para ampliar' },
   'product.max_temp': { TR: 'Maks. Sıcaklık', EN: 'Max Temp', AR: 'أقصى درجة حرارة', ES: 'Temp. Máx.', PT: 'Temp. Máx.' },
   'product.temp_value': { TR: '90°C\'ye kadar', EN: 'Up to 90°C', AR: 'تصل إلى 90 درجة مئوية', ES: 'Hasta 90°C', PT: 'Até 90°C' },
