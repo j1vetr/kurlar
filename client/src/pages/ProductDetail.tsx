@@ -574,7 +574,16 @@ function HiTempProductLayout({ product }: { product: any }) {
                           </div>
                        </div>
                        
-                       <div className="overflow-x-auto border-t border-slate-200">
+                       {spec.pdf && (
+                          <div className="w-full h-[800px] bg-slate-100 border-t border-slate-200">
+                             <iframe 
+                               src={spec.pdf} 
+                               className="w-full h-full border-0" 
+                               title={spec.title}
+                             />
+                          </div>
+                       )}
+                       <div className={cn("overflow-x-auto border-t border-slate-200", spec.pdf && "hidden")}>
                           <table className="w-full text-sm text-left whitespace-nowrap border-collapse">
                             {/* Custom Header for Hi-Temp Performance Data */}
                             {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
