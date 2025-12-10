@@ -84,6 +84,9 @@ export function Navbar() {
                <img 
                   src="/assets/logo.png" 
                   alt="Kurlar Logo" 
+                  fetchPriority="high"
+                  width="200"
+                  height="56"
                   className={cn(
                     "h-12 md:h-14 w-auto object-contain relative z-10 transition-all duration-300"
                   )} 
