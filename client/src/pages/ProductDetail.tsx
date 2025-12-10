@@ -49,44 +49,65 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
 }
 
 function PdfViewer({ url, title }: { url: string; title: string }) {
-  const [scale, setScale] = useState(100);
+  const [scale, setScale] = useState(75);
 
   const handleZoomIn = () => setScale(prev => Math.min(prev + 25, 200));
   const handleZoomOut = () => setScale(prev => Math.max(prev - 25, 50));
 
   return (
-    <div className="w-full h-[800px] bg-slate-100 border-t border-slate-200 relative group">
-      <div className="w-full h-full overflow-auto bg-slate-200/50 flex justify-center">
-        <div 
-          className="transition-all duration-300 ease-in-out origin-top"
-          style={{ width: `${scale}%`, height: '100%' }}
-        >
-          <iframe 
-            src={`${url}#navpanes=0&toolbar=0&view=FitH`} 
-            className="w-full h-full border-0 shadow-lg" 
-            title={title}
-          />
+    <div className="w-full bg-slate-100 border-t border-slate-200 relative group">
+      {/* Mobile View - Download/View Button Only */}
+      <div className="md:hidden p-8 flex flex-col items-center justify-center text-center">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 w-full max-w-sm">
+          <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
+          <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
+          <p className="text-slate-500 text-sm mb-6">Detaylı teknik verileri görüntülemek için aşağıdaki butona tıklayınız.</p>
+          <a 
+            href={url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 px-4 rounded-xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all"
+          >
+            <Download className="w-5 h-5" />
+            Teknik Verileri Görüntüle
+          </a>
         </div>
       </div>
-      
-      {/* Custom Zoom Controls */}
-      <div className="absolute bottom-6 right-6 flex flex-col gap-2 z-10">
-        <button
-          onClick={handleZoomIn}
-          className="bg-primary hover:bg-primary/90 text-white p-3 rounded-full shadow-lg shadow-primary/20 transition-all hover:scale-110 active:scale-95"
-          title="Yakınlaştır"
-        >
-          <ZoomIn className="w-5 h-5" />
-        </button>
-        <button
-          onClick={handleZoomOut}
-          className="bg-white hover:bg-slate-50 text-slate-700 p-3 rounded-full shadow-lg border border-slate-200 transition-all hover:scale-110 active:scale-95"
-          title="Uzaklaştır"
-        >
-          <ZoomOut className="w-5 h-5" />
-        </button>
-        <div className="bg-slate-900/80 backdrop-blur text-white text-xs font-bold py-1 px-2 rounded-md text-center shadow-lg mt-1">
-          {scale}%
+
+      {/* Desktop View - Full PDF Viewer */}
+      <div className="hidden md:block h-[800px] relative">
+        <div className="w-full h-full overflow-auto bg-slate-200/50 flex justify-center">
+          <div 
+            className="transition-all duration-300 ease-in-out origin-top"
+            style={{ width: `${scale}%`, height: '100%' }}
+          >
+            <iframe 
+              src={`${url}#navpanes=0&toolbar=0&view=FitH`} 
+              className="w-full h-full border-0 shadow-lg" 
+              title={title}
+            />
+          </div>
+        </div>
+        
+        {/* Custom Zoom Controls */}
+        <div className="absolute bottom-6 right-6 flex flex-col gap-2 z-10">
+          <button
+            onClick={handleZoomIn}
+            className="bg-primary hover:bg-primary/90 text-white p-3 rounded-full shadow-lg shadow-primary/20 transition-all hover:scale-110 active:scale-95"
+            title="Yakınlaştır"
+          >
+            <ZoomIn className="w-5 h-5" />
+          </button>
+          <button
+            onClick={handleZoomOut}
+            className="bg-white hover:bg-slate-50 text-slate-700 p-3 rounded-full shadow-lg border border-slate-200 transition-all hover:scale-110 active:scale-95"
+            title="Uzaklaştır"
+          >
+            <ZoomOut className="w-5 h-5" />
+          </button>
+          <div className="bg-slate-900/80 backdrop-blur text-white text-xs font-bold py-1 px-2 rounded-md text-center shadow-lg mt-1">
+            {scale}%
+          </div>
         </div>
       </div>
     </div>
