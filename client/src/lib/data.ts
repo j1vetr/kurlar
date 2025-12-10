@@ -925,7 +925,8 @@ const descriptions = {
         },
         {
           title: '7" HI-TEMP (60°C) Teknik Veriler (50Hz)',
-          columns: ['Tip', 'Güç (HP)', 'Güç (kW)', 'Voltaj (V)', 'RPM', 'Akım IN (A)', 'Start Akımı IA (A)', 'Verim % (50/75/100)', 'Güç Faktörü (50/75/100)', 'Tork TN (Nm)', 'Tork TA (Nm)', 'Eksenel Yük (kN)'],
+          pdf: '/pdfs/km7-specs.pdf',
+          columns: [],
           data: []
         },
         {
