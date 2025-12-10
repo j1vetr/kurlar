@@ -535,10 +535,10 @@ function HiTempProductLayout({ product }: { product: any }) {
                                     <h3 className="text-xl font-bold text-slate-900">Teknik Özellikler</h3>
                                  </div>
                                  
-                                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                                    <ul className="divide-y divide-slate-100">
+                                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                        {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
-                                         <li key={idx} className="flex items-start gap-4 p-4 hover:bg-slate-50 transition-colors group">
+                                         <li key={idx} className="flex items-start gap-4 p-4 rounded-lg border border-slate-100 bg-slate-50/30 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all group">
                                             <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-800 group-hover:text-white transition-all">
                                                <Settings className="w-4 h-4 text-slate-500 group-hover:text-white" />
                                             </div>
@@ -588,10 +588,10 @@ function HiTempProductLayout({ product }: { product: any }) {
                                     <h3 className="text-xl font-bold text-slate-900">{t('product.customization_options')}</h3>
                                  </div>
                                  
-                                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                                    <ul className="divide-y divide-slate-100">
+                                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                        {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
-                                         <li key={idx} className="flex items-start gap-4 p-4 hover:bg-blue-50/30 transition-colors group">
+                                         <li key={idx} className="flex items-start gap-4 p-4 rounded-lg border border-slate-100 bg-blue-50/10 hover:bg-blue-50/30 hover:border-blue-100 hover:shadow-sm transition-all group">
                                             <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
                                                <PlusCircle className="w-4 h-4 text-blue-500 group-hover:text-white" />
                                             </div>
@@ -616,10 +616,10 @@ function HiTempProductLayout({ product }: { product: any }) {
                                     <h3 className="text-xl font-bold text-slate-900">{t('product.why_choose')}</h3>
                                  </div>
                                  
-                                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                                    <ul className="divide-y divide-slate-100">
+                                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                        {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
-                                         <li key={idx} className="flex items-start gap-4 p-4 hover:bg-green-50/30 transition-colors group">
+                                         <li key={idx} className="flex items-start gap-4 p-4 rounded-lg border border-slate-100 bg-green-50/10 hover:bg-green-50/30 hover:border-green-100 hover:shadow-sm transition-all group">
                                             <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-green-50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-all">
                                                <Star className="w-4 h-4 text-green-600 group-hover:text-white" />
                                             </div>
