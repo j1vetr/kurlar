@@ -263,6 +263,8 @@ const translations: Translations = {
   'product.desc_title': { TR: 'Ürün Açıklaması', EN: 'Product Description', AR: 'وصف المنتج', ES: 'Descripción del Producto', PT: 'Descrição do Produto' },
   'product.features_title': { TR: 'Özellikler', EN: 'Features', AR: 'الميزات', ES: 'Características', PT: 'Características' },
   'product.specs_title': { TR: 'Teknik Özellikler', EN: 'Technical Specifications', AR: 'المواصفات الفنية', ES: 'Especificaciones Técnicas', PT: 'Especificações Técnicas' },
+  'product.product_options': { TR: 'Ürün Opsiyonları', EN: 'Product Options', AR: 'خيارات المنتج', ES: 'Opciones del Producto', PT: 'Opções do Produto' },
+  'product.key_advantages': { TR: 'Temel Avantajlar', EN: 'Key Advantages', AR: 'المزايا الرئيسية', ES: 'Ventajas Clave', PT: 'Principais Vantagens' },
   'product.request_quote': { TR: 'Teklif İste', EN: 'Request Quote', AR: 'طلب عرض سعر', ES: 'Solicitar Cotización', PT: 'Solicitar Orçamento' },
   'product.download_catalog': { TR: '2025 Kataloğu İndir', EN: 'Download 2025 Catalog', AR: 'تنزيل كتالوج 2025', ES: 'Descargar Catálogo 2025', PT: 'Baixar Catálogo 2025' },
   'product.faq_title': { TR: 'Sıkça Sorulan Sorular', EN: 'Frequently Asked Questions', AR: 'أسئلة مكررة', ES: 'Preguntas Frecuentes', PT: 'Perguntas Frequentes' },

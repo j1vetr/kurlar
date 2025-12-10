@@ -508,9 +508,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                                  : "text-slate-400 hover:text-slate-600 hover:bg-slate-100/50"
                              )}
                            >
-                              {tab === 'specs' && "Teknik Özellikler"}
-                              {tab === 'options' && "Ürün Opsiyonları"}
-                              {tab === 'advantages' && "Temel Avantajlar"}
+                              {tab === 'specs' && t('product.specs_title')}
+                              {tab === 'options' && t('product.product_options')}
+                              {tab === 'advantages' && t('product.key_advantages')}
                               
                               {activeDetailTab === tab && (
                                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></div>
@@ -532,7 +532,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                               >
                                  <div className="flex items-center gap-3 mb-6">
                                     <div className="bg-slate-100 p-2 rounded-lg"><Settings className="w-5 h-5 text-slate-700"/></div>
-                                    <h3 className="text-xl font-bold text-slate-900">Teknik Özellikler</h3>
+                                    <h3 className="text-xl font-bold text-slate-900">{t('product.specs_title')}</h3>
                                  </div>
                                  
                                  <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
@@ -639,14 +639,15 @@ function HiTempProductLayout({ product }: { product: any }) {
                  {product.subSpecs?.filter((s: any) => s.title.includes(activeSeries + '"')).map((spec: any, idx: number) => (
                     <div 
                       key={idx} 
-                      id={spec.title.includes('Sandık') || spec.title.includes('Weights') ? "dimensions-section" : "performance-section"}
+                      id={!spec.title.includes('50Hz') ? "dimensions-section" : "performance-section"}
                       className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
                     >
-                       <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
-                          <h3 className="font-bold text-slate-700 flex items-center gap-2 text-sm uppercase tracking-wider">
-                             {spec.title.includes('Sandık') ? <Box className="w-4 h-4" /> : <Settings className="w-4 h-4" />}
+                       <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-200 flex items-center justify-center relative">
+                          <h3 className="font-bold text-slate-700 flex items-center gap-2 text-sm uppercase tracking-wider absolute left-6">
+                             {!spec.title.includes('50Hz') ? <Box className="w-4 h-4" /> : <Settings className="w-4 h-4" />}
                              {spec.title}
                           </h3>
+                          {/* Centered Decorative Dots */}
                           <div className="flex gap-1.5">
                              <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
                              <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
@@ -660,7 +661,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                        <div className={cn("overflow-x-auto border-t border-slate-200", spec.pdf && "hidden")}>
                           <table className="w-full text-sm text-left whitespace-nowrap border-collapse">
                             {/* Custom Header for Hi-Temp Performance Data */}
-                            {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
+                            {product.id === 'km' && spec.title.includes('50Hz') ? (
                               <thead className="bg-[#E30613] text-white text-[10px] md:text-xs uppercase font-bold tracking-wider text-center border-2 border-black">
                                 {/* ROW 1 */}
                                 <tr>
@@ -746,7 +747,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                               </thead>
                             )}
                             <tbody className="font-mono text-slate-700 text-xs md:text-sm">
-                              {product.id === 'km' && !spec.title.includes('Sandık') && !spec.title.includes('Weights') ? (
+                              {product.id === 'km' && spec.title.includes('50Hz') ? (
                                 // Optimized rendering for Hi-Temp with merging
                                 spec.data.map((row: string[], i: number) => {
                                   const isStartOfGroup = i % 3 === 0;
