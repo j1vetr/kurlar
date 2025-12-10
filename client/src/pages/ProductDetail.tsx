@@ -70,16 +70,44 @@ function PdfViewer({ url, title }: { url: string; title: string }) {
                 Teknik Verileri Görüntüle
               </button>
             </DialogTrigger>
-            <DialogContent className="max-w-full w-[95vw] h-[90vh] p-0 flex flex-col">
-              <DialogHeader className="px-4 py-3 border-b flex-shrink-0">
+            <DialogContent className="w-screen h-screen max-w-none m-0 p-0 rounded-none flex flex-col bg-slate-100 border-0">
+              <DialogHeader className="px-4 py-3 border-b bg-white flex-shrink-0 flex flex-row items-center justify-between">
                  <DialogTitle className="text-sm font-bold truncate pr-8">{title}</DialogTitle>
+                 {/* Close button is automatically added by DialogContent usually, but we can ensure header looks good */}
               </DialogHeader>
-              <div className="flex-grow w-full bg-slate-100 overflow-hidden relative">
-                 <iframe 
-                    src={`${url}#navpanes=0&toolbar=0&view=Fit`} 
-                    className="absolute inset-0 w-full h-full border-0" 
-                    title={title}
-                 />
+              
+              <div className="flex-grow w-full overflow-auto bg-slate-200/50 flex justify-center relative">
+                 <div 
+                    className="transition-all duration-300 ease-in-out origin-top"
+                    style={{ width: `${scale}%`, minHeight: '100%' }}
+                 >
+                    <iframe 
+                       src={`${url}#navpanes=0&toolbar=0&view=Fit`} 
+                       className="w-full h-full border-0 shadow-lg" 
+                       title={title}
+                    />
+                 </div>
+
+                 {/* Mobile Zoom Controls */}
+                 <div className="absolute bottom-6 right-6 flex flex-col gap-2 z-50">
+                    <button
+                      onClick={handleZoomIn}
+                      className="bg-primary hover:bg-primary/90 text-white p-3 rounded-full shadow-lg shadow-primary/20 transition-all active:scale-95"
+                      title="Yakınlaştır"
+                    >
+                      <ZoomIn className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={handleZoomOut}
+                      className="bg-white hover:bg-slate-50 text-slate-700 p-3 rounded-full shadow-lg border border-slate-200 transition-all active:scale-95"
+                      title="Uzaklaştır"
+                    >
+                      <ZoomOut className="w-5 h-5" />
+                    </button>
+                    <div className="bg-slate-900/80 backdrop-blur text-white text-xs font-bold py-1 px-2 rounded-md text-center shadow-lg mt-1">
+                      {scale}%
+                    </div>
+                 </div>
               </div>
             </DialogContent>
           </Dialog>
