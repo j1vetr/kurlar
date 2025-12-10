@@ -1478,6 +1478,7 @@ const descriptions = {
           ]
         }
       }
+    },
     AR: {
       name: 'محركات غاطسة HI-TEMP',
       modelCode: 'KM',
@@ -1760,6 +1761,7 @@ const descriptions = {
           ]
         }
       }
+    },
     ES: {
       name: 'Motores Sumergibles HI-TEMP',
       modelCode: 'KM',
@@ -2042,6 +2044,7 @@ const descriptions = {
           ]
         }
       }
+    },
     PT: {
       name: 'Motores Submersíveis HI-TEMP',
       modelCode: 'KM',
