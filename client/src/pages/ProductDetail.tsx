@@ -577,7 +577,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                        {spec.pdf && (
                           <div className="w-full h-[800px] bg-slate-100 border-t border-slate-200">
                              <iframe 
-                               src={`${spec.pdf}#navpanes=0&toolbar=1&view=Fit`} 
+                               src={`${spec.pdf}#navpanes=0&toolbar=0&view=Fit`} 
                                className="w-full h-full border-0" 
                                title={spec.title}
                              />
