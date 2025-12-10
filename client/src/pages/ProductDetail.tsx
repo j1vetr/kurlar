@@ -49,7 +49,7 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
 }
 
 function PdfViewer({ url, title }: { url: string; title: string }) {
-  const [scale, setScale] = useState(75);
+  const [scale, setScale] = useState(50);
 
   const handleZoomIn = () => setScale(prev => Math.min(prev + 25, 200));
   const handleZoomOut = () => setScale(prev => Math.max(prev - 25, 50));
