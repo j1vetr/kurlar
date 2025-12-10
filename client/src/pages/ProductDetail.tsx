@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box, ArrowDown, ZoomIn, ZoomOut } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box, ArrowDown, ZoomIn, ZoomOut, Check, Star, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -446,17 +446,18 @@ function HiTempProductLayout({ product }: { product: any }) {
                   </div>
 
                   {/* Feature List */}
-                  <div className="bg-slate-900 text-white rounded-2xl p-8 shadow-xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[60px] rounded-full"></div>
-                    <h3 className="text-lg font-bold mb-6 flex items-center gap-2 relative z-10">
+                  <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center gap-2">
                       <Layers className="w-5 h-5 text-primary" />
-                      Temel Özellikler
-                    </h3>
-                    <ul className="space-y-4 relative z-10">
+                      <h3 className="font-bold text-slate-900">Temel Özellikler</h3>
+                    </div>
+                    <ul className="divide-y divide-slate-100">
                       {product.features?.map((feature: string, i: number) => (
-                        <li key={i} className="flex items-start gap-3 text-slate-300">
-                          <div className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
-                          <span className="text-sm font-medium">{feature}</span>
+                        <li key={i} className="flex items-start gap-4 p-4 hover:bg-slate-50 transition-colors group">
+                          <div className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                            <Check className="w-3.5 h-3.5 text-primary group-hover:text-white" />
+                          </div>
+                          <span className="text-slate-600 font-medium leading-relaxed group-hover:text-slate-900">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -532,13 +533,18 @@ function HiTempProductLayout({ product }: { product: any }) {
                                     <div className="bg-slate-100 p-2 rounded-lg"><Settings className="w-5 h-5 text-slate-700"/></div>
                                     <h3 className="text-xl font-bold text-slate-900">Teknik Özellikler</h3>
                                  </div>
-                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                                    {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
-                                      <div key={idx} className="flex items-start gap-3 py-2 border-b border-slate-50 last:border-0 group">
-                                        <div className="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 flex-shrink-0 group-hover:bg-primary transition-colors"></div>
-                                        <span className="text-slate-600 group-hover:text-slate-900 transition-colors leading-relaxed">{item}</span>
-                                      </div>
-                                    ))}
+                                 
+                                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                                    <ul className="divide-y divide-slate-100">
+                                       {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
+                                         <li key={idx} className="flex items-start gap-4 p-4 hover:bg-slate-50 transition-colors group">
+                                            <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-800 group-hover:text-white transition-all">
+                                               <Settings className="w-4 h-4 text-slate-500 group-hover:text-white" />
+                                            </div>
+                                            <span className="text-slate-600 font-medium leading-relaxed group-hover:text-slate-900 pt-1">{item}</span>
+                                         </li>
+                                       ))}
+                                    </ul>
                                  </div>
 
                                  {/* Quick Navigation Buttons */}
@@ -580,15 +586,18 @@ function HiTempProductLayout({ product }: { product: any }) {
                                     <div className="bg-blue-50 p-2 rounded-lg"><Sliders className="w-5 h-5 text-blue-600"/></div>
                                     <h3 className="text-xl font-bold text-slate-900">{t('product.customization_options')}</h3>
                                  </div>
-                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
-                                      <div key={idx} className="bg-slate-50 rounded-xl p-4 border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all group">
-                                         <div className="flex items-start gap-3">
-                                            <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></div>
-                                            <span className="text-slate-700 font-medium">{item}</span>
-                                         </div>
-                                      </div>
-                                    ))}
+                                 
+                                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                                    <ul className="divide-y divide-slate-100">
+                                       {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
+                                         <li key={idx} className="flex items-start gap-4 p-4 hover:bg-blue-50/30 transition-colors group">
+                                            <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
+                                               <PlusCircle className="w-4 h-4 text-blue-500 group-hover:text-white" />
+                                            </div>
+                                            <span className="text-slate-600 font-medium leading-relaxed group-hover:text-slate-900 pt-1">{item}</span>
+                                         </li>
+                                       ))}
+                                    </ul>
                                  </div>
                               </motion.div>
                             )}
@@ -605,15 +614,18 @@ function HiTempProductLayout({ product }: { product: any }) {
                                     <div className="bg-green-50 p-2 rounded-lg"><Zap className="w-5 h-5 text-green-600"/></div>
                                     <h3 className="text-xl font-bold text-slate-900">{t('product.why_choose')}</h3>
                                  </div>
-                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
-                                      <div key={idx} className="relative pl-6 group">
-                                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 to-transparent rounded-full group-hover:h-full transition-all duration-500 h-1/2"></div>
-                                         <p className="text-slate-600 group-hover:text-slate-900 transition-colors leading-relaxed font-medium">
-                                            {item}
-                                         </p>
-                                      </div>
-                                    ))}
+                                 
+                                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                                    <ul className="divide-y divide-slate-100">
+                                       {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
+                                         <li key={idx} className="flex items-start gap-4 p-4 hover:bg-green-50/30 transition-colors group">
+                                            <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-green-50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-all">
+                                               <Star className="w-4 h-4 text-green-600 group-hover:text-white" />
+                                            </div>
+                                            <span className="text-slate-600 font-medium leading-relaxed group-hover:text-slate-900 pt-1">{item}</span>
+                                         </li>
+                                       ))}
+                                    </ul>
                                  </div>
                               </motion.div>
                             )}
