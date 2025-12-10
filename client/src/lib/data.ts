@@ -1295,8 +1295,189 @@ const descriptions = {
       faq: [
         { question: "What is the maximum operating temperature?", answer: "Our Hi-Temp motors operate smoothly up to 75°C as standard and optionally up to 90°C water temperature." },
         { question: "What is the difference from a standard motor?", answer: "It is produced using high temperature resistant special winding wire (XLPE) and insulation materials." }
-      ]
-    },
+      ],
+      seriesDetails: {
+        '6': {
+          technicalSpecs: [
+            'Motor Option from 4kW to 45kW (5.5HP to 60HP)',
+            '6" NEMA Standard Upper Flange with M12 Studs',
+            'Protection Class: IP68',
+            'Max Starts per Hour: 20',
+            'Installation Position: Vertical and Horizontal',
+            'Rotation Direction: CW and CCW',
+            'Motor Cable Length: 4m',
+            'Standard Voltage: 380/415V – 50Hz',
+            'Voltage Tolerance (50 Hz): ±10%',
+            'Min. Cooling Flow at 60°C Max Ambient: (4kW-15kW: v=0.2 m/s) (18.5kW-45kW: v=0.5 m/s)'
+          ],
+          options: [
+            'Motors can be produced as Complete AISI 304, AISI 316, 904L and Bronze',
+            'Motors can be produced with 6" NEMA Double Flange',
+            'PT100 Sensor',
+            'Motors can be produced with Cable suitable for Drinking Water Legislation (VDE & ACS & KTW Approved)',
+            'Can be produced with custom cable length up to 100m',
+            'Direct or Star/Delta Starting',
+            'Can be produced with 4-core cable (3 Phase & 1 Ground)',
+            'Motors can be produced suitable for 500V, 525V, 630V and 1000V (Contact KURLAR for details)',
+            'Motors can be produced for 75°C and 90°C',
+            '4kW-22kW (5.5HP-30HP) Motors can be produced with 26.5kN Axial Load Capacity'
+          ],
+          advantages: [
+            'High Efficiency Design for Low Operating Cost',
+            'Special Insulated Coil Wire (PBN) for High Temperature',
+            'Superior Performance at 60°C',
+            'Longer Life Compared to Standard Motors',
+            'Water Cooled Submersible Motor',
+            'All Motors Filled with Pure Water and Antifreeze Mixture and Tested',
+            'High Resistance to Voltage Fluctuations',
+            'High Durability in Wells where Motor Cannot Cool Itself and Water Flow is Insufficient',
+            'Stainless Steel Motor Shaft',
+            'NBR Sand Slinger',
+            'Stainless Steel or Bronze Pressure Compensating Check Valve to Control Pressure Changes',
+            'NBR Diaphragm to Minimize Expansion Pressure',
+            'Mechanical Seal: Hot CA-95CE-NBR-304',
+            'Design Suitable for PT100 Sensor',
+            'Usability with Soft-Starter and VFD (Over 30 Hz)',
+            'Long Life with Rewindable Type and Easily Accessible Spare Parts',
+            'Mechanical Seal can be produced as SIC/SIC-NBR-304'
+          ]
+        },
+        '7': {
+          technicalSpecs: [
+            'Motor Option from 22kW to 75kW (30HP to 100HP)',
+            '6" NEMA Standard Upper Flange',
+            'Protection Class: IP68',
+            'Max Starts per Hour: 16',
+            'Installation Position: Vertical and Horizontal',
+            'Rotation Direction: CW and CCW',
+            'Motor Cable Length: 4m',
+            'Standard Voltage: 380/415V – 50Hz',
+            'Voltage Tolerance (50 Hz): ±10%',
+            'Min. Cooling Flow at 60°C Max Ambient: v=0.5 m/s'
+          ],
+          options: [
+            'Motors can be produced as Complete AISI 304, AISI 316, 904L and Bronze',
+            'Motors can be produced with 6" NEMA Double Flange',
+            'PT100 Sensor',
+            'Motors can be produced with Cable suitable for Drinking Water Legislation (VDE & ACS & KTW Approved)',
+            'Can be produced with custom cable length up to 100m',
+            'Direct or Star/Delta Starting',
+            'Can be produced with 4-core cable (3 Phase & 1 Ground)',
+            'Motors can be produced suitable for 500V, 525V, 630V and 1000V (Contact KURLAR for details)',
+            'Motors can be produced for 75°C and 90°C',
+            '22kW–45kW (30HP–60HP) Motors can be produced with 45kN Axial Load Capacity',
+            'Mechanical Seal can be produced as SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'High Efficiency Design for Low Operating Cost',
+            'Special Insulated Coil Wire (PBN) for High Temperature',
+            'Superior Performance at 60°C',
+            'Longer Life Compared to Standard Motors',
+            'Water Cooled Submersible Motor',
+            'All Motors Filled with Pure Water and Antifreeze Mixture and Tested',
+            'High Resistance to Voltage Fluctuations',
+            'High Durability in Wells where Motor Cannot Cool Itself and Water Flow is Insufficient',
+            'Stainless Steel Motor Shaft',
+            'NBR Sand Slinger',
+            'Stainless Steel or Bronze Pressure Compensating Check Valve to Control Pressure Changes',
+            'NBR Diaphragm to Minimize Expansion Pressure',
+            'Mechanical Seal: Hot CA-95CE-NBR-304',
+            'Design Suitable for PT100 Sensor',
+            'Usability with Soft-Starter and VFD (Over 30 Hz)',
+            'Long Life with Rewindable Type and Easily Accessible Spare Parts'
+          ]
+        },
+        '8': {
+          technicalSpecs: [
+            'Motor Option from 22kW to 110kW (30HP to 150HP)',
+            '8" NEMA Standard Upper Flange',
+            'Protection Class: IP68',
+            'Max Starts per Hour: 15',
+            'Installation Position: Vertical and Horizontal',
+            'Rotation Direction: CW and CCW',
+            'Motor Cable Length: 4m',
+            'Standard Voltage: 380/415V – 50Hz',
+            'Voltage Tolerance (50 Hz): ±10%',
+            'Min. Cooling Flow at 60°C Max Ambient: v=0.5 m/s'
+          ],
+          options: [
+            'Motors can be produced as Complete AISI 304, AISI 316, 904L and Bronze',
+            'Motors can be produced with 8" NEMA Double Flange',
+            'PT100 Sensor',
+            'Motors can be produced with Cable suitable for Drinking Water Legislation (VDE & ACS & KTW Approved)',
+            'Can be produced with custom cable length up to 100m',
+            'Direct or Star/Delta Starting',
+            'Can be produced with 4-core cable (3 Phase & 1 Ground)',
+            'Motors can be produced suitable for 500V, 525V, 630V and 1000V (Contact KURLAR for details)',
+            'Motors can be produced for 75°C and 90°C',
+            '22kW–67kW (30HP–90HP) Motors can be produced with 55kN Axial Load Capacity',
+            'Mechanical Seal can be produced as SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'High Efficiency Design for Low Operating Cost',
+            'Special Insulated Coil Wire (PBN) for High Temperature',
+            'Superior Performance at 60°C',
+            'Longer Life Compared to Standard Motors',
+            'Water Cooled Submersible Motor',
+            'All Motors Filled with Pure Water and Antifreeze Mixture and Tested',
+            'High Resistance to Voltage Fluctuations',
+            'High Durability in Wells where Motor Cannot Cool Itself and Water Flow is Insufficient',
+            'Stainless Steel Motor Shaft',
+            'NBR Sand Slinger',
+            'Stainless Steel or Bronze Pressure Compensating Check Valve to Control Pressure Changes',
+            'NBR Diaphragm to Minimize Expansion Pressure',
+            'Mechanical Seal: Hot CA-95CE-NBR-304',
+            'Design Suitable for PT100 Sensor',
+            'Usability with Soft-Starter and VFD (Over 30 Hz)',
+            'Long Life with Rewindable Type and Easily Accessible Spare Parts'
+          ]
+        },
+        '10': {
+          technicalSpecs: [
+            'Motor Option from 75kW to 260kW (100HP to 350HP)',
+            '8" NEMA Standard Upper Flange',
+            'Protection Class: IP68',
+            'Max Starts per Hour: 10',
+            'Installation Position: Vertical and Horizontal',
+            'Rotation Direction: CW and CCW',
+            'Motor Cable Length: 4m',
+            'Standard Voltage: 380/415V – 50Hz',
+            'Voltage Tolerance (50 Hz): ±10%',
+            'Min. Cooling Flow at 60°C Max Ambient: v=0.5 m/s'
+          ],
+          options: [
+            'Motors can be produced as Complete AISI 304, AISI 316, 904L and Bronze',
+            'Motors can be produced with 8" NEMA Double Flange',
+            'PT100 Sensor',
+            'Motors can be produced with Cable suitable for Drinking Water Legislation (VDE & ACS & KTW Approved)',
+            'Can be produced with custom cable length up to 100m',
+            'Direct or Star/Delta Starting',
+            'Can be produced with 4-core cable (3 Phase & 1 Ground)',
+            'Motors can be produced suitable for 500V, 525V, 630V and 1000V (Contact KURLAR for details)',
+            'Motors can be produced for 75°C and 90°C',
+            'All Motors can be produced with 90kN Axial Load Capacity',
+            'Mechanical Seal can be produced as SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'High Efficiency Design for Low Operating Cost',
+            'Special Insulated Coil Wire (PBN) for High Temperature',
+            'Superior Performance at 60°C',
+            'Longer Life Compared to Standard Motors',
+            'Water Cooled Submersible Motor',
+            'All Motors Filled with Pure Water and Antifreeze Mixture and Tested',
+            'High Resistance to Voltage Fluctuations',
+            'High Durability in Wells where Motor Cannot Cool Itself and Water Flow is Insufficient',
+            'Stainless Steel Motor Shaft',
+            'NBR Sand Slinger',
+            'Stainless Steel or Bronze Pressure Compensating Check Valve to Control Pressure Changes',
+            'NBR Diaphragm to Minimize Expansion Pressure',
+            'Mechanical Seal: Hot CA-95CE-NBR-304',
+            'Design Suitable for PT100 Sensor',
+            'Usability with Soft-Starter and VFD (Over 30 Hz)',
+            'Long Life with Rewindable Type and Easily Accessible Spare Parts'
+          ]
+        }
+      }
     AR: {
       name: 'محركات غاطسة HI-TEMP',
       modelCode: 'KM',
@@ -1396,8 +1577,189 @@ const descriptions = {
       faq: [
         { question: "ما هي أقصى درجة حرارة للتشغيل؟", answer: "تعمل محركاتنا ذات درجة الحرارة العالية بسلاسة حتى 75 درجة مئوية كمعيار قياسي واختياريًا حتى 90 درجة مئوية لدرجة حرارة الماء." },
         { question: "ما الفرق بينه وبين المحرك القياسي؟", answer: "يتم إنتاجه باستخدام سلك لف خاص مقاوم لدرجات الحرارة العالية (XLPE) ومواد عازلة." }
-      ]
-    },
+      ],
+      seriesDetails: {
+        '6': {
+          technicalSpecs: [
+            'خيارات محرك من 4 كيلو واط إلى 45 كيلو واط (5.5 حصان إلى 60 حصان)',
+            'شفة علوية قياسية NEMA 6 بوصة مع مسامير M12',
+            'فئة الحماية: IP68',
+            'أقصى عدد مرات بدء التشغيل في الساعة: 20',
+            'وضع التثبيت: عمودي وأفقي',
+            'اتجاه الدوران: في اتجاه عقارب الساعة وعكس اتجاه عقارب الساعة',
+            'طول كابل المحرك: 4 أمتار',
+            'الجهد القياسي: 380/415 فولت - 50 هرتز',
+            'تسامح الجهد (50 هرتز): ±10%',
+            'أدنى تدفق تبريد عند 60 درجة مئوية أقصى درجة حرارة محيطة: (4-15 كيلو واط: v=0.2 م/ث) (18.5-45 كيلو واط: v=0.5 م/ث)'
+          ],
+          options: [
+            'يمكن إنتاج المحركات بالكامل من AISI 304 و AISI 316 و 904L والبرونز',
+            'يمكن إنتاج المحركات بشفة مزدوجة NEMA 6 بوصة',
+            'مستشعر PT100',
+            'يمكن إنتاج المحركات بكابل مناسب لتشريعات مياه الشرب (معتمد من VDE و ACS و KTW)',
+            'يمكن إنتاجه بطول كابل مخصص يصل إلى 100 متر',
+            'بدء تشغيل مباشر أو نجمة/دلتا',
+            'يمكن إنتاجه بكابل رباعي النوى (3 مراحل وأرضي واحد)',
+            'يمكن إنتاج محركات مناسبة لـ 500 فولت و 525 فولت و 630 فولت و 1000 فولت (اتصل بـ KURLAR للتفاصيل)',
+            'يمكن إنتاج المحركات لدرجات حرارة 75 درجة مئوية و 90 درجة مئوية',
+            'يمكن إنتاج محركات 4-22 كيلو واط (5.5-30 حصان) بسعة حمل محوري 26.5 كيلو نيوتن'
+          ],
+          advantages: [
+            'تصميم عالي الكفاءة لتكلفة تشغيل منخفضة',
+            'سلك ملف معزول خاص (PBN) لدرجات الحرارة العالية',
+            'أداء فائق عند 60 درجة مئوية',
+            'عمر أطول مقارنة بالمحركات القياسية',
+            'محرك غاطس مبرد بالماء',
+            'جميع المحركات مملوءة بخليط من الماء النقي ومضاد التجمد ومختبرة',
+            'مقاومة عالية لتقلبات الجهد',
+            'متانة عالية في الآبار حيث لا يستطيع المحرك تبريد نفسه وتدفق المياه غير كاف',
+            'عمود محرك من الفولاذ المقاوم للصدأ',
+            'مانع رمل NBR',
+            'صمام عدم رجوع لتعويض الضغط من الفولاذ المقاوم للصدأ أو البرونز للتحكم في تغيرات الضغط',
+            'غشاء NBR لتقليل ضغط التمدد',
+            'الختم الميكانيكي: Hot CA-95CE-NBR-304',
+            'تصميم مناسب لمستشعر PT100',
+            'إمكانية الاستخدام مع بادئ التشغيل الناعم ومحرك التردد المتغير (أكثر من 30 هرتز)',
+            'عمر طويل مع نوع قابل لإعادة اللف وقطع غيار يمكن الوصول إليها بسهولة',
+            'يمكن إنتاج الختم الميكانيكي كـ SIC/SIC-NBR-304'
+          ]
+        },
+        '7': {
+          technicalSpecs: [
+            'خيارات محرك من 22 كيلو واط إلى 75 كيلو واط (30 حصان إلى 100 حصان)',
+            'شفة علوية قياسية NEMA 6 بوصة',
+            'فئة الحماية: IP68',
+            'أقصى عدد مرات بدء التشغيل في الساعة: 16',
+            'وضع التثبيت: عمودي وأفقي',
+            'اتجاه الدوران: في اتجاه عقارب الساعة وعكس اتجاه عقارب الساعة',
+            'طول كابل المحرك: 4 أمتار',
+            'الجهد القياسي: 380/415 فولت - 50 هرتز',
+            'تسامح الجهد (50 هرتز): ±10%',
+            'أدنى تدفق تبريد عند 60 درجة مئوية أقصى درجة حرارة محيطة: v=0.5 م/ث'
+          ],
+          options: [
+            'يمكن إنتاج المحركات بالكامل من AISI 304 و AISI 316 و 904L والبرونز',
+            'يمكن إنتاج المحركات بشفة مزدوجة NEMA 6 بوصة',
+            'مستشعر PT100',
+            'يمكن إنتاج المحركات بكابل مناسب لتشريعات مياه الشرب (معتمد من VDE و ACS و KTW)',
+            'يمكن إنتاجه بطول كابل مخصص يصل إلى 100 متر',
+            'بدء تشغيل مباشر أو نجمة/دلتا',
+            'يمكن إنتاجه بكابل رباعي النوى (3 مراحل وأرضي واحد)',
+            'يمكن إنتاج محركات مناسبة لـ 500 فولت و 525 فولت و 630 فولت و 1000 فولت (اتصل بـ KURLAR للتفاصيل)',
+            'يمكن إنتاج المحركات لدرجات حرارة 75 درجة مئوية و 90 درجة مئوية',
+            'يمكن إنتاج محركات 22-45 كيلو واط (30-60 حصان) بسعة حمل محوري 45 كيلو نيوتن',
+            'يمكن إنتاج الختم الميكانيكي كـ SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'تصميم عالي الكفاءة لتكلفة تشغيل منخفضة',
+            'سلك ملف معزول خاص (PBN) لدرجات الحرارة العالية',
+            'أداء فائق عند 60 درجة مئوية',
+            'عمر أطول مقارنة بالمحركات القياسية',
+            'محرك غاطس مبرد بالماء',
+            'جميع المحركات مملوءة بخليط من الماء النقي ومضاد التجمد ومختبرة',
+            'مقاومة عالية لتقلبات الجهد',
+            'متانة عالية في الآبار حيث لا يستطيع المحرك تبريد نفسه وتدفق المياه غير كاف',
+            'عمود محرك من الفولاذ المقاوم للصدأ',
+            'مانع رمل NBR',
+            'صمام عدم رجوع لتعويض الضغط من الفولاذ المقاوم للصدأ أو البرونز للتحكم في تغيرات الضغط',
+            'غشاء NBR لتقليل ضغط التمدد',
+            'الختم الميكانيكي: Hot CA-95CE-NBR-304',
+            'تصميم مناسب لمستشعر PT100',
+            'إمكانية الاستخدام مع بادئ التشغيل الناعم ومحرك التردد المتغير (أكثر من 30 هرتز)',
+            'عمر طويل مع نوع قابل لإعادة اللف وقطع غيار يمكن الوصول إليها بسهولة'
+          ]
+        },
+        '8': {
+          technicalSpecs: [
+            'خيارات محرك من 22 كيلو واط إلى 110 كيلو واط (30 حصان إلى 150 حصان)',
+            'شفة علوية قياسية NEMA 8 بوصة',
+            'فئة الحماية: IP68',
+            'أقصى عدد مرات بدء التشغيل في الساعة: 15',
+            'وضع التثبيت: عمودي وأفقي',
+            'اتجاه الدوران: في اتجاه عقارب الساعة وعكس اتجاه عقارب الساعة',
+            'طول كابل المحرك: 4 أمتار',
+            'الجهد القياسي: 380/415 فولت - 50 هرتز',
+            'تسامح الجهد (50 هرتز): ±10%',
+            'أدنى تدفق تبريد عند 60 درجة مئوية أقصى درجة حرارة محيطة: v=0.5 م/ث'
+          ],
+          options: [
+            'يمكن إنتاج المحركات بالكامل من AISI 304 و AISI 316 و 904L والبرونز',
+            'يمكن إنتاج المحركات بشفة مزدوجة NEMA 8 بوصة',
+            'مستشعر PT100',
+            'يمكن إنتاج المحركات بكابل مناسب لتشريعات مياه الشرب (معتمد من VDE و ACS و KTW)',
+            'يمكن إنتاجه بطول كابل مخصص يصل إلى 100 متر',
+            'بدء تشغيل مباشر أو نجمة/دلتا',
+            'يمكن إنتاجه بكابل رباعي النوى (3 مراحل وأرضي واحد)',
+            'يمكن إنتاج محركات مناسبة لـ 500 فولت و 525 فولت و 630 فولت و 1000 فولت (اتصل بـ KURLAR للتفاصيل)',
+            'يمكن إنتاج المحركات لدرجات حرارة 75 درجة مئوية و 90 درجة مئوية',
+            'يمكن إنتاج محركات 22-67 كيلو واط (30-90 حصان) بسعة حمل محوري 55 كيلو نيوتن',
+            'يمكن إنتاج الختم الميكانيكي كـ SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'تصميم عالي الكفاءة لتكلفة تشغيل منخفضة',
+            'سلك ملف معزول خاص (PBN) لدرجات الحرارة العالية',
+            'أداء فائق عند 60 درجة مئوية',
+            'عمر أطول مقارنة بالمحركات القياسية',
+            'محرك غاطس مبرد بالماء',
+            'جميع المحركات مملوءة بخليط من الماء النقي ومضاد التجمد ومختبرة',
+            'مقاومة عالية لتقلبات الجهد',
+            'متانة عالية في الآبار حيث لا يستطيع المحرك تبريد نفسه وتدفق المياه غير كاف',
+            'عمود محرك من الفولاذ المقاوم للصدأ',
+            'مانع رمل NBR',
+            'صمام عدم رجوع لتعويض الضغط من الفولاذ المقاوم للصدأ أو البرونز للتحكم في تغيرات الضغط',
+            'غشاء NBR لتقليل ضغط التمدد',
+            'الختم الميكانيكي: Hot CA-95CE-NBR-304',
+            'تصميم مناسب لمستشعر PT100',
+            'إمكانية الاستخدام مع بادئ التشغيل الناعم ومحرك التردد المتغير (أكثر من 30 هرتز)',
+            'عمر طويل مع نوع قابل لإعادة اللف وقطع غيار يمكن الوصول إليها بسهولة'
+          ]
+        },
+        '10': {
+          technicalSpecs: [
+            'خيارات محرك من 75 كيلو واط إلى 260 كيلو واط (100 حصان إلى 350 حصان)',
+            'شفة علوية قياسية NEMA 8 بوصة',
+            'فئة الحماية: IP68',
+            'أقصى عدد مرات بدء التشغيل في الساعة: 10',
+            'وضع التثبيت: عمودي وأفقي',
+            'اتجاه الدوران: في اتجاه عقارب الساعة وعكس اتجاه عقارب الساعة',
+            'طول كابل المحرك: 4 أمتار',
+            'الجهد القياسي: 380/415 فولت - 50 هرتز',
+            'تسامح الجهد (50 هرتز): ±10%',
+            'أدنى تدفق تبريد عند 60 درجة مئوية أقصى درجة حرارة محيطة: v=0.5 م/ث'
+          ],
+          options: [
+            'يمكن إنتاج المحركات بالكامل من AISI 304 و AISI 316 و 904L والبرونز',
+            'يمكن إنتاج المحركات بشفة مزدوجة NEMA 8 بوصة',
+            'مستشعر PT100',
+            'يمكن إنتاج المحركات بكابل مناسب لتشريعات مياه الشرب (معتمد من VDE و ACS و KTW)',
+            'يمكن إنتاجه بطول كابل مخصص يصل إلى 100 متر',
+            'بدء تشغيل مباشر أو نجمة/دلتا',
+            'يمكن إنتاجه بكابل رباعي النوى (3 مراحل وأرضي واحد)',
+            'يمكن إنتاج محركات مناسبة لـ 500 فولت و 525 فولت و 630 فولت و 1000 فولت (اتصل بـ KURLAR للتفاصيل)',
+            'يمكن إنتاج المحركات لدرجات حرارة 75 درجة مئوية و 90 درجة مئوية',
+            'يمكن إنتاج جميع المحركات بسعة حمل محوري 90 كيلو نيوتن',
+            'يمكن إنتاج الختم الميكانيكي كـ SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'تصميم عالي الكفاءة لتكلفة تشغيل منخفضة',
+            'سلك ملف معزول خاص (PBN) لدرجات الحرارة العالية',
+            'أداء فائق عند 60 درجة مئوية',
+            'عمر أطول مقارنة بالمحركات القياسية',
+            'محرك غاطس مبرد بالماء',
+            'جميع المحركات مملوءة بخليط من الماء النقي ومضاد التجمد ومختبرة',
+            'مقاومة عالية لتقلبات الجهد',
+            'متانة عالية في الآبار حيث لا يستطيع المحرك تبريد نفسه وتدفق المياه غير كاف',
+            'عمود محرك من الفولاذ المقاوم للصدأ',
+            'مانع رمل NBR',
+            'صمام عدم رجوع لتعويض الضغط من الفولاذ المقاوم للصدأ أو البرونز للتحكم في تغيرات الضغط',
+            'غشاء NBR لتقليل ضغط التمدد',
+            'الختم الميكانيكي: Hot CA-95CE-NBR-304',
+            'تصميم مناسب لمستشعر PT100',
+            'إمكانية الاستخدام مع بادئ التشغيل الناعم ومحرك التردد المتغير (أكثر من 30 هرتز)',
+            'عمر طويل مع نوع قابل لإعادة اللف وقطع غيار يمكن الوصول إليها بسهولة'
+          ]
+        }
+      }
     ES: {
       name: 'Motores Sumergibles HI-TEMP',
       modelCode: 'KM',
@@ -1497,8 +1859,189 @@ const descriptions = {
       faq: [
         { question: "¿Cuál es la temperatura máxima de funcionamiento?", answer: "Nuestros motores de alta temperatura funcionan sin problemas hasta 75°C como estándar y opcionalmente hasta 90°C de temperatura del agua." },
         { question: "¿Cuál es la diferencia con un motor estándar?", answer: "Se produce utilizando alambre de bobinado especial resistente a altas temperaturas (XLPE) y materiales de aislamiento." }
-      ]
-    },
+      ],
+      seriesDetails: {
+        '6': {
+          technicalSpecs: [
+            'Opción de motor de 4kW a 45kW (5.5HP a 60HP)',
+            'Brida superior estándar NEMA de 6" con pernos M12',
+            'Clase de protección: IP68',
+            'Arranques máximos por hora: 20',
+            'Posición de instalación: Vertical y Horizontal',
+            'Dirección de rotación: CW y CCW',
+            'Longitud del cable del motor: 4m',
+            'Voltaje estándar: 380/415V – 50Hz',
+            'Tolerancia de voltaje (50 Hz): ±10%',
+            'Flujo mín. de refrigeración a 60°C máx. ambiente: (4kW-15kW: v=0.2 m/s) (18.5kW-45kW: v=0.5 m/s)'
+          ],
+          options: [
+            'Los motores pueden producirse como Completos en AISI 304, AISI 316, 904L y Bronce',
+            'Los motores pueden producirse con doble brida NEMA de 6"',
+            'Sensor PT100',
+            'Los motores pueden producirse con cable adecuado para la legislación de agua potable (Aprobado por VDE y ACS y KTW)',
+            'Se puede producir con longitud de cable personalizada hasta 100m',
+            'Arranque directo o estrella/triángulo',
+            'Se puede producir con cable de 4 núcleos (3 fases y 1 tierra)',
+            'Los motores pueden producirse adecuados para 500V, 525V, 630V y 1000V (Contacte a KURLAR para más detalles)',
+            'Los motores pueden producirse para 75°C y 90°C',
+            'Motores de 4kW-22kW (5.5HP-30HP) pueden producirse con capacidad de carga axial de 26.5kN'
+          ],
+          advantages: [
+            'Diseño de alta eficiencia para bajo costo operativo',
+            'Alambre de bobina con aislamiento especial (PBN) para alta temperatura',
+            'Rendimiento superior a 60°C',
+            'Vida útil más larga en comparación con los motores estándar',
+            'Motor sumergible enfriado por agua',
+            'Todos los motores llenos de mezcla de agua pura y anticongelante y probados',
+            'Alta resistencia a las fluctuaciones de voltaje',
+            'Alta durabilidad en pozos donde el motor no puede enfriarse por sí mismo y el flujo de agua es insuficiente',
+            'Eje del motor de acero inoxidable',
+            'Deflector de arena NBR',
+            'Válvula de retención de compensación de presión de acero inoxidable o bronce para controlar los cambios de presión',
+            'Diafragma NBR para minimizar la presión de expansión',
+            'Sello mecánico: Hot CA-95CE-NBR-304',
+            'Diseño adecuado para sensor PT100',
+            'Usabilidad con arrancador suave y VFD (más de 30 Hz)',
+            'Larga vida con tipo rebobinable y piezas de repuesto de fácil acceso',
+            'El sello mecánico se puede producir como SIC/SIC-NBR-304'
+          ]
+        },
+        '7': {
+          technicalSpecs: [
+            'Opción de motor de 22kW a 75kW (30HP a 100HP)',
+            'Brida superior estándar NEMA de 6"',
+            'Clase de protección: IP68',
+            'Arranques máximos por hora: 16',
+            'Posición de instalación: Vertical y Horizontal',
+            'Dirección de rotación: CW y CCW',
+            'Longitud del cable del motor: 4m',
+            'Voltaje estándar: 380/415V – 50Hz',
+            'Tolerancia de voltaje (50 Hz): ±10%',
+            'Flujo mín. de refrigeración a 60°C máx. ambiente: v=0.5 m/s'
+          ],
+          options: [
+            'Los motores pueden producirse como Completos en AISI 304, AISI 316, 904L y Bronce',
+            'Los motores pueden producirse con doble brida NEMA de 6"',
+            'Sensor PT100',
+            'Los motores pueden producirse con cable adecuado para la legislación de agua potable (Aprobado por VDE y ACS y KTW)',
+            'Se puede producir con longitud de cable personalizada hasta 100m',
+            'Arranque directo o estrella/triángulo',
+            'Se puede producir con cable de 4 núcleos (3 fases y 1 tierra)',
+            'Los motores pueden producirse adecuados para 500V, 525V, 630V y 1000V (Contacte a KURLAR para más detalles)',
+            'Los motores pueden producirse para 75°C y 90°C',
+            'Motores de 22kW–45kW (30HP–60HP) pueden producirse con capacidad de carga axial de 45kN',
+            'El sello mecánico se puede producir como SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'Diseño de alta eficiencia para bajo costo operativo',
+            'Alambre de bobina con aislamiento especial (PBN) para alta temperatura',
+            'Rendimiento superior a 60°C',
+            'Vida útil más larga en comparación con los motores estándar',
+            'Motor sumergible enfriado por agua',
+            'Todos los motores llenos de mezcla de agua pura y anticongelante y probados',
+            'Alta resistencia a las fluctuaciones de voltaje',
+            'Alta durabilidad en pozos donde el motor no puede enfriarse por sí mismo y el flujo de agua es insuficiente',
+            'Eje del motor de acero inoxidable',
+            'Deflector de arena NBR',
+            'Válvula de retención de compensación de presión de acero inoxidable o bronce para controlar los cambios de presión',
+            'Diafragma NBR para minimizar la presión de expansión',
+            'Sello mecánico: Hot CA-95CE-NBR-304',
+            'Diseño adecuado para sensor PT100',
+            'Usabilidad con arrancador suave y VFD (más de 30 Hz)',
+            'Larga vida con tipo rebobinable y piezas de repuesto de fácil acceso'
+          ]
+        },
+        '8': {
+          technicalSpecs: [
+            'Opción de motor de 22kW a 110kW (30HP a 150HP)',
+            'Brida superior estándar NEMA de 8"',
+            'Clase de protección: IP68',
+            'Arranques máximos por hora: 15',
+            'Posición de instalación: Vertical y Horizontal',
+            'Dirección de rotación: CW y CCW',
+            'Longitud del cable del motor: 4m',
+            'Voltaje estándar: 380/415V – 50Hz',
+            'Tolerancia de voltaje (50 Hz): ±10%',
+            'Flujo mín. de refrigeración a 60°C máx. ambiente: v=0.5 m/s'
+          ],
+          options: [
+            'Los motores pueden producirse como Completos en AISI 304, AISI 316, 904L y Bronce',
+            'Los motores pueden producirse con doble brida NEMA de 8"',
+            'Sensor PT100',
+            'Los motores pueden producirse con cable adecuado para la legislación de agua potable (Aprobado por VDE y ACS y KTW)',
+            'Se puede producir con longitud de cable personalizada hasta 100m',
+            'Arranque directo o estrella/triángulo',
+            'Se puede producir con cable de 4 núcleos (3 fases y 1 tierra)',
+            'Los motores pueden producirse adecuados para 500V, 525V, 630V y 1000V (Contacte a KURLAR para más detalles)',
+            'Los motores pueden producirse para 75°C y 90°C',
+            'Motores de 22kW–67kW (30HP–90HP) pueden producirse con capacidad de carga axial de 55kN',
+            'El sello mecánico se puede producir como SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'Diseño de alta eficiencia para bajo costo operativo',
+            'Alambre de bobina con aislamiento especial (PBN) para alta temperatura',
+            'Rendimiento superior a 60°C',
+            'Vida útil más larga en comparación con los motores estándar',
+            'Motor sumergible enfriado por agua',
+            'Todos los motores llenos de mezcla de agua pura y anticongelante y probados',
+            'Alta resistencia a las fluctuaciones de voltaje',
+            'Alta durabilidad en pozos donde el motor no puede enfriarse por sí mismo y el flujo de agua es insuficiente',
+            'Eje del motor de acero inoxidable',
+            'Deflector de arena NBR',
+            'Válvula de retención de compensación de presión de acero inoxidable o bronce para controlar los cambios de presión',
+            'Diafragma NBR para minimizar la presión de expansión',
+            'Sello mecánico: Hot CA-95CE-NBR-304',
+            'Diseño adecuado para sensor PT100',
+            'Usabilidad con arrancador suave y VFD (más de 30 Hz)',
+            'Larga vida con tipo rebobinable y piezas de repuesto de fácil acceso'
+          ]
+        },
+        '10': {
+          technicalSpecs: [
+            'Opción de motor de 75kW a 260kW (100HP a 350HP)',
+            'Brida superior estándar NEMA de 8"',
+            'Clase de protección: IP68',
+            'Arranques máximos por hora: 10',
+            'Posición de instalación: Vertical y Horizontal',
+            'Dirección de rotación: CW y CCW',
+            'Longitud del cable del motor: 4m',
+            'Voltaje estándar: 380/415V – 50Hz',
+            'Tolerancia de voltaje (50 Hz): ±10%',
+            'Flujo mín. de refrigeración a 60°C máx. ambiente: v=0.5 m/s'
+          ],
+          options: [
+            'Los motores pueden producirse como Completos en AISI 304, AISI 316, 904L y Bronce',
+            'Los motores pueden producirse con doble brida NEMA de 8"',
+            'Sensor PT100',
+            'Los motores pueden producirse con cable adecuado para la legislación de agua potable (Aprobado por VDE y ACS y KTW)',
+            'Se puede producir con longitud de cable personalizada hasta 100m',
+            'Arranque directo o estrella/triángulo',
+            'Se puede producir con cable de 4 núcleos (3 fases y 1 tierra)',
+            'Los motores pueden producirse adecuados para 500V, 525V, 630V y 1000V (Contacte a KURLAR para más detalles)',
+            'Los motores pueden producirse para 75°C y 90°C',
+            'Todos los motores pueden producirse con capacidad de carga axial de 90kN',
+            'El sello mecánico se puede producir como SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'Diseño de alta eficiencia para bajo costo operativo',
+            'Alambre de bobina con aislamiento especial (PBN) para alta temperatura',
+            'Rendimiento superior a 60°C',
+            'Vida útil más larga en comparación con los motores estándar',
+            'Motor sumergible enfriado por agua',
+            'Todos los motores llenos de mezcla de agua pura y anticongelante y probados',
+            'Alta resistencia a las fluctuaciones de voltaje',
+            'Alta durabilidad en pozos donde el motor no puede enfriarse por sí mismo y el flujo de agua es insuficiente',
+            'Eje del motor de acero inoxidable',
+            'Deflector de arena NBR',
+            'Válvula de retención de compensación de presión de acero inoxidable o bronce para controlar los cambios de presión',
+            'Diafragma NBR para minimizar la presión de expansión',
+            'Sello mecánico: Hot CA-95CE-NBR-304',
+            'Diseño adecuado para sensor PT100',
+            'Usabilidad con arrancador suave y VFD (más de 30 Hz)',
+            'Larga vida con tipo rebobinable y piezas de repuesto de fácil acceso'
+          ]
+        }
+      }
     PT: {
       name: 'Motores Submersíveis HI-TEMP',
       modelCode: 'KM',
@@ -1598,7 +2141,189 @@ const descriptions = {
       faq: [
         { question: "Qual a temperatura máxima de operação?", answer: "Nossos motores Hi-Temp operam suavemente até 75°C como padrão e opcionalmente até 90°C de temperatura da água." },
         { question: "Qual a diferença de um motor padrão?", answer: "É produzido utilizando fio de enrolamento especial resistente a altas temperaturas (XLPE) e materiais de isolamento." }
-      ]
+      ],
+      seriesDetails: {
+        '6': {
+          technicalSpecs: [
+            'Opção de motor de 4kW a 45kW (5.5HP a 60HP)',
+            'Flange superior padrão NEMA de 6" com pinos M12',
+            'Classe de proteção: IP68',
+            'Máximo de partidas por hora: 20',
+            'Posição de instalação: Vertical e Horizontal',
+            'Direção de rotação: CW e CCW',
+            'Comprimento do cabo do motor: 4m',
+            'Tensão padrão: 380/415V – 50Hz',
+            'Tolerância de tensão (50 Hz): ±10%',
+            'Fluxo mín. de resfriamento a 60°C máx. ambiente: (4kW-15kW: v=0.2 m/s) (18.5kW-45kW: v=0.5 m/s)'
+          ],
+          options: [
+            'Os motores podem ser produzidos como Completos em AISI 304, AISI 316, 904L e Bronze',
+            'Os motores podem ser produzidos com flange dupla NEMA de 6"',
+            'Sensor PT100',
+            'Os motores podem ser produzidos com cabo adequado para legislação de água potável (Aprovado por VDE e ACS e KTW)',
+            'Pode ser produzido com comprimento de cabo personalizado até 100m',
+            'Partida direta ou estrela/triângulo',
+            'Pode ser produzido com cabo de 4 núcleos (3 fases e 1 terra)',
+            'Os motores podem ser produzidos adequados para 500V, 525V, 630V e 1000V (Contate a KURLAR para detalhes)',
+            'Os motores podem ser produzidos para 75°C e 90°C',
+            'Motores de 4kW-22kW (5.5HP-30HP) podem ser produzidos com capacidade de carga axial de 26.5kN'
+          ],
+          advantages: [
+            'Design de alta eficiência para baixo custo operacional',
+            'Fio de bobina com isolamento especial (PBN) para alta temperatura',
+            'Desempenho superior a 60°C',
+            'Vida útil mais longa em comparação com motores padrão',
+            'Motor submersível resfriado a água',
+            'Todos os motores cheios com mistura de água pura e anticongelante e testados',
+            'Alta resistência a flutuações de tensão',
+            'Alta durabilidade em poços onde o motor não pode se resfriar e o fluxo de água é insuficiente',
+            'Eixo do motor de aço inoxidável',
+            'Defletor de areia NBR',
+            'Válvula de retenção de compensação de pressão de aço inoxidável ou bronze para controlar as mudanças de pressão',
+            'Diafragma NBR para minimizar a pressão de expansão',
+            'Selo mecânico: Hot CA-95CE-NBR-304',
+            'Design adequado para sensor PT100',
+            'Usabilidade com soft-starter e VFD (acima de 30 Hz)',
+            'Longa vida com tipo rebobinable e peças de reposição facilmente acessíveis',
+            'O selo mecânico pode ser produzido como SIC/SIC-NBR-304'
+          ]
+        },
+        '7': {
+          technicalSpecs: [
+            'Opção de motor de 22kW a 75kW (30HP a 100HP)',
+            'Flange superior padrão NEMA de 6"',
+            'Classe de proteção: IP68',
+            'Máximo de partidas por hora: 16',
+            'Posição de instalação: Vertical e Horizontal',
+            'Direção de rotação: CW e CCW',
+            'Comprimento do cabo do motor: 4m',
+            'Tensão padrão: 380/415V – 50Hz',
+            'Tolerância de tensão (50 Hz): ±10%',
+            'Fluxo mín. de resfriamento a 60°C máx. ambiente: v=0.5 m/s'
+          ],
+          options: [
+            'Os motores podem ser produzidos como Completos em AISI 304, AISI 316, 904L e Bronze',
+            'Os motores podem ser produzidos com flange dupla NEMA de 6"',
+            'Sensor PT100',
+            'Os motores podem ser produzidos com cabo adequado para legislação de água potável (Aprovado por VDE e ACS e KTW)',
+            'Pode ser produzido com comprimento de cabo personalizado até 100m',
+            'Partida direta ou estrela/triângulo',
+            'Pode ser produzido com cabo de 4 núcleos (3 fases e 1 terra)',
+            'Os motores podem ser produzidos adequados para 500V, 525V, 630V e 1000V (Contate a KURLAR para detalhes)',
+            'Os motores podem ser produzidos para 75°C e 90°C',
+            'Motores de 22kW–45kW (30HP–60HP) podem ser produzidos com capacidade de carga axial de 45kN',
+            'O selo mecânico pode ser produzido como SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'Design de alta eficiência para baixo custo operacional',
+            'Fio de bobina com isolamento especial (PBN) para alta temperatura',
+            'Desempenho superior a 60°C',
+            'Vida útil mais longa em comparação com motores padrão',
+            'Motor submersível resfriado a água',
+            'Todos os motores cheios com mistura de água pura e anticongelante e testados',
+            'Alta resistência a flutuações de tensão',
+            'Alta durabilidade em poços onde o motor não pode se resfriar e o fluxo de água é insuficiente',
+            'Eixo do motor de aço inoxidável',
+            'Defletor de areia NBR',
+            'Válvula de retenção de compensação de pressão de aço inoxidável ou bronze para controlar as mudanças de pressão',
+            'Diafragma NBR para minimizar a pressão de expansão',
+            'Sello mecânico: Hot CA-95CE-NBR-304',
+            'Design adequado para sensor PT100',
+            'Usabilidade com soft-starter e VFD (acima de 30 Hz)',
+            'Longa vida com tipo rebobinable e peças de reposição facilmente acessíveis'
+          ]
+        },
+        '8': {
+          technicalSpecs: [
+            'Opção de motor de 22kW a 110kW (30HP a 150HP)',
+            'Flange superior padrão NEMA de 8"',
+            'Classe de proteção: IP68',
+            'Máximo de partidas por hora: 15',
+            'Posição de instalação: Vertical e Horizontal',
+            'Direção de rotação: CW e CCW',
+            'Comprimento do cabo do motor: 4m',
+            'Tensão padrão: 380/415V – 50Hz',
+            'Tolerância de tensão (50 Hz): ±10%',
+            'Fluxo mín. de resfriamento a 60°C máx. ambiente: v=0.5 m/s'
+          ],
+          options: [
+            'Os motores podem ser produzidos como Completos em AISI 304, AISI 316, 904L e Bronze',
+            'Os motores podem ser produzidos com flange dupla NEMA de 8"',
+            'Sensor PT100',
+            'Os motores podem ser produzidos com cabo adequado para legislação de água potável (Aprovado por VDE e ACS e KTW)',
+            'Pode ser produzido com comprimento de cabo personalizado até 100m',
+            'Partida direta ou estrela/triângulo',
+            'Pode ser produzido com cabo de 4 núcleos (3 fases e 1 terra)',
+            'Os motores podem ser produzidos adequados para 500V, 525V, 630V e 1000V (Contate a KURLAR para detalhes)',
+            'Os motores podem ser produzidos para 75°C e 90°C',
+            'Motores de 22kW–67kW (30HP–90HP) podem ser produzidos com capacidade de carga axial de 55kN',
+            'O selo mecânico pode ser produzido como SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'Design de alta eficiência para baixo custo operacional',
+            'Fio de bobina com isolamento especial (PBN) para alta temperatura',
+            'Desempenho superior a 60°C',
+            'Vida útil mais longa em comparação com motores padrão',
+            'Motor submersível resfriado a água',
+            'Todos os motores cheios com mistura de água pura e anticongelante e testados',
+            'Alta resistência a flutuações de tensão',
+            'Alta durabilidade em poços onde o motor não pode se resfriar e o fluxo de água é insuficiente',
+            'Eixo do motor de aço inoxidável',
+            'Defletor de areia NBR',
+            'Válvula de retenção de compensação de pressão de aço inoxidável ou bronze para controlar as mudanças de pressão',
+            'Diafragma NBR para minimizar a pressão de expansão',
+            'Selo mecânico: Hot CA-95CE-NBR-304',
+            'Design adequado para sensor PT100',
+            'Usabilidade com soft-starter e VFD (acima de 30 Hz)',
+            'Longa vida com tipo rebobinable e peças de reposição facilmente acessíveis'
+          ]
+        },
+        '10': {
+          technicalSpecs: [
+            'Opção de motor de 75kW a 260kW (100HP a 350HP)',
+            'Flange superior padrão NEMA de 8"',
+            'Classe de proteção: IP68',
+            'Máximo de partidas por hora: 10',
+            'Posição de instalação: Vertical e Horizontal',
+            'Direção de rotação: CW e CCW',
+            'Comprimento do cabo do motor: 4m',
+            'Tensão padrão: 380/415V – 50Hz',
+            'Tolerância de tensão (50 Hz): ±10%',
+            'Fluxo mín. de resfriamento a 60°C máx. ambiente: v=0.5 m/s'
+          ],
+          options: [
+            'Os motores podem ser produzidos como Completos em AISI 304, AISI 316, 904L e Bronze',
+            'Os motores podem ser produzidos com flange dupla NEMA de 8"',
+            'Sensor PT100',
+            'Os motores podem ser produzidos com cabo adequado para legislação de água potável (Aprovado por VDE e ACS e KTW)',
+            'Pode ser produzido com comprimento de cabo personalizado até 100m',
+            'Partida direta ou estrela/triângulo',
+            'Pode ser produzido com cabo de 4 núcleos (3 fases e 1 terra)',
+            'Os motores podem ser produzidos adequados para 500V, 525V, 630V e 1000V (Contate a KURLAR para detalhes)',
+            'Os motores podem ser produzidos para 75°C e 90°C',
+            'Todos os motores podem ser produzidos com capacidade de carga axial de 90kN',
+            'O selo mecânico pode ser produzido como SIC/SIC-NBR-304'
+          ],
+          advantages: [
+            'Design de alta eficiência para baixo custo operacional',
+            'Fio de bobina com isolamento especial (PBN) para alta temperatura',
+            'Desempenho superior a 60°C',
+            'Vida útil mais longa em comparação com motores padrão',
+            'Motor submersível resfriado a água',
+            'Todos os motores cheios com mistura de água pura e anticongelante e testados',
+            'Alta resistência a flutuações de tensão',
+            'Alta durabilidade em poços onde o motor não pode se resfriar e o fluxo de água é insuficiente',
+            'Eixo do motor de aço inoxidável',
+            'Defletor de areia NBR',
+            'Válvula de retenção de compensação de pressão de aço inoxidável ou bronze para controlar as mudanças de pressão',
+            'Diafragma NBR para minimizar a pressão de expansão',
+            'Selo mecânico: Hot CA-95CE-NBR-304',
+            'Design adequado para sensor PT100',
+            'Usabilidade com soft-starter e VFD (acima de 30 Hz)',
+            'Longa vida com tipo rebobinable e peças de reposição facilmente acessíveis'
+          ]
+        }
+      }
     }
   },
   kms: {
