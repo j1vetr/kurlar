@@ -62,15 +62,27 @@ function PdfViewer({ url, title }: { url: string; title: string }) {
           <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
           <p className="text-slate-500 text-sm mb-6">Detaylı teknik verileri görüntülemek için aşağıdaki butona tıklayınız.</p>
-          <a 
-            href={url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 px-4 rounded-xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all"
-          >
-            <Download className="w-5 h-5" />
-            Teknik Verileri Görüntüle
-          </a>
+          
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 px-4 rounded-xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                <FileText className="w-5 h-5" />
+                Teknik Verileri Görüntüle
+              </button>
+            </DialogTrigger>
+            <DialogContent className="max-w-full w-[95vw] h-[90vh] p-0 flex flex-col">
+              <DialogHeader className="px-4 py-3 border-b flex-shrink-0">
+                 <DialogTitle className="text-sm font-bold truncate pr-8">{title}</DialogTitle>
+              </DialogHeader>
+              <div className="flex-grow w-full bg-slate-100 overflow-hidden relative">
+                 <iframe 
+                    src={`${url}#navpanes=0&toolbar=0&view=Fit`} 
+                    className="absolute inset-0 w-full h-full border-0" 
+                    title={title}
+                 />
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
 
