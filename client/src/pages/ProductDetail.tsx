@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box, ArrowDown } from "lucide-react";
+import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box, ArrowDown, ZoomIn, ZoomOut } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -44,6 +44,51 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
           transformOrigin: `${position.x}% ${position.y}%`,
         }}
       />
+    </div>
+  );
+}
+
+function PdfViewer({ url, title }: { url: string; title: string }) {
+  const [scale, setScale] = useState(100);
+
+  const handleZoomIn = () => setScale(prev => Math.min(prev + 25, 200));
+  const handleZoomOut = () => setScale(prev => Math.max(prev - 25, 50));
+
+  return (
+    <div className="w-full h-[800px] bg-slate-100 border-t border-slate-200 relative group">
+      <div className="w-full h-full overflow-auto bg-slate-200/50 flex justify-center">
+        <div 
+          className="transition-all duration-300 ease-in-out origin-top"
+          style={{ width: `${scale}%`, height: '100%' }}
+        >
+          <iframe 
+            src={`${url}#navpanes=0&toolbar=0&view=FitH`} 
+            className="w-full h-full border-0 shadow-lg" 
+            title={title}
+          />
+        </div>
+      </div>
+      
+      {/* Custom Zoom Controls */}
+      <div className="absolute bottom-6 right-6 flex flex-col gap-2 z-10">
+        <button
+          onClick={handleZoomIn}
+          className="bg-primary hover:bg-primary/90 text-white p-3 rounded-full shadow-lg shadow-primary/20 transition-all hover:scale-110 active:scale-95"
+          title="Yakınlaştır"
+        >
+          <ZoomIn className="w-5 h-5" />
+        </button>
+        <button
+          onClick={handleZoomOut}
+          className="bg-white hover:bg-slate-50 text-slate-700 p-3 rounded-full shadow-lg border border-slate-200 transition-all hover:scale-110 active:scale-95"
+          title="Uzaklaştır"
+        >
+          <ZoomOut className="w-5 h-5" />
+        </button>
+        <div className="bg-slate-900/80 backdrop-blur text-white text-xs font-bold py-1 px-2 rounded-md text-center shadow-lg mt-1">
+          {scale}%
+        </div>
+      </div>
     </div>
   );
 }
@@ -575,13 +620,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                        </div>
                        
                        {spec.pdf && (
-                          <div className="w-full h-[800px] bg-slate-100 border-t border-slate-200">
-                             <iframe 
-                               src={`${spec.pdf}#navpanes=0&toolbar=0&view=Fit`} 
-                               className="w-full h-full border-0" 
-                               title={spec.title}
-                             />
-                          </div>
+                          <PdfViewer url={spec.pdf} title={spec.title} />
                        )}
                        <div className={cn("overflow-x-auto border-t border-slate-200", spec.pdf && "hidden")}>
                           <table className="w-full text-sm text-left whitespace-nowrap border-collapse">
