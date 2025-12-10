@@ -481,13 +481,13 @@ function HiTempProductLayout({ product }: { product: any }) {
                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                     <div>
                        <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
-                         <span className="text-primary">{activeSeries}"</span> SERİSİ
+                         <span className="text-primary">{activeSeries}"</span> {t('product.series_title')}
                          <span className="text-base font-normal text-slate-400 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
-                           Teknik Veri Sayfası
+                           {t('product.technical_data_sheet')}
                          </span>
                        </h2>
                        <p className="text-slate-500 mt-2">
-                         {activeSeries} inç Yüksek Sıcaklık dalgıç motorları için kapsamlı performans verileri.
+                         {activeSeries} {t('product.series_desc')}
                        </p>
                     </div>
                  </div>
