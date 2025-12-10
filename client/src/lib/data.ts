@@ -1910,6 +1910,12 @@ const descriptions = {
           ]
         },
         {
+          title: '8" HI-TEMP (60°C) Datos Técnicos (50Hz)',
+          pdf: '/pdfs/km8-specs.pdf',
+          columns: [],
+          data: []
+        },
+        {
           title: '8" Tamaños y Pesos de Envío',
           columns: ['Tipo', 'Potencia (HP)', 'Potencia (kW)', 'Longitud L (mm)', 'Peso (kg)', 'Caja An (cm)', 'Caja L (cm)', 'Caja Al (cm)', 'Peso Bruto (kg)'],
           data: [
@@ -2223,6 +2229,12 @@ const descriptions = {
             ['KM7-90', '90', '67', '1416', '174', '21.6', '153.6', '31.6', '194'],
             ['KM7-100', '100', '75', '1416', '182', '21.6', '153.6', '31.6', '202']
           ]
+        },
+        {
+          title: '8" HI-TEMP (60°C) Dados Técnicos (50Hz)',
+          pdf: '/pdfs/km8-specs.pdf',
+          columns: [],
+          data: []
         },
         {
           title: '8" Tamanhos e Pesos de Envio',
