@@ -43,7 +43,6 @@ export function Navbar() {
       href: "/urunler"
     },
     { type: "link", name: t('nav.dealer_service'), href: "/bayi-servis" },
-    { type: "link", name: t('nav.payment'), href: "https://tahsilat.kurlar.com.tr/" },
     {
       type: "dropdown",
       name: t('nav.career'),
@@ -109,10 +108,10 @@ export function Navbar() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className={cn(
-                      "text-sm font-bold uppercase tracking-wider hover:text-primary transition-all flex items-center gap-2 px-4 py-2 rounded-lg border", 
+                      "text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center px-6 py-2.5 rounded-full shadow-md hover:shadow-lg border-2", 
                       isTransparent 
-                        ? "text-white border-white/30 hover:bg-white hover:text-slate-900" 
-                        : "text-slate-700 border-slate-200 hover:border-primary hover:bg-primary/5"
+                        ? "bg-white/10 text-white border-white/50 hover:bg-white hover:text-primary backdrop-blur-sm" 
+                        : "bg-primary text-white border-primary hover:bg-primary/90 hover:border-primary/90"
                     )}
                   >
                     {item.name}
@@ -395,7 +394,10 @@ export function Navbar() {
             {menuStructure.map((item) => (
               <div key={item.name} className="border-b border-slate-100 last:border-0">
                 <div 
-                  className="py-4 flex justify-between items-center cursor-pointer group"
+                  className={cn(
+                    "flex justify-between items-center cursor-pointer group",
+                    item.href.startsWith('http') ? "mt-4" : "py-4"
+                  )}
                   onClick={() => {
                     if (item.children || item.type === "mega") {
                       setExpandedMobileItem(expandedMobileItem === item.name ? null : item.name);
@@ -408,11 +410,11 @@ export function Navbar() {
                         href={item.href} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-lg font-bold text-slate-900 block w-full flex items-center justify-between" 
+                        className="w-full flex items-center justify-center gap-2 bg-primary text-white py-4 px-6 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all" 
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.name}
-                        <ArrowRight className="w-5 h-5 text-slate-400" />
+                        <ArrowRight className="w-5 h-5" />
                       </a>
                     ) : (
                       <Link href={item.href} className="text-lg font-bold text-slate-900 block w-full" onClick={() => setMobileMenuOpen(false)}>
