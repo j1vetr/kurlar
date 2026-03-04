@@ -488,6 +488,20 @@ export function Navbar() {
               </div>
             ))}
             
+            {/* Mobile Payment Button */}
+            <div className="mt-8">
+              <a 
+                href="https://tahsilat.kurlar.com.tr/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full flex items-center justify-center gap-2 bg-primary text-white py-4 px-6 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.payment')}
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+            
             <div className="bg-slate-900 p-6 rounded-xl text-white mt-8 shadow-xl relative overflow-hidden">
               <div className="relative z-10">
                 <h4 className="font-bold text-xl mb-2">2025 Katalog</h4>
