@@ -500,8 +500,8 @@ export function Navbar() {
                 className="w-full flex items-center justify-center gap-2 bg-primary text-white py-4 px-6 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all" 
                 onClick={() => setMobileMenuOpen(false)}
               >
+                <CreditCard className="w-5 h-5" />
                 {t('nav.payment')}
-                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
             
