@@ -43,6 +43,7 @@ export function Navbar() {
       href: "/urunler"
     },
     { type: "link", name: t('nav.dealer_service'), href: "/bayi-servis" },
+    { type: "link", name: t('nav.payment'), href: "https://tahsilat.kurlar.com.tr/" },
     {
       type: "dropdown",
       name: t('nav.career'),
@@ -99,6 +100,25 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-6 xl:gap-8 h-full">
           {menuStructure.map((item) => {
             if (item.type === "link") {
+              const isExternal = item.href.startsWith('http');
+              if (isExternal) {
+                return (
+                  <a 
+                    key={item.name} 
+                    href={item.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "text-sm font-bold uppercase tracking-wider hover:text-primary transition-all flex items-center gap-2 px-4 py-2 rounded-lg border", 
+                      isTransparent 
+                        ? "text-white border-white/30 hover:bg-white hover:text-slate-900" 
+                        : "text-slate-700 border-slate-200 hover:border-primary hover:bg-primary/5"
+                    )}
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
               return (
                 <Link key={item.name} href={item.href} className={cn(
                     "text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors", 
@@ -383,9 +403,22 @@ export function Navbar() {
                   }}
                 >
                   {item.type === "link" ? (
-                    <Link href={item.href} className="text-lg font-bold text-slate-900 block w-full" onClick={() => setMobileMenuOpen(false)}>
+                    item.href.startsWith('http') ? (
+                      <a 
+                        href={item.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-lg font-bold text-slate-900 block w-full flex items-center justify-between" 
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
                         {item.name}
-                    </Link>
+                        <ArrowRight className="w-5 h-5 text-slate-400" />
+                      </a>
+                    ) : (
+                      <Link href={item.href} className="text-lg font-bold text-slate-900 block w-full" onClick={() => setMobileMenuOpen(false)}>
+                          {item.name}
+                      </Link>
+                    )
                   ) : (
                     <>
                       <span className={cn(

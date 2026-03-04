@@ -64,6 +64,7 @@ const translations: Translations = {
   'nav.view_catalog': { TR: 'GÖRÜNTÜLE', EN: 'VIEW', AR: 'عرض', ES: 'VER', PT: 'VER' },
   'nav.catalog_title': { TR: 'KURLAR KATALOG', EN: 'KURLAR CATALOG', AR: 'كتالوج كورلار', ES: 'CATÁLOGO KURLAR', PT: 'CATÁLOGO KURLAR' },
   'nav.dealer_service': { TR: 'Bayi & Servis', EN: 'Dealer & Service', AR: 'الوكيل والخدمة', ES: 'Distribuidor y Servicio', PT: 'Revendedor e Serviço' },
+  'nav.payment': { TR: 'Tahsilat', EN: 'Payment', AR: 'الدفع', ES: 'Pago', PT: 'Pagamento' },
   'nav.dealer_network': { TR: 'Yurt İçi Bayi & Servis Ağı', EN: 'Domestic Dealer & Service Network', AR: 'شبكة الوكلاء والخدمة المحلية', ES: 'Red Nacional de Distribuidores y Servicio', PT: 'Rede Nacional de Revendedores e Serviço' },
   'nav.career': { TR: 'Kariyer', EN: 'Career', AR: 'وظائف', ES: 'Carrera', PT: 'Carreira' },
   'nav.open_positions': { TR: 'Açık Pozisyonlar', EN: 'Open Positions', AR: 'الوظائف المتاحة', ES: 'Posiciones Abiertas', PT: 'Vagas Abertas' },
