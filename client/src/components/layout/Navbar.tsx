@@ -74,8 +74,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between relative">
         {/* Logo Area */}
-        <Link href="/">
-          <a className="group relative z-50">
+        <Link href="/" className="group relative z-50">
             <div className="relative flex items-center justify-center px-6 py-4">
                <div className={cn(
                  "absolute inset-0 rounded-md transition-all duration-500",
@@ -92,32 +91,12 @@ export function Navbar() {
                   )} 
                 />
             </div>
-          </a>
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8 h-full">
           {menuStructure.map((item) => {
             if (item.type === "link") {
-              const isExternal = item.href.startsWith('http');
-              if (isExternal) {
-                return (
-                  <a 
-                    key={item.name} 
-                    href={item.href} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={cn(
-                      "text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center px-6 py-2.5 rounded-full shadow-md hover:shadow-lg border-2", 
-                      isTransparent 
-                        ? "bg-white/10 text-white border-white/50 hover:bg-white hover:text-primary backdrop-blur-sm" 
-                        : "bg-primary text-white border-primary hover:bg-primary/90 hover:border-primary/90"
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                );
-              }
               return (
                 <Link key={item.name} href={item.href} className={cn(
                     "text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors", 
@@ -266,8 +245,25 @@ export function Navbar() {
             }
           })}
           
-          {/* Language Switcher */}
-          <div className="relative group h-full flex items-center ml-4">
+          {/* Language Switcher & Payment Button */}
+          <div className="flex items-center gap-4 ml-4 h-full">
+            {/* Payment Button */}
+            <a 
+              href="https://tahsilat.kurlar.com.tr/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={cn(
+                "text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center px-6 py-2.5 rounded-full shadow-md hover:shadow-lg border-2 whitespace-nowrap", 
+                isTransparent 
+                  ? "bg-white/10 text-white border-white/50 hover:bg-white hover:text-primary backdrop-blur-sm" 
+                  : "bg-primary text-white border-primary hover:bg-primary/90 hover:border-primary/90"
+              )}
+            >
+              {t('nav.payment')}
+            </a>
+
+            {/* Language Switcher */}
+            <div className="relative group h-full flex items-center">
             <button className={cn(
               "flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-colors",
               isTransparent ? "text-white hover:text-blue-100" : "text-slate-600 hover:text-primary"
@@ -291,6 +287,7 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
+            </div>
             </div>
           </div>
         </div>
