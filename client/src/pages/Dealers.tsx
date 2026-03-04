@@ -15,7 +15,6 @@ const TURKEY_GEO_JSON = "/assets/turkey-cities.json";
 // Full Dealer Data from User
 const dealers = [
   { id: 1, city: "İSTANBUL", district: "BÜYÜKÇEKMECE", name: "SER POMPA", contact: "Sertan Sadi", address: "ÇAKMAKLI MAH. HADIMKÖY YOLU CAD. NO:53/3", phone: "0532 283 06 19" },
-  { id: 2, city: "ÇANAKKALE", district: "BİGA", name: "General Bobinaj", contact: "Bayram Alkan", address: "İstiklal Mahallesi, 2. Sanayi Sitesi, 11. Blok Daire: 27", phone: "0536 575 58 53" },
   { id: 3, city: "BALIKESİR", district: "GÖNEN", name: "Adil Bobinaj", contact: "Adil Baykal", address: "Kurtuluş Mahallesi, Şehit Rahmibey Caddesi No:21/A", phone: "0532 788 57 75" },
   { id: 4, city: "MANİSA", district: "TURGUTLU", name: "BOR-SAN", contact: "ENGİN DEMİRDAL", address: "KÜÇÜK SANAYİ SİTESİ 107 SOK. NO:26", phone: "0533 432 55 47" },
   { id: 5, city: "İZMİR", district: "TİRE", name: "HEYBET TİCARET", contact: "NAİL ÖZTUNÇ", address: "İPEKÇİLER MAH. SANAYİ SİTESİ EREĞLİ CAD. NO:16", phone: "0532 331 54 90" },
