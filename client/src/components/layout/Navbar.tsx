@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ArrowRight, FileText } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, FileText, CreditCard } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
 export function Navbar() {
@@ -253,13 +253,16 @@ export function Navbar() {
               target="_blank" 
               rel="noopener noreferrer"
               className={cn(
-                "text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center px-6 py-2.5 rounded-full shadow-md hover:shadow-lg border-2 whitespace-nowrap", 
+                "group flex items-center gap-2 text-[13px] font-bold uppercase tracking-widest px-5 py-2 rounded-full transition-all duration-300 border whitespace-nowrap", 
                 isTransparent 
-                  ? "bg-white/10 text-white border-white/50 hover:bg-white hover:text-primary backdrop-blur-sm" 
-                  : "bg-primary text-white border-primary hover:bg-primary/90 hover:border-primary/90"
+                  ? "text-white border-white/30 bg-white/10 hover:bg-white hover:text-primary backdrop-blur-md" 
+                  : "text-primary border-primary/20 bg-primary/5 hover:bg-primary hover:text-white hover:shadow-md hover:-translate-y-0.5"
               )}
             >
-              {t('nav.payment')}
+              <CreditCard className={cn("w-4 h-4 transition-colors duration-300", 
+                isTransparent ? "text-white group-hover:text-primary" : "text-primary group-hover:text-white"
+              )} />
+              <span>{t('nav.payment')}</span>
             </a>
 
             {/* Language Switcher */}
