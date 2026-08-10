@@ -1,0 +1,2148 @@
+KURLAR.COM.TR – FULL TECHNICAL SEO + PRODUCT SEO + MANUFACTURER SEO + MULTILINGUAL SEO + LLM / AI SEARCH OPTIMIZATION
+
+Website:
+https://kurlar.com.tr
+
+PRIMARY BUSINESS:
+Kurlar Dalgıç Pompa & Motor
+
+MAIN SEO GOAL:
+
+Bu projede birkaç meta tag değiştirmek istemiyorum.
+
+Mevcut Kurlar web sitesini, tasarımını, ürün verilerini, teknik tablolarını ve çalışan fonksiyonlarını BOZMADAN kapsamlı bir Technical SEO + Product SEO + Manufacturer SEO + English SEO + AI/LLM Search Optimization altyapısı kur.
+
+Bu işi sadece analiz etme.
+
+DOĞRUDAN UYGULA.
+
+======================================================================
+0. EN ÖNEMLİ KEYWORD ÖNCELİĞİ
+=============================
+
+KURLAR İÇİN EN ÖNEMLİ 4 KEYWORD:
+
+1. dalgıç pompa
+2. dalgıç motor
+3. submersible pump
+4. submersible motor
+
+Bunlar projenin PRIMARY MONEY KEYWORDS'leridir.
+
+Bütün SEO mimarisi bu dört ana konuyu merkeze almalı.
+
+Türkçe:
+
+PRIMARY:
+
+* dalgıç pompa
+* dalgıç motor
+
+SECONDARY:
+
+* dalgıç pompalar
+* dalgıç motorlar
+* dalgıç pompa üreticisi
+* dalgıç motor üreticisi
+* dalgıç pompa fabrikası
+* dalgıç motor fabrikası
+* paslanmaz dalgıç pompa
+* paslanmaz çelik dalgıç pompa
+* derin kuyu dalgıç pompa
+* kuyu dalgıç pompa
+* sanayi tipi dalgıç pompa
+* yüksek verimli dalgıç pompa
+* 4 inç dalgıç pompa
+* 6 inç dalgıç pompa
+* 8 inç dalgıç pompa
+* 10 inç dalgıç pompa
+* noryl dalgıç pompa
+* pik döküm dalgıç pompa
+* paslanmaz döküm dalgıç pompa
+* yağlı tip dalgıç motor
+* su soğutmalı dalgıç motor
+* sarılabilir dalgıç motor
+* yüksek sıcaklık dalgıç motor
+* hi-temp dalgıç motor
+
+English:
+
+PRIMARY:
+
+* submersible pump
+* submersible motor
+
+SECONDARY:
+
+* submersible pumps
+* submersible motors
+* submersible pump manufacturer
+* submersible motor manufacturer
+* submersible pump manufacturer Turkey
+* submersible motor manufacturer Turkey
+* stainless steel submersible pump
+* deep well submersible pump
+* borehole pump
+* borehole submersible pump
+* industrial submersible pump
+* high efficiency submersible pump
+* rewindable submersible motor
+* oil filled submersible motor
+* water cooled submersible motor
+* high temperature submersible motor
+* 4 inch submersible pump
+* 6 inch submersible pump
+* 8 inch submersible pump
+* 10 inch submersible pump
+
+CRITICAL:
+
+Keyword stuffing yapma.
+
+"dalgıç pompa dalgıç pompa dalgıç pompa" gibi spam üretme.
+
+Her URL'nin ayrı intent'i olsun.
+
+======================================================================
+
+1. ÖNCE MEVCUT PROJEYİ ANALİZ ET
+   ======================================================================
+
+Kod değişikliğinden önce:
+
+* framework
+* React/Vite/Next/Express vb.
+* routing
+* server
+* build
+* deployment
+* mevcut API
+* ürün veri yapısı
+* ürün model yapısı
+* teknik tablolar
+* görseller
+* katalog PDF'leri
+* mevcut TR/EN language sistemi
+* mevcut URL'ler
+* eski/indexlenmiş URL'ler
+* sitemap
+* robots
+* metadata sistemi
+* structured data
+* current SSR/CSR durumu
+
+tespit et.
+
+Bundan sonra implementasyona geç.
+
+SEO uğruna projeyi sıfırdan rewrite etme.
+
+======================================================================
+2. MEVCUT SİTEYİ BOZMA
+======================
+
+Kesinlikle bozma:
+
+* mevcut tasarım
+* responsive görünüm
+* ürün detay sayfaları
+* teknik tablolar
+* ürün filtreleri
+* ürün görselleri
+* katalog indirme
+* iletişim
+* header
+* footer
+* navigasyon
+* mevcut ürün modelleri
+* teknik veriler
+* ürün seçenekleri
+* sertifika görselleri
+* mevcut URL'ler
+
+Özellikle ürün teknik tablolarındaki:
+
+* HP
+* kW
+* Volt
+* rpm
+* Amper
+* verim
+* cosφ
+* tork
+* eksenel yük
+* ölçü
+* ağırlık
+* paket/sandık bilgileri
+
+gibi gerçek teknik verileri KORU.
+
+Bunlar SEO açısından çok değerli.
+
+======================================================================
+3. BUSINESS FACT SAFETY
+=======================
+
+SEO yapacağım diye gerçek olmayan şey UYDURMA.
+
+Mevcut project/site data source dışında yeni:
+
+* üretim kapasitesi
+* ihracat ülkesi sayısı
+* çalışan sayısı
+* fabrika büyüklüğü
+* kuruluş tarihi
+* sertifika
+* CE/TSE/ISO
+* patent
+* garanti süresi
+* enerji verimlilik sınıfı
+* pompa verimi
+* motor verimi
+* maksimum sıcaklık
+* IP koruma sınıfı
+* üretim adedi
+* bayi sayısı
+* distribütör
+* ödül
+* müşteri
+* fiyat
+* stok
+* delivery time
+* review
+* star rating
+* AggregateRating
+
+üretme.
+
+Mevcut sitede doğrulanmış gerçek değerleri koru.
+
+Özellikle teknik değerlerde ASLA tahmin yapma.
+
+Bir ürünün:
+
+kW
+HP
+voltaj
+akım
+rpm
+çap
+debi
+basma yüksekliği
+sıcaklık
+malzeme
+verimlilik
+
+değerleri yalnızca mevcut database/project data'dan gelmeli.
+
+======================================================================
+4. BRAND / ENTITY
+=================
+
+Ana entity:
+
+Kurlar
+
+Tercihen organization/entity adı mevcut resmi kullanıma uygun olarak:
+
+Kurlar Dalgıç Pompa & Motor
+
+Website:
+
+https://kurlar.com.tr/
+
+Manufacturer entity'sini Google ve AI sistemlerinin net anlamasını sağla.
+
+Site genelinde marka bilgisi tek source-of-truth üzerinden gelsin.
+
+Mevcut sitedeki doğrulanmış:
+
+* kuruluş yılı
+* üretim tesisi
+* merkez
+* adres
+* telefon
+* e-posta
+* sosyal medya
+* sertifikalar
+* ihracat bilgileri
+
+tutarlı kullanılmalı.
+
+======================================================================
+5. HOMEPAGE – EN ÖNEMLİ SEO SAYFASI
+===================================
+
+Homepage'in primary intent'i:
+
+DALGIÇ POMPA + DALGIÇ MOTOR ÜRETİCİSİ
+
+olmalı.
+
+Şu anda generic "Ana Sayfa | Kurlar" gibi zayıf bir title varsa değiştir.
+
+ÖNERİLEN TITLE:
+
+Dalgıç Pompa & Dalgıç Motor Üreticisi | Kurlar
+
+Alternatif:
+
+Dalgıç Pompa ve Dalgıç Motor Sistemleri | Kurlar
+
+Ana keyword mümkün olduğunca title'ın başlarına yakın olmalı.
+
+META DESCRIPTION örneği:
+
+Kurlar, dalgıç pompa ve dalgıç motor üreticisidir. Paslanmaz, döküm ve Noryl pompa serileri ile yüksek verimli motor çözümlerini inceleyin.
+
+Ancak mevcut doğrulanmış üretici positioning'e göre optimize et.
+
+Homepage H1:
+
+Dalgıç Pompa ve Dalgıç Motor Sistemleri
+
+veya:
+
+Dalgıç Pompa & Motor Üreticisi
+
+gibi SEMANTIC bir H1 kullan.
+
+Mevcut görsel slogan korunabilir.
+
+Örneğin hero'daki kreatif slogan `<p>` veya başka görsel element olabilir.
+
+Ancak semantic H1 ana ticari intent'i taşımalı.
+
+Hidden/spam H1 oluşturma.
+
+======================================================================
+6. TÜRKÇE CATEGORY ARCHITECTURE
+===============================
+
+En önemli iki commercial category page:
+
+/urunler/dalgic-pompalar
+/urunler/dalgic-motorlar
+
+oluştur veya mevcut canonical kategori URL'leri varsa onları optimize et.
+
+Bunlar KURLAR'ın iki en önemli commercial SEO landing page'i olacak.
+
+---
+
+/urunler/dalgic-pompalar
+
+PRIMARY:
+
+dalgıç pompa
+
+SECONDARY:
+
+dalgıç pompalar
+dalgıç pompa üreticisi
+derin kuyu dalgıç pompa
+paslanmaz dalgıç pompa
+sanayi tipi dalgıç pompa
+
+TITLE:
+
+Dalgıç Pompa Modelleri & Üreticisi | Kurlar
+
+H1:
+
+Dalgıç Pompalar
+
+Bu sayfa:
+
+* kısa category intro
+* ürün grupları
+* teknik kullanım alanları
+* malzeme seçenekleri
+* mevcut pompa serileri
+* ilgili rehberler
+* dalgıç motor kategorisine link
+* katalog linki
+* iletişim / teknik destek CTA
+
+içermeli.
+
+---
+
+/urunler/dalgic-motorlar
+
+PRIMARY:
+
+dalgıç motor
+
+SECONDARY:
+
+dalgıç motorlar
+dalgıç motor üreticisi
+sarılabilir dalgıç motor
+yağlı dalgıç motor
+yüksek sıcaklık dalgıç motor
+
+TITLE:
+
+Dalgıç Motor Modelleri & Üreticisi | Kurlar
+
+H1:
+
+Dalgıç Motorlar
+
+======================================================================
+7. PUMP SUBCATEGORY ARCHITECTURE
+================================
+
+Mevcut ürün database/project yapısında gerçekten bulunan kategorilere göre landing page oluştur.
+
+Örneğin mevcut ürünlere göre:
+
+/urunler/dalgic-pompalar/paslanmaz-celik
+/urunler/dalgic-pompalar/noryl
+/urunler/dalgic-pompalar/pik-dokum
+/urunler/dalgic-pompalar/paslanmaz-dokum
+
+veya mevcut routing standardına en uygun yapı.
+
+TARGETS:
+
+Paslanmaz Çelik:
+
+* paslanmaz dalgıç pompa
+* paslanmaz çelik dalgıç pompa
+* stainless steel submersible pump
+
+Noryl:
+
+* noryl dalgıç pompa
+* 4 inç noryl dalgıç pompa
+
+Pik Döküm:
+
+* pik döküm dalgıç pompa
+* döküm dalgıç pompa
+
+Paslanmaz Döküm:
+
+* paslanmaz döküm dalgıç pompa
+
+Ancak eski URL'leri değiştirme.
+
+Mevcut indexlenmiş ürün/subcategory URL varsa onu koru veya gerekli ise 301 yap.
+
+======================================================================
+8. MOTOR SUBCATEGORY ARCHITECTURE
+=================================
+
+Mevcut ürün database'ine göre örneğin:
+
+/urunler/dalgic-motorlar/yagli-tip
+/urunler/dalgic-motorlar/hi-temp
+/urunler/dalgic-motorlar/s-type
+
+ve mevcut diğer gerçek motor serileri.
+
+TARGET:
+
+Yağlı Tip:
+
+* yağlı tip dalgıç motor
+* yağ soğutmalı dalgıç motor
+
+HI-TEMP:
+
+* hi-temp dalgıç motor
+* yüksek sıcaklık dalgıç motor
+* sarılabilir dalgıç motor
+
+S-Type:
+
+* s-type dalgıç motor
+* su soğutmalı dalgıç motor
+
+Mevcut ürün açıklamalarını source-of-truth kabul et.
+
+======================================================================
+9. PRODUCT DETAIL SEO
+=====================
+
+Mevcut product URL pattern'i örneğin:
+
+/urunler/km
+
+gibi model odaklı ise bunu gereksiz yere değiştirme.
+
+Product detail page'in title'ı sadece:
+
+HI-TEMP Dalgıç Motorlar | Kurlar
+
+olabilir ancak model + intent daha güçlü şekilde optimize edilebilir.
+
+Örnek:
+
+KM HI-TEMP Dalgıç Motor | 6"-10" Submersible Motor | Kurlar
+
+ANCAK title'ın teknik verileri gerçek product data'dan oluşturulmalı.
+
+Her ürün için:
+
+* unique title
+* unique description
+* canonical
+* H1
+* product name
+* model number
+* seri
+* teknik açıklama
+* özellikler
+* technical data tables
+* dimensions
+* weights
+* certifications mevcutsa
+* product images
+* catalogue
+* related products
+* category breadcrumb
+
+server HTML içinde bulunmalı.
+
+======================================================================
+10. TECHNICAL TABLE SEO – ÇOK KRİTİK
+====================================
+
+Kurlar'ın en büyük SEO avantajlarından biri teknik datadır.
+
+BUNU BOZMA.
+
+Teknik tablolar:
+
+JavaScript tıklamasından sonra API'den gelip crawler'dan saklanmamalı.
+
+Mümkün olduğunca raw server HTML içinde bulunmalı.
+
+Gerçek semantic:
+
+<table>
+<thead>
+<tbody>
+<tr>
+<th>
+<td>
+
+kullan.
+
+Örneğin:
+
+6" HI-TEMP teknik verileri
+
+HP
+kW
+V
+rpm
+A
+η
+Cosφ
+Nm
+kN
+
+gibi değerler crawler tarafından okunabilmeli.
+
+Eğer mevcut UI'da tabs/accordion varsa tasarımı koru.
+
+Ancak kritik technical content SSR HTML içinde mevcut olsun.
+
+Bu veriler:
+
+* Google
+* Bing
+* technical buyers
+* AI search engines
+* engineering queries
+
+için çok değerlidir.
+
+======================================================================
+11. SSR / SSG / PRERENDER – KRİTİK
+==================================
+
+Siteyi curl ile kontrol et.
+
+Eğer şu:
+
+curl -sL https://kurlar.com.tr/
+
+ve product pages sadece:
+
+<div id="root"></div>
+
+loader veya empty shell döndürüyorsa FULL SSR / SSG / PRERENDER uygula.
+
+Hedef:
+
+curl ile JavaScript çalıştırılmadan:
+
+* title
+* description
+* canonical
+* hreflang
+* H1
+* body content
+* product name
+* product description
+* technical tables
+* internal links
+* JSON-LD
+
+görünmeli.
+
+Örneğin:
+
+curl -sL https://kurlar.com.tr/urunler/km
+
+raw HTML içinde:
+
+<h1>HI-TEMP Dalgıç Motorlar</h1>
+
+Model No: KM
+
+6"
+7"
+8"
+10"
+
+teknik açıklama
+
+ve ilgili technical data tabloları bulunmalı.
+
+Client hydration devam edebilir.
+
+Ancak initial response SEO açısından dolu olmalı.
+
+======================================================================
+12. TRUE 404
+============
+
+Mevcut sistemde bazı yanlış product URL'lerinin:
+
+"Ürün Bulunamadı"
+
+gösterirken HTTP 200 dönüp dönmediğini KONTROL ET.
+
+Örneğin:
+
+/urunler/noryl-dalgic-pompalar/
+
+gibi artık olmayan veya yanlış URL'ler search engine'de "Ürün Bulunamadı" olarak indexlenmiş olabilir.
+
+CRITICAL:
+
+Olmayan URL:
+
+HTTP 404
+
+dönmeli.
+
+Şu kesinlikle kabul edilmez:
+
+HTTP 200
+H1: Ürün Bulunamadı
+
+Bu soft 404'tür.
+
+Test:
+
+curl -I https://kurlar.com.tr/urunler/bu-urun-kesinlikle-yok-918273
+
+HTTP:
+
+404 Not Found
+
+olmalı.
+
+404 page:
+
+meta robots:
+noindex, nofollow
+
+kullanabilir.
+
+======================================================================
+13. LEGACY PRODUCT URL CLEANUP
+==============================
+
+Google'da veya sitemap'te geçmişte indexlenmiş eski product URL'leri bul.
+
+Örneğin eski slug başka current product'a aitse:
+
+301 -> gerçek current URL
+
+yap.
+
+Ama eski URL artık hiçbir ürünle ilgili değilse:
+
+410 veya 404
+
+uygun olabilir.
+
+Rastgele homepage'e redirect etme.
+
+Her old URL'yi homepage'e 301 yapmak soft-404 benzeri kötü yapı oluşturabilir.
+
+======================================================================
+14. ENGLISH SEO ARCHITECTURE
+============================
+
+English tarafı özellikle global B2B ihracat için ÇOK ÖNEMLİ.
+
+Ana İngilizce URL:
+
+/en
+
+TITLE:
+
+Submersible Pump & Submersible Motor Manufacturer | Kurlar
+
+H1:
+
+Submersible Pumps & Motors
+
+veya:
+
+Submersible Pump and Motor Manufacturer
+
+English commercial categories:
+
+/en/products/submersible-pumps
+/en/products/submersible-motors
+
+Subcategories existing product data'ya göre:
+
+/en/products/submersible-pumps/stainless-steel
+/en/products/submersible-pumps/noryl
+/en/products/submersible-pumps/cast-iron
+
+/en/products/submersible-motors/oil-filled
+/en/products/submersible-motors/high-temperature
+/en/products/submersible-motors/s-type
+
+Mevcut English route yapısı farklıysa koru ve optimize et.
+
+Yeni route uğruna çalışan English URL'leri kırma.
+
+======================================================================
+15. ENGLISH KEYWORD OWNERSHIP
+=============================
+
+English homepage:
+
+submersible pump manufacturer
+submersible motor manufacturer
+Turkey
+
+Pump category:
+
+submersible pump
+submersible pumps
+
+Motor category:
+
+submersible motor
+submersible motors
+
+Stainless category:
+
+stainless steel submersible pump
+
+High temperature category:
+
+high temperature submersible motor
+
+Model pages:
+
+model-specific technical intent.
+
+Böylece homepage/category/product birbirini yemesin.
+
+======================================================================
+16. HREFLANG
+============
+
+TR/EN corresponding pages arasında reciprocal hreflang kur.
+
+Türkçe:
+
+hreflang="tr-TR"
+
+English:
+
+hreflang="en"
+
+x-default:
+
+stratejiye uygun homepage.
+
+Örneğin:
+
+TR pump:
+/urunler/dalgic-pompalar
+
+EN:
+/en/products/submersible-pumps
+
+Karşılıklı hreflang olmalı.
+
+Her hreflang destination:
+
+* HTTP 200
+* canonical
+* indexable
+
+olmalı.
+
+404 veya redirect URL hreflang içine girmesin.
+
+======================================================================
+17. CANONICAL / HOST NORMALIZATION
+==================================
+
+Tek canonical host seç:
+
+https://kurlar.com.tr
+
+HTTP -> HTTPS:
+301
+
+www -> non-www:
+301
+
+veya production'da mevcut authoritative host hangisiyse onu tüm site genelinde tutarlı kullan.
+
+Her indexable page:
+
+self-referencing canonical.
+
+Query URLs:
+
+?tab=
+?model=
+?filter=
+utm_*
+
+gibi varyasyonların duplicate oluşturmasını engelle.
+
+Filter pages search intent taşımıyorsa noindex/canonical stratejisi uygula.
+
+======================================================================
+18. HOMEPAGE INTERNAL LINK POWER
+================================
+
+Homepage'den güçlü crawlable HTML links ile doğrudan:
+
+Dalgıç Pompalar
+Dalgıç Motorlar
+Paslanmaz Çelik Dalgıç Pompalar
+Noryl Dalgıç Pompalar
+Pik Döküm Dalgıç Pompalar
+Paslanmaz Döküm Dalgıç Pompalar
+Yağlı Tip Dalgıç Motorlar
+HI-TEMP Dalgıç Motorlar
+S-Type Dalgıç Motorlar
+
+sayfalarına link ver.
+
+Ancak her product'ı homepage'e yığma.
+
+Ana category'leri en güçlü position'a koy.
+
+======================================================================
+19. CATEGORY INTERNAL LINKING
+=============================
+
+Dalgıç Pompalar category:
+
+-> pump subcategories
+-> popular/current products
+-> Dalgıç Motorlar
+-> related guides
+-> contact
+
+Dalgıç Motorlar:
+
+-> motor subcategories
+-> models
+-> Dalgıç Pompalar
+-> guides
+-> contact
+
+Product page:
+
+-> parent category
+-> related products
+-> compatible/related product categories only when real
+-> technical guides
+-> contact/quotation
+
+======================================================================
+20. BREADCRUMBS
+===============
+
+Visible breadcrumb kullan.
+
+Örneğin:
+
+Ana Sayfa
+
+>
+
+Ürünler
+
+>
+
+Dalgıç Motorlar
+
+>
+
+HI-TEMP Dalgıç Motorlar
+
+English:
+
+Home
+
+>
+
+Products
+
+>
+
+Submersible Motors
+
+>
+
+HI-TEMP Submersible Motors
+
+Aynısını BreadcrumbList JSON-LD ile destekle.
+
+======================================================================
+21. CATEGORY CONTENT
+====================
+
+Category page sadece product card grid olmasın.
+
+Örneğin Dalgıç Pompalar page:
+
+H1
+short intro
+products
+technical selection overview
+materials
+diameter/series explanation
+applications
+FAQ
+related guides
+
+gibi gerçek faydalı içerik taşısın.
+
+Ama 2.000 kelime AI spam basma.
+
+300-700 kelime gerçek, technical, buyer-focused content yeterli olabilir.
+
+Kullanıcının ürünlere ulaşmasını zorlaştırma.
+
+Product cards above/before huge SEO article olabilir.
+
+======================================================================
+22. CONTENT LANGUAGE
+====================
+
+Kurumsal mühendislik dili kullan.
+
+AI klişeleri yazma:
+
+"günümüzün hızla değişen dünyasında"
+"sektörün öncü firması olarak"
+"müşteri memnuniyetini ön planda tutarak"
+"yenilikçi çözümler sunmaktayız"
+
+gibi boş metinlerden kaçın.
+
+Bunun yerine gerçek technical facts:
+
+* material
+* diameter
+* application
+* motor/pump compatibility
+* temperature
+* voltage
+* efficiency
+* discharge
+* hydraulic performance
+* NEMA compatibility
+* installation
+* cooling
+
+üzerinden yaz.
+
+======================================================================
+23. GUIDE / KNOWLEDGE CENTER
+============================
+
+Topical authority için:
+
+/rehber
+
+oluştur veya mevcut blog yapısını optimize et.
+
+Öncelikli içerikler:
+
+/rehber/dalgic-pompa-nedir
+/rehber/dalgic-motor-nedir
+/rehber/dalgic-pompa-nasil-secilir
+/rehber/dalgic-motor-nasil-secilir
+/rehber/dalgic-pompa-calisma-prensibi
+/rehber/dalgic-pompa-ve-motor-secimi
+/rehber/derin-kuyu-dalgic-pompa-secimi
+/rehber/4-inc-dalgic-pompa
+/rehber/6-inc-dalgic-pompa
+/rehber/nema-dalgic-motor-standardi
+/rehber/dalgic-pompada-debi-ve-basma-yuksekligi
+
+Ancak teknik bilgi kaynağı project/site/database veya doğrulanmış Kurlar teknik içerikleri olmalı.
+
+Spesifik engineering değerleri uydurma.
+
+======================================================================
+24. GUIDE CANNIBALIZATION
+=========================
+
+Commercial:
+
+/urunler/dalgic-pompalar
+=> dalgıç pompa
+
+Guide:
+
+/rehber/dalgic-pompa-nedir
+=> dalgıç pompa nedir
+
+Commercial:
+
+/urunler/dalgic-motorlar
+=> dalgıç motor
+
+Guide:
+
+/rehber/dalgic-motor-nedir
+=> dalgıç motor nedir
+
+Birbirleriyle yarışmasın.
+
+Guide'dan commercial category'ye:
+
+"Dalgıç pompa modellerini inceleyin"
+
+şeklinde natural link.
+
+======================================================================
+25. STRUCTURED DATA – ORGANIZATION
+==================================
+
+Homepage raw HTML:
+
+Organization
+WebSite
+
+Organization:
+
+@id:
+https://kurlar.com.tr/#organization
+
+Use real data only:
+
+* name
+* alternateName
+* url
+* logo
+* email
+* telephone
+* address
+* foundingDate ONLY if project confirms
+* sameAs official profiles
+* description
+* knowsAbout optionally factual
+* areaServed only if meaningful
+
+Manufacturer identity net olsun.
+
+Fake rating/reviews ekleme.
+
+======================================================================
+26. PRODUCT STRUCTURED DATA
+===========================
+
+Gerçek product detail pages:
+
+Product JSON-LD kullan.
+
+Örneğin:
+
+@type: Product
+name
+url
+image
+description
+sku/model only if real
+mpn only if actually defined
+brand:
+@type Brand
+name Kurlar
+manufacturer:
+@id organization
+category
+
+Teknik özellikleri uygun durumda:
+
+additionalProperty:
+PropertyValue
+
+ile ifade edebilirsin.
+
+Örneğin gerçek data mevcutsa:
+
+propertyID/name:
+Power
+
+value:
+45 kW
+
+gibi.
+
+ANCAK her teknik tabloyu 200 JSON property'ye çevirmek zorunda değilsin.
+
+HTML table esas source-of-truth olabilir.
+
+======================================================================
+27. PRODUCT OFFER YASAĞI
+========================
+
+Sitede online satış fiyatı yoksa:
+
+Offer
+price
+priceCurrency
+availability
+itemCondition
+
+UYDURMA.
+
+Google Product rich result almak için fake fiyat yazma.
+
+B2B manufacturer product pages Product schema ile fiyat olmadan semantic entity olarak işaretlenebilir.
+
+AggregateRating/Review da gerçek verified content yoksa ekleme.
+
+======================================================================
+28. CATEGORY STRUCTURED DATA
+============================
+
+Category pages:
+
+CollectionPage
+BreadcrumbList
+
+ve gerçek listed products için gerekirse:
+
+ItemList
+
+kullan.
+
+Her product card'ın URL'si gerçek canonical product URL olmalı.
+
+======================================================================
+29. ARTICLE STRUCTURED DATA
+===========================
+
+Guide pages:
+
+Article
+BreadcrumbList
+
+Alanlar:
+
+headline
+description
+datePublished
+dateModified
+author
+publisher
+inLanguage
+mainEntityOfPage
+
+Fake date oluşturma.
+
+Her deploy'da dateModified=bugün yapma.
+
+İçerik değiştiğinde güncelle.
+
+======================================================================
+30. FAQ
+=======
+
+Category ve guide pages'de gerçek kullanıcı sorularını cevaplayan FAQ eklenebilir.
+
+Dalgıç Pompa:
+
+* Dalgıç pompa nedir?
+* Dalgıç pompa nasıl seçilir?
+* Dalgıç pompa seçiminde debi ve basma yüksekliği neden önemlidir?
+* Paslanmaz ve döküm dalgıç pompa arasındaki fark nedir?
+
+Dalgıç Motor:
+
+* Dalgıç motor nedir?
+* Dalgıç motor gücü nasıl seçilir?
+* Yağlı ve su soğutmalı dalgıç motor farkı nedir?
+* Motor çapı nasıl belirlenir?
+
+Cevaplarda product datasında bulunmayan kesin technical thresholds uydurma.
+
+FAQPage JSON-LD yalnızca FAQ içeriği kullanıcıya sayfada gerçekten sunuluyorsa ekle.
+
+======================================================================
+31. META TITLE STRATEGY
+=======================
+
+HOME:
+
+Dalgıç Pompa & Dalgıç Motor Üreticisi | Kurlar
+
+PUMP CATEGORY:
+
+Dalgıç Pompa Modelleri & Üreticisi | Kurlar
+
+MOTOR:
+
+Dalgıç Motor Modelleri & Üreticisi | Kurlar
+
+STAINLESS:
+
+Paslanmaz Çelik Dalgıç Pompalar | Kurlar
+
+NORYL:
+
+4" Noryl Dalgıç Pompa Modelleri | Kurlar
+
+HI TEMP:
+
+HI-TEMP Dalgıç Motorlar | Kurlar
+
+English Home:
+
+Submersible Pump & Motor Manufacturer | Kurlar
+
+English Pump:
+
+Submersible Pumps | Kurlar
+
+English Motor:
+
+Submersible Motors | Kurlar
+
+Product model:
+
+[MODEL] [PRODUCT TYPE] | Kurlar
+
+Bunlar örnek.
+
+Actual page content'e göre doğal şekilde optimize et.
+
+======================================================================
+32. META DESCRIPTION
+====================
+
+Her indexable page unique meta description.
+
+Keyword stuffing yapma.
+
+Product detail description içinde mümkünse:
+
+* product family
+* model
+* diameter
+* technical value proposition
+
+gerçek data'ya dayanarak kullan.
+
+======================================================================
+33. H1 STRATEGY
+===============
+
+Her indexable page bir primary H1.
+
+Homepage:
+
+Dalgıç Pompa ve Dalgıç Motor Sistemleri
+
+Pump:
+
+Dalgıç Pompalar
+
+Motor:
+
+Dalgıç Motorlar
+
+Product:
+
+gerçek product name
+
+Guide:
+
+question intent
+
+H1'ler hidden SEO hack olmasın.
+
+======================================================================
+34. IMAGE SEO
+=============
+
+Ürün görselleri çok değerli.
+
+Her image:
+
+descriptive alt
+
+Örneğin:
+
+"Kurlar KM 6 inç HI-TEMP dalgıç motor"
+
+"Paslanmaz çelik dalgıç pompa"
+
+"4 inç Noryl dalgıç pompa"
+
+Keyword spam yapma.
+
+Image dimensions:
+width
+height
+
+ekle.
+
+Below fold:
+loading=lazy
+
+Hero/LCP:
+lazy yapma.
+
+WebP/AVIF mümkünse.
+
+Product image filenames mevcut sistemi bozmadan descriptive olabilir.
+
+======================================================================
+35. IMAGE SITEMAP
+=================
+
+Product images XML sitemap'e dahil edilebilir.
+
+image:image
+image:loc
+image:title
+image:caption
+
+Mevcut gerçek product photos için.
+
+======================================================================
+36. PDF / CATALOG SEO
+=====================
+
+2025 catalogue ve benzeri PDF'ler önemli.
+
+PDF sadece tek technical information source olmasın.
+
+Kritik product specs HTML page'de de bulunmalı.
+
+Catalogue linklerinde descriptive anchor:
+
+"Kurlar 2025 Dalgıç Pompa ve Motor Kataloğu"
+
+gibi.
+
+"İndir" tek başına kullanma.
+
+PDF files mümkünse meaningful filename:
+
+kurlar-submersible-pump-motor-catalog-2025.pdf
+
+Ancak existing indexed PDF URL değişecekse redirect düşün.
+
+======================================================================
+37. XML SITEMAP
+===============
+
+/sitemap.xml
+
+oluştur/iyileştir.
+
+Sadece:
+
+HTTP 200
+canonical
+indexable
+
+pages.
+
+Dahil:
+
+TR homepage
+TR categories
+TR subcategories
+TR products
+TR guides
+EN homepage
+EN categories
+EN subcategories
+EN products
+EN guide pages only if actual English content exists
+corporate/contact pages if indexable
+
+404/noindex/redirect pages sitemap'te bulunmasın.
+
+lastmod gerçek değişiklik tarihinden gelsin.
+
+Her deployment'ta tüm URL'leri bugünün tarihi yapma.
+
+======================================================================
+38. ROBOTS.TXT
+==============
+
+/robots.txt
+
+HTTP 200
+Content-Type text/plain
+
+Public pages crawlable.
+
+Genel:
+
+User-agent: *
+Allow: /
+
+Gerekiyorsa gerçek routes için:
+
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap:
+
+Sitemap: https://kurlar.com.tr/sitemap.xml
+
+======================================================================
+39. OPENAI / AI CRAWLERS
+========================
+
+robots içinde public site için:
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+Googlebot/Bingbot da public pages crawl edebilmeli.
+
+Bu crawler izinlerini:
+
+"ChatGPT ranking garantisi"
+
+gibi pazarlama iddiası haline getirme.
+
+======================================================================
+40. LLMS.TXT
+============
+
+Root:
+
+https://kurlar.com.tr/llms.txt
+
+HTTP 200
+
+Content-Type:
+text/plain; charset=utf-8
+
+temiz structured text/Markdown oluştur.
+
+Amaç:
+
+AI systems Kurlar'ın:
+
+* manufacturer entity'sini
+* main product categories
+* product families
+* Turkish / English canonical URLs
+* technical resources
+
+daha kolay anlayabilsin.
+
+ÖRNEK YAPI:
+
+# Kurlar
+
+> Kurlar manufactures submersible pumps and submersible motors in Turkey.
+
+## Official Website
+
+https://kurlar.com.tr/
+
+## Primary Product Categories
+
+### Dalgıç Pompalar
+
+canonical URL
+
+### Dalgıç Motorlar
+
+canonical URL
+
+### Submersible Pumps
+
+English canonical URL
+
+### Submersible Motors
+
+English canonical URL
+
+## Pump Families
+
+Only actual product families:
+
+* Paslanmaz Çelik Dalgıç Pompalar
+* 4" Noryl Dalgıç Pompalar
+* Pik Döküm Dalgıç Pompalar
+* Paslanmaz Döküm Dalgıç Pompalar
+
+canonical URLs
+
+## Motor Families
+
+Only actual:
+
+* Yağlı Tip Dalgıç Motorlar
+* HI-TEMP Dalgıç Motorlar
+* S-Type Dalgıç Motorlar
+
+canonical URLs
+
+## Technical Resources
+
+* product technical pages
+* official catalogue
+* guides
+
+## Company
+
+Only verified project data:
+
+* manufacturer name
+* location
+* year if verified
+* facility information if verified
+* export information if verified
+* official contact information
+
+## Languages
+
+Turkish
+English
+
+## Important
+
+Technical product specifications must be obtained from official Kurlar product pages and catalogues.
+
+Do not infer missing specifications.
+
+llms.txt keyword spam olmasın.
+
+"dalgıç pompa" kelimesini 100 kere yazma.
+
+======================================================================
+41. OPTIONAL LLMS-FULL.TXT
+==========================
+
+Gerekliyse:
+
+/llms-full.txt
+
+oluştur.
+
+Burada:
+
+product families
+model names
+product descriptions
+technical page URLs
+guide URLs
+
+daha detaylı listelenebilir.
+
+Ancak bütün 500 satırlık technical tables'i llms-full'a kopyalamak zorunda değilsin.
+
+Canonical HTML product pages esas source olmalı.
+
+======================================================================
+42. SEMANTIC HTML
+=================
+
+Gerçek HTML:
+
+<header>
+<nav>
+<main>
+<section>
+<article>
+<h1>
+<h2>
+<table>
+<thead>
+<tbody>
+<th>
+<td>
+<figure>
+<figcaption>
+<footer>
+
+kullan.
+
+Technical product page'lerde özellikle semantic table önemli.
+
+======================================================================
+43. SEARCH ENGINE PRODUCT UNDERSTANDING
+=======================================
+
+Her product page'in ilk visible bölümünde net olarak:
+
+Brand
+Product name
+Model
+Product type
+diameter / series if applicable
+short factual summary
+
+bulunmalı.
+
+Crawler'ın 5 farklı tab açmasına gerek kalmadan ürünün ne olduğunu anlayabilmesi gerekiyor.
+
+======================================================================
+44. PRODUCT FILTERS
+===================
+
+Ürünler:
+
+diameter
+material
+type
+series
+power
+
+gibi filtreleniyorsa query/filter pages'in index pollution yaratmasına izin verme.
+
+Örneğin:
+
+/urunler?cap=6&material=stainless
+
+gibi URL'ler search intent taşımıyorsa:
+
+canonical main category
+
+veya noindex
+
+stratejisi uygula.
+
+Ancak gerçek SEO demand'i olan:
+
+/urunler/dalgic-pompalar/paslanmaz-celik
+
+gibi curated landing pages indexable olabilir.
+
+======================================================================
+45. TECHNICAL SPEC LONG-TAIL SEO
+================================
+
+Product pages technical queries kazanabilecek şekilde optimize edilmeli.
+
+Örneğin:
+
+6 inch submersible motor
+6 inch submersible motor 45 kW
+high temperature submersible motor
+380V submersible motor
+rewindable submersible motor
+
+Ancak meta text içine tüm numbers spam yapma.
+
+Technical table content Google'ın long-tail'leri doğal yakalamasına izin versin.
+
+======================================================================
+46. INTERNATIONAL MANUFACTURER SEO
+==================================
+
+English content Kurlar'ı basit bir retailer gibi değil:
+
+MANUFACTURER
+
+olarak anlatmalı.
+
+Natural wording:
+
+"submersible pump manufacturer"
+"submersible motor manufacturer"
+"manufacturer in Turkey"
+
+gibi phrases doğru context'te kullanılmalı.
+
+Ama "world's best", "number one" gibi kanıtsız superlative yazma.
+
+======================================================================
+47. ABOUT / COMPANY ENTITY PAGE
+===============================
+
+Kurumsal page'i entity-strength page haline getir.
+
+Mevcut doğrulanmış bilgiler üzerinden:
+
+* company history
+* manufacturing
+* product expertise
+* production facility
+* engineering
+* export
+* quality
+* product groups
+
+anlat.
+
+Bu page homepage ve product categories'e doğal link versin.
+
+======================================================================
+48. E-E-A-T / ENGINEERING AUTHORITY
+===================================
+
+Google'a gerçek engineering manufacturer sinyalleri ver.
+
+Site içinde zaten bulunan:
+
+* real factory images
+* real product photos
+* technical tables
+* catalogue
+* model names
+* standards
+* certificates
+* company history
+* manufacturing details
+
+çok daha değerli.
+
+Fake generic blog content ile bunları gömme.
+
+======================================================================
+49. CERTIFICATES
+================
+
+CE, TSE, ISO vb. yalnızca mevcut ürün/project content doğruluyorsa kullan.
+
+Bir sertifika bazı product series'e özgüyse tüm company/product pages'e genelleme.
+
+Product page'de sertifika görseli varsa meaningful alt/title ve çevresinde contextual description kullan.
+
+======================================================================
+50. TECHNICAL ACCURACY AUDIT
+============================
+
+Mevcut product data'da potansiyel tutarsızlık bulursan otomatik "düzeltme" yapma.
+
+Örneğin:
+
+page overview ile technical table arasında:
+
+temperature
+IP class
+power
+diameter
+
+farkı varsa bunu FINAL REPORT'ta manual verification olarak işaretle.
+
+Engineering data'yı kendi bilginle düzeltme.
+
+======================================================================
+51. PERFORMANCE
+===============
+
+Product pages'te:
+
+* huge images
+* giant JS
+* unnecessary animations
+* render blocking
+* font
+* LCP image
+* CLS
+* technical table rendering
+
+kontrol et.
+
+SEO uğruna design rewrite yapma.
+
+======================================================================
+52. MOBILE PRODUCT SEO
+======================
+
+Technical tables mobile'da okunabilir kalmalı.
+
+Responsive horizontal scrolling olabilir.
+
+Table content'i mobile için DOM'dan kaldırma.
+
+Desktop table SSR var ama mobile'da JS ile yeniden fetch gibi iki ayrı source oluşturma.
+
+======================================================================
+53. ACCESSIBILITY
+=================
+
+* meaningful image alt
+* table headers
+* buttons labels
+* product tabs accessible
+* accordion aria
+* navigation aria
+* lang attribute
+* form labels
+
+uygun olsun.
+
+======================================================================
+54. OPEN GRAPH
+==============
+
+Her important page:
+
+og:title
+og:description
+og:url
+og:type
+og:image
+
+Twitter card metadata.
+
+English pages:
+
+og:locale appropriate English locale.
+
+TR:
+tr_TR
+
+======================================================================
+55. DUPLICATE CONTENT
+=====================
+
+Aynı product farklı URL'den 200 dönmesin.
+
+Örneğin:
+
+/urunler/km
+/urunler/km/
+/products/km
+?model=km
+
+aynı content ise single canonical strategy.
+
+Server-side 301 mümkünse preferred.
+
+======================================================================
+56. TRAILING SLASH NORMALIZATION
+================================
+
+Tek format seç.
+
+Örneğin sitemap:
+
+/urunler/km
+
+kullanıyorsa:
+
+/urunler/km/
+
+301 -> /urunler/km
+
+olabilir.
+
+Her yerde:
+
+internal link
+canonical
+hreflang
+sitemap
+
+aynı final URL formatını kullan.
+
+======================================================================
+57. SECURITY / STATUS CODE SEO
+==============================
+
+Kontrol:
+
+200 = real pages
+301 = permanent redirects
+404 = not found
+410 = intentionally removed where appropriate
+
+Her URL'ye 200 dönen SPA yapısı istemiyorum.
+
+======================================================================
+58. NO FAKE SEO
+===============
+
+KESİNLİKLE YAPMA:
+
+* hidden keywords
+* invisible SEO paragraphs
+* keyword stuffing
+* fake technical specs
+* fake cities
+* fake dealers
+* fake distributors
+* fake certifications
+* fake prices
+* fake stock
+* fake reviews
+* fake AggregateRating
+* fake awards
+* fake customer counts
+* doorway pages
+* AI-generated meaningless engineering text
+
+======================================================================
+59. PRIMARY KEYWORD CHECK
+=========================
+
+Implementation sonunda şu 4 keyword için hangi page'in owner olduğunu raporla:
+
+DALGIÇ POMPA
+=> expected owner: TR Pump Category / strategic homepage support
+
+DALGIÇ MOTOR
+=> expected owner: TR Motor Category / strategic homepage support
+
+SUBMERSIBLE PUMP
+=> English Pump Category
+
+SUBMERSIBLE MOTOR
+=> English Motor Category
+
+Homepage broad manufacturer entity ve iki category'yi birlikte destekler.
+
+Category pages exact keyword intent'i daha derin karşılar.
+
+======================================================================
+60. RAW CURL FINAL VERIFICATION
+===============================
+
+Implementation sonrası mutlaka curl test et.
+
+At minimum:
+
+curl -I https://kurlar.com.tr/
+
+curl -sL https://kurlar.com.tr/
+
+curl -sL https://kurlar.com.tr/urunler/dalgic-pompalar
+
+curl -sL https://kurlar.com.tr/urunler/dalgic-motorlar
+
+curl -sL https://kurlar.com.tr/urunler/km
+
+curl -sL https://kurlar.com.tr/en
+
+curl -sL https://kurlar.com.tr/en/products/submersible-pumps
+
+curl -sL https://kurlar.com.tr/en/products/submersible-motors
+
+curl -sL https://kurlar.com.tr/robots.txt
+
+curl -sL https://kurlar.com.tr/sitemap.xml
+
+curl -sL https://kurlar.com.tr/llms.txt
+
+curl -I https://kurlar.com.tr/urunler/fake-product-918273
+
+Raw HTML kontrolü:
+
+title
+description
+canonical
+hreflang
+H1
+H2
+product content
+tables
+internal links
+JSON-LD
+
+bulunmalı.
+
+======================================================================
+61. BOT ACCESS TEST
+===================
+
+Test:
+
+curl -A "Googlebot" -I https://kurlar.com.tr/
+
+curl -A "Bingbot" -I https://kurlar.com.tr/
+
+curl -A "OAI-SearchBot" -I https://kurlar.com.tr/
+
+curl -A "OAI-SearchBot" -I https://kurlar.com.tr/urunler/dalgic-pompalar
+
+curl -A "OAI-SearchBot" -I https://kurlar.com.tr/en/products/submersible-pumps
+
+Public content 200 ve crawlable olmalı.
+
+======================================================================
+62. SEARCH CONSOLE READY
+========================
+
+Final architecture Google Search Console'a submit edilmeye hazır olmalı.
+
+Sitemap canonical URLs içermeli.
+
+Priority indexing list:
+
+1. homepage
+2. Dalgıç Pompalar
+3. Dalgıç Motorlar
+4. main pump subcategories
+5. main motor subcategories
+6. strongest model pages
+7. Dalgıç Pompa Nedir
+8. Dalgıç Motor Nedir
+9. EN homepage
+10. Submersible Pumps
+11. Submersible Motors
+
+======================================================================
+63. FINAL REPORT
+================
+
+İşi bitirince sadece:
+
+"SEO tamamlandı"
+
+deme.
+
+Bana rapor ver:
+
+1. Framework/architecture
+2. SSR/prerender implementation
+3. Homepage final title
+4. Homepage final description
+5. Homepage H1
+6. Dalgıç Pompa owner URL
+7. Dalgıç Motor owner URL
+8. Submersible Pump owner URL
+9. Submersible Motor owner URL
+10. Oluşturulan TR categories
+11. Oluşturulan EN categories
+12. Subcategories
+13. Product URLs protected
+14. Redirects
+15. Removed/404 old URLs
+16. Schema matrix
+17. Product schema example
+18. sitemap URL count
+19. hreflang matrix
+20. robots.txt final
+21. llms.txt summary
+22. raw HTML SSR proof
+23. technical table SSR proof
+24. fake product 404 proof
+25. Googlebot result
+26. OAI-SearchBot result
+27. duplicate URL test
+28. manual verification required technical/business facts
+
+======================================================================
+64. FINAL PRIORITY ORDER
+========================
+
+Bu projede öncelik:
+
+1. DALGIÇ POMPA
+2. DALGIÇ MOTOR
+3. SUBMERSIBLE PUMP
+4. SUBMERSIBLE MOTOR
+
+Sonrasında:
+
+5. product subcategories
+6. model/product SEO
+7. manufacturer/entity SEO
+8. technical table indexability
+9. guides/topical authority
+10. image/PDF SEO
+
+Teknik öncelik:
+
+1. SSR/prerender
+2. true 404
+3. canonical
+4. redirects
+5. title/meta/H1
+6. category architecture
+7. product structured data
+8. internal linking
+9. hreflang
+10. sitemap
+11. robots
+12. llms
+13. performance
+
+======================================================================
+65. HEDEF
+=========
+
+İş bittiğinde Google ve AI sistemleri Kurlar'ı net şekilde:
+
+"TÜRKİYE'DE DALGIÇ POMPA VE DALGIÇ MOTOR ÜRETİCİSİ"
+
+ve English olarak:
+
+"SUBMERSIBLE PUMP AND SUBMERSIBLE MOTOR MANUFACTURER IN TURKEY"
+
+entity'si olarak anlayabilmeli.
+
+Google:
+
+"dalgıç pompa"
+
+sorgusunda Kurlar'ın pump category'sini;
+
+"dalgıç motor"
+
+sorgusunda motor category'sini;
+
+"submersible pump"
+
+sorgusunda English pump category'sini;
+
+"submersible motor"
+
+sorgusunda English motor category'sini;
+
+en güçlü ve en alakalı Kurlar URL'leri olarak algılayabilmeli.
+
+Product series ve technical model pages bu dört ana keyword cluster'ına authority aktarmalı.
+
+Mevcut gerçek engineering / production / product datasını koru.
+
+Sahte SEO üretme.
+
+Şimdi mevcut projeyi baştan sona incele ve yukarıdaki planı DOĞRUDAN UYGULA.
