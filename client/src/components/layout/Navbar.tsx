@@ -345,10 +345,8 @@ export function Navbar() {
         <div className="lg:hidden fixed inset-0 bg-white z-[60] overflow-y-auto animate-in slide-in-from-right-10 duration-300">
           {/* Mobile Header with Logo and Close Button */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white sticky top-0 z-10">
-            <Link href="/">
-              <a className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
-                 <img src="/assets/logo.png" alt="Kurlar Logo" className="h-10 w-auto" />
-              </a>
+            <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
+              <img src="/assets/logo.png" alt="Kurlar Logo" className="h-10 w-auto" />
             </Link>
             
             <div className="flex items-center gap-4">

@@ -1,6 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
+import { setupUrlNormalization } from "./ssr";
 import { createServer } from "http";
 
 const app = express();
@@ -60,6 +61,9 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // SEO: host/protocol, duplicate-slash and trailing-slash 301 normalization.
+  setupUrlNormalization(app);
+
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -74,7 +78,7 @@ app.use((req, res, next) => {
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
   if (process.env.NODE_ENV === "production") {
-    serveStatic(app);
+    await serveStatic(app);
   } else {
     const { setupVite } = await import("./vite");
     await setupVite(httpServer, app);

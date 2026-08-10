@@ -116,8 +116,7 @@ export default function Home() {
                const product = getProductWithLanguage(baseProduct, language);
                return (
                <div key={`${product.id}-${index}`} className="w-[300px] md:w-[380px] flex-shrink-0">
-                 <Link href={`/urunler/${product.id}`}>
-                   <a className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-xl flex flex-col h-full">
+                 <Link href={`/urunler/${product.id}`} className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-xl flex flex-col h-full">
                      {/* Image Area */}
                      <div className="aspect-[4/5] bg-slate-100 relative overflow-hidden flex items-center justify-center p-8">
                        <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -145,7 +144,6 @@ export default function Home() {
                          {product.description}
                        </p>
                      </div>
-                   </a>
                  </Link>
                </div>
                );

@@ -5,6 +5,7 @@ import viteConfig from "../vite.config";
 import fs from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
+import { injectTemplate, fallbackStatus, fallbackHead } from "./ssr";
 
 const viteLogger = createLogger();
 
@@ -33,6 +34,7 @@ export async function setupVite(server: Server, app: Express) {
 
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
+    const pathname = url.split("?")[0];
 
     try {
       const clientTemplate = path.resolve(
@@ -48,10 +50,36 @@ export async function setupVite(server: Server, app: Express) {
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`,
       );
-      const page = await vite.transformIndexHtml(url, template);
-      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+      template = await vite.transformIndexHtml(url, template);
+
+      let resolvedStatus = 200;
+      try {
+        const entry = await vite.ssrLoadModule("/src/entry-server.tsx");
+
+        const resolved = entry.resolveUrl(pathname);
+        if (resolved.redirect) {
+          return res.redirect(301, resolved.redirect);
+        }
+        resolvedStatus = resolved.status;
+
+        const { html, head, status } = await entry.render(url);
+        const page = injectTemplate(template, head, html);
+        return res
+          .status(status)
+          .set({ "Content-Type": "text/html" })
+          .end(page);
+      } catch (ssrError) {
+        // SSR must never take the site down: fall back to the CSR shell,
+        // but keep honest HTTP semantics (404 stays 404, errors are 503).
+        vite.ssrFixStacktrace(ssrError as Error);
+        console.error("[ssr] render failed, serving CSR shell:", ssrError);
+        const page = injectTemplate(template, fallbackHead(resolvedStatus), "");
+        return res
+          .status(fallbackStatus(resolvedStatus))
+          .set({ "Content-Type": "text/html", "Cache-Control": "no-store" })
+          .end(page);
+      }
     } catch (e) {
-      vite.ssrFixStacktrace(e as Error);
       next(e);
     }
   });

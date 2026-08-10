@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
+import NotFound from "@/pages/not-found";
 
 function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
   const [zoom, setZoom] = useState(false);
@@ -891,14 +892,8 @@ export default function ProductDetail() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!product) {
-    return (
-      <Layout>
-        <div className="container mx-auto px-6 py-24 text-center">
-          <h1 className="text-2xl font-bold mb-4">{t('product.not_found')}</h1>
-          <Link href="/urunler"><Button>{t('product.back')}</Button></Link>
-        </div>
-      </Layout>
-    );
+    // True 404: render the real not-found page (server also returns HTTP 404).
+    return <NotFound />;
   }
 
   // Use Special Layout for Hi-Temp Motors
@@ -1323,8 +1318,7 @@ export default function ProductDetail() {
                    const p = getProductWithLanguage(baseP, language);
                    return (
                    <div key={`${p.id}-${index}`} className="w-[260px] md:w-[320px] flex-shrink-0">
-                     <Link href={`/urunler/${p.id}`}>
-                       <a className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
+                     <Link href={`/urunler/${p.id}`} className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
                          <div className="aspect-[4/5] bg-white relative overflow-hidden flex items-center justify-center p-6 border-b border-slate-100">
                            <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                            
@@ -1360,7 +1354,6 @@ export default function ProductDetail() {
                               </span>
                            </div>
                          </div>
-                       </a>
                      </Link>
                    </div>
                    );

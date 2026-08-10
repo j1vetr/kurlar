@@ -15,8 +15,7 @@ export function ProductCard({ product: baseProduct, className }: ProductCardProp
   const product = getProductWithLanguage(baseProduct, language);
 
   return (
-    <Link href={`/urunler/${product.id}`}>
-      <a className="block h-full">
+    <Link href={`/urunler/${product.id}`} className="block h-full">
         <motion.div 
           whileHover={{ y: -8 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
@@ -84,7 +83,6 @@ export function ProductCard({ product: baseProduct, className }: ProductCardProp
             </div>
           </div>
         </motion.div>
-      </a>
     </Link>
   );
 }

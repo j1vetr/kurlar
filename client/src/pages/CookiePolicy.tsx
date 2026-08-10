@@ -9,7 +9,7 @@ export default function CookiePolicy() {
   return (
     <Layout>
       <SEO 
-        title={t('footer.cookie')} 
+        title={t('footer.cookies')} 
         description={t('cookie.subtitle')} 
         canonical="https://kurlar.com.tr/cerez-politikasi"
       />

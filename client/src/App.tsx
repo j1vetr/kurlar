@@ -3,23 +3,26 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useEffect, Suspense, lazy } from "react";
+import { useEffect, Suspense } from "react";
 import { LanguageProvider } from "./lib/i18n";
 import { Spinner } from "@/components/ui/spinner";
+import { pages } from "@/lib/app-pages";
 
-// Lazy load pages for better performance
-const Home = lazy(() => import("@/pages/Home"));
-const Products = lazy(() => import("@/pages/Products"));
-const ProductDetail = lazy(() => import("@/pages/ProductDetail"));
-const Dealers = lazy(() => import("@/pages/Dealers"));
-const Contact = lazy(() => import("@/pages/Contact"));
-const About = lazy(() => import("@/pages/About"));
-const RAndD = lazy(() => import("@/pages/RAndD"));
-const Certificates = lazy(() => import("@/pages/Certificates"));
-const Careers = lazy(() => import("@/pages/Careers"));
-const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
-const CookiePolicy = lazy(() => import("@/pages/CookiePolicy"));
-const NotFound = lazy(() => import("@/pages/not-found"));
+// Pages are code-split on the client and preloaded during SSR (see entry-server)
+const {
+  Home,
+  Products,
+  ProductDetail,
+  Dealers,
+  Contact,
+  About,
+  RAndD,
+  Certificates,
+  Careers,
+  PrivacyPolicy,
+  CookiePolicy,
+  NotFound,
+} = pages;
 
 function ScrollToTop() {
   const [location] = useLocation();

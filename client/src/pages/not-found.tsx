@@ -10,7 +10,7 @@ export default function NotFound() {
       <SEO 
         title="Sayfa Bulunamadı | 404" 
         description="Aradığınız sayfa bulunamadı." 
-        canonical="https://kurlar.com.tr/404"
+        robots="noindex, nofollow"
       />
       
       <div className="min-h-[80vh] flex items-center justify-center bg-slate-50 relative overflow-hidden">

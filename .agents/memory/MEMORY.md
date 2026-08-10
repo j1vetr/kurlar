@@ -1,0 +1,1 @@
+- [SSR with code-split pages](ssr-lazy-pages.md) — use renderToString + page preload, never prerender streams (deferred segments); new pages go in the app-pages registry; 404/redirect/deploy invariants.
