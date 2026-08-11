@@ -62,10 +62,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6 text-white">{t('footer.product_groups')}</h4>
             <ul className="space-y-3 text-sm text-blue-50">
-              <li><Link href="/urunler?category=pump" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.pumps')}</Link></li>
-              <li><Link href="/urunler?category=motor" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.motors')}</Link></li>
-              <li><Link href="/urunler?search=Paslanmaz" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.stainless_series')}</Link></li>
-              <li><Link href="/urunler?search=Döküm" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cast_series')}</Link></li>
+              <li><Link href="/urunler/dalgic-pompalar" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.pumps')}</Link></li>
+              <li><Link href="/urunler/dalgic-motorlar" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.motors')}</Link></li>
+              <li><Link href="/urunler/dalgic-pompalar/paslanmaz-celik" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.stainless_series')}</Link></li>
+              <li><Link href="/urunler/dalgic-pompalar/pik-dokum" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cast_series')}</Link></li>
             </ul>
           </div>
 

@@ -56,7 +56,8 @@ export async function setupVite(server: Server, app: Express) {
       try {
         const entry = await vite.ssrLoadModule("/src/entry-server.tsx");
 
-        const resolved = entry.resolveUrl(pathname);
+        const search = url.includes("?") ? url.slice(url.indexOf("?") + 1) : "";
+        const resolved = entry.resolveUrl(pathname, search);
         if (resolved.redirect) {
           return res.redirect(301, resolved.redirect);
         }

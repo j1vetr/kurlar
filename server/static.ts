@@ -26,7 +26,8 @@ export async function serveStatic(app: Express) {
 
     let resolvedStatus = 200;
     try {
-      const resolved = entry.resolveUrl(pathname);
+      const search = url.includes("?") ? url.slice(url.indexOf("?") + 1) : "";
+      const resolved = entry.resolveUrl(pathname, search);
       if (resolved.redirect) {
         return res.redirect(301, resolved.redirect);
       }

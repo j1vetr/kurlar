@@ -4,6 +4,7 @@ import App from "./App";
 import { preloadAllPages } from "./lib/app-pages";
 import { HeadContext, renderHead, type HeadState } from "./lib/head";
 import { products } from "./lib/data";
+import { categoryPaths } from "./lib/categories";
 
 /**
  * Server-side rendering entry point.
@@ -39,10 +40,35 @@ export interface ResolvedUrl {
   redirect?: string;
 }
 
-export function resolveUrl(pathname: string): ResolvedUrl {
+/**
+ * Eski filtre query'lerinin yeni kategori sayfalarına 301 haritası.
+ * Yalnızca /urunler?category=... için; ?search= vb. query'ler 200 kalır
+ * (canonical zaten /urunler'e normalize edilir, duplicate oluşmaz).
+ */
+const CATEGORY_QUERY_REDIRECTS: Record<string, string> = {
+  pump: "/urunler/dalgic-pompalar",
+  motor: "/urunler/dalgic-motorlar",
+};
+
+const CATEGORY_PATHS = new Set(categoryPaths);
+
+export function resolveUrl(pathname: string, search?: string): ResolvedUrl {
+  if (pathname === "/urunler" && search) {
+    const params = new URLSearchParams(search);
+    const category = params.get("category");
+    // Yalnızca kategori filtresi varken 301'le; ?search= gibi anlamlı bir
+    // parametre de varsa yönlendirme onu kaybeder — o durumda 200 kalır
+    // (canonical zaten /urunler'e normalize edilir, duplicate oluşmaz).
+    if (category && CATEGORY_QUERY_REDIRECTS[category] && !params.get("search")) {
+      return { status: 301, redirect: CATEGORY_QUERY_REDIRECTS[category] };
+    }
+  }
+
   if (LEGACY_REDIRECTS[pathname]) {
     return { status: 301, redirect: LEGACY_REDIRECTS[pathname] };
   }
+
+  if (CATEGORY_PATHS.has(pathname)) return { status: 200 };
 
   // Duplicate-content guard: English-style product path -> canonical TR path.
   const legacyProduct = pathname.match(/^\/products\/([^/]+)$/);

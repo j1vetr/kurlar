@@ -12,6 +12,7 @@ import { pages } from "@/lib/app-pages";
 const {
   Home,
   Products,
+  CategoryPage,
   ProductDetail,
   Dealers,
   Contact,
@@ -54,6 +55,11 @@ function Router() {
           <Route path="/sertifikalarimiz" component={Certificates} />
           <Route path="/kariyer" component={Careers} />
           <Route path="/urunler" component={Products} />
+          {/* Kategori sayfaları /urunler/:id'den ÖNCE gelmeli (wouter sıralı eşleşir) */}
+          <Route path="/urunler/dalgic-pompalar" component={CategoryPage} />
+          <Route path="/urunler/dalgic-motorlar" component={CategoryPage} />
+          <Route path="/urunler/dalgic-pompalar/:sub" component={CategoryPage} />
+          <Route path="/urunler/dalgic-motorlar/:sub" component={CategoryPage} />
           <Route path="/urunler/:id" component={ProductDetail} />
           <Route path="/bayi-servis" component={Dealers} />
           <Route path="/iletisim" component={Contact} />

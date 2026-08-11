@@ -17,6 +17,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
 import NotFound from "@/pages/not-found";
+import { getCategoryByKey, categoryPath } from "@/lib/categories";
+import { Breadcrumbs, breadcrumbJsonLd, type Crumb } from "@/components/shared/Breadcrumbs";
+
+/** Ana Sayfa > Ürünler > [Üst Kategori] > Ürün breadcrumb zinciri */
+function productCrumbs(product: { category: string; name: string }): Crumb[] {
+  const parent = getCategoryByKey(product.category);
+  return [
+    { name: "Ana Sayfa", href: "/" },
+    { name: "Ürünler", href: "/urunler" },
+    ...(parent ? [{ name: parent.name, href: categoryPath(parent) }] : []),
+    { name: product.name },
+  ];
+}
 
 function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
   const [zoom, setZoom] = useState(false);
@@ -131,6 +144,7 @@ function HiTempProductLayout({ product }: { product: any }) {
         title={product.name} 
         description={product.description} 
         canonical={`https://kurlar.com.tr/urunler/${product.id}`}
+        jsonLd={breadcrumbJsonLd(productCrumbs(product), `/urunler/${product.id}`)}
       />
       
       {/* Hero Section */}
@@ -139,6 +153,7 @@ function HiTempProductLayout({ product }: { product: any }) {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
         
         <div className="container mx-auto px-6 py-12 md:py-20 relative z-20">
+          <Breadcrumbs items={productCrumbs(product)} variant="dark" className="mb-10 justify-start" />
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             
             {/* Left Column: Image Gallery */}
@@ -909,12 +924,13 @@ export default function ProductDetail() {
         title={product.name} 
         description={product.description} 
         canonical={`https://kurlar.com.tr/urunler/${product.id}`}
+        jsonLd={breadcrumbJsonLd(productCrumbs(product), `/urunler/${product.id}`)}
       />
       {/* Breadcrumb - Redesigned */}
       <div className="bg-slate-50 border-b border-slate-200 py-8">
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center justify-center text-center">
-            <div className="flex items-center gap-2 text-sm font-medium text-slate-500 mb-1">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-slate-500 mb-1">
               <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
                 <Home className="w-3.5 h-3.5" />
                 {t('nav.home')}
@@ -923,6 +939,17 @@ export default function ProductDetail() {
               <Link href="/urunler" className="hover:text-primary transition-colors">
                 {t('nav.products')}
               </Link>
+              {(() => {
+                const parent = getCategoryByKey(product.category);
+                return parent ? (
+                  <>
+                    <ChevronRight className="w-4 h-4 text-slate-300" />
+                    <Link href={categoryPath(parent)} className="hover:text-primary transition-colors">
+                      {parent.name}
+                    </Link>
+                  </>
+                ) : null;
+              })()}
               <ChevronRight className="w-4 h-4 text-slate-300" />
               <span className="text-primary font-bold bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm text-xs uppercase tracking-wide">
                 {product.name}

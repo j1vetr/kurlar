@@ -7,6 +7,7 @@ import { lazyWithPreload } from "@/lib/lazy-preload";
 export const pages = {
   Home: lazyWithPreload(() => import("@/pages/Home")),
   Products: lazyWithPreload(() => import("@/pages/Products")),
+  CategoryPage: lazyWithPreload(() => import("@/pages/CategoryPage")),
   ProductDetail: lazyWithPreload(() => import("@/pages/ProductDetail")),
   Dealers: lazyWithPreload(() => import("@/pages/Dealers")),
   Contact: lazyWithPreload(() => import("@/pages/Contact")),

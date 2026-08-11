@@ -172,7 +172,7 @@ export function Navbar() {
                       <div className="flex border-x border-slate-50">
                         {/* Pumps Column */}
                         <div className="flex-1 p-10 border-r border-slate-50 bg-slate-50/30">
-                          <Link href="/urunler?category=pump">
+                          <Link href="/urunler/dalgic-pompalar">
                             <h3 className="font-heading font-bold text-lg mb-6 text-slate-900 hover:text-primary cursor-pointer flex items-center group/title">
                               {t('nav.pumps')}
                               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
@@ -196,7 +196,7 @@ export function Navbar() {
 
                         {/* Motors Column */}
                         <div className="flex-1 p-10 border-r border-slate-50 bg-slate-50/30">
-                          <Link href="/urunler?category=motor">
+                          <Link href="/urunler/dalgic-motorlar">
                             <h3 className="font-heading font-bold text-lg mb-6 text-slate-900 hover:text-primary cursor-pointer flex items-center group/title">
                               {t('nav.motors')}
                               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
@@ -455,7 +455,7 @@ export function Navbar() {
                   {item.type === "mega" && (
                      <div className="pl-4 space-y-6 border-l-2 border-slate-100 ml-2">
                        <div>
-                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">{t('nav.pumps')}</div>
+                          <Link href="/urunler/dalgic-pompalar" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold text-primary uppercase mb-3 tracking-wider block hover:underline">{t('nav.pumps')}</Link>
                           <div className="space-y-3">
                             {[
                               { name: t('nav.products.kp'), id: "kp" },
@@ -470,7 +470,7 @@ export function Navbar() {
                           </div>
                        </div>
                        <div>
-                          <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">{t('nav.motors')}</div>
+                          <Link href="/urunler/dalgic-motorlar" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold text-primary uppercase mb-3 tracking-wider block hover:underline">{t('nav.motors')}</Link>
                           <div className="space-y-3">
                             {[
                               { name: t('nav.products.km'), id: "km" },
