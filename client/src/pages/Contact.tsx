@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, ArrowRight, Send, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
+import { BRAND } from "@/lib/brand";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
@@ -114,8 +115,8 @@ export default function Contact() {
               <p className="text-slate-500 leading-relaxed mb-6">
                 {t('contact.phone_desc')}
               </p>
-              <a href="tel:902325123030" className="text-2xl font-bold text-slate-900 hover:text-primary transition-colors">
-                +90 (232) 512 30 30
+              <a href={BRAND.phoneHref} className="text-2xl font-bold text-slate-900 hover:text-primary transition-colors">
+                {BRAND.phoneDisplay}
               </a>
            </div>
 
@@ -128,8 +129,8 @@ export default function Contact() {
               <p className="text-slate-500 leading-relaxed mb-6">
                 {t('contact.email_desc')}
               </p>
-              <a href="mailto:info@kurlar.com.tr" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">
-                info@kurlar.com.tr
+              <a href={`mailto:${BRAND.email}`} className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">
+                {BRAND.email}
               </a>
            </div>
         </div>
@@ -158,7 +159,7 @@ export default function Contact() {
                      </div>
                      <div>
                        <div className="text-xs uppercase tracking-wider font-bold text-slate-500">Call Us</div>
-                       <div className="font-medium text-white">+90 (232) 512 30 30</div>
+                       <div className="font-medium text-white">{BRAND.phoneDisplay}</div>
                      </div>
                    </div>
                    <div className="flex items-center gap-4 text-slate-300">
@@ -167,7 +168,7 @@ export default function Contact() {
                      </div>
                      <div>
                        <div className="text-xs uppercase tracking-wider font-bold text-slate-500">Email Us</div>
-                       <div className="font-medium text-white">info@kurlar.com.tr</div>
+                       <div className="font-medium text-white">{BRAND.email}</div>
                      </div>
                    </div>
                  </div>

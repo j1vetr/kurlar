@@ -1,11 +1,15 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Globe, Award, Users, Building2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
+import { ORGANIZATION_ID } from "@/lib/brand";
+import { SITE_URL } from "@/lib/head";
 
 export default function About() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const tr = language === 'TR';
 
   return (
     <Layout>
@@ -13,6 +17,14 @@ export default function About() {
         title={t('seo.about.title')} 
         description={t('seo.about.desc')} 
         canonical="https://kurlar.com.tr/hakkimizda"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": `${SITE_URL}/hakkimizda`,
+          url: `${SITE_URL}/hakkimizda`,
+          inLanguage: "tr-TR",
+          about: { "@id": ORGANIZATION_ID },
+        }}
       />
       {/* Hero Section */}
       <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
@@ -62,6 +74,23 @@ export default function About() {
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.desc.p1') }}></p>
             <p className="text-slate-600 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.desc.p2') }}></p>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              {tr ? (
+                <>Üretim programımız iki ana gruptan oluşur:{" "}
+                  <Link href="/urunler/dalgic-pompalar" className="text-primary font-medium hover:underline">dalgıç pompalar</Link>
+                  {" "}(<Link href="/urunler/dalgic-pompalar/paslanmaz-celik" className="text-primary hover:underline">paslanmaz çelik</Link>,{" "}
+                  <Link href="/urunler/dalgic-pompalar/noryl" className="text-primary hover:underline">noryl</Link> ve{" "}
+                  <Link href="/urunler/dalgic-pompalar/pik-dokum" className="text-primary hover:underline">pik döküm</Link>) ile{" "}
+                  <Link href="/urunler/dalgic-motorlar" className="text-primary font-medium hover:underline">dalgıç motorlar</Link>.
+                </>
+              ) : (
+                <>Our production program covers two main groups:{" "}
+                  <Link href="/urunler/dalgic-pompalar" className="text-primary font-medium hover:underline">submersible pumps</Link>
+                  {" "}(stainless steel, Noryl and cast iron) and{" "}
+                  <Link href="/urunler/dalgic-motorlar" className="text-primary font-medium hover:underline">submersible motors</Link>.
+                </>
+              )}
+            </p>
             
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="flex items-center gap-3">

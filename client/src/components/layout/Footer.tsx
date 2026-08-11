@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Facebook, Instagram, Linkedin, Heart } from "lucide-react";
 import { isEnPath, homePath, productsPath } from "@/lib/locale";
 import { useLanguage } from "@/lib/i18n";
+import { BRAND } from "@/lib/brand";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -79,8 +80,8 @@ export function Footer() {
               <li><Link href="/gizlilik-politikasi" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.privacy')}</Link></li>
               <li><Link href="/cerez-politikasi" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('footer.cookies')}</Link></li>
               <li className="pt-4 text-blue-100/80">
-                İzmir, Türkiye <br/>
-                info@kurlar.com.tr
+                {BRAND.address.addressLocality} / {BRAND.address.addressRegion}, Türkiye <br/>
+                <a href={`mailto:${BRAND.email}`} className="hover:text-white transition-colors">{BRAND.email}</a>
               </li>
             </ul>
           </div>

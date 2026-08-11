@@ -276,11 +276,11 @@ function HiTempProductLayout({ product }: { product: any }) {
 
                   {/* Quality Logos */}
                   <div className="absolute top-6 right-6 flex flex-col gap-2 z-20">
-                    <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50">
-                      <img src="/assets/quality/ce.png" alt="CE" width={32} height={32} className="w-8 h-8 object-contain" />
+                    <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50" title={language === 'TR' ? 'CE Uygunluk İşareti' : 'CE Marking'}>
+                      <img src="/assets/quality/ce.png" alt={language === 'TR' ? 'CE uygunluk işareti' : 'CE marking'} width={32} height={32} className="w-8 h-8 object-contain" />
                     </div>
-                    <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50">
-                      <img src="/assets/quality/tse.png" alt="TSE" width={32} height={32} className="w-8 h-8 object-contain" />
+                    <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50" title={language === 'TR' ? 'TSE Belgesi' : 'TSE Certificate'}>
+                      <img src="/assets/quality/tse.png" alt={language === 'TR' ? 'TSE belgesi' : 'TSE certificate'} width={32} height={32} className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   
@@ -1142,12 +1142,12 @@ export default function ProductDetail() {
                  <div className="absolute top-2 left-2 md:top-4 md:left-4 z-10 flex flex-col gap-2">
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-1.5 rounded shadow-sm" title="Türk Standartları Enstitüsü">
                      <div className="w-8 h-8 flex items-center justify-center">
-                       <img src="/assets/quality/tse.png" alt="TSE" width={32} height={32} className="w-full h-full object-contain" />
+                       <img src="/assets/quality/tse.png" alt={en ? 'TSE certificate' : 'TSE belgesi'} width={32} height={32} className="w-full h-full object-contain" />
                      </div>
                    </div>
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-1.5 rounded shadow-sm" title="Conformité Européenne">
                      <div className="w-8 h-8 flex items-center justify-center">
-                       <img src="/assets/quality/ce.png" alt="CE" width={32} height={32} className="w-full h-full object-contain" />
+                       <img src="/assets/quality/ce.png" alt={en ? 'CE marking' : 'CE uygunluk işareti'} width={32} height={32} className="w-full h-full object-contain" />
                      </div>
                    </div>
                  </div>

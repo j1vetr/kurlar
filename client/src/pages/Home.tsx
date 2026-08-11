@@ -19,6 +19,7 @@ import { ArrowRight, Users, Globe, Building2, ArrowUpRight, ChevronRight } from 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
+import { organizationJsonLd, webSiteJsonLd } from "@/lib/brand";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -35,10 +36,12 @@ export default function Home() {
         canonical={en ? "https://kurlar.com.tr/en" : "https://kurlar.com.tr/"}
         alternates={hreflangFor(en ? "/en" : "/")}
         ogLocale={en ? "en_US" : "tr_TR"}
+        jsonLd={[organizationJsonLd(en), webSiteJsonLd(en)]}
       />
       <Hero
-        typedText={en ? "SUBMERSIBLE PUMP & MOTOR MANUFACTURER" : undefined}
-        finalText={en ? "SUBMERSIBLE PUMPS & MOTORS" : undefined}
+        headline={en
+          ? "Submersible Pump & Submersible Motor Manufacturer"
+          : "Dalgıç Pompa & Dalgıç Motor Üreticisi"}
       />
 
       {/* Hakkımızda Section - Clean, Corporate */}

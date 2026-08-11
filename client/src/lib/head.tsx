@@ -12,6 +12,8 @@ import { createContext } from "react";
 export const SITE_URL = "https://kurlar.com.tr";
 
 export const DEFAULT_TITLE = "Kurlar | Dalgıç Pompa ve Motor Sistemleri";
+/** Fallback share image when a page does not set its own og:image. */
+export const DEFAULT_OG_IMAGE = "/assets/logo.png";
 export const DEFAULT_DESCRIPTION =
   "Yüksek verimlilik, uzun ömür ve güvenilir performans için tasarlanmış profesyonel dalgıç pompa ve dalgıç motor çözümleri.";
 
@@ -91,11 +93,11 @@ export function renderHead(state: HeadState, pathname: string): string {
   }
   tags.push(`<meta property="og:type" content="${escapeHtml(state.ogType ?? "website")}" />`);
   tags.push(`<meta property="og:locale" content="${escapeHtml(state.ogLocale ?? "tr_TR")}" />`);
-  if (state.ogImage) {
-    tags.push(`<meta property="og:image" content="${escapeHtml(absoluteUrl(state.ogImage))}" />`);
-  }
+  const ogImage = absoluteUrl(state.ogImage ?? DEFAULT_OG_IMAGE);
+  tags.push(`<meta property="og:image" content="${escapeHtml(ogImage)}" />`);
   tags.push(`<meta name="twitter:title" content="${escapeHtml(title)}" />`);
   tags.push(`<meta name="twitter:description" content="${escapeHtml(description)}" />`);
+  tags.push(`<meta name="twitter:image" content="${escapeHtml(ogImage)}" />`);
   for (const obj of state.jsonLd ?? []) {
     // JSON-LD must escape "<" to prevent </script> injection.
     tags.push(

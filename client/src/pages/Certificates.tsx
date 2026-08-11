@@ -106,7 +106,9 @@ export default function Certificates() {
                  </div>
                  <img 
                    src={cert.thumbnail} 
-                   alt={cert.title} 
+                   alt={`Kurlar ${cert.code} – ${cert.title}`} 
+                   title={cert.title}
+                   loading="lazy"
                    className="max-h-full max-w-full object-contain relative z-0 transform group-hover:scale-105 transition-transform duration-500"
                  />
               </div>

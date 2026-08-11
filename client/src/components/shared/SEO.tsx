@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useLocation } from "wouter";
-import { HeadContext, normalizeCanonical } from "@/lib/head";
+import { HeadContext, normalizeCanonical, DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/head";
 
 interface SEOProps {
   title: string;
@@ -81,7 +81,9 @@ export function SEO({ title, description, canonical, robots, ogType, ogImage, js
     upsertMeta("name", "twitter:title", fullTitle);
     upsertMeta("property", "og:type", ogType ?? "website");
     upsertMeta("property", "og:locale", ogLocale ?? "tr_TR");
-    if (ogImage) upsertMeta("property", "og:image", ogImage);
+    const resolvedImage = ogImage ?? `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+    upsertMeta("property", "og:image", resolvedImage);
+    upsertMeta("name", "twitter:image", resolvedImage);
 
     // hreflang alternates managed by this component (SPA navigations).
     document.querySelectorAll('link[data-seo-alternate="true"]').forEach((el) => el.remove());

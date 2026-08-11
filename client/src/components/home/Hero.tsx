@@ -6,13 +6,15 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "@/lib/i18n";
 
 interface HeroProps {
-  /** H1 override for the typewriter phase (SSR-visible H1, e.g. EN keyword variant). */
-  typedText?: string;
-  /** H1 override for the final phase. */
-  finalText?: string;
+  /**
+   * Visible page H1 (manufacturer keyword phrase). Rendered as a static,
+   * SSR-stable eyebrow line above the animated slogans, which are
+   * decorative and intentionally NOT headings.
+   */
+  headline: string;
 }
 
-export function Hero({ typedText, finalText }: HeroProps) {
+export function Hero({ headline }: HeroProps) {
   const { t } = useLanguage();
   const [showSecondText, setShowSecondText] = useState(false);
   
@@ -25,7 +27,7 @@ export function Hero({ typedText, finalText }: HeroProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  const firstText = typedText ?? t('hero.inspired_by_history');
+  const firstText = t('hero.inspired_by_history');
 
   return (
     <div className="relative w-full h-screen min-h-[700px] overflow-hidden flex items-center justify-center bg-black">
@@ -47,10 +49,14 @@ export function Hero({ typedText, finalText }: HeroProps) {
       </div>
 
       <div className="container mx-auto px-6 relative z-20 text-center flex flex-col items-center justify-center h-full pt-20">
+        {/* Static H1: always in the SSR HTML, not animated (no hidden/opacity-0 states). */}
+        <h1 className="text-xs md:text-sm font-bold uppercase tracking-[0.35em] text-white/80 mb-8 px-4">
+          {headline}
+        </h1>
         <div className="h-40 md:h-60 flex items-center justify-center">
           <AnimatePresence mode="wait">
             {!showSecondText ? (
-              <motion.h1 
+              <motion.div 
                 key="typewriter"
                 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white/90 leading-tight tracking-wide"
                 initial={{ opacity: 1 }}
@@ -77,7 +83,7 @@ export function Hero({ typedText, finalText }: HeroProps) {
                   transition={{ repeat: Infinity, duration: 0.8 }}
                   className="ml-1 inline-block w-1 h-8 md:h-12 bg-primary/60 align-middle"
                 />
-              </motion.h1>
+              </motion.div>
             ) : (
               <motion.div
                 key="final"
@@ -86,11 +92,11 @@ export function Hero({ typedText, finalText }: HeroProps) {
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="flex flex-col items-center"
               >
-                <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold leading-none tracking-tight drop-shadow-2xl text-center uppercase text-white/90">
+                <p className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold leading-none tracking-tight drop-shadow-2xl text-center uppercase text-white/90">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white animate-pulse">
-                    {finalText ?? t('hero.designed_for_future')}
+                    {t('hero.designed_for_future')}
                   </span>
-                </h1>
+                </p>
                 
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
