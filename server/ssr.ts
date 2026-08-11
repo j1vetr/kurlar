@@ -43,6 +43,41 @@ export function setupUrlNormalization(app: Express) {
   });
 }
 
+/**
+ * Dynamic SEO files served from the entry-server module so they always stay
+ * in sync with the data models (products, categories, guides). Returns true
+ * when the request was handled.
+ */
+export interface SeoFilesEntry {
+  sitemapXml(): string;
+  llmsTxt(): string;
+  llmsFullTxt(): string;
+}
+
+export function sendSeoFile(
+  pathname: string,
+  entry: SeoFilesEntry,
+  res: import("express").Response,
+): boolean {
+  if (pathname === "/sitemap.xml") {
+    res
+      .status(200)
+      .set({ "Content-Type": "application/xml; charset=utf-8" })
+      .end(entry.sitemapXml());
+    return true;
+  }
+  if (pathname === "/llms.txt" || pathname === "/llms-full.txt") {
+    res
+      .status(200)
+      .set({ "Content-Type": "text/plain; charset=utf-8" })
+      .end(pathname === "/llms.txt" ? entry.llmsTxt() : entry.llmsFullTxt());
+    return true;
+  }
+  return false;
+}
+
+export const SEO_FILE_PATHS = ["/sitemap.xml", "/llms.txt", "/llms-full.txt"];
+
 /** True for HTML page requests (skips API routes and asset-like paths). */
 export function isPageRequest(req: Request): boolean {
   if (req.method !== "GET" && req.method !== "HEAD") return false;

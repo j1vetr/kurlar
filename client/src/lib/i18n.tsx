@@ -246,7 +246,7 @@ const translations: Translations = {
   'product.product_options': { TR: 'Ürün Opsiyonları', EN: 'Product Options', AR: 'خيارات المنتج', ES: 'Opciones del Producto', PT: 'Opções do Produto' },
   'product.key_advantages': { TR: 'Temel Avantajlar', EN: 'Key Advantages', AR: 'المزايا الرئيسية', ES: 'Ventajas Clave', PT: 'Principais Vantagens' },
   'product.request_quote': { TR: 'Teklif İste', EN: 'Request Quote', AR: 'طلب عرض سعر', ES: 'Solicitar Cotización', PT: 'Solicitar Orçamento' },
-  'product.download_catalog': { TR: '2025 Kataloğu İndir', EN: 'Download 2025 Catalog', AR: 'تنزيل كتالوج 2025', ES: 'Descargar Catálogo 2025', PT: 'Baixar Catálogo 2025' },
+  'product.download_catalog': { TR: '2025 Ürün Kataloğu (PDF)', EN: '2025 Product Catalogue (PDF)', AR: 'كتالوج المنتجات 2025 (PDF)', ES: 'Catálogo de Productos 2025 (PDF)', PT: 'Catálogo de Produtos 2025 (PDF)' },
   'product.faq_title': { TR: 'Sıkça Sorulan Sorular', EN: 'Frequently Asked Questions', AR: 'أسئلة مكررة', ES: 'Preguntas Frecuentes', PT: 'Perguntas Frequentes' },
   'product.faq_desc': { TR: 'Bu ürün hakkında en çok merak edilen soruların cevapları.', EN: 'Answers to the most frequently asked questions about this product.', AR: 'إجابات على الأسئلة الأكثر شيوعًا حول هذا المنتج.', ES: 'Respuestas a las preguntas más frecuentes sobre este producto.', PT: 'Respostas para as perguntas mais frequentes sobre este produto.' },
   'product.other_products': { TR: 'Diğer Ürünlerimiz', EN: 'Our Other Products', AR: 'منتجاتنا الأخرى', ES: 'Nuestros Otros Productos', PT: 'Nossos Outros Produtos' },

@@ -5,7 +5,14 @@ import viteConfig from "../vite.config";
 import fs from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
-import { injectTemplate, fallbackStatus, fallbackHead, pageLang } from "./ssr";
+import {
+  injectTemplate,
+  fallbackStatus,
+  fallbackHead,
+  pageLang,
+  sendSeoFile,
+  SEO_FILE_PATHS,
+} from "./ssr";
 
 const viteLogger = createLogger();
 
@@ -31,6 +38,16 @@ export async function setupVite(server: Server, app: Express) {
   });
 
   app.use(vite.middlewares);
+
+  // Dinamik SEO dosyaları — veri modelleriyle senkron üretim.
+  app.get(SEO_FILE_PATHS, async (req, res, next) => {
+    try {
+      const entry = await vite.ssrLoadModule("/src/entry-server.tsx");
+      if (!sendSeoFile(req.path, entry as any, res)) next();
+    } catch (e) {
+      next(e);
+    }
+  });
 
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;

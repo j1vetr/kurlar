@@ -8,6 +8,10 @@ import { categoryPaths } from "./lib/categories";
 import { enCategoryPaths } from "./lib/categories-en";
 import { guidePaths } from "./lib/guides";
 
+// Dinamik SEO dosyaları (/sitemap.xml, /llms.txt, /llms-full.txt) —
+// server tarafı bu modül üzerinden üretir; veri modelleriyle senkron kalır.
+export { sitemapXml, llmsTxt, llmsFullTxt } from "./lib/seo-files";
+
 /**
  * Server-side rendering entry point.
  * - render(url): returns fully rendered HTML + serialized <head> + HTTP status

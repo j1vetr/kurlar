@@ -245,7 +245,13 @@ export function Navbar() {
 
                         {/* Catalog Promo Card */}
                         <div className="w-1/3 p-0">
-                          <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="block h-full">
+                          <a
+                            href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block h-full"
+                            aria-label={en ? "Kurlar 2025 Submersible Pump & Motor Catalogue (PDF)" : "Kurlar 2025 Dalgıç Pompa ve Motor Kataloğu (PDF)"}
+                          >
                             <div className="h-full bg-primary text-white p-10 flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:bg-primary/90 transition-colors">
                               <div className="relative z-10">
                                 <span className="text-blue-100 text-sm font-medium mb-2 block">2025</span>
@@ -534,7 +540,7 @@ export function Navbar() {
                 <h4 className="font-bold text-xl mb-2">2025 Katalog</h4>
                 <p className="text-slate-300 text-sm mb-4">En yeni teknoloji ürünlerimizi inceleyin.</p>
                 <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
-                  Kataloğu İndir <ArrowRight className="ml-2 w-4 h-4" />
+                  2025 Ürün Kataloğu (PDF) <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>
               <FileText className="absolute -bottom-4 -right-4 w-24 h-24 text-white/5" />

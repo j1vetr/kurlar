@@ -2,7 +2,14 @@ import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
 import { createRequire } from "module";
-import { injectTemplate, fallbackStatus, fallbackHead, pageLang } from "./ssr";
+import {
+  injectTemplate,
+  fallbackStatus,
+  fallbackHead,
+  pageLang,
+  sendSeoFile,
+  SEO_FILE_PATHS,
+} from "./ssr";
 
 export async function serveStatic(app: Express) {
   const distPath = path.resolve(__dirname, "public");
@@ -19,6 +26,11 @@ export async function serveStatic(app: Express) {
 
   const nodeRequire = createRequire(__filename);
   const entry = nodeRequire(path.resolve(__dirname, "server", "entry-server.cjs"));
+
+  // Dinamik SEO dosyaları — veri modelleriyle senkron üretim.
+  app.get(SEO_FILE_PATHS, (req, res, next) => {
+    if (!sendSeoFile(req.path, entry, res)) next();
+  });
 
   app.use("*", async (req, res) => {
     const url = req.originalUrl;
