@@ -20,6 +20,8 @@ const {
   RAndD,
   Certificates,
   Careers,
+  GuideIndex,
+  GuideDetail,
   PrivacyPolicy,
   CookiePolicy,
   NotFound,
@@ -69,6 +71,8 @@ function Router() {
           <Route path="/urunler/dalgic-pompalar/:sub" component={CategoryPage} />
           <Route path="/urunler/dalgic-motorlar/:sub" component={CategoryPage} />
           <Route path="/urunler/:id" component={ProductDetail} />
+          <Route path="/rehber" component={GuideIndex} />
+          <Route path="/rehber/:slug" component={GuideDetail} />
           <Route path="/bayi-servis" component={Dealers} />
           <Route path="/iletisim" component={Contact} />
           <Route path="/gizlilik-politikasi" component={PrivacyPolicy} />

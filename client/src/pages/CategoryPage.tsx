@@ -22,8 +22,9 @@ import {
   localeSubCategoryPath,
   hreflangFor,
 } from "@/lib/locale";
+import { guidesForCategory } from "@/lib/guides";
 import { Link, useLocation } from "wouter";
-import { ArrowRight, CheckCircle2, FileText, Phone } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, FileText, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -144,6 +145,38 @@ function ContactCta({ otherCategory, en }: { otherCategory?: CategoryDef; en: bo
               </Link>
             )}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** TR kategori sayfalarında rehber içeriklerine doğal linkler (topical authority). */
+function RelatedGuides({ categorySlug }: { categorySlug: string }) {
+  const related = guidesForCategory(categorySlug);
+  if (related.length === 0) return null;
+  return (
+    <section className="py-16 bg-slate-50 border-t border-slate-100">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+          <h2 className="text-2xl font-heading font-bold text-slate-900">İlgili Rehberler</h2>
+          <Link href="/rehber" className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+            Tüm rehberler <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {related.map((g) => (
+            <Link
+              key={g.slug}
+              href={`/rehber/${g.slug}`}
+              className="group bg-white border border-slate-200 rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all"
+            >
+              <BookOpen className="w-5 h-5 text-primary mb-3" />
+              <h3 className="font-heading font-bold text-slate-900 group-hover:text-primary transition-colors">
+                {g.h1}
+              </h3>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
@@ -272,6 +305,8 @@ function CategoryView({ category, en }: { category: CategoryDef; en: boolean }) 
           </div>
         </div>
       </section>
+
+      {!en && <RelatedGuides categorySlug={category.slug} />}
 
       <FaqSection faqs={category.faqs} en={en} />
       <ContactCta otherCategory={otherCategory} en={en} />

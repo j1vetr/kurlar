@@ -58,6 +58,9 @@ export function Footer() {
               <li><Link href="/hakkimizda" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.corporate')}</Link></li>
               <li><Link href={productsPath(en)} className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.products')}</Link></li>
               <li><Link href="/kariyer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.career')}</Link></li>
+              {!en && (
+                <li><Link href="/rehber" className="hover:text-white hover:translate-x-1 transition-all inline-block">Rehber</Link></li>
+              )}
               <li><Link href="/iletisim" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t('nav.contact')}</Link></li>
             </ul>
           </div>

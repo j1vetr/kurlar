@@ -6,6 +6,7 @@ import { HeadContext, renderHead, type HeadState } from "./lib/head";
 import { products } from "./lib/data";
 import { categoryPaths } from "./lib/categories";
 import { enCategoryPaths } from "./lib/categories-en";
+import { guidePaths } from "./lib/guides";
 
 /**
  * Server-side rendering entry point.
@@ -53,6 +54,9 @@ const CATEGORY_QUERY_REDIRECTS: Record<string, string> = {
 
 const CATEGORY_PATHS = new Set(categoryPaths);
 
+/** Rehber mimarisi: /rehber ve geçerli rehber slug'ları (TR-only). */
+const GUIDE_PATHS = new Set(guidePaths);
+
 /** EN mimarisi: /en altındaki geçerli statik ve kategori path'leri. */
 const EN_STATIC_PATHS = new Set(["/en", "/en/products"]);
 const EN_CATEGORY_PATHS = new Set(enCategoryPaths);
@@ -74,6 +78,12 @@ export function resolveUrl(pathname: string, search?: string): ResolvedUrl {
   }
 
   if (CATEGORY_PATHS.has(pathname)) return { status: 200 };
+
+  // Rehber: /rehber 200, geçerli slug 200, bilinmeyen slug gerçek 404.
+  if (pathname === "/rehber") return { status: 200 };
+  if (pathname.startsWith("/rehber/")) {
+    return { status: GUIDE_PATHS.has(pathname) ? 200 : 404 };
+  }
 
   // EN mimarisi: /en, /en/products, EN kategori/alt kategori ve ürün detayları.
   if (EN_STATIC_PATHS.has(pathname) || EN_CATEGORY_PATHS.has(pathname)) {

@@ -10,6 +10,11 @@ When writing SEO/marketing copy (category pages, EN pages, guides), treat the **
 
 **How to apply:** Before making any technical claim, grep the product's `specs` block. If fields and spec table disagree, use the spec table (or drop the claim). Also note: the S-Type (kms) product `description` in data.ts wrongly duplicates the HI-TEMP text — don't copy it as an S-Type fact; use its `features`/`specs` instead.
 
+## Sanctioned phrasings for conflicted values
+- HI-TEMP motor temperature: say "60°C standart / 90°C opsiyonel" — verbatim from the km TR spec table and the clarified form the verification log itself recommends. Don't flatly claim "90°C" or "up to 90°C" alone.
+- KMS efficiency "%80 - %83" and KM efficiency "%71 - %84" are verbatim TR spec-table values — safe to cite as series ranges.
+- Guide center (`/rehber`, guides.ts) follows the same rule: every technical number must be traceable to a TR `specs` line or vetted categories.ts copy.
+
 ## TR category architecture decisions (Task #2)
 - Single source of truth: `client/src/lib/categories.ts` (slugs, titles, intros, sections, FAQs, product mappings). New locales/pages should extend it, not fork it.
 - URL scheme: `/urunler/dalgic-pompalar[/sub]`, `/urunler/dalgic-motorlar[/sub]`; routes registered in App.tsx BEFORE `/urunler/:id` (wouter order).
