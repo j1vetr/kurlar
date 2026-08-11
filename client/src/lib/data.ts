@@ -17,6 +17,8 @@ export interface Product {
     maxHead: number; // m
   };
   subSpecs?: { title: string; columns: string[]; data: string[][] }[];
+  options?: string[];
+  availableSizes?: string;
   specsImage?: string;
   mechanicalPartsImages?: { title: string; image: string }[];
   applications?: string[];

@@ -5,7 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/lib/i18n";
 
-export function Hero() {
+interface HeroProps {
+  /** H1 override for the typewriter phase (SSR-visible H1, e.g. EN keyword variant). */
+  typedText?: string;
+  /** H1 override for the final phase. */
+  finalText?: string;
+}
+
+export function Hero({ typedText, finalText }: HeroProps) {
   const { t } = useLanguage();
   const [showSecondText, setShowSecondText] = useState(false);
   
@@ -18,7 +25,7 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  const firstText = t('hero.inspired_by_history');
+  const firstText = typedText ?? t('hero.inspired_by_history');
 
   return (
     <div className="relative w-full h-screen min-h-[700px] overflow-hidden flex items-center justify-center bg-black">
@@ -81,7 +88,7 @@ export function Hero() {
               >
                 <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold leading-none tracking-tight drop-shadow-2xl text-center uppercase text-white/90">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white animate-pulse">
-                    {t('hero.designed_for_future')}
+                    {finalText ?? t('hero.designed_for_future')}
                   </span>
                 </h1>
                 

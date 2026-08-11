@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { useLocation } from 'wouter';
 
 type Language = 'TR' | 'EN' | 'AR' | 'ES' | 'PT';
 
@@ -80,15 +81,6 @@ const translations: Translations = {
   'hero.contact_us': { TR: 'Bize Ulaşın', EN: 'Contact Us', AR: 'اتصل بنا', ES: 'Contáctenos', PT: 'Contate-nos' },
 
   // R&D Center
-  'rnd.title': { TR: 'Ar-Ge Merkezi', EN: 'R&D Center', AR: 'مركز البحث والتطوير', ES: 'Centro de I+D', PT: 'Centro de P&D' },
-  'rnd.desc': { TR: 'Yenilikçi teknolojiler ve mühendislik çözümleri ile geleceği tasarlıyoruz.', EN: 'We design the future with innovative technologies and engineering solutions.', AR: 'نصمم المستقبل بتقنيات مبتكرة وحلول هندسية.', ES: 'Diseñamos el futuro con tecnologías innovadoras y soluciones de ingeniería.', PT: 'Projetamos o futuro com tecnologias inovadoras e soluções de engenharia.' },
-  'rnd.design_power': { TR: 'Mühendislik ve Tasarım Gücü', EN: 'Engineering and Design Power', AR: 'قوة الهندسة والتصميم', ES: 'Poder de Ingeniería y Diseño', PT: 'Poder de Engenharia e Design' },
-  'rnd.design_desc1': { TR: 'Kurlar Ar-Ge Merkezi, sektörün en gelişmiş tasarım ve simülasyon yazılımlarını kullanarak ürün geliştirme süreçlerini yönetmektedir.', EN: 'Kurlar R&D Center manages product development processes using the sector\'s most advanced design and simulation software.', AR: 'يدير مركز Kurlar للبحث والتطوير عمليات تطوير المنتجات باستخدام برامج التصميم والمحاكاة الأكثر تقدمًا في القطاع.', ES: 'El Centro de I+D de Kurlar gestiona los procesos de desarrollo de productos utilizando el software de diseño y simulación más avanzado del sector.', PT: 'O Centro de P&D da Kurlar gerencia os processos de desenvolvimento de produtos usando o software de design e simulação mais avançado do setor.' },
-  'rnd.design_desc2': { TR: 'Her yeni ürün, kapsamlı analizler ve testlerden geçerek üretime hazırlanır. Amacımız, maksimum verimlilik ve dayanıklılık sunan ürünler tasarlamaktır.', EN: 'Every new product is prepared for production through comprehensive analysis and testing. Our goal is to design products that offer maximum efficiency and durability.', AR: 'يتم إعداد كل منتج جديد للإنتاج من خلال التحليل والاختبار الشامل. هدفنا هو تصميم منتجات تقدم أقصى قدر من الكفاءة والمتانة.', ES: 'Cada nuevo producto se prepara para la producción a través de análisis y pruebas exhaustivas. Nuestro objetivo es diseñar productos que ofrezcan la máxima eficiencia y durabilidad.', PT: 'Cada novo produto é preparado para a produção através de análises e testes abrangentes. Nosso objetivo é projetar produtos que ofereçam máxima eficiência e durabilidade.' },
-  'rnd.precision_production': { TR: 'Hassas Üretim', EN: 'Precision Production', AR: 'إنتاج دقيق', ES: 'Producción de Precisión', PT: 'Produção de Precisão' },
-  'rnd.quality_control': { TR: 'Kalite Kontrol', EN: 'Quality Control', AR: 'مراقبة الجودة', ES: 'Control de Calidad', PT: 'Controle de Qualidade' },
-  'rnd.process_title': { TR: 'Geliştirme Süreci', EN: 'Development Process', AR: 'عملية التطوير', ES: 'Proceso de Desarrollo', PT: 'Processo de Desenvolvimento' },
-  'rnd.process_desc': { TR: 'Fikirden ürüne uzanan yolculuğumuzda titiz bir çalışma süreci izliyoruz.', EN: 'We follow a meticulous work process in our journey from idea to product.', AR: 'نحن نتبع عملية عمل دقيقة في رحلتنا من الفكرة إلى المنتج.', ES: 'Seguimos un proceso de trabajo meticuloso en nuestro viaje de la idea al producto.', PT: 'Seguimos um processo de trabalho meticuloso em nossa jornada da ideia ao produto.' },
   
   'rnd.steps.1': { TR: 'İhtiyaç Analizi ve Pazar Araştırması', EN: 'Needs Analysis and Market Research', AR: 'تحليل الاحتياجات وأبحاث السوق', ES: 'Análisis de Necesidades e Investigación de Mercado', PT: 'Análise de Necessidades e Pesquisa de Mercado' },
   'rnd.steps.2': { TR: 'Teknik Tasarım ve Simülasyon', EN: 'Technical Design and Simulation', AR: 'التصميم الفني والمحاكاة', ES: 'Diseño Técnico y Simulación', PT: 'Design Técnico e Simulação' },
@@ -118,14 +110,12 @@ const translations: Translations = {
   'contact.form.success': { TR: 'Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.', EN: 'Your message has been sent successfully. We will get back to you as soon as possible.', AR: 'تم إرسال رسالتك بنجاح. سنعود إليك في أقرب وقت ممكن.', ES: 'Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted lo antes posible.', PT: 'Sua mensagem foi enviada com sucesso. Entraremos em contato com você o mais breve possível.' },
 
   // Product Card UI
-  'product.review': { TR: 'İncele', EN: 'Review', AR: 'مراجعة', ES: 'Revisar', PT: 'Revisão' },
   'product.general_specs': { TR: 'Genel Teknik Özellikler', EN: 'General Technical Specifications', AR: 'المواصفات الفنية العامة', ES: 'Especificaciones Técnicas Generales', PT: 'Especificações Técnicas Gerais' },
   'product.monophase': { TR: 'Monofaze', EN: 'Monophase', AR: 'أحادي الطور', ES: 'Monofásico', PT: 'Monofásico' },
   'product.triphase': { TR: 'Trifaze', EN: 'Triphase', AR: 'ثلاثي الطور', ES: 'Trifásico', PT: 'Trifásico' },
   'product.category.pump': { TR: 'Dalgıç Pompa', EN: 'Submersible Pump', AR: 'مضخة غاطسة', ES: 'Bomba Sumergible', PT: 'Bomba Submersível' },
   'product.category.motor': { TR: 'Dalgıç Motor', EN: 'Submersible Motor', AR: 'محرك غاطس', ES: 'Motor Sumergible', PT: 'Motor Submersível' },
   'product.technical_details': { TR: 'Teknik Detaylar', EN: 'Technical Details', AR: 'تفاصيل فنية', ES: 'Detalles Técnicos', PT: 'Detalhes Técnicos' },
-  'product.download_catalog': { TR: 'Katalog İndir', EN: 'Download Catalog', AR: 'تحميل الكتالوج', ES: 'Descargar Catálogo', PT: 'Baixar Catálogo' },
   'product.view_technical_data': { TR: 'Teknik Verileri Görüntüle', EN: 'View Technical Data', AR: 'عرض البيانات الفنية', ES: 'Ver Datos Técnicos', PT: 'Ver Dados Técnicos' },
   'product.technical_data_sheet': { TR: 'Teknik Veri Sayfası', EN: 'Technical Data Sheet', AR: 'ورقة البيانات الفنية', ES: 'Ficha de Datos Técnicos', PT: 'Ficha de Dados Técnicos' },
   'product.series_desc': { 
@@ -147,19 +137,8 @@ const translations: Translations = {
   'product.jump_to_dimensions': { TR: 'Ölçü ve Ağırlıklara Git', EN: 'Go to Dimensions & Weights', AR: 'الذهاب إلى الأبعاد والأوزان', ES: 'Ir a Dimensiones y Pesos', PT: 'Ir para Dimensões e Pesos' },
   
   // Products Page
-  'products.search_results': { TR: 'Arama Sonuçları', EN: 'Search Results', AR: 'نتائج البحث', ES: 'Resultados de la Búsqueda', PT: 'Resultados da Pesquisa' },
-  'products.title': { TR: 'Ürünlerimiz', EN: 'Our Products', AR: 'منتجاتنا', ES: 'Nuestros Productos', PT: 'Nossos Produtos' },
-  'products.subtitle': { TR: 'Yüksek performanslı dalgıç pompa ve motor çözümlerimizi keşfedin.', EN: 'Discover our high-performance submersible pump and motor solutions.', AR: 'اكتشف حلولنا للمضخات والمحركات الغاطسة عالية الأداء.', ES: 'Descubra nuestras soluciones de bombas y motores sumergibles de alto rendimiento.', PT: 'Descubra nossas soluções de bombas e motores submersíveis de alto desempenho.' },
-  'products.pumps_desc': { TR: 'Her türlü ihtiyaca uygun geniş pompa seçenekleri', EN: 'Wide range of pump options suitable for every need', AR: 'مجموعة واسعة من خيارات المضخات المناسبة لكل الاحتياجات', ES: 'Amplia gama de opciones de bombas adecuadas para cada necesidad', PT: 'Ampla gama de opções de bombas adequadas para cada necessidade' },
-  'products.motors_desc': { TR: 'Güçlü ve verimli dalgıç motorlar', EN: 'Powerful and efficient submersible motors', AR: 'محركات غاطسة قوية وفعالة', ES: 'Motores sumergibles potentes y eficientes', PT: 'Motores submersíveis potentes e eficientes' },
-  'products.model_count': { TR: 'MODEL', EN: 'MODELS', AR: 'عارضات ازياء', ES: 'MODELOS', PT: 'MODELOS' },
-  'products.no_results': { TR: 'Sonuç Bulunamadı', EN: 'No Results Found', AR: 'لم يتم العثور على نتائج', ES: 'No se Encontraron Resultados', PT: 'Nenhum Resultado Encontrado' },
-  'products.no_results_desc': { TR: 'Aradığınız kriterlere uygun ürün bulunamadı. Lütfen farklı anahtar kelimeler deneyin.', EN: 'No products found matching your search criteria. Please try different keywords.', AR: 'لم يتم العثور على منتجات تطابق معايير البحث الخاصة بك. يرجى تجربة كلمات رئيسية مختلفة.', ES: 'No se encontraron productos que coincidan con sus criterios de búsqueda. Por favor, intente con diferentes palabras clave.', PT: 'Nenhum produto encontrado correspondente aos seus critérios de pesquisa. Por favor, tente palavras-chave diferentes.' },
 
   // Home
-  'home.products.range': { TR: 'GENİŞ ÜRÜN YELPAZESİ', EN: 'WIDE PRODUCT RANGE', AR: 'مجموعة واسعة من المنتجات', ES: 'AMPLIA GAMA DE PRODUCTOS', PT: 'AMPLA GAMA DE PRODUTOS' },
-  'home.products.solutions': { TR: 'Endüstriyel Çözümler', EN: 'Industrial Solutions', AR: 'حلول صناعية', ES: 'Soluciones Industriales', PT: 'Soluções Industriais' },
-  'home.products.view_all': { TR: 'Tüm Ürünleri Gör', EN: 'View All Products', AR: 'عرض جميع المنتجات', ES: 'Ver Todos los Productos', PT: 'Ver Todos os Produtos' },
   
   // About - Stats & Desc
   'about.exp_years': { TR: 'Yıllık Tecrübe', EN: 'Years of Experience', AR: 'سنوات من الخبرة', ES: 'Años de Experiencia', PT: 'Anos de Experiência' },
@@ -418,7 +397,18 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('TR');
+  const [location] = useLocation();
+  const pathname = location.split('?')[0];
+  // /en altındaki sayfalar URL'den İngilizce'ye sabitlenir (SSR dahil).
+  const isEnUrl = pathname === '/en' || pathname.startsWith('/en/');
+  const [chosen, setChosen] = useState<Language>(isEnUrl ? 'EN' : 'TR');
+  const language: Language = isEnUrl ? 'EN' : chosen;
+
+  // /en'e girildiğinde dil tercihi EN olarak kalır; EN URL'den TR-only bir
+  // sayfaya (ör. /iletisim) geçince içerik İngilizce görünmeye devam eder.
+  useEffect(() => {
+    if (isEnUrl && chosen !== 'EN') setChosen('EN');
+  }, [isEnUrl, chosen]);
 
   useEffect(() => {
     document.documentElement.lang = language.toLowerCase();
@@ -431,7 +421,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: setChosen, t }}>
       <div dir={language === 'AR' ? 'rtl' : 'ltr'} className={language === 'AR' ? 'font-arabic' : ''}>
         {children}
       </div>

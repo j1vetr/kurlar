@@ -2,7 +2,8 @@ import { Product, getProductWithLanguage } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Ruler } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { isEnPath, productPath } from "@/lib/locale";
 import { useLanguage } from "@/lib/i18n";
 
 interface ProductCardProps {
@@ -12,10 +13,12 @@ interface ProductCardProps {
 
 export function ProductCard({ product: baseProduct, className }: ProductCardProps) {
   const { t, language } = useLanguage();
+  const [location] = useLocation();
+  const en = isEnPath(location.split("?")[0]);
   const product = getProductWithLanguage(baseProduct, language);
 
   return (
-    <Link href={`/urunler/${product.id}`} className="block h-full">
+    <Link href={productPath(product.id, en)} className="block h-full">
         <motion.div 
           whileHover={{ y: -8 }}
           transition={{ duration: 0.3, ease: "easeOut" }}

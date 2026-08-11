@@ -12,6 +12,14 @@ interface SEOProps {
   ogImage?: string;
   /** One or more JSON-LD objects rendered as application/ld+json scripts. */
   jsonLd?: object | object[];
+  /**
+   * Reciprocal hreflang pair (absolute URLs). Emits tr-TR, en and x-default
+   * (x-default -> EN: global B2B export intent). Only pass when a real
+   * counterpart page exists in the other language.
+   */
+  alternates?: { tr: string; en: string };
+  /** og:locale, e.g. "en_US" on /en pages. Defaults to tr_TR. */
+  ogLocale?: string;
 }
 
 function upsertMeta(attr: "name" | "property", key: string, content: string | undefined) {
@@ -29,12 +37,20 @@ function upsertMeta(attr: "name" | "property", key: string, content: string | un
   el.setAttribute("content", content);
 }
 
-export function SEO({ title, description, canonical, robots, ogType, ogImage, jsonLd }: SEOProps) {
+export function SEO({ title, description, canonical, robots, ogType, ogImage, jsonLd, alternates, ogLocale }: SEOProps) {
   const [location] = useLocation();
   const fullTitle = `${title} | Kurlar`;
   const fullUrl = normalizeCanonical(canonical ?? location);
   const noindex = robots?.includes("noindex") ?? false;
   const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : undefined;
+  const alternateLinks =
+    alternates && !noindex
+      ? [
+          { rel: "alternate", hreflang: "tr-TR", href: alternates.tr },
+          { rel: "alternate", hreflang: "en", href: alternates.en },
+          { rel: "alternate", hreflang: "x-default", href: alternates.en },
+        ]
+      : undefined;
 
   // During SSR, collect metadata into the head state so the server can
   // serialize it into the raw HTML response.
@@ -46,6 +62,8 @@ export function SEO({ title, description, canonical, robots, ogType, ogImage, js
     head.state.robots = robots;
     head.state.ogType = ogType;
     head.state.ogImage = ogImage;
+    head.state.links = alternateLinks;
+    head.state.ogLocale = ogLocale;
     head.state.jsonLd = jsonLdList;
   }
 
@@ -62,7 +80,19 @@ export function SEO({ title, description, canonical, robots, ogType, ogImage, js
     upsertMeta("property", "og:title", fullTitle);
     upsertMeta("name", "twitter:title", fullTitle);
     upsertMeta("property", "og:type", ogType ?? "website");
+    upsertMeta("property", "og:locale", ogLocale ?? "tr_TR");
     if (ogImage) upsertMeta("property", "og:image", ogImage);
+
+    // hreflang alternates managed by this component (SPA navigations).
+    document.querySelectorAll('link[data-seo-alternate="true"]').forEach((el) => el.remove());
+    for (const link of alternateLinks ?? []) {
+      const el = document.createElement("link");
+      el.setAttribute("rel", link.rel);
+      el.setAttribute("hreflang", link.hreflang);
+      el.setAttribute("href", link.href);
+      el.setAttribute("data-seo-alternate", "true");
+      document.head.appendChild(el);
+    }
 
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (noindex) {
@@ -87,7 +117,7 @@ export function SEO({ title, description, canonical, robots, ogType, ogImage, js
       script.textContent = JSON.stringify(obj).replace(/</g, "\\u003c");
       document.head.appendChild(script);
     }
-  }, [fullTitle, description, fullUrl, robots, ogType, ogImage, noindex, JSON.stringify(jsonLdList)]);
+  }, [fullTitle, description, fullUrl, robots, ogType, ogImage, ogLocale, noindex, JSON.stringify(jsonLdList), JSON.stringify(alternateLinks)]);
 
   return null;
 }

@@ -50,6 +50,14 @@ function Router() {
       <Suspense fallback={<PageLoader />}>
         <Switch>
           <Route path="/" component={Home} />
+          {/* EN mimarisi: /en altında (kategori route'ları /en/products/:id'den ÖNCE) */}
+          <Route path="/en" component={Home} />
+          <Route path="/en/products" component={Products} />
+          <Route path="/en/products/submersible-pumps" component={CategoryPage} />
+          <Route path="/en/products/submersible-motors" component={CategoryPage} />
+          <Route path="/en/products/submersible-pumps/:sub" component={CategoryPage} />
+          <Route path="/en/products/submersible-motors/:sub" component={CategoryPage} />
+          <Route path="/en/products/:id" component={ProductDetail} />
           <Route path="/hakkimizda" component={About} />
           <Route path="/arge-merkezi" component={RAndD} />
           <Route path="/sertifikalarimiz" component={Certificates} />

@@ -8,12 +8,20 @@ import { normalizeCanonical } from "@/lib/head";
 import {
   getCategoryBySlug,
   getSubCategory,
-  categoryPath,
-  subCategoryPath,
-  productCategories,
   type CategoryDef,
   type SubCategoryDef,
 } from "@/lib/categories";
+import { getEnCategoryBySlug, getEnSubCategory } from "@/lib/categories-en";
+import {
+  isEnPath,
+  homePath,
+  productsPath,
+  productPath,
+  localeCategories,
+  localeCategoryPath,
+  localeSubCategoryPath,
+  hreflangFor,
+} from "@/lib/locale";
 import { Link, useLocation } from "wouter";
 import { ArrowRight, CheckCircle2, FileText, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,23 +33,66 @@ import { Button } from "@/components/ui/button";
  */
 export default function CategoryPage() {
   const [location] = useLocation();
-  const segments = location.split("?")[0].split("/").filter(Boolean);
-  // /urunler/<catSlug>[/<subSlug>]
-  const catSlug = segments[1];
-  const subSlug = segments[2];
+  const clean = location.split("?")[0];
+  const en = isEnPath(clean);
+  const segments = clean.split("/").filter(Boolean);
+  // TR: /urunler/<catSlug>[/<subSlug>] — EN: /en/products/<catSlug>[/<subSlug>]
+  const catSlug = en ? segments[2] : segments[1];
+  const subSlug = en ? segments[3] : segments[2];
 
   if (subSlug) {
-    const match = getSubCategory(catSlug, subSlug);
+    const match = en ? getEnSubCategory(catSlug, subSlug) : getSubCategory(catSlug, subSlug);
     if (!match) return <NotFound />;
-    return <SubCategoryView category={match.category} sub={match.sub} />;
+    return <SubCategoryView category={match.category} sub={match.sub} en={en} />;
   }
 
-  const category = getCategoryBySlug(catSlug);
+  const category = en ? getEnCategoryBySlug(catSlug) : getCategoryBySlug(catSlug);
   if (!category) return <NotFound />;
-  return <CategoryView category={category} />;
+  return <CategoryView category={category} en={en} />;
 }
 
-function collectionJsonLd(name: string, description: string, path: string, productIds: string[]) {
+/** Sayfa içi arayüz metinleri (içerik değil) — TR/EN. */
+function uiLabels(en: boolean) {
+  return en
+    ? {
+        home: "Home",
+        products: "Products",
+        faqTitle: "Frequently Asked Questions",
+        seriesSuffix: "Series",
+        otherSeriesPrefix: "Other",
+        techTitle: "Technical Features",
+        productDetailBtn: "Product Details & Technical Tables",
+        allPrefix: "All",
+        ctaTitle: "Let's choose the right product for your project",
+        ctaDesc:
+          "Send us your well diameter, flow rate and head requirements; our engineering team will recommend the right model for your application.",
+        ctaBtn: "Quote & Technical Support",
+        catalogueBtn: "2025 Product Catalogue (PDF)",
+      }
+    : {
+        home: "Ana Sayfa",
+        products: "Ürünler",
+        faqTitle: "Sık Sorulan Sorular",
+        seriesSuffix: "Serileri",
+        otherSeriesPrefix: "Diğer",
+        techTitle: "Teknik Özellikler",
+        productDetailBtn: "Ürün Detayı ve Teknik Tablolar",
+        allPrefix: "Tüm",
+        ctaTitle: "Projeniz için doğru ürünü birlikte seçelim",
+        ctaDesc:
+          "Kuyu çapı, debi ve basma yüksekliği bilgilerinizi iletin; teknik ekibimiz uygulamanıza uygun modeli önersin.",
+        ctaBtn: "Teklif ve Teknik Destek",
+        catalogueBtn: "2025 Ürün Kataloğu (PDF)",
+      };
+}
+
+function collectionJsonLd(
+  name: string,
+  description: string,
+  path: string,
+  productIds: string[],
+  en: boolean,
+) {
   const url = normalizeCanonical(path);
   return {
     "@context": "https://schema.org",
@@ -54,39 +105,39 @@ function collectionJsonLd(name: string, description: string, path: string, produ
       itemListElement: productIds.map((id, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: normalizeCanonical(`/urunler/${id}`),
+        url: normalizeCanonical(productPath(id, en)),
       })),
     },
   };
 }
 
-function ContactCta({ otherCategory }: { otherCategory?: CategoryDef }) {
+function ContactCta({ otherCategory, en }: { otherCategory?: CategoryDef; en: boolean }) {
+  const L = uiLabels(en);
   return (
     <section className="bg-slate-900 py-16">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
-              Projeniz için doğru ürünü birlikte seçelim
+              {L.ctaTitle}
             </h2>
             <p className="text-slate-400 max-w-xl">
-              Kuyu çapı, debi ve basma yüksekliği bilgilerinizi iletin; teknik ekibimiz
-              uygulamanıza uygun modeli önersin.
+              {L.ctaDesc}
             </p>
           </div>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/iletisim">
               <Button className="bg-primary hover:bg-primary/90 text-white gap-2 px-6 py-6 text-base">
-                <Phone className="w-4 h-4" /> Teklif ve Teknik Destek
+                <Phone className="w-4 h-4" /> {L.ctaBtn}
               </Button>
             </Link>
             <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="border-slate-600 bg-transparent text-white hover:bg-white hover:text-slate-900 gap-2 px-6 py-6 text-base">
-                <FileText className="w-4 h-4" /> 2025 Ürün Kataloğu (PDF)
+                <FileText className="w-4 h-4" /> {L.catalogueBtn}
               </Button>
             </a>
             {otherCategory && (
-              <Link href={categoryPath(otherCategory)}>
+              <Link href={localeCategoryPath(otherCategory, en)}>
                 <Button variant="ghost" className="text-slate-300 hover:text-white hover:bg-slate-800 gap-2 px-6 py-6 text-base">
                   {otherCategory.name} <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -99,12 +150,12 @@ function ContactCta({ otherCategory }: { otherCategory?: CategoryDef }) {
   );
 }
 
-function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) {
+function FaqSection({ faqs, en }: { faqs: { question: string; answer: string }[]; en: boolean }) {
   return (
     <section className="py-16 bg-white border-t border-slate-100">
       <div className="container mx-auto px-6 max-w-4xl">
         <h2 className="text-3xl font-heading font-bold text-slate-900 mb-10 text-center">
-          Sık Sorulan Sorular
+          {uiLabels(en).faqTitle}
         </h2>
         <div className="space-y-6">
           {faqs.map((faq, i) => (
@@ -119,14 +170,15 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
   );
 }
 
-function CategoryView({ category }: { category: CategoryDef }) {
-  const path = categoryPath(category);
-  const otherCategory = productCategories.find((c) => c.slug !== category.slug);
+function CategoryView({ category, en }: { category: CategoryDef; en: boolean }) {
+  const L = uiLabels(en);
+  const path = localeCategoryPath(category, en);
+  const otherCategory = localeCategories(en).find((c) => c.slug !== category.slug);
   const categoryProducts = products.filter((p) => p.category === category.categoryKey);
 
   const crumbs: Crumb[] = [
-    { name: "Ana Sayfa", href: "/" },
-    { name: "Ürünler", href: "/urunler" },
+    { name: L.home, href: homePath(en) },
+    { name: L.products, href: productsPath(en) },
     { name: category.name },
   ];
 
@@ -136,12 +188,15 @@ function CategoryView({ category }: { category: CategoryDef }) {
         title={category.title}
         description={category.description}
         canonical={`https://kurlar.com.tr${path}`}
+        alternates={hreflangFor(path)}
+        ogLocale={en ? "en_US" : "tr_TR"}
         jsonLd={[
           collectionJsonLd(
             category.name,
             category.description,
             path,
             categoryProducts.map((p) => p.id),
+            en,
           ),
           breadcrumbJsonLd(crumbs, path),
         ]}
@@ -173,13 +228,13 @@ function CategoryView({ category }: { category: CategoryDef }) {
           {/* Alt kategoriler */}
           <div className="mt-20">
             <h2 className="text-3xl font-heading font-bold text-slate-900 mb-8">
-              {category.name} Serileri
+              {category.name} {L.seriesSuffix}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {category.subCategories.map((sub) => (
                 <Link
                   key={sub.slug}
-                  href={subCategoryPath(category, sub)}
+                  href={localeSubCategoryPath(category, sub, en)}
                   className="group bg-white border border-slate-200 rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all flex items-start justify-between gap-4"
                 >
                   <div>
@@ -218,21 +273,30 @@ function CategoryView({ category }: { category: CategoryDef }) {
         </div>
       </section>
 
-      <FaqSection faqs={category.faqs} />
-      <ContactCta otherCategory={otherCategory} />
+      <FaqSection faqs={category.faqs} en={en} />
+      <ContactCta otherCategory={otherCategory} en={en} />
     </Layout>
   );
 }
 
-function SubCategoryView({ category, sub }: { category: CategoryDef; sub: SubCategoryDef }) {
-  const path = subCategoryPath(category, sub);
+function SubCategoryView({
+  category,
+  sub,
+  en,
+}: {
+  category: CategoryDef;
+  sub: SubCategoryDef;
+  en: boolean;
+}) {
+  const L = uiLabels(en);
+  const path = localeSubCategoryPath(category, sub, en);
   const subProducts = products.filter((p) => p.id === sub.productId);
   const siblings = category.subCategories.filter((s) => s.slug !== sub.slug);
 
   const crumbs: Crumb[] = [
-    { name: "Ana Sayfa", href: "/" },
-    { name: "Ürünler", href: "/urunler" },
-    { name: category.name, href: categoryPath(category) },
+    { name: L.home, href: homePath(en) },
+    { name: L.products, href: productsPath(en) },
+    { name: category.name, href: localeCategoryPath(category, en) },
     { name: sub.name },
   ];
 
@@ -242,8 +306,10 @@ function SubCategoryView({ category, sub }: { category: CategoryDef; sub: SubCat
         title={sub.title}
         description={sub.description}
         canonical={`https://kurlar.com.tr${path}`}
+        alternates={hreflangFor(path)}
+        ogLocale={en ? "en_US" : "tr_TR"}
         jsonLd={[
-          collectionJsonLd(sub.name, sub.description, path, subProducts.map((p) => p.id)),
+          collectionJsonLd(sub.name, sub.description, path, subProducts.map((p) => p.id), en),
           breadcrumbJsonLd(crumbs, path),
         ]}
       />
@@ -271,7 +337,7 @@ function SubCategoryView({ category, sub }: { category: CategoryDef; sub: SubCat
             {/* Teknik vurgular */}
             <div>
               <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">
-                Teknik Özellikler
+                {L.techTitle}
               </h2>
               <ul className="space-y-4 mb-10">
                 {sub.highlights.map((h, i) => (
@@ -283,14 +349,14 @@ function SubCategoryView({ category, sub }: { category: CategoryDef; sub: SubCat
               </ul>
 
               <div className="flex flex-wrap gap-4">
-                <Link href={`/urunler/${sub.productId}`}>
+                <Link href={productPath(sub.productId, en)}>
                   <Button className="bg-primary hover:bg-primary/90 text-white gap-2">
-                    Ürün Detayı ve Teknik Tablolar <ArrowRight className="w-4 h-4" />
+                    {L.productDetailBtn} <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>
-                <Link href={categoryPath(category)}>
+                <Link href={localeCategoryPath(category, en)}>
                   <Button variant="outline" className="gap-2">
-                    Tüm {category.name}
+                    {L.allPrefix} {category.name}
                   </Button>
                 </Link>
               </div>
@@ -300,13 +366,13 @@ function SubCategoryView({ category, sub }: { category: CategoryDef; sub: SubCat
           {/* Kardeş alt kategoriler */}
           <div className="mt-20">
             <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">
-              Diğer {category.name} Serileri
+              {L.otherSeriesPrefix} {category.name} {L.seriesSuffix}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {siblings.map((s) => (
                 <Link
                   key={s.slug}
-                  href={subCategoryPath(category, s)}
+                  href={localeSubCategoryPath(category, s, en)}
                   className="group bg-white border border-slate-200 rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all"
                 >
                   <h3 className="font-heading font-bold text-slate-900 group-hover:text-primary transition-colors mb-2">
@@ -320,7 +386,7 @@ function SubCategoryView({ category, sub }: { category: CategoryDef; sub: SubCat
         </div>
       </div>
 
-      <ContactCta otherCategory={productCategories.find((c) => c.slug !== category.slug)} />
+      <ContactCta otherCategory={localeCategories(en).find((c) => c.slug !== category.slug)} en={en} />
     </Layout>
   );
 }

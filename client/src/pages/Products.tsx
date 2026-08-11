@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { Filter, SlidersHorizontal, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
+import { isEnPath, hreflangFor } from "@/lib/locale";
 
 export default function Products() {
   const [location] = useLocation();
+  const en = isEnPath(location.split("?")[0]);
   // useSearch hook from wouter v3 listens to search params changes
   const searchString = useSearch();
   const searchParams = new URLSearchParams(searchString);
@@ -55,9 +57,13 @@ export default function Products() {
   return (
     <Layout>
       <SEO 
-        title={t('seo.products.title')} 
-        description={t('seo.products.desc')} 
-        canonical="https://kurlar.com.tr/urunler"
+        title={en ? "All Products – Submersible Pumps & Motors" : t('seo.products.title')} 
+        description={en
+          ? "Browse the full Kurlar product range: stainless steel, Noryl and cast iron submersible pumps plus oil-filled, HI-TEMP and S-Type submersible motors, manufactured in Turkey since 1975."
+          : t('seo.products.desc')} 
+        canonical={en ? "https://kurlar.com.tr/en/products" : "https://kurlar.com.tr/urunler"}
+        alternates={hreflangFor(en ? "/en/products" : "/urunler")}
+        ogLocale={en ? "en_US" : "tr_TR"}
       />
       {/* Hero Header */}
       <div className="bg-slate-900 py-20 text-center relative overflow-hidden">

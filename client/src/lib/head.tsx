@@ -24,6 +24,8 @@ export interface HeadState {
   ogImage?: string;
   /** Extra raw tags (e.g. hreflang links) rendered verbatim server-side. */
   links?: { rel: string; href: string; hreflang?: string }[];
+  /** og:locale (tr_TR on TR pages, en_US on /en pages). */
+  ogLocale?: string;
   jsonLd?: object[];
 }
 
@@ -88,6 +90,7 @@ export function renderHead(state: HeadState, pathname: string): string {
     tags.push(`<meta property="og:url" content="${escapeHtml(canonical)}" />`);
   }
   tags.push(`<meta property="og:type" content="${escapeHtml(state.ogType ?? "website")}" />`);
+  tags.push(`<meta property="og:locale" content="${escapeHtml(state.ogLocale ?? "tr_TR")}" />`);
   if (state.ogImage) {
     tags.push(`<meta property="og:image" content="${escapeHtml(absoluteUrl(state.ogImage))}" />`);
   }

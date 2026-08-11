@@ -2,7 +2,7 @@ import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
 import { createRequire } from "module";
-import { injectTemplate, fallbackStatus, fallbackHead } from "./ssr";
+import { injectTemplate, fallbackStatus, fallbackHead, pageLang } from "./ssr";
 
 export async function serveStatic(app: Express) {
   const distPath = path.resolve(__dirname, "public");
@@ -33,11 +33,11 @@ export async function serveStatic(app: Express) {
       }
       resolvedStatus = resolved.status;
 
-      const { html, head, status } = await entry.render(url);
+      const { html, head, status, lang } = await entry.render(url);
       res
         .status(status)
         .set({ "Content-Type": "text/html" })
-        .end(injectTemplate(template, head, html));
+        .end(injectTemplate(template, head, html, lang));
     } catch (err) {
       // SSR must never take the site down: fall back to the CSR shell,
       // but keep honest HTTP semantics (404 stays 404, errors are 503).
@@ -45,7 +45,7 @@ export async function serveStatic(app: Express) {
       res
         .status(fallbackStatus(resolvedStatus))
         .set({ "Content-Type": "text/html", "Cache-Control": "no-store" })
-        .end(injectTemplate(template, fallbackHead(resolvedStatus), ""));
+        .end(injectTemplate(template, fallbackHead(resolvedStatus), "", pageLang(pathname)));
     }
   });
 }

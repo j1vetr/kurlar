@@ -3,18 +3,44 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight, FileText, CreditCard } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import {
+  isEnPath,
+  homePath,
+  productsPath,
+  productPath,
+  trToEnPath,
+  enToTrPath,
+} from "@/lib/locale";
 
 export function Navbar() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
+  const cleanPath = location.split("?")[0];
+  const en = isEnPath(cleanPath);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const [mobileOverlayLangOpen, setMobileOverlayLangOpen] = useState(false);
-  const isHome = location === "/";
+  const isHome = cleanPath === "/" || cleanPath === "/en";
   const isTransparent = isHome && !isScrolled;
   const { t, language, setLanguage } = useLanguage();
+
+  /**
+   * Dil değişiminde URL de değişir: EN seçilirse mevcut TR sayfasının EN
+   * karşılığına (varsa) gidilir; EN URL'deyken başka dil seçilirse TR
+   * karşılığına dönülür. Karşılığı olmayan sayfalarda yalnızca state değişir.
+   */
+  const changeLanguage = (code: 'TR' | 'EN' | 'AR' | 'ES' | 'PT') => {
+    setLanguage(code as any);
+    if (code === 'EN' && !en) {
+      const target = trToEnPath(cleanPath);
+      if (target) navigate(target);
+    } else if (code !== 'EN' && en) {
+      const target = enToTrPath(cleanPath);
+      navigate(target ?? "/");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +51,7 @@ export function Navbar() {
   }, []);
 
   const menuStructure = [
-    { type: "link", name: t('nav.home'), href: "/" },
+    { type: "link", name: t('nav.home'), href: homePath(en) },
     {
       type: "dropdown",
       name: t('nav.corporate'),
@@ -40,7 +66,7 @@ export function Navbar() {
     {
       type: "mega",
       name: t('nav.products'),
-      href: "/urunler"
+      href: productsPath(en)
     },
     { type: "link", name: t('nav.dealer_service'), href: "/bayi-servis" },
     {
@@ -74,7 +100,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between relative">
         {/* Logo Area */}
-        <Link href="/" className="group relative z-50">
+        <Link href={homePath(en)} className="group relative z-50">
             <div className="relative flex items-center justify-center px-6 py-4">
                <div className={cn(
                  "absolute inset-0 rounded-md transition-all duration-500",
@@ -172,7 +198,7 @@ export function Navbar() {
                       <div className="flex border-x border-slate-50">
                         {/* Pumps Column */}
                         <div className="flex-1 p-10 border-r border-slate-50 bg-slate-50/30">
-                          <Link href="/urunler/dalgic-pompalar">
+                          <Link href={en ? "/en/products/submersible-pumps" : "/urunler/dalgic-pompalar"}>
                             <h3 className="font-heading font-bold text-lg mb-6 text-slate-900 hover:text-primary cursor-pointer flex items-center group/title">
                               {t('nav.pumps')}
                               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
@@ -186,7 +212,7 @@ export function Navbar() {
                               { name: t('nav.products.ksx'), id: "ksx" }
                             ].map((item) => (
                               <li key={item.id}>
-                                <Link href={`/urunler/${item.id}`} className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
+                                <Link href={productPath(item.id, en)} className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
                                     {item.name}
                                 </Link>
                               </li>
@@ -196,7 +222,7 @@ export function Navbar() {
 
                         {/* Motors Column */}
                         <div className="flex-1 p-10 border-r border-slate-50 bg-slate-50/30">
-                          <Link href="/urunler/dalgic-motorlar">
+                          <Link href={en ? "/en/products/submersible-motors" : "/urunler/dalgic-motorlar"}>
                             <h3 className="font-heading font-bold text-lg mb-6 text-slate-900 hover:text-primary cursor-pointer flex items-center group/title">
                               {t('nav.motors')}
                               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all text-primary" />
@@ -209,7 +235,7 @@ export function Navbar() {
                               { name: t('nav.products.km4'), id: "km4" }
                             ].map((item) => (
                               <li key={item.id}>
-                                <Link href={`/urunler/${item.id}`} className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
+                                <Link href={productPath(item.id, en)} className="text-sm text-slate-500 hover:text-primary hover:translate-x-1 transition-all block font-medium">
                                     {item.name}
                                 </Link>
                               </li>
@@ -281,7 +307,7 @@ export function Navbar() {
                 {languages.map((lang) => (
                   <li key={lang.code}>
                     <button 
-                      onClick={() => setLanguage(lang.code as any)}
+                      onClick={() => changeLanguage(lang.code as any)}
                       className="w-full px-4 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left"
                     >
                       <img src={lang.flag} alt={lang.code} className="w-8 h-5 object-cover shadow-sm rounded-[2px]" />
@@ -317,7 +343,7 @@ export function Navbar() {
                    <button
                      key={lang.code}
                      onClick={() => {
-                       setLanguage(lang.code as any);
+                       changeLanguage(lang.code as any);
                        setMobileLangOpen(false);
                      }}
                      className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
@@ -345,7 +371,7 @@ export function Navbar() {
         <div className="lg:hidden fixed inset-0 bg-white z-[60] overflow-y-auto animate-in slide-in-from-right-10 duration-300">
           {/* Mobile Header with Logo and Close Button */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white sticky top-0 z-10">
-            <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
+            <Link href={homePath(en)} className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
               <img src="/assets/logo.png" alt="Kurlar Logo" className="h-10 w-auto" />
             </Link>
             
@@ -366,7 +392,7 @@ export function Navbar() {
                        <button
                          key={lang.code}
                          onClick={() => {
-                           setLanguage(lang.code as any);
+                           changeLanguage(lang.code as any);
                            setMobileOverlayLangOpen(false);
                          }}
                          className="w-full px-4 py-3 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors flex items-center gap-3 text-left border-b border-slate-50 last:border-0"
@@ -455,7 +481,7 @@ export function Navbar() {
                   {item.type === "mega" && (
                      <div className="pl-4 space-y-6 border-l-2 border-slate-100 ml-2">
                        <div>
-                          <Link href="/urunler/dalgic-pompalar" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold text-primary uppercase mb-3 tracking-wider block hover:underline">{t('nav.pumps')}</Link>
+                          <Link href={en ? "/en/products/submersible-pumps" : "/urunler/dalgic-pompalar"} onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold text-primary uppercase mb-3 tracking-wider block hover:underline">{t('nav.pumps')}</Link>
                           <div className="space-y-3">
                             {[
                               { name: t('nav.products.kp'), id: "kp" },
@@ -463,21 +489,21 @@ export function Navbar() {
                               { name: t('nav.products.kpd'), id: "kpd" },
                               { name: t('nav.products.ksx'), id: "ksx" }
                             ].map(sub => (
-                              <Link key={sub.id} href={`/urunler/${sub.id}`} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">
+                              <Link key={sub.id} href={productPath(sub.id, en)} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">
                                 {sub.name}
                               </Link>
                             ))}
                           </div>
                        </div>
                        <div>
-                          <Link href="/urunler/dalgic-motorlar" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold text-primary uppercase mb-3 tracking-wider block hover:underline">{t('nav.motors')}</Link>
+                          <Link href={en ? "/en/products/submersible-motors" : "/urunler/dalgic-motorlar"} onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold text-primary uppercase mb-3 tracking-wider block hover:underline">{t('nav.motors')}</Link>
                           <div className="space-y-3">
                             {[
                               { name: t('nav.products.km'), id: "km" },
                               { name: t('nav.products.kms'), id: "kms" },
                               { name: t('nav.products.km4'), id: "km4" }
                             ].map(sub => (
-                              <Link key={sub.id} href={`/urunler/${sub.id}`} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">
+                              <Link key={sub.id} href={productPath(sub.id, en)} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 block font-medium text-sm hover:text-primary">
                                 {sub.name}
                               </Link>
                             ))}

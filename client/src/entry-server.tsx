@@ -5,6 +5,7 @@ import { preloadAllPages } from "./lib/app-pages";
 import { HeadContext, renderHead, type HeadState } from "./lib/head";
 import { products } from "./lib/data";
 import { categoryPaths } from "./lib/categories";
+import { enCategoryPaths } from "./lib/categories-en";
 
 /**
  * Server-side rendering entry point.
@@ -52,6 +53,10 @@ const CATEGORY_QUERY_REDIRECTS: Record<string, string> = {
 
 const CATEGORY_PATHS = new Set(categoryPaths);
 
+/** EN mimarisi: /en altındaki geçerli statik ve kategori path'leri. */
+const EN_STATIC_PATHS = new Set(["/en", "/en/products"]);
+const EN_CATEGORY_PATHS = new Set(enCategoryPaths);
+
 export function resolveUrl(pathname: string, search?: string): ResolvedUrl {
   if (pathname === "/urunler" && search) {
     const params = new URLSearchParams(search);
@@ -70,10 +75,22 @@ export function resolveUrl(pathname: string, search?: string): ResolvedUrl {
 
   if (CATEGORY_PATHS.has(pathname)) return { status: 200 };
 
-  // Duplicate-content guard: English-style product path -> canonical TR path.
+  // EN mimarisi: /en, /en/products, EN kategori/alt kategori ve ürün detayları.
+  if (EN_STATIC_PATHS.has(pathname) || EN_CATEGORY_PATHS.has(pathname)) {
+    return { status: 200 };
+  }
+  const enProductMatch = pathname.match(/^\/en\/products\/([^/]+)$/);
+  if (enProductMatch) {
+    return { status: products.some((p) => p.id === enProductMatch[1]) ? 200 : 404 };
+  }
+  // Bilinmeyen /en/* path'leri gerçek 404 döner (blanket redirect yok).
+  if (pathname === "/en" || pathname.startsWith("/en/")) return { status: 404 };
+
+  // Duplicate-content guard: prefixsiz İngilizce-stil ürün path'i artık
+  // gerçek İngilizce sayfası olan /en/products/:id'ye 301'lenir.
   const legacyProduct = pathname.match(/^\/products\/([^/]+)$/);
   if (legacyProduct && products.some((p) => p.id === legacyProduct[1])) {
-    return { status: 301, redirect: `/urunler/${legacyProduct[1]}` };
+    return { status: 301, redirect: `/en/products/${legacyProduct[1]}` };
   }
 
   if (STATIC_PATHS.has(pathname)) return { status: 200 };
@@ -90,6 +107,8 @@ export interface RenderResult {
   html: string;
   head: string;
   status: number;
+  /** <html lang> value: "en" for /en pages, "tr" otherwise. */
+  lang: string;
 }
 
 export async function render(url: string): Promise<RenderResult> {
@@ -111,6 +130,7 @@ export async function render(url: string): Promise<RenderResult> {
   );
 
   const { status } = resolveUrl(pathname);
+  const lang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "tr";
 
-  return { html, head: renderHead(headState, pathname), status };
+  return { html, head: renderHead(headState, pathname), status, lang };
 }

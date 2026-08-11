@@ -3,8 +3,18 @@ import { Hero } from "@/components/home/Hero";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { products, categories, getProductWithLanguage } from "@/lib/data";
 import { productCategories, categoryPath, subCategoryPath } from "@/lib/categories";
+import {
+  isEnPath,
+  homePath,
+  productsPath,
+  productPath,
+  localeCategories,
+  localeCategoryPath,
+  localeSubCategoryPath,
+  hreflangFor,
+} from "@/lib/locale";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ArrowRight, Users, Globe, Building2, ArrowUpRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
@@ -12,15 +22,24 @@ import { SEO } from "@/components/shared/SEO";
 
 export default function Home() {
   const { t, language } = useLanguage();
+  const [location] = useLocation();
+  const en = isEnPath(location.split("?")[0]);
 
   return (
     <Layout noTopPadding={true}>
       <SEO 
-        title={t('seo.home.title')} 
-        description={t('seo.home.desc')} 
-        canonical="https://kurlar.com.tr/"
+        title={en ? "Submersible Pump & Submersible Motor Manufacturer" : t('seo.home.title')} 
+        description={en
+          ? "Kurlar has manufactured submersible pumps and submersible motors in Turkey since 1975. Stainless steel, Noryl and cast iron pumps; oil-filled and water-cooled motors — exported to more than 40 countries."
+          : t('seo.home.desc')} 
+        canonical={en ? "https://kurlar.com.tr/en" : "https://kurlar.com.tr/"}
+        alternates={hreflangFor(en ? "/en" : "/")}
+        ogLocale={en ? "en_US" : "tr_TR"}
       />
-      <Hero />
+      <Hero
+        typedText={en ? "SUBMERSIBLE PUMP & MOTOR MANUFACTURER" : undefined}
+        finalText={en ? "SUBMERSIBLE PUMPS & MOTORS" : undefined}
+      />
 
       {/* Hakkımızda Section - Clean, Corporate */}
       <section className="py-24 bg-white">
@@ -88,7 +107,7 @@ export default function Home() {
                 {t('home.products.solutions')}
               </h2>
             </div>
-            <Link href="/urunler">
+            <Link href={productsPath(en)}>
               <Button variant="ghost" className="text-slate-600 hover:text-primary hover:bg-blue-50 mt-4 md:mt-0">
                 {t('home.products.view_all')} <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -117,7 +136,7 @@ export default function Home() {
                const product = getProductWithLanguage(baseProduct, language);
                return (
                <div key={`${product.id}-${index}`} className="w-[300px] md:w-[380px] flex-shrink-0">
-                 <Link href={`/urunler/${product.id}`} className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-xl flex flex-col h-full">
+                 <Link href={productPath(product.id, en)} className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-xl flex flex-col h-full">
                      {/* Image Area */}
                      <div className="aspect-[4/5] bg-slate-100 relative overflow-hidden flex items-center justify-center p-8">
                        <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -155,9 +174,9 @@ export default function Home() {
         {/* Kategori linkleri — crawlable HTML iç linkleme */}
         <div className="container mx-auto px-6 mt-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {productCategories.map((cat) => (
+            {localeCategories(en).map((cat) => (
               <div key={cat.slug} className="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg transition-shadow">
-                <Link href={categoryPath(cat)} className="group inline-flex items-center gap-2 mb-4">
+                <Link href={localeCategoryPath(cat, en)} className="group inline-flex items-center gap-2 mb-4">
                   <h3 className="font-heading font-bold text-2xl text-slate-900 group-hover:text-primary transition-colors">
                     {cat.name}
                   </h3>
@@ -168,7 +187,7 @@ export default function Home() {
                   {cat.subCategories.map((sub) => (
                     <Link
                       key={sub.slug}
-                      href={subCategoryPath(cat, sub)}
+                      href={localeSubCategoryPath(cat, sub, en)}
                       className="text-xs font-semibold text-slate-600 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-colors"
                     >
                       {sub.name}

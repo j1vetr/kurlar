@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { products, getProductWithLanguage } from "@/lib/data";
-import { useRoute, Link } from "wouter";
+import { useRoute, Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -18,15 +18,25 @@ import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
 import NotFound from "@/pages/not-found";
 import { getCategoryByKey, categoryPath } from "@/lib/categories";
+import { getEnCategoryByKey, enCategoryPath } from "@/lib/categories-en";
+import {
+  isEnPath,
+  homePath,
+  productsPath,
+  productPath,
+  hreflangFor,
+} from "@/lib/locale";
 import { Breadcrumbs, breadcrumbJsonLd, type Crumb } from "@/components/shared/Breadcrumbs";
 
-/** Ana Sayfa > Ürünler > [Üst Kategori] > Ürün breadcrumb zinciri */
-function productCrumbs(product: { category: string; name: string }): Crumb[] {
-  const parent = getCategoryByKey(product.category);
+/** Ana Sayfa > Ürünler > [Üst Kategori] > Ürün breadcrumb zinciri (TR/EN) */
+function productCrumbs(product: { category: string; name: string }, en: boolean): Crumb[] {
+  const parent = en ? getEnCategoryByKey(product.category) : getCategoryByKey(product.category);
   return [
-    { name: "Ana Sayfa", href: "/" },
-    { name: "Ürünler", href: "/urunler" },
-    ...(parent ? [{ name: parent.name, href: categoryPath(parent) }] : []),
+    { name: en ? "Home" : "Ana Sayfa", href: homePath(en) },
+    { name: en ? "Products" : "Ürünler", href: productsPath(en) },
+    ...(parent
+      ? [{ name: parent.name, href: en ? enCategoryPath(parent) : categoryPath(parent) }]
+      : []),
     { name: product.name },
   ];
 }
@@ -63,7 +73,7 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
 }
 
 function PdfViewer({ url, title }: { url: string; title: string }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [scale, setScale] = useState(50);
 
   const handleZoomIn = () => setScale(prev => Math.min(prev + 25, 200));
@@ -76,7 +86,11 @@ function PdfViewer({ url, title }: { url: string; title: string }) {
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 w-full max-w-sm">
           <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
-          <p className="text-slate-500 text-sm mb-6">Detaylı teknik verileri görüntülemek için aşağıdaki butona tıklayınız.</p>
+          <p className="text-slate-500 text-sm mb-6">
+            {language === 'TR'
+              ? "Detaylı teknik verileri görüntülemek için aşağıdaki butona tıklayınız."
+              : "Click the button below to view detailed technical data."}
+          </p>
           
           <a 
             href={url} 
@@ -131,7 +145,50 @@ function PdfViewer({ url, title }: { url: string; title: string }) {
 }
 
 function HiTempProductLayout({ product }: { product: any }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [location] = useLocation();
+  const en = isEnPath(location.split("?")[0]);
+  // Bu özel yerleşimdeki sabit etiketler: TR dışındaki dillerde İngilizce.
+  const trText = language === 'TR';
+  const L = trText
+    ? {
+        product: "Ürün",
+        overview: "GENEL BAKIŞ",
+        modelSelection: "Model Seçimi:",
+        thermalCapacity: "Termal Kapasite",
+        maxOperation: "Maksimum Çalışma",
+        energyEfficiency: "Enerji Verimliliği",
+        superiorPerformance: "Üstün Performans",
+        protectionLevel: "Koruma Seviyesi",
+        waterDustProof: "Su & Toz Geçirmez",
+        engineeringFeatures: "Mühendislik Özellikleri",
+        keyFeatures: "Temel Özellikler",
+        motorType: "MOTOR TİPİ",
+        power: "GÜÇ",
+        efficiency: "η - VERİMLİLİK",
+        powerFactor: "Cosφ - GÜÇ FAKTÖRÜ",
+        axialLoad: "EKSENEL YÜK",
+        atLoad: "% yükte",
+      }
+    : {
+        product: "Product",
+        overview: "OVERVIEW",
+        modelSelection: "Model Selection:",
+        thermalCapacity: "Thermal Capacity",
+        maxOperation: "Maximum Operation",
+        energyEfficiency: "Energy Efficiency",
+        superiorPerformance: "Superior Performance",
+        protectionLevel: "Protection Level",
+        waterDustProof: "Water & Dust Proof",
+        engineeringFeatures: "Engineering Features",
+        keyFeatures: "Key Features",
+        motorType: "MOTOR TYPE",
+        power: "POWER",
+        efficiency: "η - EFFICIENCY",
+        powerFactor: "Cosφ - POWER FACTOR",
+        axialLoad: "AXIAL LOAD",
+        atLoad: "at % load",
+      };
   const [activeSeries, setActiveSeries] = useState("6");
   const [activeDetailTab, setActiveDetailTab] = useState("specs");
   const [activeImage, setActiveImage] = useState(0);
@@ -143,8 +200,10 @@ function HiTempProductLayout({ product }: { product: any }) {
       <SEO 
         title={product.name} 
         description={product.description} 
-        canonical={`https://kurlar.com.tr/urunler/${product.id}`}
-        jsonLd={breadcrumbJsonLd(productCrumbs(product), `/urunler/${product.id}`)}
+        canonical={`https://kurlar.com.tr${productPath(product.id, en)}`}
+        alternates={hreflangFor(productPath(product.id, en))}
+        ogLocale={en ? "en_US" : "tr_TR"}
+        jsonLd={breadcrumbJsonLd(productCrumbs(product, en), productPath(product.id, en))}
       />
       
       {/* Hero Section */}
@@ -153,7 +212,7 @@ function HiTempProductLayout({ product }: { product: any }) {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
         
         <div className="container mx-auto px-6 py-12 md:py-20 relative z-20">
-          <Breadcrumbs items={productCrumbs(product)} variant="dark" className="mb-10 justify-start" />
+          <Breadcrumbs items={productCrumbs(product, en)} variant="dark" className="mb-10 justify-start" />
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             
             {/* Left Column: Image Gallery */}
@@ -330,8 +389,8 @@ function HiTempProductLayout({ product }: { product: any }) {
               >
                 <Info className="w-5 h-5" />
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[10px] uppercase tracking-wider opacity-60 font-bold">Ürün</span>
-                  <span className="font-bold tracking-wide text-sm">GENEL BAKIŞ</span>
+                  <span className="text-[10px] uppercase tracking-wider opacity-60 font-bold">{L.product}</span>
+                  <span className="font-bold tracking-wide text-sm">{L.overview}</span>
                 </div>
               </button>
 
@@ -340,7 +399,7 @@ function HiTempProductLayout({ product }: { product: any }) {
 
               {/* Series Selectors */}
               <div className="flex items-center gap-3">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">Model Seçimi:</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">{L.modelSelection}</span>
                 {['6', '7', '8', '10'].map(size => (
                   <button
                     key={size}
@@ -403,9 +462,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <Thermometer className="w-24 h-24 text-red-500" />
                     </div>
                     <div className="relative z-10">
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Termal Kapasite</div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">{L.thermalCapacity}</div>
                       <div className="text-4xl font-black text-slate-900 mb-1">90°C</div>
-                      <div className="text-sm font-medium text-slate-500 mb-6">Maksimum Çalışma</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">{L.maxOperation}</div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-orange-400 to-red-500 w-[90%] rounded-full"></div>
                       </div>
@@ -418,9 +477,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <Zap className="w-24 h-24 text-yellow-500" />
                     </div>
                     <div className="relative z-10">
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Enerji Verimliliği</div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">{L.energyEfficiency}</div>
                       <div className="text-4xl font-black text-slate-900 mb-1">84%</div>
-                      <div className="text-sm font-medium text-slate-500 mb-6">Üstün Performans</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">{L.superiorPerformance}</div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-yellow-400 to-green-500 w-[84%] rounded-full"></div>
                       </div>
@@ -433,9 +492,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <Shield className="w-24 h-24 text-blue-500" />
                     </div>
                     <div className="relative z-10">
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Koruma Seviyesi</div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">{L.protectionLevel}</div>
                       <div className="text-4xl font-black text-slate-900 mb-1">IP68</div>
-                      <div className="text-sm font-medium text-slate-500 mb-6">Su & Toz Geçirmez</div>
+                      <div className="text-sm font-medium text-slate-500 mb-6">{L.waterDustProof}</div>
                       <div className="flex gap-1">
                          {[1,2,3,4,5].map(i => (
                            <div key={i} className="h-1.5 flex-1 bg-blue-500 rounded-full"></div>
@@ -453,7 +512,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <div className="bg-slate-100 p-2 rounded-lg">
                         <FileText className="w-5 h-5 text-slate-700" />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900">Mühendislik Özellikleri</h3>
+                      <h3 className="text-xl font-bold text-slate-900">{L.engineeringFeatures}</h3>
                     </div>
                     <div className="prose prose-slate max-w-none">
                       <p className="text-lg leading-relaxed text-slate-600">
@@ -466,7 +525,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                   <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center gap-2">
                       <Layers className="w-5 h-5 text-primary" />
-                      <h3 className="font-bold text-slate-900">Temel Özellikler</h3>
+                      <h3 className="font-bold text-slate-900">{L.keyFeatures}</h3>
                     </div>
                     <ul className="divide-y divide-slate-100">
                       {product.features?.map((feature: string, i: number) => (
@@ -683,12 +742,12 @@ function HiTempProductLayout({ product }: { product: any }) {
                                 <tr>
                                   <th rowSpan={3} className="px-1 py-1 border border-black sticky left-0 z-10 bg-[#E30613] align-middle min-w-[80px]">
                                     <div className="flex flex-col gap-0.5">
-                                      <span className="text-white font-bold">MOTOR TİPİ</span>
+                                      <span className="text-white font-bold">{L.motorType}</span>
                                     </div>
                                   </th>
                                   <th colSpan={2} rowSpan={2} className="px-1 py-1 border border-black align-middle">
                                     <div className="flex flex-col gap-0.5">
-                                      <span>GÜÇ</span>
+                                      <span>{L.power}</span>
                                     </div>
                                   </th>
                                   <th rowSpan={2} className="px-1 py-1 border border-black align-middle">U<sub>N</sub></th>
@@ -698,13 +757,13 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   
                                   <th colSpan={3} className="px-1 py-1 border border-black align-middle">
                                      <div className="flex flex-col gap-0.5">
-                                       <span className="text-white font-bold">η - VERİMLİLİK</span>
+                                       <span className="text-white font-bold">{L.efficiency}</span>
                                      </div>
                                   </th>
                                   
                                   <th colSpan={3} className="px-1 py-1 border border-black align-middle">
                                      <div className="flex flex-col gap-0.5">
-                                       <span className="text-white font-bold">Cosφ - GÜÇ FAKTÖRÜ</span>
+                                       <span className="text-white font-bold">{L.powerFactor}</span>
                                      </div>
                                   </th>
                                   
@@ -713,7 +772,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                   
                                   <th rowSpan={2} className="px-1 py-1 border border-black align-middle">
                                     <div className="flex flex-col gap-0.5">
-                                      <span className="text-white font-bold">EKSENEL YÜK</span>
+                                      <span className="text-white font-bold">{L.axialLoad}</span>
                                     </div>
                                   </th>
                                 </tr>
@@ -721,10 +780,10 @@ function HiTempProductLayout({ product }: { product: any }) {
                                 {/* ROW 2 */}
                                 <tr>
                                   {/* Efficiency Subheader */}
-                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">% yükte</th>
+                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">{L.atLoad}</th>
                                   
                                   {/* PF Subheader */}
-                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">% yükte</th>
+                                  <th colSpan={3} className="px-1 py-1 border border-black text-[9px] bg-[#C40511] font-normal">{L.atLoad}</th>
                                 </tr>
 
                                 {/* ROW 3 - Units */}
@@ -895,8 +954,11 @@ function HiTempProductLayout({ product }: { product: any }) {
 }
 
 export default function ProductDetail() {
-  const [, params] = useRoute("/urunler/:id");
-  const productId = params?.id;
+  const [location] = useLocation();
+  const cleanPath = location.split("?")[0];
+  const en = isEnPath(cleanPath);
+  // TR: /urunler/:id — EN: /en/products/:id
+  const productId = cleanPath.match(/^\/(?:en\/products|urunler)\/([^/]+)$/)?.[1];
   const { t, language } = useLanguage();
   
   const baseProduct = products.find(p => p.id === productId);
@@ -923,28 +985,30 @@ export default function ProductDetail() {
       <SEO 
         title={product.name} 
         description={product.description} 
-        canonical={`https://kurlar.com.tr/urunler/${product.id}`}
-        jsonLd={breadcrumbJsonLd(productCrumbs(product), `/urunler/${product.id}`)}
+        canonical={`https://kurlar.com.tr${productPath(product.id, en)}`}
+        alternates={hreflangFor(productPath(product.id, en))}
+        ogLocale={en ? "en_US" : "tr_TR"}
+        jsonLd={breadcrumbJsonLd(productCrumbs(product, en), productPath(product.id, en))}
       />
       {/* Breadcrumb - Redesigned */}
       <div className="bg-slate-50 border-b border-slate-200 py-8">
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center justify-center text-center">
             <div className="flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-slate-500 mb-1">
-              <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
+              <Link href={homePath(en)} className="hover:text-primary transition-colors flex items-center gap-1">
                 <Home className="w-3.5 h-3.5" />
                 {t('nav.home')}
               </Link>
               <ChevronRight className="w-4 h-4 text-slate-300" />
-              <Link href="/urunler" className="hover:text-primary transition-colors">
+              <Link href={productsPath(en)} className="hover:text-primary transition-colors">
                 {t('nav.products')}
               </Link>
               {(() => {
-                const parent = getCategoryByKey(product.category);
+                const parent = en ? getEnCategoryByKey(product.category) : getCategoryByKey(product.category);
                 return parent ? (
                   <>
                     <ChevronRight className="w-4 h-4 text-slate-300" />
-                    <Link href={categoryPath(parent)} className="hover:text-primary transition-colors">
+                    <Link href={en ? enCategoryPath(parent) : categoryPath(parent)} className="hover:text-primary transition-colors">
                       {parent.name}
                     </Link>
                   </>
@@ -1169,7 +1233,7 @@ export default function ProductDetail() {
                         <Zap className="w-4 h-4 text-primary" /> {t('product.features_title')}
                       </h3>
                       <ul className="grid grid-cols-1 gap-2">
-                        {product.features?.map((f, i) => (
+                        {product.features?.map((f: string, i: number) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-slate-700 border-l-2 border-slate-100 pl-3 py-1 capitalize">
                             <span className="block mt-1.5 w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>
                             {f}
@@ -1219,7 +1283,7 @@ export default function ProductDetail() {
                               {Object.entries(product.specs).map(([key, value], i) => (
                                 <tr key={i} className={i % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
                                   <td className="px-4 py-3 font-medium text-slate-600 border-r border-slate-200 w-1/2">{key}</td>
-                                  <td className="px-4 py-3 font-bold text-slate-900">{value}</td>
+                                  <td className="px-4 py-3 font-bold text-slate-900">{String(value)}</td>
                                 </tr>
                               ))}
                             </tbody>
@@ -1228,7 +1292,7 @@ export default function ProductDetail() {
                       )}
 
                       {/* Standard SubSpecs Rendering for other products */}
-                      {product.subSpecs && product.subSpecs.map((spec, idx) => (
+                      {product.subSpecs && product.subSpecs.map((spec: { title: string; columns: string[]; data: string[][] }, idx: number) => (
                         <div key={idx} className="mt-8 border border-slate-200 rounded-sm overflow-hidden shadow-sm">
                           <h4 className="bg-slate-100 px-4 py-3 font-bold text-slate-900 border-b border-slate-200 flex items-center gap-2">
                              <Ruler className="w-4 h-4 text-primary" /> {spec.title}
@@ -1237,15 +1301,15 @@ export default function ProductDetail() {
                             <table className="w-full text-sm text-left whitespace-nowrap">
                               <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold tracking-wider">
                                 <tr>
-                                  {spec.columns.map((col, i) => (
+                                  {spec.columns.map((col: string, i: number) => (
                                     <th key={i} className="px-4 py-3 border-b border-slate-200 border-r border-slate-200 last:border-r-0">{col}</th>
                                   ))}
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-slate-200 bg-white">
-                                {spec.data.map((row, i) => (
+                                {spec.data.map((row: string[], i: number) => (
                                   <tr key={i} className="hover:bg-blue-50/50 transition-colors">
-                                    {row.map((cell, j) => (
+                                    {row.map((cell: string, j: number) => (
                                       <td key={j} className="px-4 py-3 font-medium text-slate-700 border-r border-slate-100 last:border-r-0 tabular-nums">{cell}</td>
                                     ))}
                                   </tr>
@@ -1260,7 +1324,7 @@ export default function ProductDetail() {
 
                 {activeTab === 'parts' && product.mechanicalPartsImages && (
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                     {product.mechanicalPartsImages.map((part, idx) => (
+                     {product.mechanicalPartsImages.map((part: { title: string; image: string }, idx: number) => (
                        <Dialog key={idx}>
                          <DialogTrigger asChild>
                            <Button variant="outline" className="h-auto py-8 flex flex-col items-center gap-3 border-slate-200 hover:border-primary hover:bg-slate-50 hover:text-primary transition-all group whitespace-normal text-center">
@@ -1288,7 +1352,7 @@ export default function ProductDetail() {
                       <Sliders className="w-4 h-4 text-primary" /> {t('product.options_title')}
                     </h3>
                     <div className="grid grid-cols-1 gap-3">
-                      {product.options.map((option, i) => (
+                      {product.options.map((option: string, i: number) => (
                         <div key={i} className="flex items-start gap-3 p-4 border border-slate-100 rounded-sm bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-sm transition-all group">
                           <div className="bg-white border border-slate-200 p-1.5 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0 mt-0.5">
                             <Settings className="w-3.5 h-3.5" />
@@ -1345,7 +1409,7 @@ export default function ProductDetail() {
                    const p = getProductWithLanguage(baseP, language);
                    return (
                    <div key={`${p.id}-${index}`} className="w-[260px] md:w-[320px] flex-shrink-0">
-                     <Link href={`/urunler/${p.id}`} className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
+                     <Link href={productPath(p.id, en)} className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
                          <div className="aspect-[4/5] bg-white relative overflow-hidden flex items-center justify-center p-6 border-b border-slate-100">
                            <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                            

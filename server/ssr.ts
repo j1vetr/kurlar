@@ -52,8 +52,21 @@ export function isPageRequest(req: Request): boolean {
 }
 
 /** Injects rendered head and body HTML into the index.html template. */
-export function injectTemplate(template: string, head: string, appHtml: string): string {
-  return template.replace("<!--app-head-->", head).replace("<!--app-html-->", appHtml);
+export function injectTemplate(
+  template: string,
+  head: string,
+  appHtml: string,
+  lang: string = "tr",
+): string {
+  return template
+    .replace('<html lang="tr">', `<html lang="${lang}">`)
+    .replace("<!--app-head-->", head)
+    .replace("<!--app-html-->", appHtml);
+}
+
+/** Page language from the URL: /en/* is English, everything else Turkish. */
+export function pageLang(pathname: string): string {
+  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "tr";
 }
 
 /**

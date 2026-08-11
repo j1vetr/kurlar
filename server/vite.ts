@@ -5,7 +5,7 @@ import viteConfig from "../vite.config";
 import fs from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
-import { injectTemplate, fallbackStatus, fallbackHead } from "./ssr";
+import { injectTemplate, fallbackStatus, fallbackHead, pageLang } from "./ssr";
 
 const viteLogger = createLogger();
 
@@ -63,8 +63,8 @@ export async function setupVite(server: Server, app: Express) {
         }
         resolvedStatus = resolved.status;
 
-        const { html, head, status } = await entry.render(url);
-        const page = injectTemplate(template, head, html);
+        const { html, head, status, lang } = await entry.render(url);
+        const page = injectTemplate(template, head, html, lang);
         return res
           .status(status)
           .set({ "Content-Type": "text/html" })
@@ -74,7 +74,7 @@ export async function setupVite(server: Server, app: Express) {
         // but keep honest HTTP semantics (404 stays 404, errors are 503).
         vite.ssrFixStacktrace(ssrError as Error);
         console.error("[ssr] render failed, serving CSR shell:", ssrError);
-        const page = injectTemplate(template, fallbackHead(resolvedStatus), "");
+        const page = injectTemplate(template, fallbackHead(resolvedStatus), "", pageLang(pathname));
         return res
           .status(fallbackStatus(resolvedStatus))
           .set({ "Content-Type": "text/html", "Cache-Control": "no-store" })
