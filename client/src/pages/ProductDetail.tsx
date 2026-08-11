@@ -13,7 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Download, ArrowRight, FileText, Ruler, Shield, Zap, Settings, Info, Layers, HelpCircle, ChevronDown, Sliders, ArrowUpRight, ChevronRight, Home, Thermometer, Activity, Box, ArrowDown, ZoomIn, ZoomOut, Check, Star, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
 import NotFound from "@/pages/not-found";
@@ -27,6 +27,18 @@ import {
   hreflangFor,
 } from "@/lib/locale";
 import { Breadcrumbs, breadcrumbJsonLd, type Crumb } from "@/components/shared/Breadcrumbs";
+import {
+  productSeoTitle,
+  productSeoDescription,
+  productJsonLd,
+  productImageAlt,
+  imageDims,
+  compactSizes,
+} from "@/lib/product-seo";
+import { SITE_URL } from "@/lib/head";
+
+/** HI-TEMP (km) ürününün seri boyutları — tüm seriler SSR DOM'unda kalır. */
+const HITEMP_SERIES = ["6", "7", "8", "10"];
 
 /** Ana Sayfa > Ürünler > [Üst Kategori] > Ürün breadcrumb zinciri (TR/EN) */
 function productCrumbs(product: { category: string; name: string }, en: boolean): Crumb[] {
@@ -41,7 +53,7 @@ function productCrumbs(product: { category: string; name: string }, en: boolean)
   ];
 }
 
-function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
+function ImageMagnifier({ src, alt, width, height }: { src: string; alt: string; width?: number; height?: number }) {
   const [zoom, setZoom] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -62,6 +74,8 @@ function ImageMagnifier({ src, alt }: { src: string; alt: string }) {
       <img 
         src={src} 
         alt={alt} 
+        width={width}
+        height={height}
         className="max-w-full max-h-full object-contain pointer-events-none transition-transform duration-100 ease-out"
         style={{
           transform: zoom ? 'scale(1.5)' : 'scale(1)', // Reduced scale from 2 to 1.5
@@ -169,6 +183,8 @@ function HiTempProductLayout({ product }: { product: any }) {
         powerFactor: "Cosφ - GÜÇ FAKTÖRÜ",
         axialLoad: "EKSENEL YÜK",
         atLoad: "% yükte",
+        series: "Serisi",
+        manufacturer: "Üretici",
       }
     : {
         product: "Product",
@@ -188,6 +204,8 @@ function HiTempProductLayout({ product }: { product: any }) {
         powerFactor: "Cosφ - POWER FACTOR",
         axialLoad: "AXIAL LOAD",
         atLoad: "at % load",
+        series: "Series",
+        manufacturer: "Manufacturer",
       };
   const [activeSeries, setActiveSeries] = useState("6");
   const [activeDetailTab, setActiveDetailTab] = useState("specs");
@@ -195,15 +213,23 @@ function HiTempProductLayout({ product }: { product: any }) {
   const [hoveredGroup, setHoveredGroup] = useState<number | null>(null);
   const galleryImages = product.gallery || [product.image];
 
+  // SEO metinleri UI dilinden bağımsız, URL locale'ine (TR/EN) göre üretilir.
+  const baseProduct = products.find((p) => p.id === product.id) ?? product;
+  const seoP = getProductWithLanguage(baseProduct, en ? "EN" : "TR");
+
   return (
     <Layout>
       <SEO 
-        title={product.name} 
-        description={product.description} 
+        title={productSeoTitle(seoP, en)} 
+        description={productSeoDescription(seoP, en)} 
         canonical={`https://kurlar.com.tr${productPath(product.id, en)}`}
         alternates={hreflangFor(productPath(product.id, en))}
         ogLocale={en ? "en_US" : "tr_TR"}
-        jsonLd={breadcrumbJsonLd(productCrumbs(product, en), productPath(product.id, en))}
+        ogImage={`${SITE_URL}${product.image}`}
+        jsonLd={[
+          breadcrumbJsonLd(productCrumbs(seoP, en), productPath(product.id, en)),
+          productJsonLd(seoP, en),
+        ]}
       />
       
       {/* Hero Section */}
@@ -251,16 +277,16 @@ function HiTempProductLayout({ product }: { product: any }) {
                   {/* Quality Logos */}
                   <div className="absolute top-6 right-6 flex flex-col gap-2 z-20">
                     <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50">
-                      <img src="/assets/quality/ce.png" alt="CE" className="w-8 h-8 object-contain" />
+                      <img src="/assets/quality/ce.png" alt="CE" width={32} height={32} className="w-8 h-8 object-contain" />
                     </div>
                     <div className="bg-white/90 backdrop-blur p-1.5 rounded-lg shadow-xl border border-slate-200/50">
-                      <img src="/assets/quality/tse.png" alt="TSE" className="w-8 h-8 object-contain" />
+                      <img src="/assets/quality/tse.png" alt="TSE" width={32} height={32} className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   
                   <div className="relative h-[350px] md:h-[450px] flex items-center justify-center p-4 z-20">
                      <div className="relative w-full h-full filter drop-shadow-[0_0_25px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:drop-shadow-[0_0_35px_rgba(255,255,255,0.2)]">
-                       <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
+                       <ImageMagnifier src={galleryImages[activeImage]} alt={productImageAlt(seoP, en)} {...imageDims(galleryImages[activeImage])} />
                      </div>
                   </div>
 
@@ -286,6 +312,8 @@ function HiTempProductLayout({ product }: { product: any }) {
                       <button 
                         key={idx}
                         onClick={() => setActiveImage(idx)}
+                        aria-label={`${product.name} — ${idx + 1}`}
+                        aria-pressed={activeImage === idx}
                         className={cn(
                           "bg-slate-800/50 backdrop-blur-sm border rounded-xl p-2 h-20 flex items-center justify-center transition-all duration-300 relative overflow-hidden group w-full",
                           activeImage === idx 
@@ -293,7 +321,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                             : "border-slate-700 hover:border-slate-600 hover:bg-slate-800"
                         )}
                       >
-                        <img src={img} alt="" className="max-w-full max-h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-300" />
+                        <img src={img} alt="" loading="lazy" {...imageDims(img)} className="max-w-full max-h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-300" />
                       </button>
                     ))}
                   </div>
@@ -303,7 +331,10 @@ function HiTempProductLayout({ product }: { product: any }) {
 
             {/* Right Column: Text Content */}
             <div className="w-full lg:w-7/12">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-6 flex-wrap">
+                <span className="bg-primary/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-primary/30">
+                  {L.manufacturer}: Kurlar
+                </span>
                 <span className="bg-slate-800/50 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-slate-700">
                   IP68
                 </span>
@@ -361,6 +392,11 @@ function HiTempProductLayout({ product }: { product: any }) {
                     <Download className="mr-2 w-5 h-5" /> {t('product.download_catalog')}
                   </Button>
                 </a>
+                <Link href="/iletisim#contact-form">
+                  <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white h-12 px-8 rounded-full font-bold text-lg bg-transparent transition-all">
+                    {t('product.request_quote')}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -380,6 +416,7 @@ function HiTempProductLayout({ product }: { product: any }) {
               {/* Overview Toggle */}
               <button 
                 onClick={() => setActiveSeries("overview")}
+                aria-pressed={activeSeries === "overview"}
                 className={cn(
                   "flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 whitespace-nowrap border-2 ml-1",
                   activeSeries === "overview" 
@@ -400,10 +437,12 @@ function HiTempProductLayout({ product }: { product: any }) {
               {/* Series Selectors */}
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 hidden md:block">{L.modelSelection}</span>
-                {['6', '7', '8', '10'].map(size => (
+                {HITEMP_SERIES.map(size => (
                   <button
                     key={size}
                     onClick={() => setActiveSeries(size)}
+                    aria-pressed={activeSeries === size}
+                    aria-label={`${size}" ${L.series}`}
                     className={cn(
                       "relative group flex flex-col items-center justify-center w-14 h-14 md:w-20 md:h-16 rounded-xl border-2 transition-all duration-300 overflow-hidden",
                       activeSeries === size
@@ -419,7 +458,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                        <span className={cn(
                          "text-[9px] uppercase font-bold tracking-wider mt-0.5",
                          activeSeries === size ? "text-primary/80" : "text-slate-400"
-                       )}>Serisi</span>
+                       )}>{L.series}</span>
                     </div>
                     
                     {/* Active Indicator Line */}
@@ -442,18 +481,12 @@ function HiTempProductLayout({ product }: { product: any }) {
         </div>
 
         <div className="container mx-auto px-6 py-12">
-          <AnimatePresence mode="wait">
-            
-            {/* OVERVIEW MODE */}
-            {activeSeries === "overview" && (
-              <motion.div 
-                key="overview"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-8"
-              >
+          {/* SEO: tüm bölümler her zaman DOM'da render edilir; inaktif olanlar
+              yalnızca CSS (hidden) ile gizlenir — crawler tab açmadan okur. */}
+
+          {/* OVERVIEW MODE */}
+          <div className={activeSeries === "overview" ? undefined : "hidden"}>
+              <div className="space-y-8">
                 {/* Metrics Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Thermal Module */}
@@ -539,42 +572,40 @@ function HiTempProductLayout({ product }: { product: any }) {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
-            )}
+              </div>
+          </div>
 
-            {/* SERIES SPECS MODE */}
-            {activeSeries !== "overview" && (
-              <motion.div
-                key="specs"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-6"
-              >
+          {/* SERIES SPECS MODE — her seri kendi bloğunda, hepsi DOM'da */}
+          {HITEMP_SERIES.map((series) => (
+            <div key={series} className={activeSeries === series ? undefined : "hidden"}>
+              <div className="space-y-6">
                  {/* Series Header */}
                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                     <div>
                        <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
-                         <span className="text-primary">{activeSeries}"</span> {t('product.series_title')}
+                         <span className="text-primary">{series}"</span> {t('product.series_title')}
                          <span className="text-base font-normal text-slate-400 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
                            {t('product.technical_data_sheet')}
                          </span>
                        </h2>
                        <p className="text-slate-500 mt-2">
-                         {activeSeries} {t('product.series_desc')}
+                         {series} {t('product.series_desc')}
                        </p>
                     </div>
                  </div>
 
                  {/* Series Specific Details (Specs, Options, Advantages) - Tabbed Interface */}
-                 {product.seriesDetails && product.seriesDetails[activeSeries] && (
+                 {product.seriesDetails && product.seriesDetails[series] && (
                    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mb-8">
                       {/* Tab Navigation */}
-                      <div className="flex border-b border-slate-200 bg-slate-50/50">
+                      <div className="flex border-b border-slate-200 bg-slate-50/50" role="tablist" aria-label={t('product.specs_title')}>
                         {['specs', 'options', 'advantages'].map((tab) => (
                            <button
                              key={tab}
+                             id={`series-${series}-tab-${tab}`}
+                             role="tab"
+                             aria-selected={activeDetailTab === tab}
+                             aria-controls={`series-${series}-panel-${tab}`}
                              onClick={() => setActiveDetailTab(tab)}
                              className={cn(
                                "flex-1 py-4 px-6 text-sm md:text-base font-bold uppercase tracking-wider transition-all relative",
@@ -594,17 +625,14 @@ function HiTempProductLayout({ product }: { product: any }) {
                         ))}
                       </div>
 
-                      {/* Tab Content */}
+                      {/* Tab Content — tüm paneller DOM'da, inaktifler CSS ile gizli */}
                       <div className="p-8 min-h-[400px]">
-                         <AnimatePresence mode="wait">
-                            {activeDetailTab === 'specs' && (
-                              <motion.div
-                                key="specs"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.2 }}
-                              >
+                            <div
+                              id={`series-${series}-panel-specs`}
+                              role="tabpanel"
+                              aria-labelledby={`series-${series}-tab-specs`}
+                              className={activeDetailTab === 'specs' ? undefined : 'hidden'}
+                            >
                                  <div className="flex items-center gap-3 mb-6">
                                     <div className="bg-slate-100 p-2 rounded-lg"><Settings className="w-5 h-5 text-slate-700"/></div>
                                     <h3 className="text-xl font-bold text-slate-900">{t('product.specs_title')}</h3>
@@ -612,7 +640,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                  
                                  <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                       {product.seriesDetails[activeSeries].technicalSpecs.map((item: string, idx: number) => (
+                                       {product.seriesDetails[series].technicalSpecs.map((item: string, idx: number) => (
                                          <li key={idx} className="flex items-start gap-4 p-4 rounded-lg border border-slate-100 bg-slate-50/30 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all group">
                                             <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-800 group-hover:text-white transition-all">
                                                <Settings className="w-4 h-4 text-slate-500 group-hover:text-white" />
@@ -627,7 +655,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                  <div className="mt-8 flex flex-wrap gap-4">
                                     <button 
                                       onClick={() => {
-                                        const el = document.getElementById('performance-section');
+                                        const el = document.getElementById(`performance-section-${series}`);
                                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                       }}
                                       className="flex items-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold transition-all text-sm group"
@@ -638,7 +666,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                     </button>
                                     <button 
                                       onClick={() => {
-                                        const el = document.getElementById('dimensions-section');
+                                        const el = document.getElementById(`dimensions-section-${series}`);
                                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                       }}
                                       className="flex items-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold transition-all text-sm group"
@@ -647,17 +675,15 @@ function HiTempProductLayout({ product }: { product: any }) {
                                       {t('product.jump_to_dimensions')}
                                       <ArrowDown className="w-4 h-4 ml-1 opacity-50" />
                                     </button>
-                                 </div>                              </motion.div>
-                            )}
+                                 </div>
+                            </div>
 
-                            {activeDetailTab === 'options' && (
-                              <motion.div
-                                key="options"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.2 }}
-                              >
+                            <div
+                              id={`series-${series}-panel-options`}
+                              role="tabpanel"
+                              aria-labelledby={`series-${series}-tab-options`}
+                              className={activeDetailTab === 'options' ? undefined : 'hidden'}
+                            >
                                  <div className="flex items-center gap-3 mb-6">
                                     <div className="bg-blue-50 p-2 rounded-lg"><Sliders className="w-5 h-5 text-blue-600"/></div>
                                     <h3 className="text-xl font-bold text-slate-900">{t('product.customization_options')}</h3>
@@ -665,7 +691,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                  
                                  <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                       {product.seriesDetails[activeSeries].options.map((item: string, idx: number) => (
+                                       {product.seriesDetails[series].options.map((item: string, idx: number) => (
                                          <li key={idx} className="flex items-start gap-4 p-4 rounded-lg border border-slate-100 bg-blue-50/10 hover:bg-blue-50/30 hover:border-blue-100 hover:shadow-sm transition-all group">
                                             <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
                                                <PlusCircle className="w-4 h-4 text-blue-500 group-hover:text-white" />
@@ -675,17 +701,14 @@ function HiTempProductLayout({ product }: { product: any }) {
                                        ))}
                                     </ul>
                                  </div>
-                              </motion.div>
-                            )}
+                            </div>
 
-                            {activeDetailTab === 'advantages' && (
-                              <motion.div
-                                key="advantages"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.2 }}
-                              >
+                            <div
+                              id={`series-${series}-panel-advantages`}
+                              role="tabpanel"
+                              aria-labelledby={`series-${series}-tab-advantages`}
+                              className={activeDetailTab === 'advantages' ? undefined : 'hidden'}
+                            >
                                  <div className="flex items-center gap-3 mb-6">
                                     <div className="bg-green-50 p-2 rounded-lg"><Zap className="w-5 h-5 text-green-600"/></div>
                                     <h3 className="text-xl font-bold text-slate-900">{t('product.why_choose')}</h3>
@@ -693,7 +716,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                                  
                                  <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                       {product.seriesDetails[activeSeries].advantages.map((item: string, idx: number) => (
+                                       {product.seriesDetails[series].advantages.map((item: string, idx: number) => (
                                          <li key={idx} className="flex items-start gap-4 p-4 rounded-lg border border-slate-100 bg-green-50/10 hover:bg-green-50/30 hover:border-green-100 hover:shadow-sm transition-all group">
                                             <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-green-50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-all">
                                                <Star className="w-4 h-4 text-green-600 group-hover:text-white" />
@@ -703,18 +726,16 @@ function HiTempProductLayout({ product }: { product: any }) {
                                        ))}
                                     </ul>
                                  </div>
-                              </motion.div>
-                            )}
-                         </AnimatePresence>
+                            </div>
                       </div>
                    </div>
                  )}
 
                  {/* Data Tables - "Monitor" Style */}
-                 {product.subSpecs?.filter((s: any) => s.title.includes(activeSeries + '"')).map((spec: any, idx: number) => (
+                 {product.subSpecs?.filter((s: any) => s.title.includes(series + '"')).map((spec: any, idx: number) => (
                     <div 
                       key={idx} 
-                      id={!spec.title.includes('50Hz') ? "dimensions-section" : "performance-section"}
+                      id={`${!spec.title.includes('50Hz') ? "dimensions-section" : "performance-section"}-${series}`}
                       className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
                     >
                        <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-200 flex items-center justify-center relative">
@@ -730,7 +751,9 @@ function HiTempProductLayout({ product }: { product: any }) {
                           </div>
                        </div>
                        
-                       {spec.pdf && (
+                       {/* PDF iframe'i yalnızca aktif seride mount edilir (performans);
+                           altındaki semantic tablo her zaman DOM'da kalır (SEO). */}
+                       {spec.pdf && activeSeries === series && (
                           <PdfViewer url={spec.pdf} title={spec.title} />
                        )}
                        <div className={cn("overflow-x-auto border-t border-slate-200", spec.pdf && "hidden")}>
@@ -944,12 +967,89 @@ function HiTempProductLayout({ product }: { product: any }) {
                        </div>
                     </div>
                  ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+              </div>
+            </div>
+          ))}
+
+          <OtherProductsMarquee currentId={product.id} en={en} />
         </div>
       </div>
     </Layout>
+  );
+}
+
+/** Diğer ürünler marquee'si — her iki ürün yerleşiminde ortak, crawlable iç linkler. */
+function OtherProductsMarquee({ currentId, en }: { currentId: string; en: boolean }) {
+  const { t, language } = useLanguage();
+  return (
+    <div className="mb-24 border-t border-slate-200 pt-16">
+      <div className="text-center mb-12">
+         <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
+           <Settings className="w-8 h-8 text-primary" /> {t('product.other_products')}
+         </h2>
+         <p className="text-slate-500">{t('product.other_products_desc')}</p>
+      </div>
+
+      <div className="relative w-full overflow-hidden">
+         {/* Gradient Masks */}
+         <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+         <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+
+         <motion.div 
+           className="flex gap-6 px-6"
+           animate={{ x: ["0%", "-50%"] }}
+           transition={{ 
+             repeat: Infinity, 
+             ease: "linear", 
+             duration: 40 
+           }}
+           style={{ width: "fit-content" }}
+         >
+           {[...products, ...products].filter(p => p.id !== currentId).map((baseP, index) => {
+             const p = getProductWithLanguage(baseP, language);
+             return (
+             <div key={`${p.id}-${index}`} className="w-[260px] md:w-[320px] flex-shrink-0">
+               <Link href={productPath(p.id, en)} className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
+                   <div className="aspect-[4/5] bg-white relative overflow-hidden flex items-center justify-center p-6 border-b border-slate-100">
+                     <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                     <img 
+                       src={p.image} 
+                       alt={p.name}
+                       loading="lazy"
+                       {...imageDims(p.image)}
+                       className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-500 ease-out"
+                     />
+                     
+                     {/* Quick View Button */}
+                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 pointer-events-none">
+                       <div className="bg-white/90 text-slate-900 font-bold text-sm px-6 py-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 border border-slate-100">
+                         {t('product.view_details')}
+                       </div>
+                     </div>
+                   </div>
+                   
+                   <div className="p-5 flex flex-col flex-grow relative bg-white">
+                     <h3 className="font-bold text-lg text-slate-900 group-hover:text-primary transition-colors mb-2 line-clamp-2">
+                       {p.name}
+                     </h3>
+                     <p className="text-slate-500 text-sm line-clamp-2 mb-4 flex-grow leading-relaxed">
+                       {p.description}
+                     </p>
+                     <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{p.modelCode}</span>
+                        <span className="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                          {t('product.details')} <ArrowRight className="w-3.5 h-3.5" />
+                        </span>
+                     </div>
+                   </div>
+               </Link>
+             </div>
+             );
+           })}
+         </motion.div>
+      </div>
+    </div>
   );
 }
 
@@ -980,15 +1080,22 @@ export default function ProductDetail() {
 
   const galleryImages = product.gallery || [product.image];
 
+  // SEO metinleri UI dilinden bağımsız, URL locale'ine (TR/EN) göre üretilir.
+  const seoP = getProductWithLanguage(baseProduct!, en ? "EN" : "TR");
+
   return (
     <Layout>
       <SEO 
-        title={product.name} 
-        description={product.description} 
+        title={productSeoTitle(seoP, en)} 
+        description={productSeoDescription(seoP, en)} 
         canonical={`https://kurlar.com.tr${productPath(product.id, en)}`}
         alternates={hreflangFor(productPath(product.id, en))}
         ogLocale={en ? "en_US" : "tr_TR"}
-        jsonLd={breadcrumbJsonLd(productCrumbs(product, en), productPath(product.id, en))}
+        ogImage={`${SITE_URL}${product.image}`}
+        jsonLd={[
+          breadcrumbJsonLd(productCrumbs(seoP, en), productPath(product.id, en)),
+          productJsonLd(seoP, en),
+        ]}
       />
       {/* Breadcrumb - Redesigned */}
       <div className="bg-slate-50 border-b border-slate-200 py-8">
@@ -1035,17 +1142,17 @@ export default function ProductDetail() {
                  <div className="absolute top-2 left-2 md:top-4 md:left-4 z-10 flex flex-col gap-2">
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-1.5 rounded shadow-sm" title="Türk Standartları Enstitüsü">
                      <div className="w-8 h-8 flex items-center justify-center">
-                       <img src="/assets/quality/tse.png" alt="TSE" className="w-full h-full object-contain" />
+                       <img src="/assets/quality/tse.png" alt="TSE" width={32} height={32} className="w-full h-full object-contain" />
                      </div>
                    </div>
                    <div className="bg-white/90 backdrop-blur-sm border border-slate-200 p-1.5 rounded shadow-sm" title="Conformité Européenne">
                      <div className="w-8 h-8 flex items-center justify-center">
-                       <img src="/assets/quality/ce.png" alt="CE" className="w-full h-full object-contain" />
+                       <img src="/assets/quality/ce.png" alt="CE" width={32} height={32} className="w-full h-full object-contain" />
                      </div>
                    </div>
                  </div>
                  
-                 <ImageMagnifier src={galleryImages[activeImage]} alt={product.name} />
+                 <ImageMagnifier src={galleryImages[activeImage]} alt={productImageAlt(seoP, en)} {...imageDims(galleryImages[activeImage])} />
 
                  {/* Zoom Hint Badge - Icon Only */}
                  <div className="absolute bottom-4 right-4 z-10">
@@ -1068,12 +1175,14 @@ export default function ProductDetail() {
                     <button 
                       key={idx}
                       onClick={() => setActiveImage(idx)}
+                      aria-label={`${product.name} — ${idx + 1}`}
+                      aria-pressed={activeImage === idx}
                       className={cn(
                         "border bg-slate-50 p-2 h-20 flex items-center justify-center transition-all",
                         activeImage === idx ? "border-primary ring-1 ring-primary" : "border-slate-200 hover:border-slate-300"
                       )}
                     >
-                      <img src={img} alt="" className="max-w-full max-h-full object-contain" />
+                      <img src={img} alt="" loading="lazy" {...imageDims(img)} className="max-w-full max-h-full object-contain" />
                     </button>
                   ))}
                 </div>
@@ -1107,7 +1216,27 @@ export default function ProductDetail() {
                   </div>
                 )}
                 
-                {/* product.availableSizes removed as per request */}
+                {/* İlk görünür bölüm: marka / tip / çap — gerçek data, semantic HTML */}
+                <dl className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm border border-slate-200 rounded-sm bg-slate-50/60 p-4">
+                  <div>
+                    <dt className="text-slate-500 font-bold text-[10px] uppercase tracking-wider">{language === 'TR' ? 'Marka' : 'Brand'}</dt>
+                    <dd className="text-slate-900 font-bold">Kurlar</dd>
+                  </div>
+                  <div>
+                    <dt className="text-slate-500 font-bold text-[10px] uppercase tracking-wider">{language === 'TR' ? 'Ürün Tipi' : 'Product Type'}</dt>
+                    <dd className="text-slate-900 font-bold">
+                      {product.category === 'pump'
+                        ? (language === 'TR' ? 'Dalgıç Pompa' : 'Submersible Pump')
+                        : (language === 'TR' ? 'Dalgıç Motor' : 'Submersible Motor')}
+                    </dd>
+                  </div>
+                  {product.availableSizes && (
+                    <div>
+                      <dt className="text-slate-500 font-bold text-[10px] uppercase tracking-wider">{language === 'TR' ? 'Çap Seçenekleri' : 'Diameter Options'}</dt>
+                      <dd className="text-slate-900 font-bold">{compactSizes(product.availableSizes)}</dd>
+                    </div>
+                  )}
+                </dl>
 
                 <p className="text-slate-600 leading-relaxed">
                   {product.description}
@@ -1118,8 +1247,11 @@ export default function ProductDetail() {
               <div className="border-b border-slate-200 bg-slate-50 px-4 py-4">
                 {/* Mobile Dropdown for very small screens or simple list */}
                 <div className="md:hidden flex flex-col gap-2">
-                  <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide -mx-4 px-4">
+                  <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide -mx-4 px-4" role="tablist" aria-label={t('product.specs_title')}>
                     <button 
+                      role="tab"
+                      aria-selected={activeTab === 'overview'}
+                      aria-controls="tab-panel-overview"
                       onClick={() => setActiveTab('overview')}
                       className={cn(
                         "flex-shrink-0 px-4 py-2.5 rounded-full text-sm font-bold uppercase tracking-wide flex items-center gap-2 transition-all border whitespace-nowrap",
@@ -1131,6 +1263,9 @@ export default function ProductDetail() {
                       <Info className="w-4 h-4" /> {t('product.overview')}
                     </button>
                     <button 
+                      role="tab"
+                      aria-selected={activeTab === 'specs'}
+                      aria-controls="tab-panel-specs"
                       onClick={() => setActiveTab('specs')}
                       className={cn(
                         "flex-shrink-0 px-4 py-2.5 rounded-full text-sm font-bold uppercase tracking-wide flex items-center gap-2 transition-all border whitespace-nowrap",
@@ -1143,6 +1278,9 @@ export default function ProductDetail() {
                     </button>
                     {product.mechanicalPartsImages && (
                       <button 
+                        role="tab"
+                        aria-selected={activeTab === 'parts'}
+                        aria-controls="tab-panel-parts"
                         onClick={() => setActiveTab('parts')}
                         className={cn(
                           "flex-shrink-0 px-4 py-2.5 rounded-full text-sm font-bold uppercase tracking-wide flex items-center gap-2 transition-all border whitespace-nowrap",
@@ -1156,6 +1294,9 @@ export default function ProductDetail() {
                     )}
                     {product.options && (
                       <button 
+                        role="tab"
+                        aria-selected={activeTab === 'options'}
+                        aria-controls="tab-panel-options"
                         onClick={() => setActiveTab('options')}
                         className={cn(
                           "flex-shrink-0 px-4 py-2.5 rounded-full text-sm font-bold uppercase tracking-wide flex items-center gap-2 transition-all border whitespace-nowrap",
@@ -1171,8 +1312,11 @@ export default function ProductDetail() {
                 </div>
 
                 {/* Desktop Tabs */}
-                <div className="hidden md:flex gap-0 overflow-x-auto relative scrollbar-hide -mb-[17px]">
+                <div className="hidden md:flex gap-0 overflow-x-auto relative scrollbar-hide -mb-[17px]" role="tablist" aria-label={t('product.specs_title')}>
                   <button 
+                    role="tab"
+                    aria-selected={activeTab === 'overview'}
+                    aria-controls="tab-panel-overview"
                     onClick={() => setActiveTab('overview')}
                     className={cn(
                       "min-w-[140px] py-4 px-6 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap border-b-2 z-10",
@@ -1182,6 +1326,9 @@ export default function ProductDetail() {
                     <Info className="w-4 h-4" /> {t('product.overview')}
                   </button>
                   <button 
+                    role="tab"
+                    aria-selected={activeTab === 'specs'}
+                    aria-controls="tab-panel-specs"
                     onClick={() => setActiveTab('specs')}
                     className={cn(
                       "min-w-[140px] py-4 px-6 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap border-b-2 z-10",
@@ -1192,6 +1339,9 @@ export default function ProductDetail() {
                   </button>
                   {product.mechanicalPartsImages && (
                     <button 
+                      role="tab"
+                      aria-selected={activeTab === 'parts'}
+                      aria-controls="tab-panel-parts"
                       onClick={() => setActiveTab('parts')}
                       className={cn(
                         "min-w-[140px] py-4 px-6 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap border-b-2 z-10",
@@ -1203,6 +1353,9 @@ export default function ProductDetail() {
                   )}
                   {product.options && (
                     <button 
+                      role="tab"
+                      aria-selected={activeTab === 'options'}
+                      aria-controls="tab-panel-options"
                       onClick={() => setActiveTab('options')}
                       className={cn(
                         "min-w-[140px] py-4 px-6 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors whitespace-nowrap border-b-2 z-10",
@@ -1215,9 +1368,9 @@ export default function ProductDetail() {
                 </div>
               </div>
 
-              {/* Tab Content */}
+              {/* Tab Content — tüm paneller SEO için DOM'da; inaktifler CSS ile gizli */}
               <div className="flex-grow p-8 bg-white overflow-y-auto max-h-[500px]">
-                {activeTab === 'overview' && (
+                <div id="tab-panel-overview" role="tabpanel" aria-label={t('product.overview')} className={activeTab === 'overview' ? undefined : 'hidden'}>
                   <div className="space-y-8">
                     <div>
                       <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
@@ -1242,9 +1395,9 @@ export default function ProductDetail() {
                       </ul>
                     </div>
                   </div>
-                )}
+                </div>
 
-                {activeTab === 'specs' && (
+                <div id="tab-panel-specs" role="tabpanel" aria-label={t('product.specs')} className={activeTab === 'specs' ? undefined : 'hidden'}>
                   <div>
                      <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
                         <Settings className="w-4 h-4 text-primary" /> {t('product.specs_title')}
@@ -1252,7 +1405,7 @@ export default function ProductDetail() {
                       
                       {product.specsImage && (
                         <div className="mb-8">
-                          <img src={product.specsImage} alt="Teknik Özellikler" className="w-full border border-slate-200 rounded-sm" />
+                          <img src={product.specsImage} alt={`${product.name} — ${language === 'TR' ? 'teknik özellikler tablosu' : 'technical specifications table'}`} loading="lazy" className="w-full border border-slate-200 rounded-sm" />
                         </div>
                       )}
 
@@ -1320,9 +1473,10 @@ export default function ProductDetail() {
                         </div>
                       ))}
                   </div>
-                )}
+                </div>
 
-                {activeTab === 'parts' && product.mechanicalPartsImages && (
+                {product.mechanicalPartsImages && (
+                  <div id="tab-panel-parts" role="tabpanel" aria-label={t('product.parts')} className={activeTab === 'parts' ? undefined : 'hidden'}>
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                      {product.mechanicalPartsImages.map((part: { title: string; image: string }, idx: number) => (
                        <Dialog key={idx}>
@@ -1344,9 +1498,11 @@ export default function ProductDetail() {
                        </Dialog>
                      ))}
                    </div>
+                  </div>
                 )}
 
-                {activeTab === 'options' && product.options && (
+                {product.options && (
+                  <div id="tab-panel-options" role="tabpanel" aria-label={t('product.options')} className={activeTab === 'options' ? undefined : 'hidden'}>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
                       <Sliders className="w-4 h-4 text-primary" /> {t('product.options_title')}
@@ -1361,6 +1517,7 @@ export default function ProductDetail() {
                         </div>
                       ))}
                     </div>
+                  </div>
                   </div>
                 )}
               </div>
@@ -1381,77 +1538,8 @@ export default function ProductDetail() {
             </div>
           </div>
           
-          {/* Other Products - Infinite Marquee */}
-          <div className="mb-24 border-t border-slate-200 pt-16">
-            <div className="text-center mb-12">
-               <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
-                 <Settings className="w-8 h-8 text-primary" /> {t('product.other_products')}
-               </h2>
-               <p className="text-slate-500">{t('product.other_products_desc')}</p>
-            </div>
-
-            <div className="relative w-full overflow-hidden">
-               {/* Gradient Masks */}
-               <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
-               <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
-
-               <motion.div 
-                 className="flex gap-6 px-6"
-                 animate={{ x: ["0%", "-50%"] }}
-                 transition={{ 
-                   repeat: Infinity, 
-                   ease: "linear", 
-                   duration: 40 
-                 }}
-                 style={{ width: "fit-content" }}
-               >
-                 {[...products, ...products].filter(p => p.id !== product.id).map((baseP, index) => {
-                   const p = getProductWithLanguage(baseP, language);
-                   return (
-                   <div key={`${p.id}-${index}`} className="w-[260px] md:w-[320px] flex-shrink-0">
-                     <Link href={productPath(p.id, en)} className="group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-primary transition-all duration-300 hover:shadow-lg flex flex-col h-full">
-                         <div className="aspect-[4/5] bg-white relative overflow-hidden flex items-center justify-center p-6 border-b border-slate-100">
-                           <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                           
-                           <div className="absolute top-3 left-3 z-20">
-                             {/* Subcategory Badge removed as per request */}
-                           </div>
-
-                           <img 
-                             src={p.image} 
-                             alt={p.name}
-                             className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-500 ease-out"
-                           />
-                           
-                           {/* Quick View Button */}
-                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 pointer-events-none">
-                             <div className="bg-white/90 text-slate-900 font-bold text-sm px-6 py-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 border border-slate-100">
-                               {t('product.view_details')}
-                             </div>
-                           </div>
-                         </div>
-                         
-                         <div className="p-5 flex flex-col flex-grow relative bg-white">
-                           <h3 className="font-bold text-lg text-slate-900 group-hover:text-primary transition-colors mb-2 line-clamp-2">
-                             {p.name}
-                           </h3>
-                           <p className="text-slate-500 text-sm line-clamp-2 mb-4 flex-grow leading-relaxed">
-                             {p.description}
-                           </p>
-                           <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
-                              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{p.modelCode}</span>
-                              <span className="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                {t('product.details')} <ArrowRight className="w-3.5 h-3.5" />
-                              </span>
-                           </div>
-                         </div>
-                     </Link>
-                   </div>
-                   );
-                 })}
-               </motion.div>
-            </div>
-          </div>
+          {/* Other Products - Infinite Marquee (ortak bileşen) */}
+          <OtherProductsMarquee currentId={product.id} en={en} />
         </div>
       </div>
     </Layout>
