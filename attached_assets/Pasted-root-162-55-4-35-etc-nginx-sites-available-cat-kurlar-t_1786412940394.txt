@@ -1,0 +1,63 @@
+root@162-55-4-35:/etc/nginx/sites-available# cat kurlar.toov.com.tr.conf
+# www -> non-www kalıcı yönlendirme
+server {
+    listen 443 ssl;
+    server_name www.kurlar.com.tr;
+
+    ssl_certificate /etc/letsencrypt/live/kurlar.com.tr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/kurlar.com.tr/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    return 301 https://kurlar.com.tr$request_uri;
+}
+
+# Ana site
+server {
+    listen 443 ssl;
+    server_name kurlar.com.tr;
+
+    ssl_certificate /etc/letsencrypt/live/kurlar.com.tr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/kurlar.com.tr/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    # Güvenlik başlıkları
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    # Gzip
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml image/svg+xml;
+
+    # Statik dosyalar doğrudan Nginx'ten (JS/CSS/img) — Express'i bypass eder, hızlıdır
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|pdf)$ {
+        root /var/www/kurlar/dist/public;
+        expires 365d;
+        add_header Cache-Control "public, no-transform, max-age=31536000";
+        access_log off;
+        try_files $uri =404;
+    }
+
+    # Dinamik isteklerin tamamı Express'e (SSR, sitemap, robots, llms.txt, 404, 301)
+    location / {
+        proxy_pass http://127.0.0.1:1455;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# HTTP -> HTTPS yönlendirme
+server {
+    listen 80;
+    server_name kurlar.com.tr www.kurlar.com.tr;
+    return 301 https://kurlar.com.tr$request_uri;
+}
+root@162-55-4-35:/etc/nginx/sites-available#
