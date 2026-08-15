@@ -1,0 +1,770 @@
+Aşağıdaki projeyi Ubuntu 22.04 kurulu temiz bir production sunucusuna kuracağım.
+
+Sana ayrıca şu iki bilgiyi vereceğim:
+
+* Git Repository: https://github.com/j1vetr/kurlar
+* Domain: kurlar.com.tr
+* Port : 3001
+
+Sen deployment işlemini kendin yapmayacaksın.
+
+Projeyi detaylı şekilde analiz edeceksin ve bana SSH terminalinde sırayla çalıştıracağım tüm komutları eksiksiz olarak vereceksin.
+
+Amacım verdiğin komutları yukarıdan aşağıya copy/paste ederek projeyi production ortamında ayağa kaldırabilmek.
+
+# 1. Önce projeyi analiz et
+
+Git repository içerisindeki projeyi gerçekten incele.
+
+Şunları tespit et:
+
+* Backend teknolojisi
+* Frontend teknolojisi
+* Node.js / Python / PHP vb.
+* Gerekli runtime sürümü
+* npm / pnpm / yarn hangisinin kullanıldığı
+* package.json scriptleri
+* Build komutu
+* Production start komutu
+* Uygulama portu
+* PostgreSQL / MySQL / Redis gibi servis gereksinimleri
+* ORM kullanılıyorsa hangisi
+* Database migration yöntemi
+* Seed işlemi
+* Environment değişkenleri
+* Replit'e özel environment değişkenleri veya servisleri
+* Session / JWT / encryption secret gereksinimleri
+* Dosya upload/storage dizinleri
+* WebSocket kullanımı
+* Background worker
+* Queue sistemi
+* Cron job
+* Frontend SPA olup olmadığı
+* SSR kullanılıp kullanılmadığı
+
+Tahmin ederek standart bir Node.js deployment rehberi oluşturma.
+
+Repository içerisindeki gerçek proje yapısına göre hareket et.
+
+# 2. Git kurulumu
+
+Proje Git üzerinden kurulacak.
+
+Git repository URL'sini sana ben vereceğim.
+
+Projeyi tercihen:
+
+`/var/www/PROJE_ADI`
+
+altına kur.
+
+Bunun için gereken bütün komutları ver.
+
+Örneğin:
+
+```bash
+mkdir -p /var/www/PROJE_ADI
+cd /var/www
+git clone GIT_REPOSITORY_URL PROJE_ADI
+cd /var/www/PROJE_ADI
+```
+
+Ancak repository'nin yapısına göre gerekli değişiklikleri yap.
+
+Git private repository ise authentication için güvenli yöntemi ayrıca belirt.
+
+# 3. Ubuntu 22.04 hazırlığı
+
+Sunucunun temiz Ubuntu 22.04 olduğunu varsay.
+
+Sadece projenin ihtiyacı olan paketleri kur.
+
+Gerekiyorsa:
+
+* git
+* curl
+* nginx
+* build-essential
+* Node.js
+* npm
+* pnpm
+* PostgreSQL
+* MySQL
+* Redis
+* Certbot
+* PM2
+
+kurulum komutlarını ver.
+
+Gereksiz servis kurma.
+
+Node.js gerekiyorsa projenin ihtiyaç duyduğu Node.js sürümünü repository üzerinden tespit et.
+
+`.nvmrc`, `package.json engines`, lockfile veya kullanılan paketlere bak.
+
+# 4. Production Linux kullanıcısı
+
+Uygulamanın root kullanıcısıyla çalışması yerine ayrı kullanıcı kullanılması daha doğruysa production için bir Linux kullanıcısı oluştur.
+
+Örneğin:
+
+`PROJE_ADI`
+
+Ancak kullanıcı adı için Linux'a uygun bir isim belirle.
+
+Kullanıcı oluşturma, ownership ve permission komutlarının tamamını ver.
+
+Gereksiz şekilde `chmod 777` kullanma.
+
+# 5. Veritabanı
+
+Projede database gerekiyorsa repository'den hangi database'in kullanıldığını tespit et.
+
+Örneğin PostgreSQL gerekiyorsa bana eksiksiz şekilde:
+
+* PostgreSQL kurulumu
+* PostgreSQL servisinin aktif edilmesi
+* Production database oluşturulması
+* Production database kullanıcısı oluşturulması
+* Güçlü password oluşturulması
+* Kullanıcıya gerekli yetkilerin verilmesi
+* Database ownership
+* Bağlantı testi
+* DATABASE_URL oluşturulması
+
+için tüm komutları ver.
+
+Sadece:
+
+"PostgreSQL oluştur"
+
+şeklinde açıklama yapma.
+
+Çalıştıracağım gerçek SQL/Linux komutlarını yaz.
+
+Password gerekiyorsa güvenli random şifre üretmek için örneğin:
+
+```bash
+openssl rand -base64 32
+```
+
+benzeri güvenli bir yöntem kullan.
+
+Oluşturulan şifrenin `.env` dosyasında nasıl kullanılacağını göster.
+
+Database'i public internete açma.
+
+Mümkünse yalnızca localhost üzerinden bağlantı kurulsun.
+
+# 6. Environment değişkenleri
+
+Repository içerisinden gereken bütün environment variable'ları tespit et.
+
+Özellikle:
+
+* `.env.example`
+* `.env`
+* source code
+* config dosyaları
+* package.json
+* ORM config
+* Replit environment kullanımları
+
+üzerinden kontrol et.
+
+Production `.env` dosyasını:
+
+`/var/www/PROJE_ADI/.env`
+
+konumunda oluştur.
+
+Dosyanın TAM içeriğini bana ver.
+
+Örneğin secret gerekiyorsa:
+
+```bash
+openssl rand -hex 32
+```
+
+gibi komutlarla production secret oluştur.
+
+Replit'e özel environment variable varsa Ubuntu production ortamında bunun yerine ne kullanılması gerektiğini belirt.
+
+Development secretlarını veya Replit secretlarını körü körüne production'a taşıma.
+
+`.env` izinlerini güvenli hale getir.
+
+Örneğin uygun olduğu durumda:
+
+```bash
+chmod 600 /var/www/PROJE_ADI/.env
+```
+
+# 7. Dependency kurulumu
+
+Repository'deki lockfile'a göre doğru package manager'ı kullan.
+
+Örneğin:
+
+`package-lock.json` → npm
+
+`pnpm-lock.yaml` → pnpm
+
+`yarn.lock` → yarn
+
+Lockfile varsa reproducible production installation tercih et.
+
+Örneğin npm için uygunsa:
+
+```bash
+npm ci
+```
+
+kullan.
+
+Projeyi incelemeden `npm install` varsayımı yapma.
+
+# 8. Database migration
+
+Projede ORM veya migration sistemi varsa tespit et.
+
+Örneğin:
+
+* Prisma
+* Drizzle
+* Sequelize
+* TypeORM
+* Knex
+* Django
+* Alembic
+
+Production migration için gerçek komutu ver.
+
+Örneğin Prisma varsa development için kullanılan:
+
+```bash
+prisma migrate dev
+```
+
+yerine production için uygun migration komutunu seç.
+
+Seed zorunluysa ayrıca belirt.
+
+Development database'ini production'a yanlışlıkla taşıma.
+
+# 9. Build
+
+Repository'deki gerçek scriptlere göre production build komutunu belirle.
+
+Örneğin:
+
+```bash
+npm run build
+```
+
+ancak gerçekten projede varsa kullan.
+
+Build sonrasında:
+
+* hangi klasörün oluşacağını
+* backend'in hangi dosyadan başlayacağını
+* frontend'in Nginx tarafından mı yoksa backend tarafından mı servis edileceğini
+
+açıkça belirt.
+
+# 10. PM2 kullanılacak
+
+Uygulamanın process management sistemi olarak PM2 kullan.
+
+Uygulama için manuel olarak:
+
+`/etc/systemd/system/proje.service`
+
+gibi custom systemd service dosyaları OLUŞTURMA.
+
+PM2 kullan.
+
+Tercihen repository root'una:
+
+`ecosystem.config.cjs`
+
+oluştur.
+
+Dosyanın TAM içeriğini bana ver.
+
+PM2 configuration içerisinde uygun şekilde:
+
+* name
+* cwd
+* script
+* args
+* NODE_ENV
+* PORT
+* autorestart
+* restart delay
+* max memory restart
+* log tarihleri
+
+gibi ayarları yap.
+
+Proje npm script üzerinden başlıyorsa PM2'yi ona göre yapılandır.
+
+Sonrasında gereken komutları eksiksiz ver:
+
+```bash
+pm2 start ecosystem.config.cjs
+pm2 status
+pm2 logs
+pm2 save
+pm2 startup
+```
+
+`pm2 startup` çıktısında çalıştırmam gereken komutu da ayrıca belirt.
+
+PM2'nin systemd ile kendi startup servisini oluşturması normaldir.
+
+Ancak uygulama için ayrıca manuel `.service` dosyası oluşturma.
+
+Birden fazla application process varsa mümkün olduğu sürece hepsini aynı PM2 ecosystem dosyası içerisinde yönet.
+
+# 11. Uygulama localhost üzerinden çalışsın
+
+Backend'in production portunu tespit et.
+
+Mümkünse uygulama:
+
+```text
+127.0.0.1:PORT
+```
+
+üzerinde dinlesin.
+
+Uygulama portunu dış internete açma.
+
+Örneğin 3001 portu kullanılıyorsa:
+
+`SUNUCU_IP:3001`
+
+public olarak erişilebilir olmasın.
+
+Trafik Nginx üzerinden gelsin.
+
+# 12. Nginx
+
+Nginx reverse proxy configuration oluştur.
+
+EN ÖNEMLİ KURALLARDAN BİRİ:
+
+Nginx configuration dosyasının uzantısı MUTLAKA `.conf` olacak.
+
+Örneğin:
+
+```text
+/etc/nginx/sites-available/DOMAIN_ADI.conf
+```
+
+oluştur.
+
+Aşağıdaki gibi extension'sız dosya oluşturma:
+
+```text
+/etc/nginx/sites-available/DOMAIN_ADI
+```
+
+DOĞRU:
+
+```text
+/etc/nginx/sites-available/DOMAIN_ADI.conf
+```
+
+Symlink de:
+
+```text
+/etc/nginx/sites-enabled/DOMAIN_ADI.conf
+```
+
+olacak.
+
+Dosyayı oluşturmak için mümkünse bana örneğin:
+
+```bash
+nano /etc/nginx/sites-available/DOMAIN_ADI.conf
+```
+
+komutunu ver.
+
+Ardından dosyanın TAM içeriğini ver.
+
+Nginx içerisinde gerekli olduğu durumda:
+
+```nginx
+proxy_http_version 1.1;
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+```
+
+kullan.
+
+WebSocket varsa:
+
+```nginx
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection "upgrade";
+```
+
+ayarlarını ekle.
+
+Ancak gereksiz yapılandırma ekleme.
+
+Frontend static SPA ise `root`, `index`, `try_files` yapılandırmasını projeye göre hazırla.
+
+SSR/full-stack uygulamaysa reverse proxy yapısını ona göre kur.
+
+Symlink oluşturma komutunu da ver.
+
+Ardından mutlaka:
+
+```bash
+nginx -t
+```
+
+ile test et.
+
+Test başarılı olduktan sonra:
+
+```bash
+systemctl reload nginx
+```
+
+çalıştır.
+
+# 13. Domain
+
+Domain adını sana ben vereceğim.
+
+Nginx içerisinde:
+
+```text
+DOMAIN_ADI
+www.DOMAIN_ADI
+```
+
+kullan.
+
+DNS tarafında oluşturmam gereken kayıtları da belirt.
+
+Genellikle:
+
+```text
+A   @      SUNUCU_IP
+A   www    SUNUCU_IP
+```
+
+şeklinde olacak.
+
+# 14. SSL
+
+HTTP site çalıştıktan sonra Let's Encrypt SSL kurulumu yap.
+
+Ubuntu 22.04 + Nginx için Certbot kullan.
+
+Gerekli paket ve komutları ver.
+
+Domain ve www için SSL oluştur.
+
+Örneğin uygun olduğu durumda:
+
+```bash
+certbot --nginx -d DOMAIN_ADI -d www.DOMAIN_ADI
+```
+
+kullan.
+
+HTTP → HTTPS redirect aktif olsun.
+
+Sonrasında SSL renewal testi yap:
+
+```bash
+certbot renew --dry-run
+```
+
+# 15. Firewall
+
+UFW kullanılacaksa SSH bağlantımı yanlışlıkla kapatmayacak şekilde yapılandır.
+
+İzin verilmesi gereken servisler:
+
+* SSH
+* HTTP
+* HTTPS
+
+Örneğin:
+
+```bash
+ufw allow OpenSSH
+ufw allow 'Nginx Full'
+ufw enable
+ufw status
+```
+
+Uygulamanın internal portunu UFW üzerinden açma.
+
+Database ve Redis portlarını da internete açma.
+
+# 16. Testler
+
+Deployment tamamlandıktan sonra bana kontrol komutlarını sırayla ver.
+
+Örneğin:
+
+```bash
+pm2 status
+pm2 logs PROJE_ADI
+```
+
+Application port:
+
+```bash
+ss -lntp
+```
+
+Local application testi:
+
+```bash
+curl -I http://127.0.0.1:PORT
+```
+
+Nginx:
+
+```bash
+nginx -t
+systemctl status nginx
+```
+
+Domain:
+
+```bash
+curl -I https://DOMAIN_ADI
+```
+
+Database testi gerekiyorsa onu da ekle.
+
+Repository'de health endpoint varsa onu kullan.
+
+# 17. Production güncelleme sistemi
+
+Bu proje Git üzerinden güncellenecek.
+
+İleride yeni sürüm deploy edeceğim zaman kullanacağım güncelleme akışını ayrıca hazırla.
+
+Temel mantık:
+
+```bash
+cd /var/www/PROJE_ADI
+git pull
+DEPENDENCY_COMMAND
+MIGRATION_COMMAND
+BUILD_COMMAND
+pm2 restart PROJE_ADI
+```
+
+olacak.
+
+Ancak gerçek komutları repository'ye göre belirle.
+
+# 18. deploy.sh oluştur
+
+Production deploy işlemini kolaylaştırmak için:
+
+```text
+/var/www/PROJE_ADI/deploy.sh
+```
+
+dosyasını hazırla.
+
+Dosyanın TAM içeriğini ver.
+
+Script uygun olduğu durumda:
+
+1. Doğru dizine geçsin.
+2. Git'ten son sürümü çeksin.
+3. Dependency'leri güncellesin.
+4. Migration çalıştırsın.
+5. Build alsın.
+6. Başarılı olursa PM2 processini reload/restart etsin.
+7. Hata oluşursa mümkün olduğunca deployment'ı durdursun.
+
+Script başında:
+
+```bash
+set -e
+```
+
+ve gerekiyorsa:
+
+```bash
+set -euo pipefail
+```
+
+kullan.
+
+Ardından:
+
+```bash
+chmod +x deploy.sh
+```
+
+komutunu ver.
+
+Sonraki deploylarda mümkünse:
+
+```bash
+./deploy.sh
+```
+
+yeterli olsun.
+
+# 19. Log ve hata ayıklama
+
+Kurulumda sorun oluşursa kullanacağım komutları ayrıca yaz.
+
+PM2:
+
+```bash
+pm2 logs
+pm2 describe PROJE_ADI
+```
+
+Nginx:
+
+```bash
+tail -f /var/log/nginx/error.log
+tail -f /var/log/nginx/access.log
+```
+
+Portlar:
+
+```bash
+ss -lntp
+```
+
+Sistem:
+
+```bash
+df -h
+free -h
+```
+
+Database gerekiyorsa servis durumunu kontrol etmek için gerekli komutları da ekle.
+
+# 20. Çok önemli kurallar
+
+Aşağıdaki kurallara kesinlikle uy:
+
+1. Ubuntu 22.04 kullanılacak.
+2. Git repository URL'sini ben vereceğim.
+3. Domain adını ben vereceğim.
+4. Projeyi repository üzerinden gerçekten analiz et.
+5. Generic deployment rehberi oluşturma.
+6. Çalıştırılabilir gerçek terminal komutları ver.
+7. Custom systemd application service oluşturma.
+8. Application process manager olarak PM2 kullan.
+9. Birden fazla process varsa mümkünse tek PM2 ecosystem dosyasında yönet.
+10. Nginx dosyasının uzantısı MUTLAKA `.conf` olacak.
+11. `/etc/nginx/sites-available/DOMAIN_ADI.conf` kullan.
+12. `/etc/nginx/sites-enabled/DOMAIN_ADI.conf` symlink oluştur.
+13. Uygulama portunu public internete açma.
+14. Database gerekiyorsa database + user + password + permissions dahil sıfırdan kur.
+15. Production `.env` oluştur.
+16. Replit'e özel yapılandırmaları Ubuntu production ortamına uygun hale getir.
+17. Migration işlemini unutma.
+18. SSL Certbot ile kurulacak.
+19. Gereksiz servis kurma.
+20. `chmod 777` kullanma.
+21. Database ve Redis'i public internete açma.
+22. Tüm dosyaların TAM pathlerini ver.
+23. Oluşturulacak config dosyalarının TAM içeriklerini ver.
+24. Ben istemediğim sürece sunucu üzerinde hiçbir işlem yapma.
+25. Bana yalnızca uygulanacak komutları ve gerekli configleri hazırla.
+
+# ÇIKTI FORMATI
+
+Çıktıyı adım adım şu mantıkla hazırla:
+
+## ADIM 1 - Proje Analizi
+
+Tespit ettiğin teknolojileri yaz.
+
+## ADIM 2 - Sunucu Hazırlığı
+
+Kısa açıklama.
+
+Ardından çalıştıracağım komutlar.
+
+## ADIM 3 - Git Clone
+
+Komutlar.
+
+## ADIM 4 - Database
+
+Komutlar + SQL.
+
+## ADIM 5 - .env
+
+Dosyanın tam içeriği.
+
+## ADIM 6 - Dependency
+
+Komutlar.
+
+## ADIM 7 - Migration
+
+Komutlar.
+
+## ADIM 8 - Build
+
+Komutlar.
+
+## ADIM 9 - PM2
+
+ecosystem dosyası + komutlar.
+
+## ADIM 10 - Nginx
+
+`.conf` dosyası + symlink + test.
+
+## ADIM 11 - SSL
+
+Komutlar.
+
+## ADIM 12 - Firewall
+
+Komutlar.
+
+## ADIM 13 - Test
+
+Test komutları.
+
+## ADIM 14 - Güncelleme
+
+Git pull deployment akışı.
+
+## ADIM 15 - deploy.sh
+
+Dosyanın tam içeriği.
+
+## ADIM 16 - Troubleshooting
+
+Log ve hata kontrol komutları.
+
+En sona:
+
+# PRODUCTION DEPLOYMENT CHECKLIST
+
+başlığı altında kısa bir checklist ekle.
+
+Unutma:
+
+Ben senden deployment yapmanı değil, repository'deki bu projeye özel Ubuntu 22.04 production deployment komutlarını hazırlamanı istiyorum.
