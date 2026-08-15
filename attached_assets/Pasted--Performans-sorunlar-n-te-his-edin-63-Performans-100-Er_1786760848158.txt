@@ -1,0 +1,204 @@
+
+Performans sorunlarını teşhis edin
+63
+Performans
+100
+Erişilebilirlik
+96
+En İyi Uygulamalar
+100
+SEO
+3/3
+Ajan Tabanlı Tarama
+63
+FCP
++3
+LCP
++5
+TBT
++27
+CLS
++25
+SI
++3
+Performans
+Değerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.
+0–49
+50–89
+90–100
+Final Screenshot
+
+Metrikler
+Görünümü genişlet
+First Contentful Paint
+3,8 sn.
+Largest Contentful Paint
+5,3 sn.
+Total Blocking Time
+190 ms.
+Cumulative Layout Shift
+0
+Speed Index
+7,1 sn.
+Captured at 15 Ağu 2026 05:26 GMT+3
+Emülasyonlu Moto G Power with Lighthouse 13.4.1
+Tek sayfalık oturum
+İlk sayfa yükleme
+Yavaş 4G kısıtlaması
+Using HeadlessChromium 150.0.7871.186 with lr
+Ağaç grafiği göster
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Şunlarla alakalı denetimleri göster:
+
+All
+
+FCP
+
+LCP
+
+TBT
+Analizler
+Oluşturma engelleme istekleri Tahmini tasarruf: 400 ms.
+İstekler sayfanın ilk oluşturma işlemini engelliyor. Bu durum, LCP'yi geciktirebilir. Erteleme veya satır içine yerleştirme, bu ağ isteklerini kritik yoldan uzaklaştırabilir.LCPFCPPuanlanmamış
+URL
+Aktarım Boyutu
+Süre
+kurlar.com.tr 1. taraf
+27,0 KiB	410 msn
+/assets/index-rrkRcEIp.css(kurlar.com.tr)
+27,0 KiB
+410 msn
+LCP dökümü
+Her alt bölüm için belirli iyileştirme stratejileri vardır. İdeal olarak LCP süresinin çoğu gecikmeler için değil, kaynakları yüklemek için harcanmalıdır.LCPPuanlanmamış
+Alt bölüm
+Süre
+Time to First Byte
+0 msn
+Öğe oluşturma gecikmesi
+2.520 msn
+Ağ bağımlılık ağacı
+Sayfaların daha kolay yüklenmesi için zincir uzunluğunu azaltarak, kaynakların indirme boyutunu küçülterek veya gereksiz kaynakların indirilmesini erteleyerek kritik istek zinciri oluşturmaktan kaçının.LCPPuanlanmamış
+Maksimum kritik yol gecikmesi: 1.403 msn
+İlk Gezinme
+https://kurlar.com.tr - 379 msn, 10,07 KiB
+/assets/index-DndghiWD.js(kurlar.com.tr) - 875 msn, 154,16 KiB
+/assets/Home-Vc-cLb7R.js(kurlar.com.tr) - 1.183 msn, 4,71 KiB
+/assets/SEO-CCN0vAUz.js(kurlar.com.tr) - 1.395 msn, 54,00 KiB
+/assets/button-Ch7aRy7j.js(kurlar.com.tr) - 1.292 msn, 1,77 KiB
+/assets/index-sRvd8SM0.js(kurlar.com.tr) - 1.181 msn, 2,10 KiB
+/assets/proxy-CPdcj1wE.js(kurlar.com.tr) - 1.403 msn, 42,55 KiB
+/assets/map-pin-CtPGT-KR.js(kurlar.com.tr) - 1.176 msn, 0,80 KiB
+/assets/product-s….js(kurlar.com.tr) - 1.175 msn, 1,53 KiB
+/assets/globe-cdbcaRJP.js(kurlar.com.tr) - 1.291 msn, 1,28 KiB
+/assets/index-rrkRcEIp.css(kurlar.com.tr) - 762 msn, 26,97 KiB
+Önceden bağlanmış kaynaklar
+Önceden bağlanma ipuçları, sayfa yüklenirken tarayıcının gerekli bağlantıları önceden kurmasına yardımcı olarak ilgili kaynağa yapılacak ilk istekte zaman kazandırır. Sayfanın önceden bağlantı kurduğu kaynaklar aşağıda verilmiştir.
+Kaynak
+Kaynak
+https://fonts.googleapis.com/
+head > link
+<link rel="preconnect" href="https://fonts.googleapis.com">
+https://fonts.gstatic.com/
+head > link
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+https://i.ytimg.com/
+head > link
+<link rel="preconnect" href="https://i.ytimg.com">
+Kullanılmayan ön bağlantı. Yalnızca sayfanın isteyebileceği kaynaklar için preconnect öğesini kullanın.
+Önceden bağlanma adayları
+En önemli kaynaklarınıza önceden bağlanma ipuçları ekleyin ancak 4'ten az ipucu kullanmaya çalışın.
+Kaynak
+Tahmini LCP tasarrufu
+https://www.youtube-nocookie.com
+300 msn
+Resim yayınlamayı kolaylaştırın Tahmini tasarruf: 165 KiB
+Resimlerin indirme süresini kısaltmak, sayfanın algılanan yükleme süresini ve LCP'yi daha iyi hale getirebilir. Resim boyutunu optimize etme hakkında daha fazla bilgi edinin.LCPFCPPuanlanmamış
+URL
+Kaynak Boyutu
+Tahmini Tasarruf
+kurlar.com.tr 1. taraf
+206,3 KiB	164,8 KiB
+Kurlar Fabrika
+<img src="/assets/gallery/kurlarsld.webp" alt="Kurlar Fabrika" width="960" height="540" loading="lazy" decoding="async" class="w-full h-full object-cover">
+…gallery/kurlarsld.webp(kurlar.com.tr)
+70,0 KiB
+59,9 KiB
+Bu resim dosyası, görüntülenen boyutlarına (364x205) göre olması gerekenden (960x540) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+59,9 KiB
+4″ Noryl Dalgıç Pompalar
+<img src="/assets/products/kpn41.webp" srcset="/assets/products/kpn41-card.webp 235w, /assets/products/kpn41.webp 500w" sizes="(max-width: 768px) 55vw, 320px" alt="4″ Noryl Dalgıç Pompalar" loading="lazy" decoding="async" width="500" height="1319" class="w-full h-full object-contain relative z-10 transform group-hover:scale-110…">
+…products/kpn41.webp(kurlar.com.tr)
+51,8 KiB
+49,0 KiB
+Bu resim dosyası, görüntülenen boyutlarına (117x309) göre olması gerekenden (500x1319) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+49,0 KiB
+Paslanmaz Çelik Dalgıç Pompalar
+<img src="https://kurlar.com.tr/assets/products/kp1-card.webp" srcset="/assets/products/kp1-card.webp 413w, /assets/products/kp1.webp 700w" sizes="(max-width: 768px) 55vw, 320px" alt="Paslanmaz Çelik Dalgıç Pompalar" loading="lazy" decoding="async" width="700" height="1050" class="w-full h-full object-contain relative z-10 transform group-hover:scale-110…">
+…products/kp1-card.webp(kurlar.com.tr)
+38,9 KiB
+29,3 KiB
+Bu resim dosyası, görüntülenen boyutlarına (206x309) göre olması gerekenden (413x620) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+29,3 KiB
+main.flex-grow > div.relative > div.absolute > img.absolute
+<img src="/assets/gallery/hero-bg.webp" alt="" aria-hidden="true" width="700" height="467" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover">
+…gallery/hero-bg.webp(kurlar.com.tr)
+37,4 KiB
+19,7 KiB
+Resim sıkıştırma faktörünü artırarak bu resmin indirme boyutunu küçültebilirsiniz.
+19,7 KiB
+Kurlar Logo
+<img src="/assets/logo-nav.webp" alt="Kurlar Logo" width="310" height="96" loading="lazy" class="h-12 w-auto object-contain brightness-0 invert">
+/assets/logo-nav.webp(kurlar.com.tr)
+8,1 KiB
+6,9 KiB
+Bu resim dosyası, görüntülenen boyutlarına (155x48) göre olması gerekenden (310x96) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+6,1 KiB
+3. taraflar
+Bu analizler Chrome Geliştirici Araçları Performans Paneli'nde de mevcuttur. Daha ayrıntılı bilgi görüntülemek için izleme kaydı oluşturun.
+Teşhis
+Kullanılmayan JavaScript'i azaltın Tahmini tasarruf: 612 KiB
+Ağ etkinliğinin kullandığı bayt sayısını azaltılmaları gerekene kadar kullanılmayan JavaScript'i azaltıp komut dosyalarını erteleyin. Kullanılmayan JavaScript'i nasıl azaltacağınızı öğrenin.LCPFCPPuanlanmamış
+URL
+Aktarım Boyutu
+Tahmini Tasarruf
+YouTube video 
+855,5 KiB	531,6 KiB
+…en_US/base.js(www.youtube-nocookie.com)
+466,3 KiB
+330,5 KiB
+…rs=AGKMywGzv…/m=r78Drb(www.youtube-nocookie.com)
+235,5 KiB
+121,5 KiB
+…rs=AGKMywGlf…/m=root,base(www.youtube-nocookie.com)
+153,7 KiB
+79,6 KiB
+kurlar.com.tr 1. taraf
+192,0 KiB	80,8 KiB
+/assets/index-DndghiWD.js(kurlar.com.tr)
+149,9 KiB
+57,1 KiB
+/assets/proxy-CPdcj1wE.js(kurlar.com.tr)
+42,1 KiB
+23,7 KiB
+Kullanılmayan CSS'yi azaltın Tahmini tasarruf: 110 KiB
+Ağ etkinliğinin kullandığı bayt sayısını azaltmak üzere stil sayfalarında kullanılmayan kuralları azaltıp ekranın üst kısmında içerik için kullanılmayan CSS'yi erteleyin. Kullanılmayan CSS'yi nasıl azaltacağınızı öğrenin.LCPFCPPuanlanmamış
+URL
+Aktarım Boyutu
+Tahmini Tasarruf
+YouTube video 
+56,2 KiB	55,8 KiB
+…b0d2d49a/www-player.css(www.youtube-nocookie.com)
+56,2 KiB
+55,8 KiB
+İlişkilendirilemez
+55,0 KiB	54,1 KiB
+:root{--t3a480c2f814ef19c:initial;--t77e217518bcd986b:initial;--tc5e0863356bf5767:initial;--t7a2234…
+55,0 KiB
+54,1 KiB
