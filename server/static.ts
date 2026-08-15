@@ -41,6 +41,43 @@ export async function serveStatic(app: Express) {
   const nodeRequire = createRequire(__filename);
   const entry = nodeRequire(path.resolve(__dirname, "server", "entry-server.cjs"));
 
+  // Route bazlı modulepreload: Vite manifest'inden sayfa chunk'ı + tüm statik
+  // import'ları toplanır; SSR HTML'ine eklenir (kritik istek zinciri kısalır).
+  let manifest: Record<string, { file: string; imports?: string[] }> = {};
+  try {
+    manifest = JSON.parse(
+      fs.readFileSync(path.resolve(distPath, ".vite", "manifest.json"), "utf-8"),
+    );
+  } catch {
+    console.warn("[ssr] vite manifest bulunamadı; modulepreload devre dışı");
+  }
+  // Entry'nin chunk'ları HTML'de zaten script/modulepreload olarak var — tekrarı önle.
+  const entryFiles = new Set<string>();
+  const collect = (key: string, out: Set<string>, seen = new Set<string>()) => {
+    if (seen.has(key)) return;
+    seen.add(key);
+    const item = manifest[key];
+    if (!item) return;
+    out.add(item.file);
+    for (const imp of item.imports ?? []) collect(imp, out, seen);
+  };
+  collect("index.html", entryFiles);
+  const preloadCache = new Map<string, string>();
+  const preloadLinksFor = (pathname: string): string => {
+    const key = entry.pageModuleFor?.(pathname);
+    if (!key || !manifest[key]) return "";
+    const cached = preloadCache.get(key);
+    if (cached !== undefined) return cached;
+    const files = new Set<string>();
+    collect(key, files);
+    const links = Array.from(files)
+      .filter((f) => !entryFiles.has(f) && f.endsWith(".js"))
+      .map((f) => `<link rel="modulepreload" crossorigin href="/${f}">`)
+      .join("\n    ");
+    preloadCache.set(key, links);
+    return links;
+  };
+
   // Dinamik SEO dosyaları — veri modelleriyle senkron üretim.
   app.get(SEO_FILE_PATHS, (req, res, next) => {
     if (!sendSeoFile(req.path, entry, res)) next();
@@ -60,10 +97,12 @@ export async function serveStatic(app: Express) {
       resolvedStatus = resolved.status;
 
       const { html, head, status, lang } = await entry.render(url);
+      const preloads = preloadLinksFor(pathname);
+      const fullHead = preloads ? `${head}\n    ${preloads}` : head;
       res
         .status(status)
         .set({ "Content-Type": "text/html" })
-        .end(injectTemplate(template, head, html, lang));
+        .end(injectTemplate(template, fullHead, html, lang));
     } catch (err) {
       // SSR must never take the site down: fall back to the CSR shell,
       // but keep honest HTTP semantics (404 stays 404, errors are 503).

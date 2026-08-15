@@ -117,6 +117,33 @@ export function resolveUrl(pathname: string, search?: string): ResolvedUrl {
   return { status: 404 };
 }
 
+/**
+ * URL → code-split sayfa modülü (Vite manifest anahtarı). Server bu bilgiyle
+ * SSR HTML'ine <link rel="modulepreload"> enjekte eder; tarayıcı sayfa
+ * chunk'larını ana bundle'ı beklemeden paralel indirir (kritik istek zinciri).
+ */
+export function pageModuleFor(pathname: string): string {
+  const page = (name: string) => `src/pages/${name}.tsx`;
+  if (pathname === "/" || pathname === "/en") return page("Home");
+  if (pathname === "/urunler" || pathname === "/en/products") return page("Products");
+  if (CATEGORY_PATHS.has(pathname) || EN_CATEGORY_PATHS.has(pathname)) return page("CategoryPage");
+  if (/^\/urunler\/[^/]+$/.test(pathname) || /^\/en\/products\/[^/]+$/.test(pathname))
+    return page("ProductDetail");
+  if (pathname === "/rehber") return page("GuideIndex");
+  if (pathname.startsWith("/rehber/")) return page("GuideDetail");
+  switch (pathname) {
+    case "/hakkimizda": return page("About");
+    case "/arge-merkezi": return page("RAndD");
+    case "/sertifikalarimiz": return page("Certificates");
+    case "/kariyer": return page("Careers");
+    case "/bayi-servis": return page("Dealers");
+    case "/iletisim": return page("Contact");
+    case "/gizlilik-politikasi": return page("PrivacyPolicy");
+    case "/cerez-politikasi": return page("CookiePolicy");
+  }
+  return page("not-found");
+}
+
 export interface RenderResult {
   html: string;
   head: string;

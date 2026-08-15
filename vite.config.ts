@@ -39,6 +39,8 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // SSR'da route bazlı <link rel="modulepreload"> üretmek için (server/static.ts).
+    manifest: true,
   },
   server: {
     host: "0.0.0.0",
