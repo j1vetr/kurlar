@@ -1,4 +1,5 @@
 - [SSR with code-split pages](ssr-lazy-pages.md) — use renderToString + page preload, never prerender streams (deferred segments); new pages go in the app-pages registry; 404/redirect/deploy invariants.
 - [Kurlar data facts](kurlar-data-facts.md) — spec tables in data.ts are authoritative over maxFlow/maxHead fields (they conflict); TR category architecture decisions (categories.ts, URL scheme, query-redirect rule).
 - [EN locale architecture](en-locale-architecture.md) — /en URL scheme, x-default→EN, sticky-EN state rule, locale.ts path maps + entry-server must stay in sync; ASCII Turkish words escape diacritic greps.
+- [Mobile performance conventions](mobile-perf-conventions.md) — YouTube hero is click-to-play only; prod CSS inlined at serveStatic startup (regex-fragile); sizes from aspect ratio for tall product images.
 - [SEO JSON-LD conventions](seo-jsonld-conventions.md) — Organization @id contract (SITE_URL/#organization), no offers/price in Product schema, hidden-panel DOM pattern, locale-driven SEO strings.

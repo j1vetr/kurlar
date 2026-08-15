@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Ruler } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { isEnPath, productPath } from "@/lib/locale";
 import { useLanguage } from "@/lib/i18n";
-import { imageDims, productSrcSet } from "@/lib/product-seo";
+import { imageDims, productSrcSet, cardSizes } from "@/lib/product-seo";
 
 interface ProductCardProps {
   product: Product;
@@ -46,7 +46,7 @@ export function ProductCard({ product: baseProduct, className }: ProductCardProp
             <motion.img 
               src={product.image} 
               srcSet={productSrcSet(product.image)}
-              sizes="(max-width: 768px) 60vw, 320px"
+              sizes={cardSizes(product.image)}
               alt={product.name}
               loading="lazy"
               decoding="async"

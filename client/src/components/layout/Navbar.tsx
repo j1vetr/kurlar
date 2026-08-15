@@ -108,6 +108,7 @@ export function Navbar() {
                )} />
                <img 
                   src="/assets/logo-nav.webp" 
+                  srcSet="/assets/logo-nav-sm.webp 1x, /assets/logo-nav.webp 2x"
                   alt="Kurlar Logo" 
                   fetchPriority="high"
                   width="310"
@@ -380,7 +381,7 @@ export function Navbar() {
           {/* Mobile Header with Logo and Close Button */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white sticky top-0 z-10">
             <Link href={homePath(en)} className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
-              <img src="/assets/logo-nav.webp" alt="Kurlar Logo" width="310" height="96" className="h-10 w-auto" />
+              <img src="/assets/logo-nav.webp" srcSet="/assets/logo-nav-sm.webp 1x, /assets/logo-nav.webp 2x" alt="Kurlar Logo" width="310" height="96" className="h-10 w-auto" />
             </Link>
             
             <div className="flex items-center gap-4">

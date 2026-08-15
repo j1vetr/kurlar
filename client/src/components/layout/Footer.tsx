@@ -17,7 +17,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-                 <img src="/assets/logo-nav.webp" alt="Kurlar Logo" width="310" height="96" loading="lazy" className="h-12 w-auto object-contain brightness-0 invert" />
+                 <img src="/assets/logo-nav.webp" srcSet="/assets/logo-nav-sm.webp 1x, /assets/logo-nav.webp 2x" alt="Kurlar Logo" width="310" height="96" loading="lazy" className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-blue-50 text-sm leading-relaxed">
               {t('footer.desc')}

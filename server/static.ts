@@ -22,7 +22,21 @@ export async function serveStatic(app: Express) {
   // Do NOT serve index.html for "/" automatically; SSR handles pages.
   app.use(express.static(distPath, { index: false }));
 
-  const template = fs.readFileSync(path.resolve(distPath, "index.html"), "utf-8");
+  let template = fs.readFileSync(path.resolve(distPath, "index.html"), "utf-8");
+
+  // Render'ı engelleyen CSS isteğini ortadan kaldır: build CSS'i HTML'e inline et.
+  // (Mobil Lighthouse: 27 KiB stylesheet ~400 ms render blokluyordu.)
+  template = template.replace(
+    /<link[^>]+rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/,
+    (match, href) => {
+      try {
+        const css = fs.readFileSync(path.join(distPath, href), "utf-8");
+        return `<style>${css}</style>`;
+      } catch {
+        return match;
+      }
+    },
+  );
 
   const nodeRequire = createRequire(__filename);
   const entry = nodeRequire(path.resolve(__dirname, "server", "entry-server.cjs"));

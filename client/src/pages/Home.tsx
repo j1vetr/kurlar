@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
 import { organizationJsonLd, webSiteJsonLd } from "@/lib/brand";
-import { imageDims, productSrcSet } from "@/lib/product-seo";
+import { imageDims, productSrcSet, marqueeSizes } from "@/lib/product-seo";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -54,6 +54,8 @@ export default function Home() {
                 <div className="aspect-[16/9] rounded-xl overflow-hidden shadow-2xl">
                   <img 
                     src="/assets/gallery/kurlarsld.webp" 
+                    srcSet="/assets/gallery/kurlarsld-sm.webp 640w, /assets/gallery/kurlarsld.webp 960w"
+                    sizes="(max-width: 1024px) 92vw, 570px"
                     alt="Kurlar Fabrika" 
                     width={960}
                     height={540}
@@ -155,7 +157,7 @@ export default function Home() {
                        <img 
                          src={product.image} 
                          srcSet={productSrcSet(product.image)}
-                         sizes="(max-width: 768px) 55vw, 320px"
+                         sizes={marqueeSizes(product.image)}
                          alt={product.name}
                          loading="lazy"
                          decoding="async"

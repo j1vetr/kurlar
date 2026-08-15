@@ -52,6 +52,32 @@ export function productSrcSet(src: string): string | undefined {
   return `${card} ${cardW}w, ${src} ${dims.width}w`;
 }
 
+/**
+ * Ürün görselleri dikey (object-contain) olduğundan gerçek görüntülenen
+ * genişlik kutu YÜKSEKLİĞİ × en-boy oranıdır. sizes bunu yansıtmazsa tarayıcı
+ * mobilde gereksiz yere tam boy varyantı indirir (Lighthouse "duyarlı resim" uyarısı).
+ */
+
+/** Ana sayfa marquee kartı: kutu ~236×295px (mobil), ~316×395px (masaüstü). */
+export function marqueeSizes(src: string): string {
+  const dims = PRODUCT_IMAGE_DIMS[src];
+  if (!dims) return "(max-width: 768px) 55vw, 320px";
+  const ar = dims.width / dims.height;
+  const mobile = Math.min(236, Math.round(295 * ar));
+  const desktop = Math.min(316, Math.round(395 * ar));
+  return `(max-width: 768px) ${mobile}px, ${desktop}px`;
+}
+
+/** ProductCard (kare kutu, object-contain): genişlik = kutu genişliği × oran. */
+export function cardSizes(src: string): string {
+  const dims = PRODUCT_IMAGE_DIMS[src];
+  if (!dims) return "(max-width: 768px) 60vw, 320px";
+  const ar = dims.width / dims.height;
+  const mobileVw = Math.min(60, Math.round(60 * ar));
+  const desktop = Math.min(320, Math.round(320 * ar));
+  return `(max-width: 768px) ${mobileVw}vw, ${desktop}px`;
+}
+
 /** '4” | 6” | 8” | 10”' -> '4"-6"-8"-10"' (curly tırnaklar normalize edilir). */
 export function compactSizes(sizes?: string): string | undefined {
   if (!sizes) return undefined;

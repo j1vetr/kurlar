@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/lib/i18n";
@@ -28,17 +28,16 @@ export function Hero({ headline }: HeroProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  // YouTube facade: iframe (~700KB üçüncü taraf JS) ilk boyamayı bloklamasın diye
-  // tarayıcı boşta kalınca / kısa bir gecikmeyle yüklenir. İlk görüntü poster görseldir.
-  useEffect(() => {
-    const load = () => setShowVideo(true);
-    if ("requestIdleCallback" in window) {
-      const id = (window as any).requestIdleCallback(load, { timeout: 3000 });
-      return () => (window as any).cancelIdleCallback?.(id);
-    }
-    const timer = setTimeout(load, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // YouTube facade: iframe (~900KB üçüncü taraf JS/CSS) SAYFA YÜKLEMESİNDE ASLA inmez.
+  // Video yalnızca kullanıcı oynat butonuna tıklayınca yüklenir (mobil PageSpeed).
+  const playVideo = () => {
+    // Tıklama anında preconnect: iframe bağlantı kurulumunu hızlandırır.
+    const link = document.createElement("link");
+    link.rel = "preconnect";
+    link.href = "https://www.youtube-nocookie.com";
+    document.head.appendChild(link);
+    setShowVideo(true);
+  };
 
   const firstText = t('hero.inspired_by_history');
 
@@ -49,6 +48,8 @@ export function Hero({ headline }: HeroProps) {
         {/* Poster görsel: LCP için hemen yüklenir, video hazır olunca altında kalır */}
         <img
           src="/assets/gallery/hero-bg.webp"
+          srcSet="/assets/gallery/hero-bg-sm.webp 640w, /assets/gallery/hero-bg.webp 700w"
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           width={700}
@@ -141,6 +142,20 @@ export function Hero({ headline }: HeroProps) {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Video oynat butonu (facade): YouTube yalnızca tıklama ile yüklenir */}
+      {!showVideo && (
+        <button
+          onClick={playVideo}
+          aria-label={t('hero.play_video')}
+          className="absolute bottom-28 md:bottom-24 right-6 md:right-10 z-30 flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
+        >
+          <span className="hidden md:inline text-xs uppercase tracking-[0.2em] font-bold">{t('hero.play_video')}</span>
+          <span className="w-12 h-12 rounded-full border-2 border-white/40 group-hover:border-white flex items-center justify-center backdrop-blur-sm bg-white/10 transition-colors">
+            <Play className="w-5 h-5 ml-0.5" fill="currentColor" />
+          </span>
+        </button>
+      )}
 
       {/* Scroll Indicator */}
       <motion.div 
