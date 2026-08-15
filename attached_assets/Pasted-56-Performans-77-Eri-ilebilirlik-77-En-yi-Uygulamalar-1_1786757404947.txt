@@ -1,0 +1,357 @@
+56
+Performans
+77
+Erişilebilirlik
+77
+En İyi Uygulamalar
+100
+SEO
+1/3
+Ajan Tabanlı Tarama
+56
+FCP
++0
+LCP
++1
+TBT
++29
+CLS
++25
+SI
++1
+Performans
+Değerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.
+0–49
+50–89
+90–100
+Final Screenshot
+
+Metrikler
+Görünümü genişlet
+First Contentful Paint
+6,8 sn.
+Largest Contentful Paint
+7,7 sn.
+Total Blocking Time
+120 ms.
+Cumulative Layout Shift
+0.001
+Speed Index
+9,4 sn.
+Captured at 15 Ağu 2026 04:28 GMT+3
+Emülasyonlu Moto G Power with Lighthouse 13.4.1
+Tek sayfalık oturum
+İlk sayfa yükleme
+Yavaş 4G kısıtlaması
+Using HeadlessChromium 150.0.7871.186 with lr
+Ağaç grafiği göster
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Şunlarla alakalı denetimleri göster:
+
+All
+
+FCP
+
+LCP
+
+TBT
+
+CLS
+Analizler
+Oluşturma engelleme istekleri Tahmini tasarruf: 750 ms.
+İstekler sayfanın ilk oluşturma işlemini engelliyor. Bu durum, LCP'yi geciktirebilir. Erteleme veya satır içine yerleştirme, bu ağ isteklerini kritik yoldan uzaklaştırabilir.LCPFCPPuanlanmamış
+URL
+Aktarım Boyutu
+Süre
+kurlar.com.tr 1. taraf
+27,0 KiB	450 msn
+/assets/index-Dwa1FMWL.css(kurlar.com.tr)
+27,0 KiB
+450 msn
+Google Fonts cdn 
+1,4 KiB	750 msn
+/css2?family=…(fonts.googleapis.com)
+1,4 KiB
+750 msn
+Resim yayınlamayı kolaylaştırın Tahmini tasarruf: 1.761 KiB
+Resimlerin indirme süresini kısaltmak, sayfanın algılanan yükleme süresini ve LCP'yi daha iyi hale getirebilir. Resim boyutunu optimize etme hakkında daha fazla bilgi edinin.LCPFCPPuanlanmamış
+URL
+Kaynak Boyutu
+Tahmini Tasarruf
+kurlar.com.tr 1. taraf
+1.790,2 KiB	1.761,1 KiB
+Paslanmaz Çelik Dalgıç Pompalar
+<img src="/assets/products/kp1.png" alt="Paslanmaz Çelik Dalgıç Pompalar" class="w-full h-full object-contain relative z-10 transform group-hover:scale-110…">
+…products/kp1.png(kurlar.com.tr)
+784,6 KiB
+774,3 KiB
+Modern bir resim biçimi (WebP, AVIF) kullanmak veya resim sıkıştırmasını artırmak bu resmin indirme boyutunu küçültebilir.
+665,0 KiB
+Bu resim dosyası, görüntülenen boyutlarına (206x309) göre olması gerekenden (700x1050) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+716,9 KiB
+4″ Noryl Dalgıç Pompalar
+<img src="/assets/products/kpn41.png" alt="4″ Noryl Dalgıç Pompalar" class="w-full h-full object-contain relative z-10 transform group-hover:scale-110…">
+…products/kpn41.png(kurlar.com.tr)
+696,3 KiB
+690,5 KiB
+Modern bir resim biçimi (WebP, AVIF) kullanmak veya resim sıkıştırmasını artırmak bu resmin indirme boyutunu küçültebilir.
+589,0 KiB
+Bu resim dosyası, görüntülenen boyutlarına (117x309) göre olması gerekenden (500x1319) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+658,3 KiB
+Kurlar Fabrika
+<img src="/assets/gallery/kurlarsld.png" alt="Kurlar Fabrika" class="w-full h-full object-cover">
+…gallery/kurlarsld.png(kurlar.com.tr)
+264,5 KiB
+252,4 KiB
+Modern bir resim biçimi (WebP, AVIF) kullanmak veya resim sıkıştırmasını artırmak bu resmin indirme boyutunu küçültebilir.
+180,2 KiB
+Bu resim dosyası, görüntülenen boyutlarına (364x205) göre olması gerekenden (960x540) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+226,5 KiB
+Kurlar Logo
+<img src="/assets/logo.png" alt="Kurlar Logo" class="h-12 w-auto object-contain brightness-0 invert">
+/assets/logo.png(kurlar.com.tr)
+44,7 KiB
+44,0 KiB
+Bu resim dosyası, görüntülenen boyutlarına (155x48) göre olması gerekenden (1238x383) daha büyük. Resim indirme boyutunu küçültmek için duyarlı resimler kullanın.
+44,0 KiB
+Ağ bağımlılık ağacı
+Sayfaların daha kolay yüklenmesi için zincir uzunluğunu azaltarak, kaynakların indirme boyutunu küçülterek veya gereksiz kaynakların indirilmesini erteleyerek kritik istek zinciri oluşturmaktan kaçının.LCPPuanlanmamış
+Maksimum kritik yol gecikmesi: 1.748 msn
+İlk Gezinme
+https://kurlar.com.tr - 517 msn, 9,82 KiB
+/css2?family=…(fonts.googleapis.com) - 520 msn, 1,42 KiB
+…v31/JTUSjIg1_….woff2(fonts.gstatic.com) - 1.149 msn, 67,42 KiB
+…v31/JTUSjIg1_….woff2(fonts.gstatic.com) - 1.149 msn, 35,47 KiB
+/assets/index-TEYl_9hV.js(kurlar.com.tr) - 1.343 msn, 154,16 KiB
+/assets/Home-8flTgLoe.js(kurlar.com.tr) - 1.732 msn, 4,41 KiB
+/assets/SEO-CyC4pAmC.js(kurlar.com.tr) - 1.741 msn, 53,91 KiB
+/assets/button-Caoq1gCE.js(kurlar.com.tr) - 1.729 msn, 1,77 KiB
+/assets/index-BBH6f4L4.js(kurlar.com.tr) - 1.730 msn, 2,11 KiB
+/assets/proxy-g5vMdb6O.js(kurlar.com.tr) - 1.748 msn, 42,55 KiB
+/assets/map-pin-ItxWWTOT.js(kurlar.com.tr) - 1.729 msn, 0,80 KiB
+/assets/globe-C8rUragf.js(kurlar.com.tr) - 1.728 msn, 1,28 KiB
+/assets/index-Dwa1FMWL.css(kurlar.com.tr) - 1.099 msn, 26,96 KiB
+Önceden bağlanmış kaynaklar
+Önceden bağlanma ipuçları, sayfa yüklenirken tarayıcının gerekli bağlantıları önceden kurmasına yardımcı olarak ilgili kaynağa yapılacak ilk istekte zaman kazandırır. Sayfanın önceden bağlantı kurduğu kaynaklar aşağıda verilmiştir.
+Kaynak
+Kaynak
+https://fonts.googleapis.com/
+head > link
+<link rel="preconnect" href="https://fonts.googleapis.com">
+https://fonts.gstatic.com/
+head > link
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+https://www.youtube.com/
+head > link
+<link rel="preconnect" href="https://www.youtube.com">
+https://i.ytimg.com/
+head > link
+<link rel="preconnect" href="https://i.ytimg.com">
+Kullanılmayan ön bağlantı. Yalnızca sayfanın isteyebileceği kaynaklar için preconnect öğesini kullanın.
+Önceden bağlanma adayları
+En önemli kaynaklarınıza önceden bağlanma ipuçları ekleyin ancak 4'ten az ipucu kullanmaya çalışın.
+Ön bağlantı için uygun ek kaynak bulunmamaktadır
+Verimli önbellek sürelerini kullanın Tahmini tasarruf: 1 KiB
+Düzen kayması sorununun nedenleri
+LCP dökümü
+3. taraflar
+Bu analizler Chrome Geliştirici Araçları Performans Paneli'nde de mevcuttur. Daha ayrıntılı bilgi görüntülemek için izleme kaydı oluşturun.
+Teşhis
+Kullanılmayan JavaScript'i azaltın Tahmini tasarruf: 608 KiB
+Ağ etkinliğinin kullandığı bayt sayısını azaltılmaları gerekene kadar kullanılmayan JavaScript'i azaltıp komut dosyalarını erteleyin. Kullanılmayan JavaScript'i nasıl azaltacağınızı öğrenin.LCPFCPPuanlanmamış
+URL
+Aktarım Boyutu
+Tahmini Tasarruf
+YouTube video 
+855,6 KiB	524,1 KiB
+…en_US/base.js(www.youtube.com)
+466,3 KiB
+329,0 KiB
+…rs=AGKMywGzv…/m=r78Drb(www.youtube.com)
+235,5 KiB
+121,5 KiB
+…rs=AGKMywGlf…/m=root,base(www.youtube.com)
+153,7 KiB
+73,6 KiB
+kurlar.com.tr 1. taraf
+192,0 KiB	83,5 KiB
+/assets/index-TEYl_9hV.js(kurlar.com.tr)
+149,9 KiB
+59,1 KiB
+/assets/proxy-g5vMdb6O.js(kurlar.com.tr)
+42,1 KiB
+24,4 KiB
+Kullanılmayan CSS'yi azaltın Tahmini tasarruf: 110 KiB
+Ağ etkinliğinin kullandığı bayt sayısını azaltmak üzere stil sayfalarında kullanılmayan kuralları azaltıp ekranın üst kısmında içerik için kullanılmayan CSS'yi erteleyin. Kullanılmayan CSS'yi nasıl azaltacağınızı öğrenin.LCPFCPPuanlanmamış
+URL
+Aktarım Boyutu
+Tahmini Tasarruf
+YouTube video 
+56,2 KiB	55,8 KiB
+…b0d2d49a/www-player.css(www.youtube.com)
+56,2 KiB
+55,8 KiB
+İlişkilendirilemez
+55,0 KiB	54,1 KiB
+:root{--t3a480c2f814ef19c:initial;--t77e217518bcd986b:initial;--tc5e0863356bf5767:initial;--t7a2234…
+55,0 KiB
+54,1 KiB
+Resim öğelerinin açıkça belirtilmiş width ve height değerleri yok
+Düzen kaymalarını azaltıp CLS'yi iyileştirmek için görsel öğelerde genişliği ve yüksekliği açıkça belirtilmiş şekilde ayarlayın. Resim boyutlarını nasıl belirleyeceğinizi öğrenin.CLSPuanlanmamış
+URL
+kurlar.com.tr 1. taraf
+Kurlar Logo
+<img src="/assets/logo.png" alt="Kurlar Logo" class="h-12 w-auto object-contain brightness-0 invert">
+/assets/logo.png(kurlar.com.tr)
+Çok büyük ağ yüklerinden kaçının Toplam boyut 4.621 KiB'tı
+Büyük ağ yükleri kullanıcılar için parasal maliyet anlamına gelir ve yükleme sürelerinin uzamasında yüksek bir etkiye sahiptir. Yük boyutlarını nasıl düşüreceğinizi öğrenin.Puanlanmamış
+URL
+Aktarım Boyutu
+kurlar.com.tr 1. taraf
+3.071,8 KiB
+…products/kp1.png(kurlar.com.tr)
+785,0 KiB
+…products/kpn41.png(kurlar.com.tr)
+696,7 KiB
+…products/kpd1.png(kurlar.com.tr)
+374,2 KiB
+…products/ksx1.png(kurlar.com.tr)
+292,0 KiB
+…gallery/kurlarsld.png(kurlar.com.tr)
+264,9 KiB
+…products/km2.png(kurlar.com.tr)
+251,6 KiB
+…products/km41.png(kurlar.com.tr)
+206,3 KiB
+…products/kms11.png(kurlar.com.tr)
+201,2 KiB
+YouTube video 
+703,6 KiB
+…en_US/base.js(www.youtube.com)
+467,1 KiB
+…rs=AGKMywGzv…/m=r78Drb(www.youtube.com)
+236,5 KiB
+Uzun ana ileti dizisi görevlerinden kaçının 4 uzun görev bulundu
+Kullanıcı Zamanlaması işaretleri ve ölçüleri 39 kullanıcı zamanlaması
+Uygulamanızın performansı hakkında daha fazla bilgi. Bu sayılar Performan skoruna doğrudan etki etmezler.
+Başarılı denetimler (14)
+Göster
+77
+Erişilebilirlik
+Bu kontroller, web uygulamanızın erişilebilirliğini iyileştirme fırsatlarını öne çıkarır. Otomatik algılama, sorunların yalnızca bir alt kümesini algılayabilir ve web uygulamanızın erişilebilirliğini garanti etmez. Bu nedenle, manuel test yapmanız da önerilir.
+Adlar ve etiketler
+Düğmelerin erişilebilir adları yok
+Düğmelerin erişilebilir özellikli adı olmadığında ekran okuyucular bu düğmeyi yalnızca "düğme" olarak okur. Bu da, ekran okuyuculardan yararlanan kullanıcılar için yararlı olmaz. Düğmeleri nasıl daha erişilebilir yapabileceğinizi öğrenin.
+Başarısız Öğeler
+nav.fixed > div.container > div.flex > button.p-2
+<button class="p-2 -mr-2 text-white">
+<frame> veya <iframe> öğelerinin başlığı yok
+Ekran okuyucu kullanıcıları, çerçevelerin içeriklerinin açıklanması için çerçeve başlıklarından yararlanır. Çerçeve başlıkları hakkında daha fazla bilgi edinin.
+Başarısız Öğeler
+div.relative > div.absolute > div.absolute > iframe.w-full
+<iframe src="https://www.youtube.com/embed/6i9Wi-eVd6c?controls=0&amp;autoplay=1&amp;mute=1&amp;loo…" class="w-full h-full pointer-events-none object-cover scale-125" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pict…" style="border:none">
+Bağlantıların ayırt edilebilir adları yok
+Ayırt edilebilir, benzersiz ve odaklanılabilir bağlantı metni (ve bağlantı olarak kullanıldığında resimler için alternatif metin), ekran okuyucu kullanıcılarına daha iyi bir gezinme deneyimi sunar. Bağlantıları nasıl erişilebilir hale getireceğinizi öğrenin.
+Başarısız Öğeler
+div.grid > div.space-y-6 > div.flex > a.w-10
+<a href="https://www.linkedin.com/company/kurlar-pompa/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/50 flex items-center justify-center hove…">
+div.grid > div.space-y-6 > div.flex > a.w-10
+<a href="https://www.facebook.com/kurlarpompa/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/50 flex items-center justify-center hove…">
+div.grid > div.space-y-6 > div.flex > a.w-10
+<a href="https://www.instagram.com/kurlarpompa/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/50 flex items-center justify-center hove…">
+Bu fırsatlar, uygulamanızdaki kontrollerin anlamının iyileştirilmesine olanak tanır. Bu durum, ekran okuyucu gibi yardımcı teknolojilerin kullanıcılarına daha iyi bir deneyim sunulmasını sağlayabilir.
+En iyi uygulamalar
+[user-scalable="no"], <meta name="viewport"> öğesinde kullanılmış veya [maximum-scale] özelliği 5'ten küçük.
+Yakınlaştırmanın devre dışı bırakılması, az gören ve bir web sayfasının içeriğini düzgün bir şekilde görebilmek için ekran büyütme özelliğinden yararlanan kullanıcılar için sorun teşkil eder. Görüntü alanı meta etiketi hakkında daha fazla bilgi edinin.
+Başarısız Öğeler
+head > meta
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+Dokunma hedefleri, yeterli boyut veya boşluğa sahip değil.
+Yeterli boyut ve boşluğa sahip dokunma hedefleri, küçük kontrol düğmelerini kullanmakta sorun yaşayan kullanıcıların hedefleri etkinleştirmesine yardımcı olur. Dokunma hedefleri hakkında daha fazla bilgi edinin.
+Başarısız Öğeler
+Tüm Modelleri Gör
+<a href="/urunler">
+Tüm Modelleri Gör
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+Bu öğeler, erişilebilirlikle ilgili yaygın en iyi uygulamaları öne çıkarır.
+Gezinme
+Başlık öğeleri sırayla azalan düzende sıralı değil
+Düzey atlamayan gerektiği gibi sıralanmış başlıklar sayfanın anlamsal yapısını iletir. Böylece, yardımcı teknolojiler kullanılırken gezinmeyi ve anlaşılmayı kolaylaştırır. Başlık sıralaması hakkında daha fazla bilgi edinin.
+Başarısız Öğeler
+Global İhracat
+<h4 class="font-bold text-slate-900">
+Bu fırsatlar, uygulamanızda klavyeyle gezinmeyi kolaylaştırır.
+Manuel olarak kontrol edilecek ek öğeler (10)
+Göster
+Bu öğeler, otomatik test aracının kapsamında yer almayan alanları ele alır. Erişilebilirlik incelemesi gerçekleştirme hakkında daha fazla bilgiyi rehberimizde bulabilirsiniz.
+Başarılı denetimler (19)
+Göster
+Geçerli değil (38)
+Göster
+77
+En İyi Uygulamalar
+Genel
+Üçüncü taraf çerezlerini kullanır 4 çerez bulundu
+Üçüncü taraf çerezleri bazı bağlamlarda engellenebilir. Üçüncü taraf çerezi kısıtlamalarına hazırlanma hakkında daha fazla bilgi edinin.
+Ad
+URL
+YouTube video 
+__Secure-YNID
+/embed/6i9Wi-eVd6c?controls=…(www.youtube.com)
+YSC
+/embed/6i9Wi-eVd6c?controls=…(www.youtube.com)
+__Secure-ROLLOUT_TOKEN
+/embed/6i9Wi-eVd6c?controls=…(www.youtube.com)
+VISITOR_INFO1_LIVE
+/embed/6i9Wi-eVd6c?controls=…(www.youtube.com)
+Sorunlar, Chrome Geliştirici Araçları'ndaki Issues paneline kaydedildi
+Chrome Geliştirici Araçları'ndaki Issues paneline kaydedilen sorunlar, çözülmemiş sorunları ifade eder. Bunlar ağ istek hatalarından, yetersiz güvenlik kontrollerinden ve diğer tarayıcı sorunlarından gelebilir. Tüm sorunlarla ilgili ayrıntılı bilgiyi, Chrome Geliştirici Araçları'nın Issues panelinde bulabilirsiniz.
+Sorun türü
+Cookie
+/embed/6i9Wi-eVd6c?controls=…(www.youtube.com)
+Politika Değerlendirme
+XSS saldırıları karşısında CSP'nin etkinliğini sınayın
+Güçlü bir HSTS politikası kullanın
+COOP ile uygun kaynak izolasyonunu sağlayın
+Trusted Types ile DOM tabanlı XSS'yi azaltın
+Tarayıcı Uyumluluğu
+Baseline Özellikleri
+Başarılı denetimler (11)
+Göster
+Geçerli değil (3)
+Göster
+100
+SEO
+Bu kontroller, sayfanızın temel arama motoru optimizasyonu tavsiyesine uymasını sağlar. Burada Lighthouse'un puan vermediği ve Önemli Web Verileri'ndeki performansınız da dahil arama sıralamanızı etkileyebilecek birçok ek faktör vardır. Google Arama'nın Temel Özellikleri hakkında daha fazla bilgi edinin.
+Manuel olarak kontrol edilecek ek öğeler (1)
+Gizle
+Yapılandırılmış veriler geçerli
+SEO ile ilgili diğer en iyi uygulamaları kontrol etmek için sitenizde bu ek doğrulayıcıları çalıştırın.
+Başarılı denetimler (10)
+Göster
+1/3
+Ajan Tabanlı Tarama
+Bu kontroller, yapay zeka ajanları için yüksek kaliteli, göz atılabilir web siteleri sağlar ve WebMCP entegrasyonlarının doğruluğunu onaylar. Bu kategori hâlâ geliştirme aşamasında olduğundan değişebilir.
+Ajan Erişilebilirliği
+Erişilebilirlik ağacı düzgün biçimlendirilmemiş
+Düzgün biçimlendirilmiş bir erişilebilirlik ağacı, yapay zeka ajanlarının sayfada gezinmesine ve sayfayla etkileşim kurmasına yardımcı olur.
+Başarısız Denetimler
+Açıklama
+Başarısız Öğe
+Buttons must have discernible text
+nav.fixed > div.container > div.flex > button.p-2
+<button class="p-2 -mr-2 text-white">
+Links must have discernible text
+div.grid > div.space-y-6 > div.flex > a.w-10
+<a href="https://www.linkedin.com/company/kurlar-pompa/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/50 flex items-center justify-center hove…">
+llms.txt, önerilere uygun değil
+llms.txt dosyanız önerilere uygun değilse büyük dil modelleri, web sitenizin nasıl taranmasını veya eğitim için kullanılmasını istediğinizi anlayamayabilir. llms.txt dosyası, en az bir H1 başlığı içeren Markdown dosyası olmalıdır.
+Error
+Dosyada bağlantı yok.
