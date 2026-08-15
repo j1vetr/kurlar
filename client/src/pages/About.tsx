@@ -55,7 +55,7 @@ export default function About() {
           <div>
             <div className="relative">
               <img 
-                src="/assets/gallery/kurlarsld.png" 
+                src="/assets/gallery/kurlarsld.webp" 
                 alt="Kurlar Fabrika" 
                 className="rounded-2xl shadow-2xl w-full object-cover h-[500px]"
               />
@@ -98,7 +98,7 @@ export default function About() {
                   <Globe className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">{t('home.global_export')}</h4>
+                  <p className="font-bold text-slate-900">{t('home.global_export')}</p>
                   <p className="text-sm text-slate-500">{t('about.stats.countries')}</p>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function About() {
                   <Building2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">35.000 m²</h4>
+                  <p className="font-bold text-slate-900">35.000 m²</p>
                   <p className="text-sm text-slate-500">{t('about.stats.facility')}</p>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function About() {
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">200+</h4>
+                  <p className="font-bold text-slate-900">200+</p>
                   <p className="text-sm text-slate-500">{t('about.stats.staff')}</p>
                 </div>
               </div>
@@ -125,7 +125,7 @@ export default function About() {
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">ISO 9001</h4>
+                  <p className="font-bold text-slate-900">ISO 9001</p>
                   <p className="text-sm text-slate-500">{t('about.stats.quality')}</p>
                 </div>
               </div>

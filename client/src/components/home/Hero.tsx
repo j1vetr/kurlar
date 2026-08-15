@@ -17,6 +17,7 @@ interface HeroProps {
 export function Hero({ headline }: HeroProps) {
   const { t } = useLanguage();
   const [showSecondText, setShowSecondText] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   
   // Text animation sequence
   useEffect(() => {
@@ -27,21 +28,46 @@ export function Hero({ headline }: HeroProps) {
     return () => clearTimeout(timer);
   }, []);
 
+  // YouTube facade: iframe (~700KB üçüncü taraf JS) ilk boyamayı bloklamasın diye
+  // tarayıcı boşta kalınca / kısa bir gecikmeyle yüklenir. İlk görüntü poster görseldir.
+  useEffect(() => {
+    const load = () => setShowVideo(true);
+    if ("requestIdleCallback" in window) {
+      const id = (window as any).requestIdleCallback(load, { timeout: 3000 });
+      return () => (window as any).cancelIdleCallback?.(id);
+    }
+    const timer = setTimeout(load, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const firstText = t('hero.inspired_by_history');
 
   return (
     <div className="relative w-full h-screen min-h-[700px] overflow-hidden flex items-center justify-center bg-black">
-      {/* Video Background - YouTube Embed */}
+      {/* Video Background - poster önce, YouTube embed sonradan (facade) */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+        {/* Poster görsel: LCP için hemen yüklenir, video hazır olunca altında kalır */}
+        <img
+          src="/assets/gallery/hero-bg.webp"
+          alt=""
+          aria-hidden="true"
+          width={700}
+          height={467}
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         {/* Optimized for mobile full screen coverage: wider width to force height fit */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500%] h-[120%] md:w-[150%] md:h-[150%] lg:w-full lg:h-[140%] pointer-events-none">
-           <iframe 
-             src="https://www.youtube.com/embed/6i9Wi-eVd6c?controls=0&autoplay=1&mute=1&loop=1&playlist=6i9Wi-eVd6c&start=38&enablejsapi=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" 
-             className="w-full h-full pointer-events-none object-cover scale-125"
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-             style={{ border: 'none' }}
-           />
-        </div>
+        {showVideo && (
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500%] h-[120%] md:w-[150%] md:h-[150%] lg:w-full lg:h-[140%] pointer-events-none">
+             <iframe 
+               src="https://www.youtube-nocookie.com/embed/6i9Wi-eVd6c?controls=0&autoplay=1&mute=1&loop=1&playlist=6i9Wi-eVd6c&start=38&enablejsapi=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" 
+               title="Kurlar tanıtım videosu"
+               className="w-full h-full pointer-events-none object-cover scale-125"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+               style={{ border: 'none' }}
+             />
+          </div>
+        )}
         
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60 z-10" />

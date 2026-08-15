@@ -17,7 +17,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-                 <img src="/assets/logo.png" alt="Kurlar Logo" className="h-12 w-auto object-contain brightness-0 invert" />
+                 <img src="/assets/logo-nav.webp" alt="Kurlar Logo" width="310" height="96" loading="lazy" className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-blue-50 text-sm leading-relaxed">
               {t('footer.desc')}
@@ -27,6 +27,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/kurlar-pompa/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Kurlar LinkedIn"
                 className="w-10 h-10 rounded-full bg-primary/50 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group border border-primary/30"
               >
                 <Linkedin className="w-5 h-5 text-blue-100 group-hover:text-primary" />
@@ -35,6 +36,7 @@ export function Footer() {
                 href="https://www.facebook.com/kurlarpompa/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Kurlar Facebook"
                 className="w-10 h-10 rounded-full bg-primary/50 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group border border-primary/30"
               >
                 <Facebook className="w-5 h-5 text-blue-100 group-hover:text-primary" />
@@ -43,6 +45,7 @@ export function Footer() {
                 href="https://www.instagram.com/kurlarpompa/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Kurlar Instagram"
                 className="w-10 h-10 rounded-full bg-primary/50 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group border border-primary/30"
               >
                 <Instagram className="w-5 h-5 text-blue-100 group-hover:text-primary" />

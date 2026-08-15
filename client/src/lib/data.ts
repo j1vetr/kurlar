@@ -2687,11 +2687,11 @@ export const products: Product[] = [
     category: 'pump',
     subCategory: 'Paslanmaz Çelik',
     availableSizes: '4” | 6” | 8” | 10”',
-    image: '/assets/products/kp1.png',
+    image: '/assets/products/kp1.webp',
     gallery: [
-        '/assets/products/kp1.png',
-        '/assets/products/kp2.png',
-        '/assets/products/kp3.png'
+        '/assets/products/kp1.webp',
+        '/assets/products/kp2.webp',
+        '/assets/products/kp3.webp'
     ],
     description: 'Kurlar tarafından üretilen paslanmaz çelik dalgıç pompalar, korozyona dayanıklı yapısı sayesinde uzun ömürlü ve güvenilir performans sunar.',
     longDescription: `Kurlar tarafından üretilen paslanmaz çelik dalgıç pompalar, korozyona dayanıklı yapısı sayesinde uzun ömürlü ve güvenilir performans sunar. Tarımsal sulama, endüstriyel su temini ve yer altı suyu tahliyesi gibi zorlu uygulamalar için idealdir. Yüksek verimlilik ve bakım kolaylığı ile suyun olduğu her alanda maksimum dayanım sağlar.`,
@@ -2812,11 +2812,11 @@ export const products: Product[] = [
     category: 'pump',
     subCategory: 'Noryl',
     availableSizes: '4"',
-    image: '/assets/products/kpn41.png',
+    image: '/assets/products/kpn41.webp',
     gallery: [
-        '/assets/products/kpn41.png',
-        '/assets/products/kpn42.png',
-        '/assets/products/kpn43.png'
+        '/assets/products/kpn41.webp',
+        '/assets/products/kpn42.webp',
+        '/assets/products/kpn43.webp'
     ],
     description: '4” Kurlar Noryl Dalgıç Pompa çarkları ve difüzörleri, mükemmel tasarımları sayesinde yüksek hidrolik verimlilik ve performans sunar.',
     longDescription: `4” Kurlar Noryl Dalgıç Pompa çarkları ve difüzörleri, mükemmel tasarımları sayesinde yüksek hidrolik verimlilik ve performans sunar; ayrıca yüzer fan sistemi sayesinde kum ve aşındırıcı maddelere karşı mükemmel bir koruma sağlamaktadır. Paslanmaz çelikten üretilen süzgeç, 50 g/m³ olarak belirlenen boyutun üzerindeki parçaların pompanın içine girmesini önleyerek, pompanın ömrünü uzatmaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. Çıkış haznesi bağlantısı hem NPT hem BSP uygun olup, NEMA standartlarına göre motor bağlantısına uygun tasarlanmıştır.`,
@@ -2893,11 +2893,11 @@ export const products: Product[] = [
     category: 'pump',
     subCategory: 'Pik Döküm',
     availableSizes: '5" | 6” | 7" | 8” | 9" | 10”',
-    image: '/assets/products/kpd1.png',
+    image: '/assets/products/kpd1.webp',
     gallery: [
-       '/assets/products/kpd1.png',
-       '/assets/products/kpd2.png',
-       '/assets/products/kpd3.png'
+       '/assets/products/kpd1.webp',
+       '/assets/products/kpd2.webp',
+       '/assets/products/kpd3.webp'
     ],
     description: 'KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Pik Döküm Dalgıç Pompalar tamamen pik döküm malzemeden yapılmıştır.',
     longDescription: `KPD 5’’ – 6’’ – 7’’ – 8’’ – 9’’ – 10’’ Kurlar Pik Döküm Dalgıç Pompalar tamamen pik döküm (talep üzerine pompalar komple bronz malzemeden üretilebilmektedir) malzemeden yapılmıştır. Tamamen pik döküm olarak imal edilen difüzörler, fanlar, emiş ve çıkış haznesi korozyona karşı son derece dayanıklı kılar. Tasarım ve malzeme özellikleriyle yüksek verimlilik, yüksek dayanıklık, uzun ömür ve istikrarlı performans sağlamaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. NEMA standartlarına göre motor bağlantısına uygundur.`,
@@ -2990,10 +2990,10 @@ export const products: Product[] = [
     category: 'pump',
     subCategory: 'Paslanmaz Döküm',
     availableSizes: '6” | 8” | 10”',
-    image: '/assets/products/ksx1.png',
+    image: '/assets/products/ksx1.webp',
     gallery: [
-      '/assets/products/ksx1.png',
-      '/assets/products/ksx2.png'
+      '/assets/products/ksx1.webp',
+      '/assets/products/ksx2.webp'
     ],
     description: 'KSX 6″-8-“10” Kurlar Paslanmaz Döküm Dalgıç Pompalar tamamen AISI 304 döküm malzemeden yapılmıştır.',
     longDescription: `KSX 6″-8-“10” Kurlar Paslanmaz Döküm Dalgıç Pompalar tamamen AISI 304 döküm (talep üzerine pompalar komple AISI 316L malzemeden üretilebilmektedir) malzemeden yapılmıştır. Tamamen paslanmaz çelik olarak imal edilen difüzörler, fanlar, emiş ve çıkış haznesi, süzgeç korozyona karşı son derece dayanıklı kılar. Tasarım ve malzeme özellikleriyle yüksek verimlilik, yüksek dayanıklık, uzun ömür ve istikrarlı performans sağlamaktadır. Yatay ve dikey kurulum pozisyonuna uygundur. NEMA standartlarına göre motor bağlantısına uygundur.`,
@@ -3086,9 +3086,9 @@ export const products: Product[] = [
     category: 'motor',
     subCategory: 'Yağlı Tip',
     availableSizes: '4"',
-    image: '/assets/products/km41.png',
+    image: '/assets/products/km41.webp',
     gallery: [
-        '/assets/products/km41.png'
+        '/assets/products/km41.webp'
     ],
     description: 'Yağlı Tip Dalgıç Motorlar, yağ soğutmalı geri sarılabilir motorlardır (gıdada kullanılan toksik olmayan yağ).',
     longDescription: `Yağlı Tip Dalgıç Motorlar, yağ soğutmalı geri sarılabilir motorlardır (gıdada kullanılan toksik olmayan yağ). Gürültüsüz çalışır ve uzun ömürlü hizmet sağlamaktadır. Hem yatay hem dikey çalışmaya uygundur. Boyutları ve NEMA standartlarına göre uygun flanş bağlantısı bulunmaktadır.`,
@@ -3170,11 +3170,11 @@ export const products: Product[] = [
     category: 'motor',
     subCategory: 'HI-TEMP',
     availableSizes: '6" | 7" | 8" | 10"',
-    image: '/assets/products/km2.png',
+    image: '/assets/products/km2.webp',
     gallery: [
-        '/assets/products/km2.png',
-        '/assets/products/km1.png',
-        '/assets/products/km3.png'
+        '/assets/products/km2.webp',
+        '/assets/products/km1.webp',
+        '/assets/products/km3.webp'
     ],
     description: '6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde üretilmiştir.',
     longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde düşük işletme maliyeti için özel izolasyonulu Bobin Teli (PBN) ile yüksek sıcaklığa özel üretilmiştir.  Su soğutmalı 6″ HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar özel basınç dengeleyici çek-valf, diyafram, kum çanı, su ile yağlamalı yüksek dayanım gösteren eksenel ve radyal yataklar ile donatılmıştır. Motorlar, -15°C’ye kadar muhafaza edilmek için saf su ve gliserin karışımı ile doldurulmuştur.`,
@@ -3277,9 +3277,9 @@ export const products: Product[] = [
     category: 'motor',
     subCategory: 'S-Type',
     availableSizes: '6" | 7" | 8"',
-    image: '/assets/products/kms11.png',
+    image: '/assets/products/kms11.webp',
     gallery: [
-        '/assets/products/kms11.png'
+        '/assets/products/kms11.webp'
     ],
     description: '6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde üretilmiştir.',
     longDescription: `6”-7”-8”-10” HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar ISO 9001 sertifikalı tesislerimizde düşük işletme maliyeti için özel izolasyonulu Bobin Teli (PBN) ile yüksek sıcaklığa özel üretilmiştir.  Su soğutmalı 6″ HI-TEMP (60°C) Sarılabilir Dalgıç Motorlar özel basınç dengeleyici çek-valf, diyafram, kum çanı, su ile yağlamalı yüksek dayanım gösteren eksenel ve radyal yataklar ile donatılmıştır. Motorlar, -15°C’ye kadar muhafaza edilmek için saf su ve gliserin karışımı ile doldurulmuştur.`,
@@ -3337,7 +3337,7 @@ export const categories = [
     category: 'pump',
     title: 'Dalgıç Pompalar',
     description: 'Paslanmaz, Noryl ve Döküm seçenekleriyle her ihtiyaca uygun profesyonel çözümler.',
-    image: '/assets/gallery/galeri6pompa.png',
+    image: '/assets/gallery/galeri6pompa.webp',
     subCategories: ['Paslanmaz Çelik', 'Noryl', 'Pik Döküm', 'Paslanmaz Döküm']
   },
   {
@@ -3345,7 +3345,7 @@ export const categories = [
     category: 'motor',
     title: 'Dalgıç Motorlar',
     description: 'Yüksek verimli, uzun ömürlü ve güçlü motor teknolojileri.',
-    image: '/assets/gallery/galeri7pompa.png',
+    image: '/assets/gallery/galeri7pompa.webp',
     subCategories: ['Yağlı Tip', 'HI-TEMP', 'S-Type']
   }
 ];

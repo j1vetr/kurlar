@@ -14,27 +14,42 @@ import { productPath } from "./locale";
  * width/height attribute'ları CLS'i önler; CSS görsel boyutu yönetmeye devam eder.
  */
 export const PRODUCT_IMAGE_DIMS: Record<string, { width: number; height: number }> = {
-  "/assets/products/km1.png": { width: 200, height: 1233 },
-  "/assets/products/km2.png": { width: 230, height: 1274 },
-  "/assets/products/km3.png": { width: 200, height: 1234 },
-  "/assets/products/km41.png": { width: 330, height: 1264 },
-  "/assets/products/kms11.png": { width: 211, height: 1200 },
-  "/assets/products/kp1.png": { width: 700, height: 1050 },
-  "/assets/products/kp2.png": { width: 400, height: 1340 },
-  "/assets/products/kp3.png": { width: 400, height: 1176 },
-  "/assets/products/kpd1.png": { width: 700, height: 1050 },
-  "/assets/products/kpd2.png": { width: 270, height: 1236 },
-  "/assets/products/kpd3.png": { width: 240, height: 1243 },
-  "/assets/products/kpn41.png": { width: 500, height: 1319 },
-  "/assets/products/kpn42.png": { width: 230, height: 1259 },
-  "/assets/products/kpn43.png": { width: 200, height: 1238 },
-  "/assets/products/ksx1.png": { width: 220, height: 1258 },
-  "/assets/products/ksx2.png": { width: 250, height: 1231 },
+  "/assets/products/km1.webp": { width: 200, height: 1233 },
+  "/assets/products/km2.webp": { width: 230, height: 1274 },
+  "/assets/products/km3.webp": { width: 200, height: 1234 },
+  "/assets/products/km41.webp": { width: 330, height: 1264 },
+  "/assets/products/kms11.webp": { width: 211, height: 1200 },
+  "/assets/products/kp1.webp": { width: 700, height: 1050 },
+  "/assets/products/kp2.webp": { width: 400, height: 1340 },
+  "/assets/products/kp3.webp": { width: 400, height: 1176 },
+  "/assets/products/kpd1.webp": { width: 700, height: 1050 },
+  "/assets/products/kpd2.webp": { width: 270, height: 1236 },
+  "/assets/products/kpd3.webp": { width: 240, height: 1243 },
+  "/assets/products/kpn41.webp": { width: 500, height: 1319 },
+  "/assets/products/kpn42.webp": { width: 230, height: 1259 },
+  "/assets/products/kpn43.webp": { width: 200, height: 1238 },
+  "/assets/products/ksx1.webp": { width: 220, height: 1258 },
+  "/assets/products/ksx2.webp": { width: 250, height: 1231 },
 };
 
 /** Bilinen bir ürün görseli için width/height attribute'ları (bilinmiyorsa boş). */
 export function imageDims(src: string): { width: number; height: number } | undefined {
   return PRODUCT_IMAGE_DIMS[src];
+}
+
+/** Kart görünümü için küçültülmüş varyant yüksekliği (px). */
+const CARD_VARIANT_HEIGHT = 620;
+
+/**
+ * Ürün kartlarında kullanılacak srcset: küçük "-card" varyantı + tam boy.
+ * Varyant dosyaları build'e dahil (client/public/assets/products/*-card.webp).
+ */
+export function productSrcSet(src: string): string | undefined {
+  const dims = PRODUCT_IMAGE_DIMS[src];
+  if (!dims || !src.endsWith(".webp")) return undefined;
+  const cardW = Math.round((dims.width * CARD_VARIANT_HEIGHT) / dims.height);
+  const card = src.replace(/\.webp$/, "-card.webp");
+  return `${card} ${cardW}w, ${src} ${dims.width}w`;
 }
 
 /** '4” | 6” | 8” | 10”' -> '4"-6"-8"-10"' (curly tırnaklar normalize edilir). */

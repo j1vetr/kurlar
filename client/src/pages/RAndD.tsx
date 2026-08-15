@@ -54,7 +54,7 @@ export default function RAndD() {
           <div className="relative">
              <div className="aspect-video bg-slate-100 rounded-lg overflow-hidden shadow-xl relative group">
                 <img 
-                  src="/assets/gallery/kurlarsld.png" 
+                  src="/assets/gallery/kurlarsld.webp" 
                   alt="Ar-Ge Merkezi" 
                   className="w-full h-full object-cover" 
                 />
@@ -129,7 +129,7 @@ export default function RAndD() {
             </div>
             <div className="relative h-96 md:h-auto">
                <img 
-                 src="/assets/gallery/kurlarsld.png" 
+                 src="/assets/gallery/kurlarsld.webp" 
                  alt="Engineering Process" 
                  className="absolute inset-0 w-full h-full object-cover"
                />

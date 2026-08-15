@@ -107,11 +107,11 @@ export function Navbar() {
                  isTransparent ? "bg-white shadow-lg opacity-90" : "bg-transparent"
                )} />
                <img 
-                  src="/assets/logo.png" 
+                  src="/assets/logo-nav.webp" 
                   alt="Kurlar Logo" 
                   fetchPriority="high"
-                  width="200"
-                  height="56"
+                  width="310"
+                  height="96"
                   className={cn(
                     "h-12 md:h-14 w-auto object-contain relative z-10 transition-all duration-300"
                   )} 
@@ -364,8 +364,10 @@ export function Navbar() {
 
            {/* Mobile Menu Toggle */}
            <button 
-             className={cn("p-2 -mr-2", isTransparent ? "text-white" : "text-slate-900")}
+             className={cn("p-3 -mr-3", isTransparent ? "text-white" : "text-slate-900")}
              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+             aria-label={mobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+             aria-expanded={mobileMenuOpen}
            >
              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
            </button>
@@ -378,7 +380,7 @@ export function Navbar() {
           {/* Mobile Header with Logo and Close Button */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white sticky top-0 z-10">
             <Link href={homePath(en)} className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
-              <img src="/assets/logo.png" alt="Kurlar Logo" className="h-10 w-auto" />
+              <img src="/assets/logo-nav.webp" alt="Kurlar Logo" width="310" height="96" className="h-10 w-auto" />
             </Link>
             
             <div className="flex items-center gap-4">
@@ -414,6 +416,7 @@ export function Navbar() {
               <button 
                 className="p-2 -mr-2 text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
+                aria-label="Menüyü kapat"
               >
                 <X className="w-8 h-8" />
               </button>

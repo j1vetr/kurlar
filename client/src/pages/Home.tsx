@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
 import { organizationJsonLd, webSiteJsonLd } from "@/lib/brand";
+import { imageDims, productSrcSet } from "@/lib/product-seo";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -52,8 +53,12 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-[16/9] rounded-xl overflow-hidden shadow-2xl">
                   <img 
-                    src="/assets/gallery/kurlarsld.png" 
+                    src="/assets/gallery/kurlarsld.webp" 
                     alt="Kurlar Fabrika" 
+                    width={960}
+                    height={540}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -75,14 +80,14 @@ export default function Home() {
                 <div className="flex items-start gap-3">
                   <Globe className="w-6 h-6 text-primary mt-1" />
                   <div>
-                    <h4 className="font-bold text-slate-900">{t('home.global_export')}</h4>
+                    <h3 className="font-bold text-slate-900 text-base">{t('home.global_export')}</h3>
                     <p className="text-sm text-slate-500">{t('home.tech_transfer')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Building2 className="w-6 h-6 text-primary mt-1" />
                   <div>
-                    <h4 className="font-bold text-slate-900">{t('home.local_production')}</h4>
+                    <h3 className="font-bold text-slate-900 text-base">{t('home.local_production')}</h3>
                     <p className="text-sm text-slate-500">{t('home.local_capital')}</p>
                   </div>
                 </div>
@@ -110,11 +115,11 @@ export default function Home() {
                 {t('home.products.solutions')}
               </h2>
             </div>
-            <Link href={productsPath(en)}>
-              <Button variant="ghost" className="text-slate-600 hover:text-primary hover:bg-blue-50 mt-4 md:mt-0">
+            <Button asChild variant="ghost" className="text-slate-600 hover:text-primary hover:bg-blue-50 mt-4 md:mt-0 h-12 px-5">
+              <Link href={productsPath(en)}>
                 {t('home.products.view_all')} <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
 
@@ -149,7 +154,12 @@ export default function Home() {
 
                        <img 
                          src={product.image} 
+                         srcSet={productSrcSet(product.image)}
+                         sizes="(max-width: 768px) 55vw, 320px"
                          alt={product.name}
+                         loading="lazy"
+                         decoding="async"
+                         {...imageDims(product.image)}
                          className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-700 ease-out"
                        />
                        

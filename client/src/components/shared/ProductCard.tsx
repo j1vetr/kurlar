@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Ruler } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { isEnPath, productPath } from "@/lib/locale";
 import { useLanguage } from "@/lib/i18n";
-import { imageDims } from "@/lib/product-seo";
+import { imageDims, productSrcSet } from "@/lib/product-seo";
 
 interface ProductCardProps {
   product: Product;
@@ -45,8 +45,11 @@ export function ProductCard({ product: baseProduct, className }: ProductCardProp
             
             <motion.img 
               src={product.image} 
+              srcSet={productSrcSet(product.image)}
+              sizes="(max-width: 768px) 60vw, 320px"
               alt={product.name}
               loading="lazy"
+              decoding="async"
               {...imageDims(product.image)}
               className="relative w-full h-full object-contain z-10 drop-shadow-lg transition-transform duration-500 group-hover:scale-105"
               style={{ filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.15))" }}
