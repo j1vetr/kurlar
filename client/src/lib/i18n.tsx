@@ -363,7 +363,7 @@ const translations: Translations = {
   'careers.team.machining': { TR: 'Talaşlı İmalat', EN: 'Machining', AR: 'التشغيل الآلي', ES: 'Mecanizado', PT: 'Usinagem' },
   'careers.positions_kicker': { TR: 'Ekibimize katılın', EN: 'Join our team', AR: 'انضم إلى فريقنا', ES: 'Únase a nuestro equipo', PT: 'Faça parte da equipe' },
   'careers.full_time': { TR: 'Tam Zamanlı', EN: 'Full time', AR: 'دوام كامل', ES: 'Jornada completa', PT: 'Tempo integral' },
-  'careers.products_caption': { TR: 'Burada üretilir. Suyu her yere taşır.', EN: 'Made here. Moving water everywhere.', AR: 'نصنعها هنا لتنقل المياه إلى كل مكان.', ES: 'Fabricado aquí. Llevando agua a todas partes.', PT: 'Fabricado aqui. Levando água a todos os lugares.' },
+  'careers.factory_image_alt': { TR: 'Kurlar fabrikası', EN: 'Kurlar factory', AR: 'مصنع كورلار', ES: 'Fábrica de Kurlar', PT: 'Fábrica da Kurlar' },
   'careers.contact_note': { TR: 'Başvuru ve pozisyonla ilgili sorularınız için İletişim sayfasını kullanabilirsiniz.', EN: 'Use the Contact page for application and role-related questions.', AR: 'استخدم صفحة الاتصال لأسئلة التقديم والوظيفة.', ES: 'Use la página de contacto para consultas sobre la candidatura y el puesto.', PT: 'Use a página de contato para dúvidas sobre a candidatura e a vaga.' },
   'careers.closing.kicker': { TR: 'Bir sonraki adım', EN: 'Your next step', AR: 'خطوتك التالية', ES: 'Su próximo paso', PT: 'Seu próximo passo' },
   'careers.closing.title': { TR: 'Deneyiminizi bizimle paylaşın.', EN: 'Bring your experience to the team.', AR: 'شارك خبرتك مع فريقنا.', ES: 'Comparta su experiencia con el equipo.', PT: 'Compartilhe sua experiência com a equipe.' },

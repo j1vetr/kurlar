@@ -136,10 +136,10 @@ export default function Careers() {
                       key={product.id}
                       href={productPath(product.id, isEnglish)}
                       aria-label={product.name}
-                      className={`group relative flex min-w-0 flex-col items-center justify-end overflow-hidden border border-blue-100 bg-white px-2 pb-3 pt-4 shadow-[0_12px_32px_rgba(36,52,116,0.07)] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${featured ? "h-[248px] sm:h-[310px]" : "h-[206px] sm:h-[264px]"}`}
+                      className={`group relative flex min-w-0 flex-col items-center justify-end overflow-hidden border border-blue-100 bg-white px-2 pb-3 pt-4 shadow-[0_12px_32px_rgba(36,52,116,0.07)] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${featured ? "h-[280px] sm:h-[360px]" : "h-[238px] sm:h-[310px]"}`}
                     >
                       <span className="absolute inset-x-0 top-0 h-1 bg-primary/80" aria-hidden="true" />
-                      <div className="flex h-[72%] w-full items-center justify-center">
+                      <div className="flex h-[76%] w-full items-center justify-center">
                         <img
                           src={image}
                           alt=""
@@ -159,19 +159,12 @@ export default function Careers() {
                   );
                 })}
               </div>
-              <div className="mt-3 flex items-center justify-between border-t border-slate-200 pt-3">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 sm:text-[11px]">
-                  {t("careers.products_caption")}
-                </span>
-                <span className="font-mono text-[10px] tracking-widest text-primary/70">KURLAR / 1975</span>
-              </div>
             </div>
           </div>
           <div className="mt-10 flex items-end justify-between border-t border-slate-200 pt-5 md:mt-14">
             <p className="max-w-sm text-xs leading-5 text-slate-500 md:text-sm">
               {t("careers.hero_note")}
             </p>
-            <span className="hidden font-mono text-xs tracking-widest text-slate-500 sm:block">KURLAR / 1975</span>
           </div>
         </div>
       </section>
@@ -186,6 +179,19 @@ export default function Careers() {
             <h2 className="max-w-sm font-heading text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#172747] md:text-4xl">
               {t("careers.why_us")}
             </h2>
+            <div className="mt-8 overflow-hidden rounded-lg border border-slate-100 bg-white">
+              <img
+                src="/assets/gallery/kurlarsld.webp"
+                srcSet="/assets/gallery/kurlarsld-sm.webp 640w, /assets/gallery/kurlarsld.webp 960w"
+                sizes="(min-width: 768px) 35vw, calc(100vw - 40px)"
+                alt={t("careers.factory_image_alt")}
+                width={960}
+                height={540}
+                loading="lazy"
+                decoding="async"
+                className="aspect-video w-full object-cover"
+              />
+            </div>
           </div>
           <div>
             <p className="max-w-3xl text-lg leading-8 text-[#46536a] md:text-xl md:leading-9">
