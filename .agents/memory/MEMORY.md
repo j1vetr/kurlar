@@ -3,3 +3,4 @@
 - [EN locale architecture](en-locale-architecture.md) — /en URL scheme, x-default→EN, sticky-EN state rule, locale.ts path maps + entry-server must stay in sync; ASCII Turkish words escape diacritic greps.
 - [Mobile performance conventions](mobile-perf-conventions.md) — YouTube hero is click-to-play only; prod CSS inlined at serveStatic startup (regex-fragile); sizes from aspect ratio for tall product images.
 - [SEO JSON-LD conventions](seo-jsonld-conventions.md) — Organization @id contract (SITE_URL/#organization), no offers/price in Product schema, hidden-panel DOM pattern, locale-driven SEO strings.
+- [Careers presentation](careers-presentation.md) — white tones and brand blue, no brown/cream/dark gray backgrounds or letter labels.
