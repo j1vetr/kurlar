@@ -1,251 +1,255 @@
 import { Layout } from "@/components/layout/Layout";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { Briefcase, Clock, MapPin, ArrowRight, CheckCircle2, Users, Zap, Trophy } from "lucide-react";
-import { Link } from "wouter";
-import { useLanguage } from "@/lib/i18n";
 import { SEO } from "@/components/shared/SEO";
+import { useLanguage } from "@/lib/i18n";
+import { ArrowDown, ArrowRight, Check, ChevronDown, MapPin, MoveUpRight, Wrench } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Careers() {
   const { t } = useLanguage();
+
   const positions = [
     {
-      id: 1,
-      title: t('careers.pos.winding.title'),
-      department: "Üretim",
-      type: "Tam Zamanlı",
-      location: "İzmir Fabrika",
-      description: t('careers.pos.winding.desc'),
+      id: "winding",
+      number: "01",
+      title: t("careers.pos.winding.title"),
+      team: t("careers.team.production"),
+      description: t("careers.pos.winding.desc"),
       requirements: [
-        "Endüstri Meslek Lisesi veya Meslek Yüksekokulu Elektrik/Elektronik bölümlerinden mezun",
-        "Bobinaj sarımı konusunda en az 3 yıl deneyimli",
-        "El aletleri kullanımına hakim",
-        "Titiz ve detay odaklı çalışabilen",
-        "Ekip çalışmasına yatkın"
-      ]
+        t("careers.req.winding.1"),
+        t("careers.req.winding.2"),
+        t("careers.req.winding.3"),
+        t("careers.req.winding.4"),
+        t("careers.req.winding.5"),
+      ],
     },
     {
-      id: 2,
-      title: t('careers.pos.cnc.title'),
-      department: "Talaşlı İmalat",
-      type: "Tam Zamanlı",
-      location: "İzmir Fabrika",
-      description: t('careers.pos.cnc.desc'),
+      id: "cnc",
+      number: "02",
+      title: t("careers.pos.cnc.title"),
+      team: t("careers.team.machining"),
+      description: t("careers.pos.cnc.desc"),
       requirements: [
-        "Tercihen Meslek Lisesi Tesviye, Makine veya CNC bölümlerinden mezun",
-        "CNC Torna veya Freze tezgahlarında en az 2 yıl deneyimli",
-        "Teknik resim okuma ve ölçüm aletleri (kumpas, mikrometre vb.) kullanabilen",
-        "Vardiyalı çalışabilecek",
-        "Erkek adaylar için askerlik hizmetini tamamlamış"
-      ]
+        t("careers.req.cnc.1"),
+        t("careers.req.cnc.2"),
+        t("careers.req.cnc.3"),
+        t("careers.req.cnc.4"),
+        t("careers.req.cnc.5"),
+      ],
     },
     {
-      id: 3,
-      title: t('careers.pos.assembly.title'),
-      department: "Üretim",
-      type: "Tam Zamanlı",
-      location: "İzmir Fabrika",
-      description: t('careers.pos.assembly.desc'),
+      id: "assembly",
+      number: "03",
+      title: t("careers.pos.assembly.title"),
+      team: t("careers.team.production"),
+      description: t("careers.pos.assembly.desc"),
       requirements: [
-        "Meslek Lisesi Makine veya Metal İşleri bölümlerinden mezun",
-        "Mekanik montaj konusunda deneyimli",
-        "El becerisi yüksek",
-        "Öğrenmeye açık ve gelişime istekli",
-        "İş sağlığı ve güvenliği kurallarına tam uyum sağlayan"
-      ]
+        t("careers.req.assembly.1"),
+        t("careers.req.assembly.2"),
+        t("careers.req.assembly.3"),
+        t("careers.req.assembly.4"),
+        t("careers.req.assembly.5"),
+      ],
     },
-    {
-      id: 4,
-      title: t('careers.pos.qc.title'),
-      department: "Kalite",
-      type: "Tam Zamanlı",
-      location: "İzmir Fabrika",
-      description: t('careers.pos.qc.desc'),
-      requirements: [
-        "Üniversitelerin Makine Mühendisliği veya ilgili bölümlerinden mezun",
-        "Kalite yönetim sistemleri (ISO 9001) konusunda bilgi sahibi",
-        "Ölçüm cihazları kullanımında yetkin",
-        "Analitik düşünme ve problem çözme yeteneği güçlü",
-        "İngilizce bilen"
-      ]
-    }
   ];
 
   const benefits = [
     {
-      icon: <Users className="w-6 h-6 text-primary" />,
-      title: t('careers.benefits.team.title'),
-      desc: t('careers.benefits.team.desc')
+      index: "A",
+      title: t("careers.benefits.team.title"),
+      desc: t("careers.benefits.team.desc"),
     },
     {
-      icon: <Zap className="w-6 h-6 text-primary" />,
-      title: t('careers.benefits.dev.title'),
-      desc: t('careers.benefits.dev.desc')
+      index: "B",
+      title: t("careers.benefits.dev.title"),
+      desc: t("careers.benefits.dev.desc"),
     },
     {
-      icon: <Trophy className="w-6 h-6 text-primary" />,
-      title: t('careers.benefits.tech.title'),
-      desc: t('careers.benefits.tech.desc')
+      index: "C",
+      title: t("careers.benefits.tech.title"),
+      desc: t("careers.benefits.tech.desc"),
     },
     {
-      icon: <CheckCircle2 className="w-6 h-6 text-primary" />,
-      title: t('careers.benefits.social.title'),
-      desc: t('careers.benefits.social.desc')
-    }
+      index: "D",
+      title: t("careers.benefits.social.title"),
+      desc: t("careers.benefits.social.desc"),
+    },
   ];
 
   return (
     <Layout>
-      <SEO 
-        title={t('seo.careers.title')} 
-        description={t('seo.careers.desc')} 
+      <SEO
+        title={t("seo.careers.title")}
+        description={t("seo.careers.desc")}
         canonical="https://kurlar.com.tr/kariyer"
       />
-      {/* Hero Section */}
-      <div className="relative bg-slate-900 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-10"></div>
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
-              {t('careers.title')}
+
+      <section className="relative isolate overflow-hidden bg-[#172747] text-[#f5f3ec]">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 opacity-[0.18]"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, transparent 49.9%, rgba(214,222,232,.28) 50%, transparent 50.1%), linear-gradient(rgba(214,222,232,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(214,222,232,.2) 1px, transparent 1px)",
+            backgroundSize: "100% 100%, 64px 64px, 64px 64px",
+            maskImage: "linear-gradient(90deg, transparent, black 42%, black)",
+          }}
+        />
+        <div className="absolute -right-28 top-12 hidden h-[28rem] w-[28rem] rounded-full border border-white/10 md:block" aria-hidden="true">
+          <div className="absolute inset-8 rounded-full border border-white/10" />
+          <div className="absolute inset-16 rounded-full border border-white/10" />
+          <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d58a5a]" />
+        </div>
+        <div className="container relative mx-auto px-5 pb-16 pt-12 md:px-8 md:pb-24 md:pt-20">
+          <div className="mb-14 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#cbd3df] md:mb-20">
+            <span className="h-px w-8 bg-[#d58a5a]" />
+            <span>{t("careers.eyebrow")}</span>
+          </div>
+          <div className="max-w-4xl">
+            <h1 className="max-w-4xl text-balance font-heading text-[clamp(2.8rem,7.2vw,6.4rem)] font-semibold leading-[0.99] tracking-[-0.055em] text-[#fbf9f3]">
+              {t("careers.title")}
             </h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
-              {t('careers.subtitle')}
+            <p className="mt-7 max-w-2xl text-base leading-7 text-[#d0d7e1] md:mt-9 md:text-lg md:leading-8">
+              {t("careers.subtitle")}
             </p>
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-sm uppercase tracking-wider"
-              onClick={() => {
-                document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              {t('careers.cta')}
-            </Button>
-          </motion.div>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                href="#positions"
+                className="inline-flex min-h-12 items-center justify-center gap-4 bg-[#d58a5a] px-6 text-sm font-bold text-[#172747] transition-colors hover:bg-[#e4a273] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f5f3ec]"
+              >
+                {t("careers.cta")}
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <span className="flex items-center gap-2 text-sm text-[#cbd3df]">
+                <MapPin className="h-4 w-4 text-[#d58a5a]" aria-hidden="true" />
+                {t("careers.location")}
+              </span>
+            </div>
+          </div>
+          <div className="mt-16 flex items-end justify-between border-t border-white/15 pt-5 md:mt-24">
+            <p className="max-w-sm text-xs leading-5 text-[#b7c1d0] md:text-sm">
+              {t("careers.hero_note")}
+            </p>
+            <span className="hidden font-mono text-xs tracking-widest text-[#b7c1d0] sm:block">KURLAR / 1975</span>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Benefits Section */}
-      <div className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-heading font-bold text-slate-900 mb-4">
-              {t('careers.why_us')}
+      <section className="bg-[#f2f0e9]">
+        <div className="container mx-auto grid gap-10 px-5 py-16 md:grid-cols-[0.72fr_1.28fr] md:gap-16 md:px-8 md:py-24">
+          <div>
+            <p className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-[#a65d37]">
+              <span className="h-px w-7 bg-[#a65d37]" />
+              {t("careers.about.kicker")}
+            </p>
+            <h2 className="max-w-sm font-heading text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#172747] md:text-4xl">
+              {t("careers.why_us")}
             </h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">
-              {t('careers.why_us_desc')}
+          </div>
+          <div>
+            <p className="max-w-3xl text-lg leading-8 text-[#46536a] md:text-xl md:leading-9">
+              {t("careers.about.copy")}
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-slate-50 p-8 rounded-lg border border-slate-100 hover:shadow-lg transition-shadow text-center group"
-              >
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  {benefit.icon}
-                </div>
-                <h3 className="font-bold text-lg text-slate-900 mb-3">{benefit.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {benefit.desc}
-                </p>
-              </motion.div>
-            ))}
+            <div className="mt-10 grid gap-x-8 border-t border-[#d7d4cc] sm:grid-cols-2">
+              {benefits.map((benefit) => (
+                <article key={benefit.index} className="border-b border-[#d7d4cc] py-6">
+                  <div className="mb-4 flex items-center justify-between">
+                    <span className="font-mono text-xs tracking-[0.16em] text-[#a65d37]">{benefit.index}</span>
+                    <Wrench className="h-4 w-4 text-[#7b8796]" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-[#172747]">{benefit.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#59657a]">{benefit.desc}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Open Positions Section */}
-      <div className="py-20 bg-slate-50" id="positions">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 pb-6">
+      <section id="positions" className="scroll-mt-24 bg-[#e7e8e5]">
+        <div className="container mx-auto px-5 py-16 md:px-8 md:py-24">
+          <div className="mb-10 flex flex-col gap-6 border-b border-[#c9ced1] pb-7 md:mb-12 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-3xl font-heading font-bold text-slate-900 mb-2">
-                {t('careers.positions_title')}
-              </h2>
-              <p className="text-slate-500">
-                {t('careers.positions_desc')}
+              <p className="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-[#a65d37]">
+                <span className="h-px w-7 bg-[#a65d37]" />
+                {t("careers.positions_kicker")}
               </p>
+              <h2 className="font-heading text-3xl font-semibold tracking-[-0.04em] text-[#172747] md:text-5xl">
+                {t("careers.positions_title")}
+              </h2>
+              <p className="mt-3 max-w-xl text-base leading-7 text-[#59657a]">{t("careers.positions_desc")}</p>
             </div>
-            <div className="hidden md:block text-sm font-bold text-slate-400 uppercase tracking-wider mt-4 md:mt-0">
-              {positions.length} {t('careers.position_available')}
-            </div>
+            <span className="whitespace-nowrap font-mono text-xs uppercase tracking-[0.16em] text-[#6b7480]">
+              {positions.length} / {t("careers.position_available")}
+            </span>
           </div>
 
-          <div className="space-y-6">
-            {positions.map((pos, index) => (
-              <motion.div 
-                key={pos.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-md transition-all group"
-              >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
-                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
-                        {pos.title}
-                      </h3>
-                      <span className="bg-blue-50 text-primary/90 text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide">
-                        {pos.department}
-                      </span>
-                    </div>
-                    
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-4">
-                      <div className="flex items-center gap-1">
-                        <Briefcase className="w-4 h-4" /> {pos.type}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" /> {pos.location}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" /> 2 {t('careers.days_ago')}
-                      </div>
-                    </div>
-
-                    <p className="text-slate-600 mb-6 leading-relaxed">
-                      {pos.description}
-                    </p>
-
-                    <div className="mb-6">
-                      <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wide">{t('careers.requirements')}</h4>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {pos.requirements.map((req, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                            <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                            <span>{req}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+          <div className="divide-y divide-[#c9ced1] border-y border-[#c9ced1]">
+            {positions.map((position) => (
+              <article key={position.id} className="grid gap-6 py-7 md:grid-cols-[5rem_1fr_auto] md:gap-8 md:py-9">
+                <span className="font-mono text-sm tracking-widest text-[#a65d37]">{position.number}</span>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <h3 className="font-heading text-2xl font-semibold tracking-[-0.035em] text-[#172747] md:text-[2rem]">
+                      {position.title}
+                    </h3>
+                    <span className="border border-[#b8c0c4] px-2.5 py-1 text-[11px] font-semibold tracking-wide text-[#4f5c6d]">
+                      {position.team}
+                    </span>
                   </div>
-
-                  <div className="flex flex-col gap-3 shrink-0 lg:w-48">
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wide h-12">
-                      {t('careers.apply')}
-                    </Button>
-                    <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-slate-50 font-bold uppercase tracking-wide h-12">
-                      {t('careers.details')}
-                    </Button>
+                  <p className="mt-3 max-w-3xl text-sm leading-6 text-[#59657a] md:text-base md:leading-7">
+                    {position.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-[#5b6675]">
+                    <span className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-[#a65d37]" aria-hidden="true" />{t("careers.location")}</span>
+                    <span className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[#a65d37]" aria-hidden="true" />{t("careers.full_time")}</span>
                   </div>
+                  <details className="career-details group mt-5 max-w-3xl border-t border-[#c9ced1] pt-4">
+                    <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-[#172747] marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a65d37] [&::-webkit-details-marker]:hidden">
+                      <span>{t("careers.requirements")}</span>
+                      <ChevronDown className="h-4 w-4 shrink-0 text-[#a65d37] transition-transform group-open:rotate-180" aria-hidden="true" />
+                    </summary>
+                    <ul className="grid gap-x-8 gap-y-3 pt-4 sm:grid-cols-2">
+                      {position.requirements.map((requirement) => (
+                        <li key={requirement} className="flex items-start gap-3 text-sm leading-6 text-[#59657a]">
+                          <Check className="mt-1 h-3.5 w-3.5 shrink-0 text-[#a65d37]" aria-hidden="true" />
+                          <span>{requirement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
                 </div>
-              </motion.div>
+                <div className="flex items-center md:pl-4">
+                  <Link
+                    href="/iletisim"
+                    className="inline-flex min-h-11 w-full items-center justify-between gap-6 bg-[#172747] px-5 text-sm font-bold text-[#f5f3ec] transition-colors hover:bg-[#263c63] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#a65d37] md:w-auto"
+                  >
+                    {t("careers.apply")}
+                    <MoveUpRight className="h-4 w-4 text-[#e4a273]" aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
+          <p className="mt-6 text-xs leading-5 text-[#677181]">{t("careers.contact_note")}</p>
         </div>
-      </div>
+      </section>
 
+      <section className="bg-[#172747] text-[#f5f3ec]">
+        <div className="container mx-auto flex flex-col gap-8 px-5 py-12 md:flex-row md:items-center md:justify-between md:px-8 md:py-16">
+          <div className="max-w-2xl">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#e4a273]">{t("careers.closing.kicker")}</p>
+            <h2 className="font-heading text-2xl font-semibold tracking-[-0.035em] md:text-3xl">{t("careers.closing.title")}</h2>
+            <p className="mt-3 text-sm leading-6 text-[#cbd3df]">{t("careers.closing.copy")}</p>
+          </div>
+          <Link
+            href="/iletisim"
+            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-5 border border-white/35 px-5 text-sm font-bold text-[#f5f3ec] transition-colors hover:border-[#e4a273] hover:text-[#e4a273] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f5f3ec]"
+          >
+            {t("careers.closing.action")}
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
     </Layout>
   );
 }
