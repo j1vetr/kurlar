@@ -3,29 +3,11 @@ import { useLanguage } from "@/lib/i18n";
 import { ArrowDownToLine, ArrowUpRight, FileText } from "lucide-react";
 import { CATALOG } from "@shared/catalog";
 import { SITE_URL } from "@/lib/head";
+import { catalogCopy, catalogLanguages, type CatalogLanguage } from "@/lib/catalog-copy";
 
 export default function Catalog() {
-  const { language } = useLanguage();
-  const isEnglish = language === "EN";
-  const copy = isEnglish
-    ? {
-        title: "Product catalogue",
-        description: "Explore the Kurlar 2026 product catalogue for 50 Hz pumps and motors.",
-        barTitle: "2026 Product Catalogue",
-        download: "Download PDF",
-        open: "Open PDF in a new tab",
-        fallback: "Your browser cannot display this PDF inline. Open it in a new tab or download a copy.",
-        home: "Kurlar home",
-      }
-    : {
-        title: "Ürün kataloğu",
-        description: "Kurlar 2026 ürün kataloğunda 50 Hz pompa ve motor serilerini inceleyin.",
-        barTitle: "2026 Ürün Kataloğu",
-        download: "PDF indir",
-        open: "PDF'yi yeni sekmede aç",
-        fallback: "Tarayıcınız bu PDF dosyasını sayfa içinde görüntüleyemiyor. Yeni sekmede açın veya indirin.",
-        home: "Kurlar ana sayfa",
-      };
+  const { language, setLanguage } = useLanguage();
+  const copy = catalogCopy[language];
 
   return (
     <>
@@ -35,7 +17,7 @@ export default function Catalog() {
         canonical={`${SITE_URL}${CATALOG.pagePath}`}
       />
 
-      <main className="fixed inset-0 z-[100] flex h-[100dvh] min-h-0 flex-col overflow-hidden bg-[#f4f7fb] text-[#203a70]">
+      <main dir="ltr" className="fixed inset-0 z-[100] flex h-[100dvh] min-h-0 flex-col overflow-hidden bg-[#f4f7fb] text-[#203a70]">
         <header className="relative z-10 flex h-[68px] shrink-0 items-center gap-3 border-b border-[#d9e2ef] bg-white px-3 shadow-[0_2px_10px_rgba(32,58,112,.05)] sm:px-5 md:h-[62px] md:px-6">
           <a
             href="/"
@@ -52,7 +34,21 @@ export default function Catalog() {
             {copy.barTitle}
           </h1>
 
-          <nav aria-label={isEnglish ? "Catalogue actions" : "Katalog işlemleri"} className="ml-auto flex shrink-0 items-center gap-1 md:hidden">
+          <select
+            value={language}
+            onChange={(event) => setLanguage(event.target.value as CatalogLanguage)}
+            aria-label={copy.language}
+            title={copy.language}
+            className="h-11 w-[76px] shrink-0 rounded-none border border-[#d5dfed] bg-white px-2 text-sm font-semibold text-[#294687] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#294687] sm:w-[120px]"
+          >
+            {catalogLanguages.map(({ code, name }) => (
+              <option key={code} value={code} lang={code.toLowerCase()}>
+                {code} · {name}
+              </option>
+            ))}
+          </select>
+
+          <nav aria-label={copy.actions} className="ml-auto flex shrink-0 items-center gap-1 md:hidden">
             <a
               href={CATALOG.pdfPath}
               target="_blank"
@@ -109,7 +105,7 @@ export default function Catalog() {
           </section>
 
           <nav
-            aria-label={isEnglish ? "Catalogue actions" : "Katalog işlemleri"}
+            aria-label={copy.actions}
             className="hidden w-[68px] shrink-0 flex-col items-center gap-2 border-l border-[#d9e2ef] bg-white py-3 md:flex"
           >
             <a

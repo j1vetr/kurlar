@@ -1,0 +1,67 @@
+export const catalogCopy = {
+  TR: {
+    title: "Ürün Kataloğu",
+    description: "Kurlar 2026 ürün kataloğunda 50 Hz pompa ve motor serilerini inceleyin.",
+    barTitle: "2026 Ürün Kataloğu",
+    download: "PDF İndir",
+    open: "PDF’yi Yeni Sekmede Aç",
+    fallback: "Tarayıcınız bu PDF dosyasını sayfa içinde görüntüleyemiyor. Yeni sekmede açın veya indirin.",
+    home: "Kurlar Ana Sayfa",
+    actions: "Katalog İşlemleri",
+    language: "Dil Seçimi",
+  },
+  EN: {
+    title: "Product Catalogue",
+    description: "Explore the Kurlar 2026 product catalogue for 50 Hz pumps and motors.",
+    barTitle: "2026 Product Catalogue",
+    download: "Download PDF",
+    open: "Open PDF in a New Tab",
+    fallback: "Your browser cannot display this PDF inline. Open it in a new tab or download a copy.",
+    home: "Kurlar Home",
+    actions: "Catalogue Actions",
+    language: "Select Language",
+  },
+  AR: {
+    title: "كتالوج المنتجات",
+    description: "استعرض كتالوج كورلار لعام 2026 لمضخات ومحركات بتردد 50 هرتز.",
+    barTitle: "كتالوج المنتجات 2026",
+    download: "تنزيل PDF",
+    open: "فتح PDF في علامة تبويب جديدة",
+    fallback: "لا يمكن لمتصفحك عرض ملف PDF داخل الصفحة. افتحه في علامة تبويب جديدة أو قم بتنزيله.",
+    home: "الصفحة الرئيسية لكورلار",
+    actions: "خيارات الكتالوج",
+    language: "اختيار اللغة",
+  },
+  ES: {
+    title: "Catálogo de Productos",
+    description: "Explore el catálogo de Kurlar 2026 para bombas y motores de 50 Hz.",
+    barTitle: "Catálogo de Productos 2026",
+    download: "Descargar PDF",
+    open: "Abrir PDF en una Nueva Pestaña",
+    fallback: "Su navegador no puede mostrar este PDF en la página. Ábralo en una pestaña nueva o descárguelo.",
+    home: "Inicio de Kurlar",
+    actions: "Opciones del Catálogo",
+    language: "Seleccionar Idioma",
+  },
+  PT: {
+    title: "Catálogo de Produtos",
+    description: "Explore o catálogo Kurlar 2026 de bombas e motores de 50 Hz.",
+    barTitle: "Catálogo de Produtos 2026",
+    download: "Baixar PDF",
+    open: "Abrir PDF em uma Nova Aba",
+    fallback: "Seu navegador não pode exibir este PDF na página. Abra em uma nova aba ou faça o download.",
+    home: "Página Inicial da Kurlar",
+    actions: "Opções do Catálogo",
+    language: "Selecionar Idioma",
+  },
+};
+
+export type CatalogLanguage = keyof typeof catalogCopy;
+
+export const catalogLanguages: { code: CatalogLanguage; name: string }[] = [
+  { code: "TR", name: "Türkçe" },
+  { code: "EN", name: "English" },
+  { code: "AR", name: "العربية" },
+  { code: "ES", name: "Español" },
+  { code: "PT", name: "Português" },
+];
