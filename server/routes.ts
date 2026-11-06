@@ -8,6 +8,19 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  app.get(CATALOG.pagePath, (req, res, next) => {
+    res.vary("User-Agent");
+    res.vary("Sec-CH-UA-Mobile");
+    res.setHeader("Cache-Control", "private, no-store");
+    const isMobile = req.get("Sec-CH-UA-Mobile") === "?1"
+      || /Android|iPhone|iPad|iPod|Mobile/i.test(req.get("User-Agent") || "");
+    if (isMobile) {
+      res.redirect(302, CATALOG.pdfPath);
+      return;
+    }
+    next();
+  });
+
   app.get("/assets/docs/Kurlar-Product-Catalogue-2025.pdf", (_req, res) => {
     res.redirect(301, CATALOG.pagePath);
   });

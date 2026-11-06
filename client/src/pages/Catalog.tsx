@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { SEO } from "@/components/shared/SEO";
 import { useLanguage } from "@/lib/i18n";
 import { ArrowDownToLine, ArrowUpRight, ChevronDown, FileText } from "lucide-react";
@@ -9,6 +10,14 @@ export default function Catalog() {
   const { language, setLanguage } = useLanguage();
   const copy = catalogCopy[language];
   const selectedLanguage = catalogLanguages.find(({ code }) => code === language)!;
+
+  useEffect(() => {
+    // Also handle client-side navigation, which does not reach the server redirect.
+    if (window.matchMedia("(max-width: 767px)").matches
+      || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+      window.location.replace(CATALOG.pdfPath);
+    }
+  }, []);
 
   return (
     <>
