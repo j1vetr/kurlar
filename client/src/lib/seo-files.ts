@@ -28,8 +28,9 @@ import {
   enSubCategoryPath,
 } from "./categories-en";
 import { guides } from "./guides";
+import { CATALOG } from "@shared/catalog";
 
-const CATALOG_PDF = "/assets/docs/Kurlar-Product-Catalogue-2025.pdf";
+const CATALOG_PDF = CATALOG.pagePath;
 
 function xmlEscape(s: string): string {
   return s
@@ -80,6 +81,7 @@ function sitemapEntries(): SitemapEntry[] {
     "/arge-merkezi",
     "/sertifikalarimiz",
     "/kariyer",
+    "/katalog",
     "/bayi-servis",
     "/iletisim",
     "/gizlilik-politikasi",

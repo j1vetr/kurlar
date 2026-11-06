@@ -15,6 +15,7 @@ export const pages = {
   RAndD: lazyWithPreload(() => import("@/pages/RAndD")),
   Certificates: lazyWithPreload(() => import("@/pages/Certificates")),
   Careers: lazyWithPreload(() => import("@/pages/Careers")),
+  Catalog: lazyWithPreload(() => import("@/pages/Catalog")),
   GuideIndex: lazyWithPreload(() => import("@/pages/GuideIndex")),
   GuideDetail: lazyWithPreload(() => import("@/pages/GuideDetail")),
   PrivacyPolicy: lazyWithPreload(() => import("@/pages/PrivacyPolicy")),

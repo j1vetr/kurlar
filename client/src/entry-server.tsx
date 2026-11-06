@@ -24,6 +24,7 @@ const STATIC_PATHS = new Set([
   "/arge-merkezi",
   "/sertifikalarimiz",
   "/kariyer",
+  "/katalog",
   "/urunler",
   "/bayi-servis",
   "/iletisim",
@@ -136,6 +137,7 @@ export function pageModuleFor(pathname: string): string {
     case "/arge-merkezi": return page("RAndD");
     case "/sertifikalarimiz": return page("Certificates");
     case "/kariyer": return page("Careers");
+    case "/katalog": return page("Catalog");
     case "/bayi-servis": return page("Dealers");
     case "/iletisim": return page("Contact");
     case "/gizlilik-politikasi": return page("PrivacyPolicy");

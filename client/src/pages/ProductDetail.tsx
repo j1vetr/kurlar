@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { CATALOG } from "@shared/catalog";
 import { products, getProductWithLanguage } from "@/lib/data";
 import { useRoute, Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -387,7 +388,7 @@ function HiTempProductLayout({ product }: { product: any }) {
                   <Settings className="w-5 h-5" />
                   {t('product.technical_details') || "Teknik Detaylar"}
                 </button>
-                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer">
+                <a href={CATALOG.pagePath}>
                   <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white h-12 px-8 rounded-full font-bold text-lg bg-transparent transition-all">
                     <Download className="mr-2 w-5 h-5" /> {t('product.download_catalog')}
                   </Button>
@@ -1529,7 +1530,7 @@ export default function ProductDetail() {
                     {t('product.request_quote')}
                   </Button>
                 </Link>
-                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-1 hidden sm:block">
+                <a href={CATALOG.pagePath} className="flex-1 hidden sm:block">
                   <Button variant="outline" className="w-full border-slate-300 text-slate-700 hover:bg-white h-12 rounded-sm font-bold uppercase tracking-wide">
                     <Download className="mr-2 w-4 h-4" /> {t('product.download_catalog')}
                   </Button>

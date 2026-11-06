@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { CATALOG } from "@shared/catalog";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { SEO } from "@/components/shared/SEO";
 import { Breadcrumbs, breadcrumbJsonLd, type Crumb } from "@/components/shared/Breadcrumbs";
@@ -68,7 +69,7 @@ function uiLabels(en: boolean) {
         ctaDesc:
           "Send us your well diameter, flow rate and head requirements; our engineering team will recommend the right model for your application.",
         ctaBtn: "Quote & Technical Support",
-        catalogueBtn: "2025 Product Catalogue (PDF)",
+        catalogueBtn: `${CATALOG.year} Product Catalogue`,
       }
     : {
         home: "Ana Sayfa",
@@ -83,7 +84,7 @@ function uiLabels(en: boolean) {
         ctaDesc:
           "Kuyu çapı, debi ve basma yüksekliği bilgilerinizi iletin; teknik ekibimiz uygulamanıza uygun modeli önersin.",
         ctaBtn: "Teklif ve Teknik Destek",
-        catalogueBtn: "2025 Ürün Kataloğu (PDF)",
+        catalogueBtn: `${CATALOG.year} Ürün Kataloğu`,
       };
 }
 
@@ -132,7 +133,7 @@ function ContactCta({ otherCategory, en }: { otherCategory?: CategoryDef; en: bo
                 <Phone className="w-4 h-4" /> {L.ctaBtn}
               </Button>
             </Link>
-            <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer">
+            <a href={CATALOG.pagePath}>
               <Button variant="outline" className="border-slate-600 bg-transparent text-white hover:bg-white hover:text-slate-900 gap-2 px-6 py-6 text-base">
                 <FileText className="w-4 h-4" /> {L.catalogueBtn}
               </Button>

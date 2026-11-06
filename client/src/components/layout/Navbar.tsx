@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight, FileText, CreditCard } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { CATALOG } from "@shared/catalog";
 import {
   isEnPath,
   homePath,
@@ -247,15 +248,13 @@ export function Navbar() {
                         {/* Catalog Promo Card */}
                         <div className="w-1/3 p-0">
                           <a
-                            href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href={CATALOG.pagePath}
                             className="block h-full"
-                            aria-label={en ? "Kurlar 2025 Submersible Pump & Motor Catalogue (PDF)" : "Kurlar 2025 Dalgıç Pompa ve Motor Kataloğu (PDF)"}
+                            aria-label={en ? `Kurlar ${CATALOG.year} Submersible Pump & Motor Catalogue` : `Kurlar ${CATALOG.year} Dalgıç Pompa ve Motor Kataloğu`}
                           >
                             <div className="h-full bg-primary text-white p-10 flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:bg-primary/90 transition-colors">
                               <div className="relative z-10">
-                                <span className="text-blue-100 text-sm font-medium mb-2 block">2025</span>
+                                <span className="text-blue-100 text-sm font-medium mb-2 block">{CATALOG.year}</span>
                                 <h3 className="font-heading text-4xl font-bold leading-tight mb-4">
                                   {t('nav.catalog_title').split(' ')[0]} <br/> {t('nav.catalog_title').split(' ')[1]}
                                 </h3>
@@ -541,10 +540,10 @@ export function Navbar() {
             
             <div className="bg-slate-900 p-6 rounded-xl text-white mt-8 shadow-xl relative overflow-hidden">
               <div className="relative z-10">
-                <h4 className="font-bold text-xl mb-2">2025 Katalog</h4>
+                <h4 className="font-bold text-xl mb-2">{CATALOG.year} {en ? "Catalogue" : "Katalog"}</h4>
                 <p className="text-slate-300 text-sm mb-4">En yeni teknoloji ürünlerimizi inceleyin.</p>
-                <a href="/assets/docs/Kurlar-Product-Catalogue-2025.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
-                  2025 Ürün Kataloğu (PDF) <ArrowRight className="ml-2 w-4 h-4" />
+                <a href={CATALOG.pagePath} className="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+                  {t('product.download_catalog')} <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>
               <FileText className="absolute -bottom-4 -right-4 w-24 h-24 text-white/5" />

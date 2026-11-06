@@ -20,6 +20,7 @@ const {
   RAndD,
   Certificates,
   Careers,
+  Catalog,
   GuideIndex,
   GuideDetail,
   PrivacyPolicy,
@@ -64,6 +65,7 @@ function Router() {
           <Route path="/arge-merkezi" component={RAndD} />
           <Route path="/sertifikalarimiz" component={Certificates} />
           <Route path="/kariyer" component={Careers} />
+          <Route path="/katalog" component={Catalog} />
           <Route path="/urunler" component={Products} />
           {/* Kategori sayfaları /urunler/:id'den ÖNCE gelmeli (wouter sıralı eşleşir) */}
           <Route path="/urunler/dalgic-pompalar" component={CategoryPage} />
