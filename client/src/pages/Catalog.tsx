@@ -25,10 +25,17 @@ export default function Catalog() {
             aria-label={copy.home}
             className="flex h-11 shrink-0 items-center gap-2 pr-2 text-[#294687] outline-none focus-visible:ring-2 focus-visible:ring-[#294687] focus-visible:ring-offset-2"
           >
-            <span className="flex h-8 w-8 items-center justify-center bg-[#294687] text-white">
+            <span className="flex h-8 w-8 items-center justify-center bg-[#294687] text-white md:hidden">
               <FileText className="h-4 w-4" aria-hidden="true" />
             </span>
-            <span className="hidden font-heading text-sm font-bold tracking-[0.12em] sm:inline">KURLAR</span>
+            <img
+              src="/assets/logo-nav.webp"
+              srcSet="/assets/logo-nav-sm.webp 1x, /assets/logo-nav.webp 2x"
+              alt="Kurlar Logo"
+              width={310}
+              height={96}
+              className="hidden h-9 w-auto object-contain md:block"
+            />
           </a>
           <span className="h-7 w-px shrink-0 bg-[#d9e2ef]" aria-hidden="true" />
           <h1 className="min-w-0 flex-1 truncate font-heading text-sm font-semibold tracking-[-0.02em] text-[#24396f] sm:text-base">
