@@ -58,10 +58,10 @@ export const catalogCopy = {
 
 export type CatalogLanguage = keyof typeof catalogCopy;
 
-export const catalogLanguages: { code: CatalogLanguage; name: string }[] = [
-  { code: "TR", name: "Türkçe" },
-  { code: "EN", name: "English" },
-  { code: "AR", name: "العربية" },
-  { code: "ES", name: "Español" },
-  { code: "PT", name: "Português" },
+export const catalogLanguages: { code: CatalogLanguage; name: string; flag: string }[] = [
+  { code: "TR", name: "Türkçe", flag: "/assets/flags/tr.svg" },
+  { code: "EN", name: "English", flag: "/assets/flags/gb.svg" },
+  { code: "AR", name: "العربية", flag: "/assets/flags/ae.svg" },
+  { code: "ES", name: "Español", flag: "/assets/flags/es.svg" },
+  { code: "PT", name: "Português", flag: "/assets/flags/pt.svg" },
 ];

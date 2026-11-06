@@ -1,6 +1,6 @@
 import { SEO } from "@/components/shared/SEO";
 import { useLanguage } from "@/lib/i18n";
-import { ArrowDownToLine, ArrowUpRight, FileText } from "lucide-react";
+import { ArrowDownToLine, ArrowUpRight, ChevronDown, FileText } from "lucide-react";
 import { CATALOG } from "@shared/catalog";
 import { SITE_URL } from "@/lib/head";
 import { catalogCopy, catalogLanguages, type CatalogLanguage } from "@/lib/catalog-copy";
@@ -8,6 +8,7 @@ import { catalogCopy, catalogLanguages, type CatalogLanguage } from "@/lib/catal
 export default function Catalog() {
   const { language, setLanguage } = useLanguage();
   const copy = catalogCopy[language];
+  const selectedLanguage = catalogLanguages.find(({ code }) => code === language)!;
 
   return (
     <>
@@ -34,19 +35,30 @@ export default function Catalog() {
             {copy.barTitle}
           </h1>
 
-          <select
-            value={language}
-            onChange={(event) => setLanguage(event.target.value as CatalogLanguage)}
-            aria-label={copy.language}
-            title={copy.language}
-            className="h-11 w-[76px] shrink-0 rounded-none border border-[#d5dfed] bg-white px-2 text-sm font-semibold text-[#294687] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#294687] sm:w-[120px]"
-          >
-            {catalogLanguages.map(({ code, name }) => (
-              <option key={code} value={code} lang={code.toLowerCase()}>
-                {code} · {name}
-              </option>
-            ))}
-          </select>
+          <div className="relative flex h-11 w-[68px] shrink-0 items-center justify-center gap-2 border border-[#d5dfed] bg-white text-[#294687] focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#294687]">
+            <img
+              src={selectedLanguage.flag}
+              alt=""
+              aria-hidden="true"
+              width={28}
+              height={18}
+              className="pointer-events-none h-[18px] w-7 object-cover"
+            />
+            <ChevronDown className="pointer-events-none h-3 w-3" aria-hidden="true" />
+            <select
+              value={language}
+              onChange={(event) => setLanguage(event.target.value as CatalogLanguage)}
+              aria-label={copy.language}
+              title={`${copy.language}: ${selectedLanguage.name}`}
+              className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+            >
+              {catalogLanguages.map(({ code, name }) => (
+                <option key={code} value={code} lang={code.toLowerCase()}>
+                  {name}
+                </option>
+              ))}
+            </select>
+          </div>
 
           <nav aria-label={copy.actions} className="ml-auto flex shrink-0 items-center gap-1 md:hidden">
             <a
